@@ -5,7 +5,7 @@
     const HOME_DIR = '~';
     const PROMPT_PREFIX = 'anon@vonsteinkirch.com:';
     const MODAL_ID = 'terminal-image-modal';
-    const HOME_ALLOWED_ENTRIES = ['gm.txt', 'artwork'];
+    const HOME_ALLOWED_ENTRIES = ['.secrets', 'artwork'];
     const LS_DETAILED_DATE = 'Dec 15 14:30';
     const LS_DETAILED_USER = 'anon';
     const LS_DIR_PERMS = 'drwxr-xr-x';
@@ -29,7 +29,7 @@
 
         const fileSystem = {
             '~': {
-                'gm.txt': "welcome to the AI age, my dear anon... stay tuned, it's gonna be glitterblizzardy",
+                '.secrets': "welcome to the AI age, my dear anon... stay tuned, it's gonna be glitterblizzardy",
                 'artwork': 'directory'
             },
             '/': {
@@ -262,7 +262,7 @@
                 // List current directory
                 if (currentDirectory === HOME_DIR) {
                     return formatLsOutput(HOME_ALLOWED_ENTRIES,
-                        { 'gm.txt': 'file', 'artwork': 'directory' },
+                        { '.secrets': 'file', 'artwork': 'directory' },
                         useDetailed);
                 }
 
@@ -319,7 +319,7 @@
                 const files = fileSystem[dir] || {};
 
                 // Handle home directory files
-                if (dir === HOME_DIR && filename === 'gm.txt' && fileSystem[HOME_DIR] && fileSystem[HOME_DIR][filename]) {
+                if (dir === HOME_DIR && filename === '.secrets' && fileSystem[HOME_DIR] && fileSystem[HOME_DIR][filename]) {
                     let content = fileSystem[HOME_DIR][filename];
                     if (typeof content === 'string' && content.includes('glitterblizzardy')) {
                         content = content.replace(/glitterblizzardy/gi, '<span style="color:rgb(54, 38, 233);">glitterblizzardy</span>');

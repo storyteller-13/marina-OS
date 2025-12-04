@@ -161,7 +161,7 @@ describe('Terminal', () => {
       executeCommand('ls');
       const output = getLastOutput();
       expect(output).toBeTruthy();
-      expect(output.textContent).toContain('gm.txt');
+      expect(output.textContent).toContain('.secrets');
       expect(output.textContent).toContain('artwork');
     });
 

@@ -9,7 +9,8 @@ class MusicPlayer {
         this.currentSongIndex = 0;
         this.songs = [
             { id: 'IXdNnw99-Ic', title: 'wish you were here' },
-            { id: 'XmSdTa9kaiQ', title: 'with or without you' }
+            { id: 'ujNeHIo7oTE', title: 'with or without you' },
+            { id: '1lyu1KKwC74', title: 'bitter sweet symphony' }
         ];
         this.selectors = {
             youtube: 'music-youtube',
@@ -388,15 +389,32 @@ class MusicPlayer {
                     this.loadSong();
                     // If nothing was playing, start playing the selected song
                     if (!wasPlaying && this.player && this.isReady) {
-                        setTimeout(() => {
+                        // Wait for video to load before playing
+                        let attempts = 0;
+                        const tryPlay = () => {
+                            attempts++;
                             if (this.player && this.isReady) {
                                 try {
-                                    this.player.playVideo();
+                                    const state = this.player.getPlayerState();
+                                    // Check if video is loaded (CUED, PAUSED, or ENDED means it's ready)
+                                    if (state === YT.PlayerState.CUED ||
+                                        state === YT.PlayerState.PAUSED ||
+                                        state === YT.PlayerState.ENDED ||
+                                        state === YT.PlayerState.UNSTARTED) {
+                                        this.player.playVideo();
+                                        console.log('Playing selected song:', this.songs[songIndex].title);
+                                    } else if (attempts < 15) {
+                                        // Retry after 200ms if not ready yet (up to 3 seconds)
+                                        setTimeout(tryPlay, 200);
+                                    } else {
+                                        console.warn('Video did not load in time for:', this.songs[songIndex].title);
+                                    }
                                 } catch (error) {
                                     console.error('Failed to play selected song:', error);
                                 }
                             }
-                        }, 800);
+                        };
+                        setTimeout(tryPlay, 500);
                     }
                 } else {
                     // If clicking the same song, toggle play/pause

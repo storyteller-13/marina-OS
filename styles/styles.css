@@ -253,7 +253,7 @@ a.menu-button {
 .apod-box {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     width: 360px;
     background: rgba(20, 10, 30, 0.95);
     backdrop-filter: blur(15px);
@@ -3384,7 +3384,7 @@ a.dock-item {
         width: calc(100% - 40px);
         max-width: 360px;
         bottom: 20px;
-        right: 20px;
+        left: 20px;
     }
 
     .apod-box-image-container {
@@ -3869,7 +3869,7 @@ a.dock-item {
         width: calc(100% - 12px);
         max-width: 240px;
         bottom: 6px;
-        right: 6px;
+        left: 6px;
     }
 
     .apod-box-content {
@@ -4141,7 +4141,7 @@ a.dock-item {
 
     .apod-box {
         bottom: 8px;
-        right: 8px;
+        left: 8px;
         width: 220px;
     }
 
