@@ -1,0 +1,247 @@
+/**
+ * Todo Application Module
+ * Self-contained todo list application
+ */
+class TodoApp {
+    constructor() {
+        this.windowId = 'todo-window';
+        this.dockItemId = 'todo-dock-item';
+        this.storage = new TodoStorage();
+        this.todos = [];
+        this.window = null;
+        this.dockItem = null;
+        this.elements = {};
+
+        this.init();
+    }
+
+    init() {
+        this.window = document.getElementById(this.windowId);
+        this.dockItem = document.getElementById(this.dockItemId);
+
+        if (!this.window) {
+            console.error('Todo window not found');
+            return;
+        }
+
+        this.cacheElements();
+        this.loadTodos();
+        this.setupEventListeners();
+        this.setupVisibilityListener();
+        this.render();
+        this.updateBadge();
+    }
+
+    cacheElements() {
+        this.elements.todoList = document.getElementById('todo-list');
+        this.elements.todoFooter = document.getElementById('todo-footer');
+        this.elements.todoCount = document.getElementById('todo-count');
+        this.elements.badge = document.getElementById('todo-count-badge');
+    }
+
+    loadTodos() {
+        this.todos = this.storage.load();
+    }
+
+    getActiveCount() {
+        return this.todos.filter(t => !t.completed).length;
+    }
+
+    refresh() {
+        // Don't reload todos - they should only load once during initialization
+        // This prevents resetting todos when refreshing
+        this.render();
+        this.updateBadge();
+    }
+
+    setupEventListeners() {
+        // Setup dock item click handler
+        if (this.dockItem) {
+            this.dockItem.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.open();
+                return false;
+            });
+        }
+
+        // Use event delegation for todo interactions
+        if (this.elements.todoList) {
+            this.elements.todoList.addEventListener('click', (e) => {
+                const todoId = e.target.dataset.todoId;
+                if (!todoId) return;
+
+                if (e.target.classList.contains('todo-checkbox')) {
+                    e.stopPropagation();
+                    this.toggleTodo(todoId);
+                } else if (e.target.classList.contains('todo-delete-btn')) {
+                    e.stopPropagation();
+                    this.deleteTodo(todoId);
+                }
+            });
+        }
+    }
+
+    setupVisibilityListener() {
+        // Reload when page becomes visible (e.g., switching tabs back)
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                this.refresh();
+            }
+        });
+    }
+
+    open() {
+        if (!this.window) return;
+
+        // Use window manager if available, otherwise fallback
+        if (window.WindowManager) {
+            window.WindowManager.open(this.window, this.dockItem);
+        } else {
+            // Fallback to direct manipulation
+            document.querySelectorAll('.dock-item').forEach(di => di.classList.remove('active'));
+            if (this.dockItem) {
+                this.dockItem.classList.add('active');
+            }
+
+            this.window.style.display = 'block';
+            this.window.style.opacity = '0';
+            this.window.style.transform = 'translate(0, 0) scale(0.9)';
+
+            void this.window.offsetHeight;
+
+            requestAnimationFrame(() => {
+                this.window.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                this.window.style.opacity = '1';
+                this.window.style.transform = 'translate(0, 0) scale(1)';
+            });
+
+            if (window.bringToFront) {
+                window.bringToFront(this.window);
+            }
+        }
+
+        // Don't refresh - just render current state
+        // This prevents resetting todos when window is opened
+        this.render();
+        this.updateBadge();
+    }
+
+    close() {
+        if (this.dockItem) {
+            this.dockItem.classList.remove('active');
+        }
+    }
+
+    addTodo(text) {
+        if (!text.trim()) return;
+
+        this.todos.push({
+            id: this.storage.generateId(),
+            text: text.trim(),
+            completed: false,
+            createdAt: new Date().toISOString()
+        });
+
+        this.render();
+        this.updateBadge();
+    }
+
+    toggleTodo(id) {
+        const todo = this.todos.find(t => t.id === id);
+        if (todo) {
+            todo.completed = !todo.completed;
+            this.render();
+            this.updateBadge();
+        }
+    }
+
+    deleteTodo(id) {
+        this.todos = this.todos.filter(t => t.id !== id);
+        this.render();
+        this.updateBadge();
+    }
+
+    clearCompleted() {
+        this.todos = this.todos.filter(t => !t.completed);
+        this.render();
+        this.updateBadge();
+    }
+
+    render() {
+        const { todoList, todoFooter, todoCount } = this.elements;
+
+        if (!todoList) return;
+
+        const activeCount = this.getActiveCount();
+
+        // Update count
+        if (todoCount) {
+            todoCount.textContent = `${activeCount} ${activeCount === 1 ? 'item' : 'items'} left`;
+        }
+
+        // Show/hide footer
+        if (todoFooter) {
+            todoFooter.style.display = this.todos.length > 0 ? 'flex' : 'none';
+        }
+
+        // Render todos
+        if (this.todos.length === 0) {
+            todoList.innerHTML = `
+                <div class="todo-empty">
+                    <div class="empty-icon">📋</div>
+                    <div class="empty-text">no tasks yet</div>
+                    <div class="empty-subtext">add a task to get started</div>
+                </div>
+            `;
+            return;
+        }
+
+        todoList.innerHTML = this.todos.map(todo => `
+            <div class="todo-item ${todo.completed ? 'completed' : ''}" data-todo-id="${todo.id}">
+                <div class="todo-checkbox ${todo.completed ? 'checked' : ''}" data-todo-id="${todo.id}"></div>
+                <div class="todo-text">${this.escapeHtml(todo.text)}</div>
+                <button class="todo-delete-btn" data-todo-id="${todo.id}">delete</button>
+            </div>
+        `).join('');
+    }
+
+    updateBadge() {
+        const { badge } = this.elements;
+        if (!badge) return;
+
+        const activeCount = this.getActiveCount();
+
+        if (activeCount > 0) {
+            badge.textContent = activeCount > 99 ? '99+' : activeCount.toString();
+            badge.style.display = 'flex';
+        } else {
+            badge.style.display = 'none';
+        }
+    }
+
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+}
+
+// Expose class constructor for testing
+window.TodoAppClass = TodoApp;
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        window.TodoApp = new TodoApp();
+    });
+} else {
+    window.TodoApp = new TodoApp();
+}
+
+// Expose open function globally for onclick handlers
+window.openTodoWindow = function() {
+    if (window.TodoApp) {
+        window.TodoApp.open();
+    }
+};

@@ -1,0 +1,9 @@
+# Netlify redirects file
+# This file should be placed in the root directory for Netlify hosting
+
+# Redirect .html to clean URLs
+/pages/soon.html /pages/soon 301
+/index.html / 301
+
+# Rewrite clean URLs to .html files
+/pages/soon /pages/soon.html 200
