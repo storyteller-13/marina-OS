@@ -42,6 +42,7 @@
                 'os-release': 'name="vonsteinkirch.com"\nversion="2024.12"\nid=vonsteinkirch\npretty_name="vonsteinkirch.com 2024.12"\nansi_color="0;34"'
             },
             '/artwork': {
+                'nola.jpg': 'file'
             }
         };
 
@@ -349,10 +350,15 @@
 
             view: (args) => {
                 if (!args || args.length === 0) {
-                    return 'view: missing file operand';
+                    openPicture('pages/artwork/nola.jpg');
+                    return '';
                 }
 
-                const filepath = args[0];
+                let filepath = args[0];
+                // If it's just a filename without path, assume it's in artwork directory
+                if (!filepath.includes('/') && !filepath.startsWith('pages/')) {
+                    filepath = `pages/artwork/${filepath}`;
+                }
                 openPicture(filepath);
                 return '';
             }
