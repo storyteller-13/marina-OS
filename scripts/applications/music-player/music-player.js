@@ -8,9 +8,7 @@ class MusicPlayer {
         this.isReady = false;
         this.currentSongIndex = 0;
         this.songs = [
-            { id: 'nde7-iU4iT8', title: 'just like honey' },
-            { id: 'DhCoStjeQJY', title: 'pure morning' },
-            { id: 'btPJPFnesV4', title: 'eye of tiger' }
+            { id: 'IXdNnw99-Ic', title: 'wish you were here' }
         ];
         this.selectors = {
             youtube: 'music-youtube',
