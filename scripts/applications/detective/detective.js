@@ -126,7 +126,7 @@ class DetectiveApp {
                         <div class="city-name">seattle</div>
                     </div>
                     <div class="city-photo">
-                        <img src="pages/artwork/nola.jpg" alt="New Orleans" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=300&fit=crop" alt="New Orleans" loading="lazy">
                         <div class="city-name">new orleans</div>
                     </div>
                     <div class="city-photo">

@@ -1,7 +1,6 @@
 // Terminal functionality for index.html
 (function() {
     // Constants
-    const DEFAULT_IMAGE_PATH = 'pages/artwork/nola.jpg';
     const HOME_DIR = '~';
     const PROMPT_PREFIX = 'anon@vonsteinkirch.com:';
     const MODAL_ID = 'terminal-image-modal';
@@ -29,7 +28,7 @@
 
         const fileSystem = {
             '~': {
-                '.secrets': "welcome to the AI age, my dear anon... stay tuned, it's gonna be glitterblizzardy",
+                '.secrets': "i think i am falling...",
                 'artwork': 'directory'
             },
             '/': {
@@ -43,8 +42,6 @@
                 'os-release': 'name="vonsteinkirch.com"\nversion="2024.12"\nid=vonsteinkirch\npretty_name="vonsteinkirch.com 2024.12"\nansi_color="0;34"'
             },
             '/artwork': {
-                'mesh.png': 'image file',
-                'nola.jpg': 'image file'
             }
         };
 
@@ -352,21 +349,10 @@
 
             view: (args) => {
                 if (!args || args.length === 0) {
-                    openPicture(DEFAULT_IMAGE_PATH);
-                    return '';
+                    return 'view: missing file operand';
                 }
 
                 const filepath = args[0];
-                if (filepath === 'nola.jpg' || filepath === '/artwork/nola.jpg' || filepath === 'artwork/nola.jpg') {
-                    openPicture(DEFAULT_IMAGE_PATH);
-                    return '';
-                }
-
-                if (filepath === 'mesh.png' || filepath === '/artwork/mesh.png' || filepath === 'artwork/mesh.png') {
-                    openPicture('pages/artwork/mesh.png');
-                    return '';
-                }
-
                 openPicture(filepath);
                 return '';
             }
@@ -467,14 +453,6 @@
             viewLabel.textContent = 'view';
             viewGroup.appendChild(viewLabel);
 
-            const openNolaItem = document.createElement('div');
-            openNolaItem.className = 'context-menu-item';
-            openNolaItem.innerHTML = '<span class="context-menu-item-text">nola.jpg</span>';
-            openNolaItem.addEventListener('click', () => {
-                openPicture(DEFAULT_IMAGE_PATH);
-                hideContextMenu();
-            });
-            viewGroup.appendChild(openNolaItem);
 
             const openPictureItem = document.createElement('div');
             openPictureItem.className = 'context-menu-item';
@@ -507,7 +485,7 @@
         }
 
         function openPictureDialog() {
-            const picturePath = prompt('Enter picture path (e.g., pages/artwork/nola.jpg):', DEFAULT_IMAGE_PATH);
+            const picturePath = prompt('Enter picture path:');
             if (picturePath) {
                 openPicture(picturePath);
             }

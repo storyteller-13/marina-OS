@@ -11,10 +11,7 @@ class ArtworkApp {
         this.imagesLoaded = false;
 
         // List of images in pages/artwork directory
-        this.images = [
-            'mesh.png',
-            'nola.jpg'
-        ];
+        this.images = [];
 
         this.init();
     }
@@ -44,12 +41,10 @@ class ArtworkApp {
     }
 
     loadImages() {
-        if (this.imagesLoaded) return;
-
         const fileList = this.window.querySelector('.file-list');
         if (!fileList) return;
 
-        // Clear existing content
+        // Always clear existing content
         fileList.innerHTML = '';
 
         // Create image items for each image
