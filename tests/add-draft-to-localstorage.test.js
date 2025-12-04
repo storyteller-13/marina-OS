@@ -81,7 +81,6 @@ describe('add-draft-to-localstorage', () => {
         drafts: [
           { id: 3, to: 'other@example.com', subject: 'Draft', date: '2024-01-03', read: false, body: '' }
         ],
-        research: [],
         trash: []
       };
 
@@ -124,7 +123,6 @@ describe('add-draft-to-localstorage', () => {
           read: false,
           body: ''
         }],
-        research: [],
         trash: []
       };
       localStorage.getItem.mockReturnValue(JSON.stringify(existingData));
@@ -150,7 +148,6 @@ describe('add-draft-to-localstorage', () => {
           read: false,
           body: ''
         }],
-        research: [],
         trash: []
       };
       localStorage.getItem.mockReturnValue(JSON.stringify(existingData));
@@ -172,7 +169,6 @@ describe('add-draft-to-localstorage', () => {
       expect(savedData.inbox).toHaveLength(1);
       expect(savedData.sent).toHaveLength(1);
       expect(savedData.drafts).toHaveLength(2);
-      expect(savedData.research).toHaveLength(0);
       expect(savedData.trash).toHaveLength(0);
     });
   });
@@ -196,7 +192,6 @@ describe('add-draft-to-localstorage', () => {
       expect(savedData).toHaveProperty('inbox');
       expect(savedData).toHaveProperty('sent');
       expect(savedData).toHaveProperty('drafts');
-      expect(savedData).toHaveProperty('research');
       expect(savedData).toHaveProperty('trash');
     });
 
@@ -217,7 +212,6 @@ describe('add-draft-to-localstorage', () => {
       expect(Array.isArray(savedData.inbox)).toBe(true);
       expect(Array.isArray(savedData.sent)).toBe(true);
       expect(Array.isArray(savedData.drafts)).toBe(true);
-      expect(Array.isArray(savedData.research)).toBe(true);
       expect(Array.isArray(savedData.trash)).toBe(true);
     });
   });
@@ -279,7 +273,6 @@ describe('add-draft-to-localstorage', () => {
         inbox: [{ id: 10 }],
         sent: [{ id: 5 }],
         drafts: [{ id: 7 }],
-        research: [{ id: 15 }],
         trash: [{ id: 3 }]
       };
 
@@ -293,14 +286,14 @@ describe('add-draft-to-localstorage', () => {
       const savedData = JSON.parse(lastCall[1]);
       const newDraft = savedData.drafts.find(d => d.to === 'nikolai@drugoyepolushariye.ru');
       expect(newDraft).toBeDefined();
-      expect(newDraft.id).toBe(16); // max(10, 5, 7, 15, 3) + 1
+      expect(newDraft.id).toBe(11); // max(10, 5, 7, 3) + 1
     });
 
     it('should handle missing folders gracefully', () => {
       const existingData = {
         inbox: [{ id: 5 }],
         drafts: [{ id: 3 }]
-        // missing sent, research, trash
+        // missing sent, trash
       };
 
       localStorage.getItem.mockReturnValue(JSON.stringify(existingData));

@@ -1,23 +1,23 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 
-describe('DiaryApp', () => {
+describe('NotesApp', () => {
   let dom;
   let window;
   let document;
-  let DiaryApp;
-  let DiaryStorage;
+  let NotesApp;
+  let NotesStorage;
 
   beforeEach(() => {
     dom = new JSDOM(`
       <!DOCTYPE html>
       <html>
         <body>
-          <div id="diary-window">
-            <div id="diary-entries-list"></div>
+          <div id="notes-window">
+            <div id="notes-entries-list"></div>
           </div>
-          <div id="diary-dock-item"></div>
-          <div id="diary-letter-window">
+          <div id="notes-dock-item"></div>
+          <div id="notes-letter-window">
             <div class="window-content"></div>
             <div id="letter-date"></div>
             <div id="letter-title"></div>
@@ -40,30 +40,30 @@ describe('DiaryApp', () => {
     const fs = require('fs');
     const path = require('path');
 
-    // Load DiaryStorage first
-    const storageCode = fs.readFileSync(path.join(__dirname, '../../scripts/applications/diary/diary-storage.js'), 'utf8');
+    // Load NotesStorage first
+    const storageCode = fs.readFileSync(path.join(__dirname, '../../scripts/applications/notes/notes-storage.js'), 'utf8');
     eval(storageCode);
-    DiaryStorage = window.DiaryStorage;
+    NotesStorage = window.NotesStorage;
 
-    // Load DiaryApp
-    const code = fs.readFileSync(path.join(__dirname, '../../scripts/applications/diary/diary.js'), 'utf8');
+    // Load NotesApp
+    const code = fs.readFileSync(path.join(__dirname, '../../scripts/applications/notes/notes.js'), 'utf8');
     eval(code);
-    DiaryApp = window.DiaryAppClass;
+    NotesApp = window.NotesAppClass;
   });
 
   describe('Initialization', () => {
-    it('should initialize diary app with correct properties', () => {
-      const app = new DiaryApp();
+    it('should initialize notes app with correct properties', () => {
+      const app = new NotesApp();
       expect(app).toBeDefined();
-      expect(app.windowId).toBe('diary-window');
-      expect(app.dockItemId).toBe('diary-dock-item');
-      expect(app.storage).toBeInstanceOf(DiaryStorage);
+      expect(app.windowId).toBe('notes-window');
+      expect(app.dockItemId).toBe('notes-dock-item');
+      expect(app.storage).toBeInstanceOf(NotesStorage);
       expect(Array.isArray(app.entries)).toBe(true);
       expect(typeof app.entriesByDate).toBe('object');
     });
 
     it('should load entries on init', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       expect(Array.isArray(app.entries)).toBe(true);
       expect(app.entries.length).toBeGreaterThanOrEqual(0);
     });
@@ -71,18 +71,18 @@ describe('DiaryApp', () => {
     it('should handle missing window element gracefully', () => {
       const originalGetElementById = document.getElementById;
       document.getElementById = vi.fn((id) => {
-        if (id === 'diary-window') return null;
+        if (id === 'notes-window') return null;
         return originalGetElementById.call(document, id);
       });
 
-      const app = new DiaryApp();
+      const app = new NotesApp();
       expect(app.window).toBeNull();
     });
   });
 
   describe('Entry Management', () => {
     it('should add a new entry', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const initialCount = app.entries.length;
       const newEntry = app.addEntry('Test Title', 'Test content');
 
@@ -95,7 +95,7 @@ describe('DiaryApp', () => {
     });
 
     it('should add entry with empty title and content', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const newEntry = app.addEntry('', '');
 
       expect(newEntry.title).toBe('');
@@ -103,7 +103,7 @@ describe('DiaryApp', () => {
     });
 
     it('should sort entries by date (newest first) after adding', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const oldEntry = app.entries[0];
       if (oldEntry) {
         const initialCount = app.entries.length;
@@ -131,7 +131,7 @@ describe('DiaryApp', () => {
     });
 
     it('should check if entry exists for today', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const today = new Date().toDateString();
 
       // Clear entries and add one for today
@@ -142,7 +142,7 @@ describe('DiaryApp', () => {
     });
 
     it('should return false when no entry exists for today', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       // Set all entries to yesterday
       app.entries.forEach(entry => {
         const yesterday = new Date();
@@ -156,17 +156,17 @@ describe('DiaryApp', () => {
 
   describe('Rendering', () => {
     it('should render empty state when no entries', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       app.entries = [];
       app.render();
 
-      const entriesList = document.getElementById('diary-entries-list');
+      const entriesList = document.getElementById('notes-entries-list');
       expect(entriesList.innerHTML).toContain('no entries yet');
-      expect(entriesList.innerHTML).toContain('diary-empty');
+      expect(entriesList.innerHTML).toContain('notes-empty');
     });
 
     it('should render entries grouped by date', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       app.entries = [
         {
           id: '1',
@@ -185,12 +185,12 @@ describe('DiaryApp', () => {
       ];
       app.render();
 
-      const entriesList = document.getElementById('diary-entries-list');
-      expect(entriesList.querySelectorAll('.diary-date-item').length).toBeGreaterThan(0);
+      const entriesList = document.getElementById('notes-entries-list');
+      expect(entriesList.querySelectorAll('.notes-date-item').length).toBeGreaterThan(0);
     });
 
     it('should group multiple entries by same date', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const sameDate = new Date('2024-11-22').toISOString();
       app.entries = [
         {
@@ -216,7 +216,7 @@ describe('DiaryApp', () => {
     });
 
     it('should show read indicator when entry is read', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       app.entries = [
         {
           id: '1',
@@ -228,15 +228,15 @@ describe('DiaryApp', () => {
       ];
       app.render();
 
-      const entriesList = document.getElementById('diary-entries-list');
-      const dateItem = entriesList.querySelector('.diary-date-item');
+      const entriesList = document.getElementById('notes-entries-list');
+      const dateItem = entriesList.querySelector('.notes-date-item');
       expect(dateItem.classList.contains('read')).toBe(true);
       expect(dateItem.textContent).toContain('✓');
     });
 
     it('should handle render when entries list element is missing', () => {
-      const app = new DiaryApp();
-      const entriesList = document.getElementById('diary-entries-list');
+      const app = new NotesApp();
+      const entriesList = document.getElementById('notes-entries-list');
       entriesList.remove();
 
       // Should not throw error
@@ -246,7 +246,7 @@ describe('DiaryApp', () => {
 
   describe('Content Formatting', () => {
     it('should format content with newlines', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const content = 'Line 1\nLine 2\nLine 3';
       const formatted = app.formatContent(content);
 
@@ -255,7 +255,7 @@ describe('DiaryApp', () => {
     });
 
     it('should escape HTML in content', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const content = '<script>alert("xss")</script>';
       const formatted = app.formatContent(content);
 
@@ -264,7 +264,7 @@ describe('DiaryApp', () => {
     });
 
     it('should escape HTML in title', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const text = '<img src=x onerror=alert(1)>';
       const escaped = app.escapeHtml(text);
 
@@ -275,7 +275,7 @@ describe('DiaryApp', () => {
     });
 
     it('should handle empty content', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const formatted = app.formatContent('');
       expect(formatted).toBe('');
     });
@@ -283,7 +283,7 @@ describe('DiaryApp', () => {
 
   describe('Letter Window', () => {
     it('should mark entry as read when opening letter', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const entry = app.entries[0];
       if (entry) {
         entry.read = false;
@@ -294,7 +294,7 @@ describe('DiaryApp', () => {
     });
 
     it('should populate letter window with entry content', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const entry = app.entries[0];
       if (entry) {
         app.openLetterWindow(entry);
@@ -310,10 +310,10 @@ describe('DiaryApp', () => {
     });
 
     it('should handle missing letter window element', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const entry = app.entries[0];
       if (entry) {
-        const letterWindow = document.getElementById('diary-letter-window');
+        const letterWindow = document.getElementById('notes-letter-window');
         letterWindow.remove();
 
         // Should not throw error
@@ -322,7 +322,7 @@ describe('DiaryApp', () => {
     });
 
     it('should re-render after opening letter window', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const entry = app.entries[0];
       if (entry) {
         entry.read = false;
@@ -337,16 +337,16 @@ describe('DiaryApp', () => {
 
   describe('Storage Operations', () => {
     it('should not save entries to storage (cache disabled)', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       app.addEntry('Test', 'Content');
 
       // localStorage should be cleared/not contain entries
-      const saved = localStorage.getItem('diary-entries');
+      const saved = localStorage.getItem('notes-entries');
       expect(saved).toBeNull();
     });
 
     it('should always load default entries, ignoring storage', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const testEntries = [
         {
           id: 'test-1',
@@ -356,31 +356,31 @@ describe('DiaryApp', () => {
           read: false
         }
       ];
-      localStorage.setItem('diary-entries', JSON.stringify(testEntries));
+      localStorage.setItem('notes-entries', JSON.stringify(testEntries));
 
       app.loadEntries();
       // Should load default entries, not the stored ones
       expect(app.entries.length).toBeGreaterThan(0);
       expect(app.entries[0].title).not.toBe('Stored Entry');
       // localStorage should be cleared
-      expect(localStorage.getItem('diary-entries')).toBeNull();
+      expect(localStorage.getItem('notes-entries')).toBeNull();
     });
 
     it('should always return default entries without saving', () => {
       localStorage.clear();
-      const app = new DiaryApp();
+      const app = new NotesApp();
 
       // Should have default entries
       expect(app.entries.length).toBeGreaterThan(0);
       // But should not be saved to localStorage
-      const saved = localStorage.getItem('diary-entries');
+      const saved = localStorage.getItem('notes-entries');
       expect(saved).toBeNull();
     });
   });
 
   describe('Window Management', () => {
     it('should open window using WindowManager if available', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       window.WindowManager = {
         open: vi.fn()
       };
@@ -391,7 +391,7 @@ describe('DiaryApp', () => {
     });
 
     it('should use fallback when WindowManager is not available', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       window.WindowManager = undefined;
 
       app.open();
@@ -400,7 +400,7 @@ describe('DiaryApp', () => {
     });
 
     it('should close window', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       if (app.dockItem) {
         app.dockItem.classList.add('active');
         app.close();
@@ -409,7 +409,7 @@ describe('DiaryApp', () => {
     });
 
     it('should handle close when dock item is missing', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       app.dockItem = null;
 
       // Should not throw error
@@ -419,7 +419,7 @@ describe('DiaryApp', () => {
 
   describe('Event Listeners', () => {
     it('should setup dock item click handler', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       const openSpy = vi.spyOn(app, 'open');
 
       if (app.dockItem) {
@@ -430,7 +430,7 @@ describe('DiaryApp', () => {
     });
 
     it('should handle date item clicks', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       app.entries = [
         {
           id: '1',
@@ -443,7 +443,7 @@ describe('DiaryApp', () => {
       app.render();
 
       const openLetterSpy = vi.spyOn(app, 'openLetterWindow');
-      const dateItem = document.querySelector('.diary-date-item');
+      const dateItem = document.querySelector('.notes-date-item');
 
       if (dateItem) {
         dateItem.click();
@@ -455,7 +455,7 @@ describe('DiaryApp', () => {
 
   describe('Sorting', () => {
     it('should sort entries by date (newest first)', () => {
-      const app = new DiaryApp();
+      const app = new NotesApp();
       app.entries = [
         {
           id: '1',
@@ -480,3 +480,4 @@ describe('DiaryApp', () => {
     });
   });
 });
+

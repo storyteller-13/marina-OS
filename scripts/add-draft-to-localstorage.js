@@ -23,7 +23,6 @@
             inbox: [],
             sent: [],
             drafts: [],
-            research: [],
             trash: []
         };
     }
@@ -46,7 +45,7 @@
 
     // Find the highest ID in all folders
     let maxId = 0;
-    ['inbox', 'sent', 'drafts', 'research', 'trash'].forEach(folder => {
+    ['inbox', 'sent', 'drafts', 'trash'].forEach(folder => {
         if (data[folder]) {
             data[folder].forEach(email => {
                 if (email.id > maxId) {

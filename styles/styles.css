@@ -45,21 +45,21 @@ body {
 
 .menu-button {
     padding: 4px 12px;
-    color: #bbf7d0;
+    color: #c084fc;
     font-size: 12px;
     font-weight: 900;
     cursor: pointer;
     border-radius: 4px;
     transition: all 0.2s;
-    text-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
     display: inline-block;
-    -webkit-text-stroke: 0.3px rgba(34, 197, 94, 0.5);
+    -webkit-text-stroke: 0.3px rgba(168, 85, 247, 0.5);
 }
 
 .menu-button:hover {
-    background: rgba(34, 197, 94, 0.2);
-    box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
-    text-shadow: 0 0 15px rgba(34, 197, 94, 1);
+    background: rgba(168, 85, 247, 0.2);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+    text-shadow: 0 0 15px rgba(168, 85, 247, 1);
 }
 
 a.menu-button {
@@ -205,11 +205,11 @@ a.menu-button {
 }
 
 .clock {
-    color: #bbf7d0;
+    color: #c084fc;
     font-size: 12px;
     font-weight: 900;
-    text-shadow: 0 0 10px rgba(34, 197, 94, 0.8), 0 0 20px rgba(21, 128, 61, 0.5);
-    -webkit-text-stroke: 0.3px rgba(34, 197, 94, 0.5);
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.8), 0 0 20px rgba(139, 92, 246, 0.5);
+    -webkit-text-stroke: 0.3px rgba(168, 85, 247, 0.5);
 }
 
 .panel-right {
@@ -2068,8 +2068,8 @@ a.file-item {
 }
 
 
-/* Diary Application */
-.diary-window {
+/* Notes Application */
+.notes-window {
     width: 600px;
     height: 800px;
     top: 60px;
@@ -2077,11 +2077,11 @@ a.file-item {
     z-index: 100;
 }
 
-.diary-icon {
+.notes-icon {
     font-size: 12px;
 }
 
-.diary-app {
+.notes-app {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -2090,7 +2090,7 @@ a.file-item {
 }
 
 
-.diary-entries-list {
+.notes-entries-list {
     flex: 1;
     min-height: 0;
     overflow-y: auto;
@@ -2098,7 +2098,7 @@ a.file-item {
     background: rgba(10, 5, 15, 0.6);
 }
 
-.diary-entry {
+.notes-entry {
     background: rgba(15, 5, 25, 0.6);
     border: 1px solid rgba(34, 197, 94, 0.2);
     border-radius: 6px;
@@ -2107,13 +2107,13 @@ a.file-item {
     transition: all 0.2s;
 }
 
-.diary-entry:hover {
+.notes-entry:hover {
     background: rgba(34, 197, 94, 0.15);
     border-color: rgba(34, 197, 94, 0.4);
     box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
 }
 
-.diary-entry-header {
+.notes-entry-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -2122,13 +2122,13 @@ a.file-item {
     border-bottom: 1px solid rgba(34, 197, 94, 0.2);
 }
 
-.diary-entry-date {
+.notes-entry-date {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.diary-date {
+.notes-date {
     color: #86efac;
     font-size: 12px;
     font-weight: 600;
@@ -2137,7 +2137,7 @@ a.file-item {
 }
 
 
-.diary-updated {
+.notes-updated {
     color: #4ade80;
     font-size: 10px;
     font-style: italic;
@@ -2145,7 +2145,7 @@ a.file-item {
 }
 
 
-.diary-entry-title {
+.notes-entry-title {
     color: #bbf7d0;
     font-size: 15px;
     font-weight: 600;
@@ -2155,7 +2155,7 @@ a.file-item {
     word-break: break-word;
 }
 
-.diary-entry-content {
+.notes-entry-content {
     color: #86efac;
     font-size: 13px;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
@@ -2165,7 +2165,7 @@ a.file-item {
     word-break: break-word;
 }
 
-.diary-empty {
+.notes-empty {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2176,25 +2176,25 @@ a.file-item {
     padding: 40px;
 }
 
-.diary-empty .empty-icon {
+.notes-empty .empty-icon {
     font-size: 48px;
     margin-bottom: 16px;
     opacity: 0.7;
 }
 
-.diary-empty .empty-text {
+.notes-empty .empty-text {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 8px;
     text-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
 }
 
-.diary-empty .empty-subtext {
+.notes-empty .empty-subtext {
     font-size: 12px;
     opacity: 0.7;
 }
 
-.diary-date-item {
+.notes-date-item {
     padding: 16px 20px;
     cursor: pointer;
     transition: all 0.2s;
@@ -2206,12 +2206,12 @@ a.file-item {
     gap: 16px;
 }
 
-.diary-date-item:hover {
+.notes-date-item:hover {
     background: rgba(34, 197, 94, 0.15);
     padding-left: 24px;
 }
 
-.diary-read-indicator {
+.notes-read-indicator {
     font-size: 20px;
     font-weight: bold;
     color: #22c55e;
@@ -2223,13 +2223,13 @@ a.file-item {
     line-height: 1;
 }
 
-.diary-date-text {
+.notes-date-text {
     text-shadow: 0 0 5px rgba(34, 197, 94, 0.4);
     font-weight: 500;
 }
 
-/* Diary Letter Window */
-.diary-letter-window {
+/* Notes Letter Window */
+.notes-letter-window {
     width: 700px;
     height: 550px;
     top: 50%;
@@ -3507,7 +3507,7 @@ a.dock-item {
         transform: translate(-50%, -50%);
     }
 
-    .diary-window {
+    .notes-window {
         width: 95%;
         height: 75vh;
         top: 50%;
@@ -3515,7 +3515,7 @@ a.dock-item {
         transform: translate(-50%, -50%);
     }
 
-    .diary-letter-window {
+    .notes-letter-window {
         width: 95%;
         height: 70vh;
     }
@@ -3734,37 +3734,37 @@ a.dock-item {
         font-size: 12px;
     }
 
-    /* Diary */
-    .diary-input-container {
+    /* Notes */
+    .notes-input-container {
         padding: 12px;
     }
 
-    .diary-title-input,
-    .diary-content-input {
+    .notes-title-input,
+    .notes-content-input {
         font-size: 12px;
         padding: 8px 10px;
     }
 
-    .diary-content-input {
+    .notes-content-input {
         min-height: 80px;
     }
 
-    .diary-save-btn,
-    .diary-cancel-btn,
-    .diary-new-btn {
+    .notes-save-btn,
+    .notes-cancel-btn,
+    .notes-new-btn {
         padding: 6px 12px;
         font-size: 11px;
     }
 
-    .diary-entry {
+    .notes-entry {
         padding: 12px;
     }
 
-    .diary-entry-title {
+    .notes-entry-title {
         font-size: 14px;
     }
 
-    .diary-entry-content {
+    .notes-entry-content {
         font-size: 12px;
     }
 
@@ -3903,7 +3903,7 @@ a.dock-item {
     .terminal-window,
     .email-window,
     .todo-window,
-    .diary-window,
+    .notes-window,
     .home-window,
     .b-bot-window,
     .artwork-window,
@@ -4045,7 +4045,7 @@ a.dock-item {
         font-size: 14px;
     }
 
-    .diary-letter-window {
+    .notes-letter-window {
         width: 100%;
         height: calc(100vh - 100px);
         top: 50px;
@@ -4104,7 +4104,7 @@ a.dock-item {
         padding: 10px;
     }
 
-    .diary-input-container {
+    .notes-input-container {
         padding: 10px;
     }
 
@@ -4158,7 +4158,7 @@ a.dock-item {
     .terminal-window,
     .email-window,
     .todo-window,
-    .diary-window,
+    .notes-window,
     .home-window,
     .b-bot-window,
     .artwork-window,
@@ -4193,7 +4193,7 @@ a.dock-item {
         padding: 8px 12px;
     }
 
-    .diary-letter-window {
+    .notes-letter-window {
         height: calc(100vh - 80px);
     }
 
@@ -4220,11 +4220,11 @@ a.dock-item {
     .todo-add-btn,
     .todo-checkbox,
     .todo-delete-btn,
-    .diary-save-btn,
-    .diary-cancel-btn,
-    .diary-new-btn,
-    .diary-edit-btn,
-    .diary-delete-btn,
+    .notes-save-btn,
+    .notes-cancel-btn,
+    .notes-new-btn,
+    .notes-edit-btn,
+    .notes-delete-btn,
     .b-bot-send-btn,
     .back-btn,
     .messaging-send-btn,
@@ -4264,7 +4264,7 @@ a.dock-item {
     .file-item,
     .email-item,
     .todo-item,
-    .diary-entry,
+    .notes-entry,
     .messaging-conversation-item {
         -webkit-tap-highlight-color: rgba(34, 197, 94, 0.3);
         -webkit-touch-callout: none;

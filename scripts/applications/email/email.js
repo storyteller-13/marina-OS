@@ -296,7 +296,7 @@ class EmailApp {
     }
 
     updateFolderCounts() {
-        const folders = ['inbox', 'sent', 'drafts', 'research', 'friends', 'trash'];
+        const folders = ['inbox', 'sent', 'drafts', 'friends', 'trash'];
         folders.forEach(folder => {
             const count = this.data.getUnreadCount(folder);
             const folderElement = document.querySelector(`.email-folder[data-folder="${folder}"]`);

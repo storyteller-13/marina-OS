@@ -64,7 +64,7 @@ class WindowManager {
         const isCentered = windowElement.classList.contains('terminal-window') ||
                           windowElement.classList.contains('artwork-window') ||
                           windowElement.classList.contains('wiki-window') ||
-                          windowElement.classList.contains('diary-letter-window') ||
+                          windowElement.classList.contains('notes-letter-window') ||
                           windowElement.classList.contains('detective-window');
 
         if (isCentered) {
@@ -102,7 +102,7 @@ class WindowManager {
         const isCentered = windowElement.classList.contains('terminal-window') ||
                           windowElement.classList.contains('artwork-window') ||
                           windowElement.classList.contains('wiki-window') ||
-                          windowElement.classList.contains('diary-letter-window') ||
+                          windowElement.classList.contains('notes-letter-window') ||
                           windowElement.classList.contains('detective-window');
 
         windowElement.style.opacity = '0';
@@ -149,7 +149,7 @@ class WindowManager {
         const isCentered = element.classList.contains('terminal-window') ||
                           element.classList.contains('artwork-window') ||
                           element.classList.contains('wiki-window') ||
-                          element.classList.contains('diary-letter-window') ||
+                          element.classList.contains('notes-letter-window') ||
                           element.classList.contains('detective-window');
         let xOffset = element._xOffset || 0;
         let yOffset = element._yOffset || 0;

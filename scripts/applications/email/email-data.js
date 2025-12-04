@@ -130,45 +130,6 @@ Take care. Sending you a virtual пирожок.
 `
         }
     ],
-    research: [
-        {
-            id: 8,
-            from: 'sophia@theunderline.org',
-            subject: 'Leads',
-            preview: 'Hey. I\'ve got some leads on the st4lk3r and their connection to the Malveth case.',
-            date: '2025-01-26',
-            read: false,
-            body: `
-Hey. I've got some leads on the st4lk3r and their connection to the Malveth case.
-
-I can't share them over email. Even if encrypted, we can't risk any metadata leaks or traces.
-
-Can we meet in person soon? I'll text you the details.
-`
-        },
-        {
-            id: 4,
-            from: 'st4lk3r@creepy.xyz',
-            subject: 'I saw you today',
-            preview: 'You were wearing that black turtle neck again.',
-            date: '2025-11-22',
-            read: false,
-            body: `You were wearing that black turtle neck again.
-
-I noticed you stopped at the same coffee shop. Same order, same time. 8:47 AM. Always 8:47 AM.
-
-Your routine is beautiful in its consistency. Predictable. Safe.
-
-I've been watching. Learning. Waiting.
-
-Don't worry, I'm not dangerous. I just... appreciate you. From a distance.
-
-You'll see me soon. Or maybe you won't. That's part of the fun, isn't it?
-
-Until then.
-`
-        }
-    ],
     trash: [
         {
             id: 3,

@@ -1,12 +1,12 @@
 /**
- * Diary Application Module
- * Self-contained diary application for creating and managing notes
+ * Notes Application Module
+ * Self-contained notes application for creating and managing notes
  */
-class DiaryApp {
+class NotesApp {
     constructor() {
-        this.windowId = 'diary-window';
-        this.dockItemId = 'diary-dock-item';
-        this.storage = new DiaryStorage();
+        this.windowId = 'notes-window';
+        this.dockItemId = 'notes-dock-item';
+        this.storage = new NotesStorage();
         this.entries = [];
         this.entriesByDate = {};
         this.window = null;
@@ -20,7 +20,7 @@ class DiaryApp {
         this.dockItem = document.getElementById(this.dockItemId);
 
         if (!this.window) {
-            console.error('Diary window not found');
+            console.error('Notes window not found');
             return;
         }
 
@@ -105,7 +105,7 @@ class DiaryApp {
 
 
     render() {
-        const entriesList = document.getElementById('diary-entries-list');
+        const entriesList = document.getElementById('notes-entries-list');
         if (!entriesList) return;
 
         if (this.entries.length === 0) {
@@ -121,7 +121,7 @@ class DiaryApp {
 
     renderEmptyState(container) {
         container.innerHTML = `
-            <div class="diary-empty">
+            <div class="notes-empty">
                 <div class="empty-icon">📔</div>
                 <div class="empty-text">no entries yet</div>
             </div>
@@ -157,16 +157,16 @@ class DiaryApp {
             const indicator = isRead ? '✓' : (isNewest ? '🆕' : '');
 
             return `
-                <div class="diary-date-item ${isRead ? 'read' : ''}" data-date-key="${dateKey}">
-                    <div class="diary-read-indicator">${indicator}</div>
-                    <span class="diary-date-text">${this.escapeHtml(date)}</span>
+                <div class="notes-date-item ${isRead ? 'read' : ''}" data-date-key="${dateKey}">
+                    <div class="notes-read-indicator">${indicator}</div>
+                    <span class="notes-date-text">${this.escapeHtml(date)}</span>
                 </div>
             `;
         }).join('');
     }
 
     attachDateItemListeners(container) {
-        container.querySelectorAll('.diary-date-item').forEach(item => {
+        container.querySelectorAll('.notes-date-item').forEach(item => {
             item.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const dateKey = item.getAttribute('data-date-key');
@@ -179,7 +179,7 @@ class DiaryApp {
     }
 
     openLetterWindow(entry) {
-        const letterWindow = document.getElementById('diary-letter-window');
+        const letterWindow = document.getElementById('notes-letter-window');
         if (!letterWindow) return;
 
         // Mark entry as read
@@ -296,7 +296,7 @@ class DiaryApp {
     }
 
     scrollToTop() {
-        const entriesList = document.getElementById('diary-entries-list');
+        const entriesList = document.getElementById('notes-entries-list');
         if (entriesList) {
             requestAnimationFrame(() => {
                 entriesList.scrollTop = 0;
@@ -314,30 +314,31 @@ class DiaryApp {
 }
 
 // Expose class constructor for testing
-window.DiaryAppClass = DiaryApp;
+window.NotesAppClass = NotesApp;
 
 // Initialize when DOM is ready
-const initDiaryApp = () => {
-    window.DiaryApp = new DiaryApp();
+const initNotesApp = () => {
+    window.NotesApp = new NotesApp();
 };
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initDiaryApp);
+    document.addEventListener('DOMContentLoaded', initNotesApp);
 } else {
-    initDiaryApp();
+    initNotesApp();
 }
 
 // Expose open function globally for onclick handlers
-window.openDiaryWindow = function() {
-    if (window.DiaryApp) {
-        window.DiaryApp.open();
+window.openNotesWindow = function() {
+    if (window.NotesApp) {
+        window.NotesApp.open();
     }
 };
 
 // Expose addEntry function globally
-window.addDiaryEntry = function(title, content) {
-    if (window.DiaryApp) {
-        return window.DiaryApp.addEntry(title, content);
+window.addNotesEntry = function(title, content) {
+    if (window.NotesApp) {
+        return window.NotesApp.addEntry(title, content);
     }
     return null;
 };
+
