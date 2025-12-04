@@ -254,7 +254,7 @@ a.menu-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 240px;
+    width: 360px;
     background: rgba(20, 10, 30, 0.95);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(34, 197, 94, 0.6);
@@ -395,7 +395,7 @@ a.menu-button {
 
 .apod-box-image-container {
     width: 100%;
-    height: 150px;
+    height: 225px;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
@@ -3382,13 +3382,13 @@ a.dock-item {
 
     .apod-box {
         width: calc(100% - 40px);
-        max-width: 240px;
+        max-width: 360px;
         bottom: 20px;
         right: 20px;
     }
 
     .apod-box-image-container {
-        height: 130px;
+        height: 195px;
     }
 
     .apod-box-close {
@@ -4276,150 +4276,5 @@ a.dock-item {
         user-select: text;
         -webkit-user-select: text;
     }
-
-    .kaboom-text {
-        font-size: 60px;
-        -webkit-text-stroke: 1px #000;
-        text-stroke: 1px #000;
-        text-shadow:
-            0 0 5px rgba(34, 197, 94, 0.8),
-            0 0 10px rgba(34, 197, 94, 0.8),
-            0 0 15px rgba(34, 197, 94, 1),
-            0 0 20px rgba(21, 128, 61, 0.6),
-            2px 2px 0px #000,
-            -2px -2px 0px #000,
-            2px -2px 0px #000,
-            -2px 2px 0px #000,
-            0 0 0 2px #000;
-        filter: drop-shadow(0 0 15px rgba(34, 197, 94, 0.8)) drop-shadow(0 0 25px rgba(21, 128, 61, 0.5));
-    }
 }
 
-
-
-
-/* Kamikaze Explosion Effect */
-@keyframes shake {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    10% { transform: translate(-10px, -10px) rotate(-5deg); }
-    20% { transform: translate(10px, 10px) rotate(5deg); }
-    30% { transform: translate(-10px, 10px) rotate(-5deg); }
-    40% { transform: translate(10px, -10px) rotate(5deg); }
-    50% { transform: translate(-10px, -10px) rotate(-5deg); }
-    60% { transform: translate(10px, 10px) rotate(5deg); }
-    70% { transform: translate(-10px, 10px) rotate(-5deg); }
-    80% { transform: translate(10px, -10px) rotate(5deg); }
-    90% { transform: translate(-10px, -10px) rotate(-5deg); }
-}
-
-@keyframes explode {
-    0% {
-        transform: scale(1) rotate(0deg);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(3) rotate(180deg);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(5) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-@keyframes particle {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-    }
-    90% {
-        transform: translate(var(--tx), var(--ty)) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(var(--tx), var(--ty)) scale(0);
-        opacity: 0;
-    }
-}
-
-@keyframes kaboom-text {
-    0% {
-        transform: translate(-50%, -50%) scale(0) rotate(-180deg);
-        opacity: 0;
-    }
-    20% {
-        transform: translate(-50%, -50%) scale(1.5) rotate(0deg);
-        opacity: 1;
-    }
-    40% {
-        transform: translate(-50%, -50%) scale(1) rotate(10deg);
-        opacity: 1;
-    }
-    60% {
-        transform: translate(-50%, -50%) scale(1.2) rotate(-10deg);
-        opacity: 1;
-    }
-    80% {
-        transform: translate(-50%, -50%) scale(1) rotate(5deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(0) rotate(180deg);
-        opacity: 0;
-    }
-}
-
-.explosion-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 10000;
-}
-
-.explosion-particle {
-    position: absolute;
-    width: auto;
-    height: auto;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    filter: drop-shadow(0 0 4px rgba(255, 105, 180, 0.8));
-}
-
-.kaboom-text {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transform-origin: center center;
-    font-size: 80px;
-    font-weight: 900;
-    color: #22c55e;
-    white-space: nowrap;
-    text-shadow:
-        0 0 10px rgba(34, 197, 94, 0.8),
-        0 0 20px rgba(34, 197, 94, 0.8),
-        0 0 30px rgba(34, 197, 94, 1),
-        0 0 40px rgba(21, 128, 61, 0.6),
-        3px 3px 0px #000,
-        -3px -3px 0px #000,
-        3px -3px 0px #000,
-        -3px 3px 0px #000,
-        0 0 0 4px #000;
-    -webkit-text-stroke: 2px #000;
-    text-stroke: 2px #000;
-    pointer-events: none;
-    z-index: 10001;
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    animation: kaboom-text 3s ease-out forwards;
-    filter: drop-shadow(0 0 30px rgba(34, 197, 94, 0.8)) drop-shadow(0 0 50px rgba(21, 128, 61, 0.5));
-}
-
-.desktop.shaking {
-    animation: shake 0.5s ease-in-out;
-}
