@@ -19,27 +19,7 @@ Let me help you.
 `
         }
     ],
-    sent: [
-        {
-            id: 7,
-            to: 'franfran@alverna.it',
-            subject: 'Re: ✨ thinking about you ✨',
-            preview: 'thank you, my dear friend',
-            date: '2025-11-21',
-            read: true,
-            body: `thank you, my dear friend,
-
-your words found their way to me like morning light
-through the cracks in my own quiet
-
-the new moon you mentioned — i stared at it for a bit
-a sliver of possibility in the dark
-
-thank you for remembering this humble old soul
-sending my thoughts and prayers your way
-`
-        }
-    ],
+    sent: [],
     drafts: [
         {
             id: 9,
@@ -52,55 +32,6 @@ sending my thoughts and prayers your way
         }
     ],
     friends: [
-        {
-            id: 1,
-            from: 'franfran@alverna.it',
-            subject: '✨ thinking about you ✨',
-            preview: 'canticle of quiet joy',
-            date: '2025-11-20',
-            read: false,
-            body: `canticle of quiet joy
-
-o brother sun, who warms the waking earth,
-spill your gold into the corners of my heart,
-that I may rise with grateful breath
-and shine upon all I meet.
-
-o sister moon, soft lantern of the night,
-teach me the holiness of quiet,
-that I may rest in the peace
-that gently folds the world asleep.
-
-o brother wind, wandering and free,
-carry away the weight I cannot bear,
-and whisper courage into my bones
-so I may walk lightly again.
-
-o sister water, pure and patient,
-wash the dust from weary days,
-and leave in me a clear reflection
-of kindness unafraid.
-
-o brother fire, dancing with life,
-brighten the dull corners of my spirit;
-let your flame remind me
-that hope is never fully spent.
-
-o mother earth, steadfast and tender,
-hold me in your ancient arms,
-and teach me how to live rooted in love—
-simple, humble, and joyful.
-
-and you, most gentle light,
-whose love is the breath of all things:
-let me be a small song of peace
-in the great music of your creation.
-
-happy new moon, my friend.
-
--f
-`
-        },
         {
             id: 5,
             from: 'nikolai@drugoyepolushariye.ru',
@@ -130,43 +61,7 @@ Take care. Sending you a virtual пирожок.
 `
         }
     ],
-    trash: [
-        {
-            id: 3,
-            from: 'theking@tribeofjudah.com',
-            subject: 'Holiday Plans?',
-            preview: 'David here. So, whats your holiday vibe this year?',
-            date: '2025-11-21',
-            read: false,
-            body: `
-
-Hey Doc,
-
-David here. So, what's your holiday vibe this year?
-I'm thinking of throwing a little king-sized feast, maybe challenge someone to a slingshot contest (not sure who's gonna step up...).
-
-Let me know if you're free to join. Just don't expect me to dance in public again. Trust me on that.
-
-Catch you later,
-Dave
-`
-        },
-        {
-            id: 2,
-            from: 'the_agent@the_agency.com',
-            subject: 'Yo my dude',
-            preview: 'Just checking in — are we close to seeing that script yet?',
-            date: '2025-11-21',
-            read: false,
-            body: `
-
-Just checking in — are we close to seeing that script yet?
-I'm starting to wonder if it's just a figment of my imagination at this point. 😜
-
-Let's make some magic happen, yeah? Can't wait to read it!
-`
-        }
-    ]
+    trash: []
 };
 
 class EmailData {

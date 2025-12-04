@@ -86,17 +86,6 @@
                                 </span>
                                 <span class="menu-item-text">bot</span>
                             </a>
-                            <a href="javascript:void(0)" class="menu-item" onclick="window.openMessagingWindow(); return false;">
-                                <span class="menu-item-icon">
-                                    <svg width="20" height="20" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                        <!-- Speech bubble -->
-                                        <path d="M3 3 L11 3 Q13 3 13 5 L13 9 Q13 11 11 11 L7 11 L4 13 L4 11 Q2 11 2 9 L2 5 Q2 3 3 3 Z" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1.2" stroke-linejoin="round"/>
-                                        <!-- Lightning bolt -->
-                                        <path d="M7.5 4.5 L6 7 L8.5 7 L7.5 10.5 L10 8 L7.5 8 Z" fill="#a855f7" stroke="#a855f7" stroke-width="0.5" stroke-linejoin="round"/>
-                                    </svg>
-                                </span>
-                                <span class="menu-item-text">messages</span>
-                            </a>
                         </div>
                         <div class="menu-separator"></div>
                         <div class="menu-group">
@@ -286,7 +275,7 @@
                 </div>
                 <div class="icon-label">home</div>
             </a>
-            <a href="https://www.youtube.com/watch?v=Qklvh5Cp_Bs" class="desktop-icon" id="trash-desktop-icon" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <a href="https://www.youtube.com/watch?v=WSLMN6g_Od4" class="desktop-icon" id="trash-desktop-icon" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
                 <div class="icon-image">
                     <svg width="48" height="48" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 4 L3 13 L13 13 L13 4 L11 4 L11 3 L9 3 L9 2 L7 2 L7 3 L5 3 L5 4 Z" fill="#1a1a2e" stroke="#a855f7" stroke-width="1.2" stroke-linejoin="round"/>
@@ -667,57 +656,6 @@
             </div>
         </div>
 
-        <!-- Messaging Window -->
-        <div class="window messaging-window" id="messaging-window" style="display: none;">
-            <div class="window-header">
-                <div class="window-controls">
-                    <span class="control close"></span>
-                    <span class="control minimize"></span>
-                </div>
-                <div class="window-title">
-                    <span class="messaging-icon">
-                        <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Speech bubble -->
-                            <path d="M3 3 L11 3 Q13 3 13 5 L13 9 Q13 11 11 11 L7 11 L4 13 L4 11 Q2 11 2 9 L2 5 Q2 3 3 3 Z" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1.2" stroke-linejoin="round"/>
-                            <!-- Lightning bolt -->
-                            <path d="M7.5 4.5 L6 7 L8.5 7 L7.5 10.5 L10 8 L7.5 8 Z" fill="#a855f7" stroke="#a855f7" stroke-width="0.5" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                    messages
-                </div>
-            </div>
-            <div class="window-content">
-                <div class="messaging-app">
-                    <div class="messaging-sidebar">
-                        <div class="messaging-conversation-list" id="messaging-conversation-list">
-                        </div>
-                    </div>
-                    <div class="messaging-main">
-                        <div class="messaging-empty-state" id="messaging-empty-state">
-                            <div class="messaging-empty">
-                                <div class="empty-icon">💬</div>
-                                <div class="empty-text">select a conversation</div>
-                                <div class="empty-subtext">or start a new one</div>
-                            </div>
-                        </div>
-                        <div class="messaging-chat-view" id="messaging-chat-view" style="display: none;">
-                            <div class="messaging-chat-header">
-                                <div class="messaging-chat-header-info">
-                                    <div class="messaging-chat-header-name" id="messaging-chat-header-name"></div>
-                                </div>
-                            </div>
-                            <div class="messaging-messages" id="messaging-messages">
-                            </div>
-                            <div class="messaging-input-container">
-                                <input type="text" class="messaging-input" id="messaging-input" placeholder="type a message..." autocomplete="off" />
-                                <button class="messaging-send-btn" id="messaging-send-btn">send</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Detective Window -->
         <div class="window detective-window" id="detective-window" style="display: none;">
             <div class="window-header">
@@ -806,16 +744,6 @@
                     </svg>
                 </div>
             </a>
-            <a href="javascript:void(0)" class="dock-item" id="messaging-dock-item" onclick="window.openMessagingWindow(); return false;" style="text-decoration: none; cursor: pointer;">
-                <div class="dock-icon">
-                    <svg width="36" height="36" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Speech bubble -->
-                        <path d="M3 3 L11 3 Q13 3 13 5 L13 9 Q13 11 11 11 L7 11 L4 13 L4 11 Q2 11 2 9 L2 5 Q2 3 3 3 Z" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1.2" stroke-linejoin="round"/>
-                        <!-- Lightning bolt -->
-                        <path d="M7.5 4.5 L6 7 L8.5 7 L7.5 10.5 L10 8 L7.5 8 Z" fill="#a855f7" stroke="#a855f7" stroke-width="0.5" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </a>
             <a href="javascript:void(0)" class="dock-item" id="todo-dock-item" onclick="window.openTodoWindow(); return false;" style="text-decoration: none; cursor: pointer;">
                 <div class="dock-icon">
                     <svg width="32" height="32" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -878,9 +806,6 @@
     <script src="scripts/applications/email/email-data.js"></script>
     <script src="scripts/applications/email/email.js"></script>
 
-    <!-- Messaging App -->
-    <script src="scripts/applications/messaging/messaging-storage.js"></script>
-    <script src="scripts/applications/messaging/messaging.js"></script>
 
     <!-- B-Bot App -->
     <script src="scripts/applications/b-bot/b-bot-api.js"></script>

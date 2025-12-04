@@ -8,7 +8,8 @@ class MusicPlayer {
         this.isReady = false;
         this.currentSongIndex = 0;
         this.songs = [
-            { id: 'IXdNnw99-Ic', title: 'wish you were here' }
+            { id: 'IXdNnw99-Ic', title: 'wish you were here' },
+            { id: 'XmSdTa9kaiQ', title: 'with or without you' }
         ];
         this.selectors = {
             youtube: 'music-youtube',
