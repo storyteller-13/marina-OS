@@ -3249,8 +3249,8 @@ a.file-item {
 }
 
 .dock-item {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3290,7 +3290,7 @@ a.dock-item {
 }
 
 .dock-icon {
-    font-size: 24px;
+    font-size: 28px;
 }
 
 .email-count-badge,
