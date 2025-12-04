@@ -50,16 +50,21 @@ describe('EmailData', () => {
 
   it('should get email by ID from friends folder', () => {
     const data = new EmailData();
-    const email = data.getEmail('friends', 1);
+    // Use the actual email ID from the default data (ID 5)
+    const email = data.getEmail('friends', 5);
 
     expect(email).toBeDefined();
-    expect(email.id).toBe(1);
+    expect(email.id).toBe(5);
     expect(email.from).toBeDefined();
     expect(email.subject).toBeDefined();
   });
 
   it('should get email by ID from trash', () => {
     const data = new EmailData();
+    // Add an email to trash first since default data has empty trash
+    const testEmail = { id: 2, from: 'test@example.com', subject: 'Test', date: '2025-01-01', read: false };
+    data.data.trash.push(testEmail);
+    
     const email = data.getEmail('trash', 2);
 
     expect(email).toBeDefined();

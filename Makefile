@@ -8,14 +8,6 @@ server:
 	@echo "Press Ctrl+C to stop"
 	@$(PYTHON) -m http.server $(PORT)
 
-test-install:
-	@if [ ! -d "node_modules" ]; then \
-		echo "Installing test dependencies..."; \
-		npm install; \
-	else \
-		echo "Dependencies already installed."; \
-	fi
-
-test: test-install
+test:
 	@echo "Running tests..."
 	@npm test

@@ -91,7 +91,7 @@ describe('MusicPlayer', () => {
           expect(window.YT.Player).toHaveBeenCalledWith(
             'music-youtube',
             expect.objectContaining({
-              videoId: 'nde7-iU4iT8',
+              videoId: 'IXdNnw99-Ic',
               playerVars: expect.any(Object),
               events: expect.any(Object)
             })
@@ -157,11 +157,11 @@ describe('MusicPlayer', () => {
           expect(window.YT.Player).toHaveBeenCalledWith(
             'music-youtube',
             expect.objectContaining({
-              videoId: 'nde7-iU4iT8',
+              videoId: 'IXdNnw99-Ic',
               playerVars: {
                 'autoplay': 0,
                 'loop': 1,
-                'playlist': 'nde7-iU4iT8,DhCoStjeQJY,btPJPFnesV4',
+                'playlist': 'IXdNnw99-Ic,ujNeHIo7oTE,1lyu1KKwC74',
                 'controls': 0,
                 'modestbranding': 1,
                 'rel': 0

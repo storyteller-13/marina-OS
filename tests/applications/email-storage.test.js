@@ -76,10 +76,11 @@ describe('EmailStorage', () => {
   it('should get email by ID', () => {
     const storage = new EmailStorage();
     const data = storage.load();
-    const email = storage.getEmail(data, 'friends', 1);
+    // Use the actual email ID from the default data (ID 5)
+    const email = storage.getEmail(data, 'friends', 5);
 
     expect(email).toBeDefined();
-    expect(email.id).toBe(1);
+    expect(email.id).toBe(5);
   });
 
   it('should return undefined for non-existent email', () => {
@@ -93,10 +94,11 @@ describe('EmailStorage', () => {
   it('should mark email as read', () => {
     const storage = new EmailStorage();
     const data = storage.load();
-    const email = storage.getEmail(data, 'friends', 1);
+    // Use the actual email ID from the default data (ID 5)
+    const email = storage.getEmail(data, 'friends', 5);
 
     if (email && !email.read) {
-      storage.markAsRead(data, 'friends', 1);
+      storage.markAsRead(data, 'friends', 5);
       expect(email.read).toBe(true);
     }
   });
@@ -173,6 +175,11 @@ describe('EmailStorage', () => {
   it('should get email from trash folder', () => {
     const storage = new EmailStorage();
     const data = storage.load();
+    // Add an email to trash first
+    const testEmail = { id: 2, from: 'test@example.com', subject: 'Test', date: '2025-01-01', read: false };
+    data.trash.push(testEmail);
+    storage.save(data);
+    
     const email = storage.getEmail(data, 'trash', 2);
 
     expect(email).toBeDefined();
@@ -190,11 +197,12 @@ describe('EmailStorage', () => {
   it('should call save when marking email as read', () => {
     const storage = new EmailStorage();
     const data = storage.load();
-    const email = storage.getEmail(data, 'friends', 1);
+    // Use the actual email ID from the default data (ID 5)
+    const email = storage.getEmail(data, 'friends', 5);
 
     if (email && !email.read) {
       global.localStorage.setItem = vi.fn();
-      storage.markAsRead(data, 'friends', 1);
+      storage.markAsRead(data, 'friends', 5);
 
       expect(global.localStorage.setItem).toHaveBeenCalled();
     }

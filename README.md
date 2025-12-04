@@ -1,4 +1,4 @@
-## 👾 demons.vonsteinkirch.com
+## 👾 vonsteinkirch.com
 
 <br>
 
