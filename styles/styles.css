@@ -20,7 +20,7 @@ body {
 
 /* Top Panel */
 .top-panel {
-    height: 32px;
+    height: 48px;
     background: rgba(20, 10, 30, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(34, 197, 94, 0.5);
@@ -40,9 +40,9 @@ body {
 }
 
 .menu-button {
-    padding: 4px 12px;
+    padding: 6px 14px;
     color: #c084fc;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 900;
     cursor: pointer;
     border-radius: 4px;
@@ -92,9 +92,9 @@ a.menu-button {
 }
 
 .menu-group-label {
-    padding: 6px 16px 4px 16px;
+    padding: 8px 18px 6px 18px;
     color: #4ade80;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -105,13 +105,13 @@ a.menu-button {
 .menu-item {
     display: flex;
     align-items: center;
-    padding: 8px 16px;
+    padding: 10px 18px;
     color: #bbf7d0;
-    font-size: 12px;
+    font-size: 14px;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.2s;
-    gap: 10px;
+    gap: 12px;
 }
 
 .menu-item:hover {
@@ -121,8 +121,8 @@ a.menu-button {
 }
 
 .menu-item-icon {
-    font-size: 14px;
-    width: 18px;
+    font-size: 18px;
+    width: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -202,7 +202,7 @@ a.menu-button {
 
 .clock {
     color: #c084fc;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 900;
     text-shadow: 0 0 10px rgba(168, 85, 247, 0.8), 0 0 20px rgba(139, 92, 246, 0.5);
     -webkit-text-stroke: 0.3px rgba(168, 85, 247, 0.5);
@@ -226,8 +226,8 @@ a.menu-button {
     cursor: pointer;
     opacity: 0.8;
     transition: all 0.2s;
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
 }
 
 .tray-icon svg {
@@ -569,7 +569,7 @@ a.menu-button {
 /* Music Player */
 .music-player {
     position: fixed;
-    top: 40px;
+    top: 56px;
     right: 20px;
     width: 320px;
     background: rgba(20, 10, 30, 0.95);
@@ -1113,7 +1113,7 @@ a.menu-button {
 /* Desktop Icons */
 .desktop-icons {
     position: absolute;
-    top: 40px;
+    top: 56px;
     left: 20px;
     display: flex;
     flex-direction: column;
@@ -3348,12 +3348,12 @@ a.dock-item {
 @media (max-width: 768px) {
     /* Desktop container padding for fixed top panel */
     .desktop {
-        padding-top: 40px;
+        padding-top: 48px;
     }
 
     /* Top Panel */
     .top-panel {
-        height: 40px;
+        height: 48px;
         padding: 0 8px;
         position: fixed;
         top: 0;
@@ -3832,11 +3832,11 @@ a.dock-item {
 @media (max-width: 480px) {
     /* Desktop container padding for fixed top panel */
     .desktop {
-        padding-top: 44px;
+        padding-top: 52px;
     }
 
     .top-panel {
-        height: 44px;
+        height: 52px;
         padding: 0 6px;
         position: fixed;
         top: 0;
@@ -3857,7 +3857,7 @@ a.dock-item {
     .music-player {
         width: calc(100% - 12px);
         max-width: none;
-        top: 54px;
+        top: 60px;
         right: 6px;
     }
 
@@ -3905,12 +3905,12 @@ a.dock-item {
     .artwork-window,
     .messaging-window {
         width: 100%;
-        height: calc(100vh - 44px);
-        top: 44px;
+        height: calc(100vh - 52px);
+        top: 52px;
         left: 0;
         transform: none;
         border-radius: 0;
-        max-height: calc(100vh - 44px);
+        max-height: calc(100vh - 52px);
     }
 
     .messaging-app {
@@ -4044,14 +4044,14 @@ a.dock-item {
     .notes-letter-window {
         width: 100%;
         height: calc(100vh - 100px);
-        top: 50px;
+        top: 60px;
         left: 0;
         transform: none;
         border-radius: 0;
     }
 
     .window-header {
-        height: 44px;
+        height: 52px;
         padding: 0 6px;
     }
 
@@ -4122,7 +4122,7 @@ a.dock-item {
     }
 
     .top-panel {
-        height: 36px;
+        height: 44px;
         position: fixed;
         top: 0;
         left: 0;
@@ -4131,7 +4131,7 @@ a.dock-item {
     }
 
     .music-player {
-        top: 46px;
+        top: 52px;
         width: 200px;
     }
 
@@ -4159,7 +4159,7 @@ a.dock-item {
     .b-bot-window,
     .artwork-window,
     .messaging-window {
-        height: calc(100vh - 80px);
+        height: calc(100vh - 88px);
     }
 
     .messaging-sidebar {
