@@ -7,7 +7,7 @@
 body {
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
     overflow: hidden;
-    background: linear-gradient(135deg, #0a0a0f 0%, #1a0a1f 50%, #0f0a1a 100%);
+    background: #000;
     height: 100vh;
 }
 
@@ -15,11 +15,7 @@ body {
     width: 100vw;
     height: 100vh;
     position: relative;
-    background: linear-gradient(135deg, #0a0a0f 0%, #1a0a1f 50%, #0f0a1a 100%);
-    background-image:
-        radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(21, 128, 61, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(30, 142, 62, 0.2) 0%, transparent 70%);
+    background: #000;
 }
 
 /* Top Panel */
@@ -432,7 +428,7 @@ a.menu-button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background :rgba(0, 0, 0, 0.8),;
     backdrop-filter: blur(5px);
     z-index: 10000;
     display: flex;
