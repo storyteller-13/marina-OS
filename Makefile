@@ -9,5 +9,7 @@ server:
 	@$(PYTHON) -m http.server $(PORT)
 
 test:
+	@echo "Installing dependencies..."
+	@npm install
 	@echo "Running tests..."
 	@npm test

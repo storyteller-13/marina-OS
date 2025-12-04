@@ -67,19 +67,52 @@ a.menu-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: visible;
 }
 
 .menu-button.cherry-icon svg {
-    filter: drop-shadow(0 0 3px rgba(57, 255, 20, 0.6));
+    filter: drop-shadow(0 0 4px rgba(57, 255, 20, 0.8)) drop-shadow(0 0 8px rgba(57, 255, 20, 0.4));
+    animation: star-rotate 12s linear infinite, star-pulse 3s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.menu-button.cherry-icon svg ellipse,
+.menu-button.cherry-icon svg circle {
+    animation: saturn-color-shift 4s ease-in-out infinite;
+}
+
+.menu-button.cherry-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(57, 255, 20, 0.3) 0%, transparent 70%);
+    animation: star-glow-pulse 2s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .menu-button.cherry-icon:hover {
-    background: rgba(57, 255, 20, 0.15);
-    box-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+    background: rgba(57, 255, 20, 0.2);
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.6), 0 0 40px rgba(57, 255, 20, 0.4);
+    transform: scale(1.05);
 }
 
 .menu-button.cherry-icon:hover svg {
-    filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.8));
+    filter: drop-shadow(0 0 8px rgba(57, 255, 20, 1)) drop-shadow(0 0 16px rgba(57, 255, 20, 0.8)) drop-shadow(0 0 24px rgba(57, 255, 20, 0.6));
+    animation: star-rotate 6s linear infinite, star-pulse 1.2s ease-in-out infinite;
+}
+
+.menu-button.cherry-icon:hover::before {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(57, 255, 20, 0.5) 0%, transparent 70%);
+    animation: star-glow-pulse 1s ease-in-out infinite;
 }
 
 .menu-container {
@@ -828,6 +861,54 @@ a.menu-button {
     }
     50% {
         opacity: 1;
+    }
+}
+
+@keyframes star-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes star-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes saturn-color-shift {
+    0%, 100% {
+        stroke: #39ff14;
+        opacity: 1;
+    }
+    25% {
+        stroke: #7fff00;
+        opacity: 0.9;
+    }
+    50% {
+        stroke: #00ff7f;
+        opacity: 1;
+    }
+    75% {
+        stroke: #39ff14;
+        opacity: 0.9;
+    }
+}
+
+@keyframes star-glow-pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.2);
     }
 }
 

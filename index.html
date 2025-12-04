@@ -32,8 +32,16 @@
                 <div class="menu-container">
                     <a href="javascript:void(0)" class="menu-button cherry-icon" id="applications-menu-button" style="text-decoration: none;">
                         <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M 16 1 L 28 24 L 4 24 Z" fill="#39ff14"/>
-                            <path d="M 16 31 L 4 8 L 28 8 Z" fill="#39ff14"/>
+                            <!-- Saturn rings -->
+                            <ellipse cx="16" cy="16" rx="11" ry="4" fill="none" stroke="#39ff14" stroke-width="2.4" opacity="0.8"/>
+                            <ellipse cx="16" cy="16" rx="9" ry="3" fill="none" stroke="#39ff14" stroke-width="2" opacity="0.6"/>
+                            <ellipse cx="16" cy="16" rx="7" ry="2.2" fill="none" stroke="#39ff14" stroke-width="1.6" opacity="0.5"/>
+                            <!-- Saturn planet -->
+                            <circle cx="16" cy="16" r="6" fill="rgba(57, 255, 20, 0.15)" stroke="#39ff14" stroke-width="2.8"/>
+                            <circle cx="16" cy="16" r="6" fill="none" stroke="#39ff14" stroke-width="2.8"/>
+                            <!-- Planet details -->
+                            <ellipse cx="14" cy="15" rx="1.6" ry="1" fill="#39ff14" opacity="0.4"/>
+                            <ellipse cx="18" cy="17" rx="1.2" ry="0.8" fill="#39ff14" opacity="0.3"/>
                         </svg>
                     </a>
                     <div class="menu-dropdown" id="applications-dropdown">
@@ -166,15 +174,10 @@
                     <a href="javascript:void(0)" id="apod-icon-tray" onclick="window.openApodWindow(); return false;" style="text-decoration: none; cursor: pointer;">
                         <span class="tray-icon">
                             <svg width="24" height="24" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Saturn rings -->
-                                <ellipse cx="8" cy="8" rx="5.5" ry="2" fill="none" stroke="#a855f7" stroke-width="1.2" opacity="0.8"/>
-                                <ellipse cx="8" cy="8" rx="4.5" ry="1.5" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
-                                <!-- Saturn planet -->
-                                <circle cx="8" cy="8" r="3" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1.4"/>
-                                <circle cx="8" cy="8" r="3" fill="none" stroke="#a855f7" stroke-width="1.4"/>
-                                <!-- Planet details -->
-                                <ellipse cx="7" cy="7.5" rx="0.8" ry="0.5" fill="#a855f7" opacity="0.4"/>
-                                <ellipse cx="9" cy="8.5" rx="0.6" ry="0.4" fill="#a855f7" opacity="0.3"/>
+                                <!-- Star -->
+                                <path d="M8 2 L9.5 6 L14 6.5 L10.5 9.5 L11.5 14 L8 11.5 L4.5 14 L5.5 9.5 L2 6.5 L6.5 6 Z" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1.2" stroke-linejoin="round"/>
+                                <path d="M8 2 L9.5 6 L14 6.5 L10.5 9.5 L11.5 14 L8 11.5 L4.5 14 L5.5 9.5 L2 6.5 L6.5 6 Z" fill="none" stroke="#a855f7" stroke-width="1.2" stroke-linejoin="round"/>
+                                <circle cx="8" cy="8" r="1" fill="#a855f7" opacity="0.6"/>
                             </svg>
                         </span>
                     </a>
