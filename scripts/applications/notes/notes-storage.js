@@ -27,9 +27,10 @@ class NotesStorage {
     }
 
     getDefaultEntries() {
-        const createEntry = (day, title, content, month = 10) => {
+        const createEntry = (day, title, content, month = 11) => {
             // month is 0-indexed: 0=January, 10=November, 11=December
             const date = new Date();
+            // Use current year by default (Date already has current year)
             date.setMonth(month);
             date.setDate(day);
             date.setHours(0, 0, 0, 0); // Normalize time
@@ -45,9 +46,9 @@ class NotesStorage {
         };
 
         return [
-        createEntry(4, 'today', `
+        createEntry(8, 'today', `
 
-            i think i am falling...
+            we get up and fight...
 `)
         ];
     }
