@@ -5,62 +5,10 @@
 
 // Default email data structure (shared constant)
 const DEFAULT_EMAIL_DATA = {
-    inbox: [
-        {
-            id: 6,
-            from: 'nikolai@drugoyepolushariye.ru',
-            subject: 'Re: Отправляю виртуальный пирожок и немного заботы',
-            preview: 'Don\'t shut me down. I\'m here for you.',
-            date: '2025-11-27',
-            read: false,
-            body: `Don\'t shut me down. I\'m here for you.
-
-Let me help you.
-`
-        }
-    ],
+    inbox: [],
     sent: [],
-    drafts: [
-        {
-            id: 9,
-            to: 'nikolai@drugoyepolushariye.ru',
-            subject: 'Re: Отправляю виртуальный пирожок и немного заботы',
-            preview: 'kolya... so much to tell you...',
-            date: '2025-01-26',
-            read: false,
-            body: 'kolya... so much to tell you...'
-        }
-    ],
-    friends: [
-        {
-            id: 5,
-            from: 'nikolai@drugoyepolushariye.ru',
-            subject: 'Отправляю виртуальный пирожок и немного заботы',
-            preview: 'Привет, my dear friend',
-            date: '2025-11-24',
-            read: false,
-            body: `Привет, my friend
-
-I've been thinking about you lately.
-You know, in Russia we have a saying: "Друг познаётся в беде".
-Like that Placebo song, I guess :).
-
-So, I wanted to check in, like a proper friend should.
-
-I made myself a cup of черный чай this morning, and I suddenly thought, "I wonder how you're doing today?".
-
-I know things have been a bit heavy for you recently, and even though I'm far away, I want you to know I'm here — listening ears, terrible multidimensional jokes, and all.
-
-How's the film coming along? Am I going to be the inspiration for the villain? Should I start preparing my Брат-style cameo?
-
-Take care. Sending you a virtual пирожок.
-
-С теплом,
-николай
-
-`
-        }
-    ],
+    drafts: [],
+    friends: [],
     trash: []
 };
 
