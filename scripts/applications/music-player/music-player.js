@@ -432,60 +432,116 @@ class MusicPlayer {
 
     renderSongList() {
         const songListElement = document.getElementById(this.selectors.songList);
-        if (!songListElement) return;
+        if (!songListElement || !this.playlistsData || !this.playlistsData.playlists) return;
 
-        songListElement.innerHTML = this.songs.map((song, index) => {
-            const isActive = index === this.currentSongIndex;
+        const currentPlaylistId = this.playlistsData.currentPlaylistId;
+        
+        // Build HTML for all playlists
+        songListElement.innerHTML = this.playlistsData.playlists.map(playlist => {
+            const isCurrentPlaylist = playlist.id === currentPlaylistId;
+            const songsHtml = (playlist.songs || []).map((song, index) => {
+                // Find the song index in the current songs array
+                const globalSongIndex = this.songs.findIndex(s => s.id === song.id);
+                const isActive = isCurrentPlaylist && globalSongIndex === this.currentSongIndex;
+                return `
+                    <div class="music-song-item-small ${isActive ? 'active' : ''}" 
+                         data-playlist-id="${playlist.id}" 
+                         data-song-id="${song.id}"
+                         data-song-index="${globalSongIndex >= 0 ? globalSongIndex : index}">
+                        <span class="music-song-title-small">${song.title}</span>
+                    </div>
+                `;
+            }).join('');
+
             return `
-                <div class="music-song-item ${isActive ? 'active' : ''}" data-song-index="${index}">
-                    <span class="music-song-title">${song.title}</span>
+                <div class="music-playlist-container">
+                    <div class="music-playlist-header ${isCurrentPlaylist ? 'active' : ''}" 
+                         data-playlist-id="${playlist.id}">
+                        <span class="music-playlist-name">${playlist.name}</span>
+                    </div>
+                    <div class="music-playlist-songs">
+                        ${songsHtml}
+                    </div>
                 </div>
             `;
         }).join('');
 
-        // Attach click handlers
-        songListElement.querySelectorAll('.music-song-item').forEach(item => {
+        // Attach click handlers for playlist headers
+        songListElement.querySelectorAll('.music-playlist-header').forEach(header => {
+            header.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const playlistId = header.getAttribute('data-playlist-id');
+                if (playlistId !== currentPlaylistId) {
+                    this.storage.setCurrentPlaylist(this.playlistsData, playlistId);
+                    this.loadPlaylists();
+                    // Reset to first song in playlist but don't load/play it
+                    this.currentSongIndex = 0;
+                    // Update title to show first song name
+                    this.updateSongTitle();
+                    // Re-render to update active states
+                    this.renderSongList();
+                }
+            });
+        });
+
+        // Attach click handlers for songs
+        songListElement.querySelectorAll('.music-song-item-small').forEach(item => {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                const songIndex = parseInt(item.getAttribute('data-song-index'));
-                if (songIndex !== this.currentSongIndex) {
-                    this.currentSongIndex = songIndex;
-                    const wasPlaying = this.player && this.isReady &&
-                        this.player.getPlayerState() === YT.PlayerState.PLAYING;
-                    this.loadSong();
-                    // If nothing was playing, start playing the selected song
-                    if (!wasPlaying && this.player && this.isReady) {
-                        // Wait for video to load before playing
-                        let attempts = 0;
-                        const tryPlay = () => {
-                            attempts++;
-                            if (this.player && this.isReady) {
-                                try {
-                                    const state = this.player.getPlayerState();
-                                    // Check if video is loaded (CUED, PAUSED, or ENDED means it's ready)
-                                    if (state === YT.PlayerState.CUED ||
-                                        state === YT.PlayerState.PAUSED ||
-                                        state === YT.PlayerState.ENDED ||
-                                        state === YT.PlayerState.UNSTARTED) {
-                                        this.player.playVideo();
-                                        console.log('Playing selected song:', this.songs[songIndex].title);
-                                    } else if (attempts < 15) {
-                                        // Retry after 200ms if not ready yet (up to 3 seconds)
-                                        setTimeout(tryPlay, 200);
-                                    } else {
-                                        console.warn('Video did not load in time for:', this.songs[songIndex].title);
+                const playlistId = item.getAttribute('data-playlist-id');
+                const songId = item.getAttribute('data-song-id');
+
+                // Switch to the playlist if not current
+                if (playlistId !== currentPlaylistId) {
+                    this.storage.setCurrentPlaylist(this.playlistsData, playlistId);
+                    this.loadPlaylists();
+                }
+
+                // Find the song in the current songs array
+                const actualSongIndex = this.songs.findIndex(s => s.id === songId);
+                if (actualSongIndex >= 0) {
+                    if (actualSongIndex !== this.currentSongIndex) {
+                        this.currentSongIndex = actualSongIndex;
+                        const wasPlaying = this.player && this.isReady &&
+                            this.player.getPlayerState() === YT.PlayerState.PLAYING;
+                        this.loadSong();
+                        // If nothing was playing, start playing the selected song
+                        if (!wasPlaying && this.player && this.isReady) {
+                            // Wait for video to load before playing
+                            let attempts = 0;
+                            const tryPlay = () => {
+                                attempts++;
+                                if (this.player && this.isReady) {
+                                    try {
+                                        const state = this.player.getPlayerState();
+                                        // Check if video is loaded (CUED, PAUSED, or ENDED means it's ready)
+                                        if (state === YT.PlayerState.CUED ||
+                                            state === YT.PlayerState.PAUSED ||
+                                            state === YT.PlayerState.ENDED ||
+                                            state === YT.PlayerState.UNSTARTED) {
+                                            this.player.playVideo();
+                                            console.log('Playing selected song:', this.songs[actualSongIndex].title);
+                                        } else if (attempts < 15) {
+                                            // Retry after 200ms if not ready yet (up to 3 seconds)
+                                            setTimeout(tryPlay, 200);
+                                        } else {
+                                            console.warn('Video did not load in time for:', this.songs[actualSongIndex].title);
+                                        }
+                                    } catch (error) {
+                                        console.error('Failed to play selected song:', error);
                                     }
-                                } catch (error) {
-                                    console.error('Failed to play selected song:', error);
                                 }
-                            }
-                        };
-                        setTimeout(tryPlay, 500);
+                            };
+                            setTimeout(tryPlay, 500);
+                        }
+                    } else {
+                        // If clicking the same song, toggle play/pause
+                        this.togglePlayPause();
                     }
-                } else {
-                    // If clicking the same song, toggle play/pause
-                    this.togglePlayPause();
+                    // Re-render to update active states
+                    this.renderSongList();
                 }
             });
         });

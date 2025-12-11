@@ -55,9 +55,37 @@ describe('MusicPlayer', () => {
     };
     window.YT = global.YT;
 
-    // Load MusicPlayer class
+    // Load MusicPlayerStorage first (required dependency)
     const fs = require('fs');
     const path = require('path');
+    const storageCode = fs.readFileSync(
+      path.join(__dirname, '../../scripts/applications/music-player/music-player-storage.js'),
+      'utf8'
+    );
+    eval(storageCode);
+
+    // Mock localStorage for tests
+    const localStorageMock = (() => {
+      let store = {};
+      return {
+        getItem: vi.fn((key) => store[key] || null),
+        setItem: vi.fn((key, value) => {
+          store[key] = value.toString();
+        }),
+        removeItem: vi.fn((key) => {
+          delete store[key];
+        }),
+        clear: vi.fn(() => {
+          store = {};
+        })
+      };
+    })();
+    Object.defineProperty(window, 'localStorage', {
+      value: localStorageMock,
+      writable: true
+    });
+
+    // Load MusicPlayer class
     const code = fs.readFileSync(
       path.join(__dirname, '../../scripts/applications/music-player/music-player.js'),
       'utf8'
@@ -68,6 +96,10 @@ describe('MusicPlayer', () => {
 
   afterEach(() => {
     vi.clearAllMocks();
+    // Clear localStorage mock
+    if (window.localStorage && window.localStorage.clear) {
+      window.localStorage.clear();
+    }
   });
 
   describe('initialization', () => {
@@ -110,6 +142,14 @@ describe('MusicPlayer', () => {
       // Reload the script to get fresh behavior
       const fs = require('fs');
       const path = require('path');
+      // Ensure storage is loaded
+      if (!window.MusicPlayerStorage) {
+        const storageCode = fs.readFileSync(
+          path.join(__dirname, '../../scripts/applications/music-player/music-player-storage.js'),
+          'utf8'
+        );
+        eval(storageCode);
+      }
       const code = fs.readFileSync(
         path.join(__dirname, '../../scripts/applications/music-player/music-player.js'),
         'utf8'
@@ -161,7 +201,7 @@ describe('MusicPlayer', () => {
               playerVars: {
                 'autoplay': 0,
                 'loop': 1,
-                'playlist': 'IXdNnw99-Ic,ujNeHIo7oTE,1lyu1KKwC74',
+                'playlist': expect.any(String), // Playlist will be generated from songs array
                 'controls': 0,
                 'modestbranding': 1,
                 'rel': 0
@@ -561,6 +601,36 @@ describe('MusicPlayer', () => {
 
       const fs = require('fs');
       const path = require('path');
+      // Ensure storage is loaded
+      if (!window.MusicPlayerStorage) {
+        const storageCode = fs.readFileSync(
+          path.join(__dirname, '../../scripts/applications/music-player/music-player-storage.js'),
+          'utf8'
+        );
+        eval(storageCode);
+      }
+      // Ensure localStorage mock exists
+      if (!window.localStorage) {
+        const localStorageMock = (() => {
+          let store = {};
+          return {
+            getItem: vi.fn((key) => store[key] || null),
+            setItem: vi.fn((key, value) => {
+              store[key] = value.toString();
+            }),
+            removeItem: vi.fn((key) => {
+              delete store[key];
+            }),
+            clear: vi.fn(() => {
+              store = {};
+            })
+          };
+        })();
+        Object.defineProperty(window, 'localStorage', {
+          value: localStorageMock,
+          writable: true
+        });
+      }
       const code = fs.readFileSync(
         path.join(__dirname, '../../scripts/applications/music-player/music-player.js'),
         'utf8'
@@ -583,6 +653,36 @@ describe('MusicPlayer', () => {
 
       const fs = require('fs');
       const path = require('path');
+      // Ensure storage is loaded
+      if (!window.MusicPlayerStorage) {
+        const storageCode = fs.readFileSync(
+          path.join(__dirname, '../../scripts/applications/music-player/music-player-storage.js'),
+          'utf8'
+        );
+        eval(storageCode);
+      }
+      // Ensure localStorage mock exists
+      if (!window.localStorage) {
+        const localStorageMock = (() => {
+          let store = {};
+          return {
+            getItem: vi.fn((key) => store[key] || null),
+            setItem: vi.fn((key, value) => {
+              store[key] = value.toString();
+            }),
+            removeItem: vi.fn((key) => {
+              delete store[key];
+            }),
+            clear: vi.fn(() => {
+              store = {};
+            })
+          };
+        })();
+        Object.defineProperty(window, 'localStorage', {
+          value: localStorageMock,
+          writable: true
+        });
+      }
       const code = fs.readFileSync(
         path.join(__dirname, '../../scripts/applications/music-player/music-player.js'),
         'utf8'

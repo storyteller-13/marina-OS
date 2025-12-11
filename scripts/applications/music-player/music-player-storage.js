@@ -76,7 +76,7 @@ class MusicPlayerStorage {
                     id: 'emo-playlist',
                     name: 'emo playlist',
                     songs: [
-                        { id: 'IXdNnw99-Ic', title: 'wish you were here' },
+                        { id: 'IXdNnw99-Ic', title: 'Wish You Were Here' },
                         { id: 'ujNeHIo7oTE', title: 'with or without you' },
                         { id: '1lyu1KKwC74', title: 'bitter sweet symphony' },
                         { id: '7jMlFXouPk8', title: 'high hopes' },
