@@ -10,6 +10,7 @@ class MusicPlayer {
         this.songs = [];
         this.storage = new MusicPlayerStorage();
         this.playlistsData = null;
+        this.expandedPlaylists = new Set(); // Track which playlists are expanded
         this.selectors = {
             youtube: 'music-youtube',
             toggle: 'music-toggle',
@@ -439,6 +440,7 @@ class MusicPlayer {
         // Build HTML for all playlists
         songListElement.innerHTML = this.playlistsData.playlists.map(playlist => {
             const isCurrentPlaylist = playlist.id === currentPlaylistId;
+            const isExpanded = this.expandedPlaylists.has(playlist.id);
             const songsHtml = (playlist.songs || []).map((song, index) => {
                 // Find the song index in the current songs array
                 const globalSongIndex = this.songs.findIndex(s => s.id === song.id);
@@ -455,11 +457,11 @@ class MusicPlayer {
 
             return `
                 <div class="music-playlist-container">
-                    <div class="music-playlist-header ${isCurrentPlaylist ? 'active' : ''}" 
+                    <div class="music-playlist-header ${isCurrentPlaylist ? 'active' : ''} ${isExpanded ? 'expanded' : ''}" 
                          data-playlist-id="${playlist.id}">
                         <span class="music-playlist-name">${playlist.name}</span>
                     </div>
-                    <div class="music-playlist-songs">
+                    <div class="music-playlist-songs ${isExpanded ? 'expanded' : 'collapsed'}">
                         ${songsHtml}
                     </div>
                 </div>
@@ -472,6 +474,15 @@ class MusicPlayer {
                 e.preventDefault();
                 e.stopPropagation();
                 const playlistId = header.getAttribute('data-playlist-id');
+                
+                // Toggle expansion
+                if (this.expandedPlaylists.has(playlistId)) {
+                    this.expandedPlaylists.delete(playlistId);
+                } else {
+                    this.expandedPlaylists.add(playlistId);
+                }
+                
+                // Switch to the playlist if not current
                 if (playlistId !== currentPlaylistId) {
                     this.storage.setCurrentPlaylist(this.playlistsData, playlistId);
                     this.loadPlaylists();
@@ -479,9 +490,10 @@ class MusicPlayer {
                     this.currentSongIndex = 0;
                     // Update title to show first song name
                     this.updateSongTitle();
-                    // Re-render to update active states
-                    this.renderSongList();
                 }
+                
+                // Re-render to update active states and expansion
+                this.renderSongList();
             });
         });
 
