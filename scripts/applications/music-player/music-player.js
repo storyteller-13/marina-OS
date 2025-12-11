@@ -7,13 +7,9 @@ class MusicPlayer {
         this.player = null;
         this.isReady = false;
         this.currentSongIndex = 0;
-        this.songs = [
-            { id: 'IXdNnw99-Ic', title: 'wish you were here' },
-            { id: 'ujNeHIo7oTE', title: 'with or without you' },
-            { id: '1lyu1KKwC74', title: 'bitter sweet symphony' },
-            { id: '7jMlFXouPk8', title: 'high hopes' },
-            { id: 'TFjmvfRvjTc', title: 'hey you' }
-        ];
+        this.songs = [];
+        this.storage = new MusicPlayerStorage();
+        this.playlistsData = null;
         this.selectors = {
             youtube: 'music-youtube',
             toggle: 'music-toggle',
@@ -26,7 +22,76 @@ class MusicPlayer {
             songList: 'music-song-list'
         };
 
+        this.loadPlaylists();
         this.init();
+    }
+
+    loadPlaylists() {
+        this.playlistsData = this.storage.load();
+        
+        // Ensure emo playlist exists, create it if it doesn't
+        const emoPlaylist = this.storage.getPlaylist(this.playlistsData, 'emo-playlist');
+        if (!emoPlaylist) {
+            console.log('Creating emo playlist...');
+            // Create emo playlist with the current songs
+            const emoSongs = [
+                { id: 'IXdNnw99-Ic', title: 'wish you were here' },
+                { id: 'ujNeHIo7oTE', title: 'with or without you' },
+                { id: '1lyu1KKwC74', title: 'bitter sweet symphony' },
+                { id: '7jMlFXouPk8', title: 'high hopes' },
+                { id: 'TFjmvfRvjTc', title: 'hey you' }
+            ];
+            
+            if (!this.playlistsData.playlists) {
+                this.playlistsData.playlists = [];
+            }
+            
+            this.playlistsData.playlists.push({
+                id: 'emo-playlist',
+                name: 'emo playlist',
+                songs: emoSongs
+            });
+            
+            // Set as current playlist if no current playlist is set
+            if (!this.playlistsData.currentPlaylistId) {
+                this.playlistsData.currentPlaylistId = 'emo-playlist';
+            }
+            
+            this.storage.save(this.playlistsData);
+            console.log('Emo playlist created with', emoSongs.length, 'songs');
+        }
+        
+        // Load songs from current playlist
+        const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
+        if (currentPlaylist && currentPlaylist.songs && currentPlaylist.songs.length > 0) {
+            this.songs = currentPlaylist.songs;
+            console.log('Loaded playlist:', currentPlaylist.name, 'with', this.songs.length, 'songs');
+        } else {
+            // Fallback to emo playlist if current playlist is empty
+            const emoPlaylist = this.storage.getPlaylist(this.playlistsData, 'emo-playlist');
+            if (emoPlaylist && emoPlaylist.songs && emoPlaylist.songs.length > 0) {
+                this.songs = emoPlaylist.songs;
+                this.playlistsData.currentPlaylistId = 'emo-playlist';
+                this.storage.save(this.playlistsData);
+                console.log('Switched to emo playlist with', this.songs.length, 'songs');
+            } else {
+                // Last resort: use default data
+                console.log('Using default playlist data');
+                this.playlistsData = this.storage.getDefaultData();
+                this.storage.save(this.playlistsData);
+                this.songs = this.playlistsData.playlists[0].songs;
+            }
+        }
+    }
+    
+    /**
+     * Get the current playlist name
+     * @returns {string} Current playlist name
+     */
+    getCurrentPlaylistName() {
+        if (!this.playlistsData) return '';
+        const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
+        return currentPlaylist ? currentPlaylist.name : '';
     }
 
     init() {
@@ -433,6 +498,17 @@ window.MusicPlayerClass = MusicPlayer;
 // Initialize when DOM is ready
 const initMusicPlayer = () => {
     window.MusicPlayer = new MusicPlayer();
+    
+    // Expose method to check current playlist
+    window.getCurrentPlaylist = () => {
+        if (window.MusicPlayer && window.MusicPlayer.playlistsData) {
+            const storage = window.MusicPlayer.storage;
+            const currentPlaylist = storage.getCurrentPlaylist(window.MusicPlayer.playlistsData);
+            console.log('Current playlist:', currentPlaylist);
+            return currentPlaylist;
+        }
+        return null;
+    };
 };
 
 if (document.readyState === 'loading') {
