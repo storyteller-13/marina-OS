@@ -42,7 +42,6 @@
                 'os-release': 'name="vonsteinkirch.com"\nversion="2024.12"\nid=vonsteinkirch\npretty_name="vonsteinkirch.com 2024.12"\nansi_color="0;34"'
             },
             '/artwork': {
-                'nola.jpg': 'file'
             }
         };
 
@@ -350,8 +349,7 @@
 
             view: (args) => {
                 if (!args || args.length === 0) {
-                    openPicture('pages/artwork/nola.jpg');
-                    return '';
+                    return 'view: missing file operand';
                 }
 
                 let filepath = args[0];
