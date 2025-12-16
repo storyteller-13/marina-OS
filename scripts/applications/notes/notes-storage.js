@@ -69,7 +69,7 @@ on the contrary, i will be reborn as the star i always have been.
 
 and i am a powerful magickian.
 i proved that reality is an illusion several times.
-perhaps i can even claim that i am the biggest of our lifetime.
+perhaps i can even claim to be the biggest of our lifetime.
 (and obviously, next year bad people will be prosecuted like hell)
 
 
@@ -79,7 +79,7 @@ stronger than ever.
 smarter than ever.
 brighter than ever.
 hotter than ever.
-perfercter than ever.
+perfecter than ever.
 
 
 taking a well-deserved break from the interwebs for now.
