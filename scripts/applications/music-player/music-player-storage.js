@@ -9,7 +9,6 @@ class MusicPlayerStorage {
 
     /**
      * Load playlists from localStorage or return default data
-     * Ensures emo playlist exists
      * @returns {Object} Playlists data object with playlists array
      */
     load() {
@@ -74,7 +73,7 @@ class MusicPlayerStorage {
             playlists: [
                 {
                     id: 'emo-playlist',
-                    name: 'emo playlist',
+                    name: 'dualities playlist',
                     songs: [
                         { id: 'IXdNnw99-Ic', title: 'wish you were here' },
                         { id: 'ujNeHIo7oTE', title: 'with or without you' },

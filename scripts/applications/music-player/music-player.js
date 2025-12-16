@@ -49,7 +49,7 @@ class MusicPlayer {
             
             this.playlistsData.playlists.push({
                 id: 'emo-playlist',
-                name: 'emo playlist',
+                name: 'dualities playlist',
                 songs: emoSongs
             });
             
@@ -59,7 +59,7 @@ class MusicPlayer {
             }
             
             this.storage.save(this.playlistsData);
-            console.log('Emo playlist created with', emoSongs.length, 'songs');
+            console.log('Dualities playlist created with', emoSongs.length, 'songs');
         }
         
         // Load songs from current playlist
