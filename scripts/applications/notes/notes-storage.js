@@ -154,7 +154,7 @@ and that's where i start my next glorious life chapter.
                        'july', 'august', 'september', 'october', 'november', 'december'];
         const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
-        return `${days[d.getDay()]}; ${d.getFullYear()}; ${months[d.getMonth()]}; ${d.getDate()}`;
+        return `${d.getFullYear()}; ${months[d.getMonth()]}; ${d.getDate()}; ${days[d.getDay()]}`;
     }
 }
 
