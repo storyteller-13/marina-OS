@@ -172,7 +172,6 @@ class EmailApp {
                 <div class="email-empty">
                     <div class="empty-icon">📭</div>
                     <div class="empty-text">no emails yet</div>
-                    <div class="empty-subtext">emails will appear here</div>
                 </div>
             `;
             this.updateFolderCounts();
