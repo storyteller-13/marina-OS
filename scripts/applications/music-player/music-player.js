@@ -61,15 +61,15 @@ class MusicPlayer {
         }
         
         // Ensure second playlist exists, create it if it doesn't
-        const playlist2 = this.storage.getPlaylist(this.playlistsData, '2026; 01; let\'s get it');
+        const playlist2 = this.storage.getPlaylist(this.playlistsData, 'afterlife && hope');
         if (!playlist2) {
             if (!this.playlistsData.playlists) {
                 this.playlistsData.playlists = [];
             }
             
             this.playlistsData.playlists.push({
-                id: '2026; 01; let\'s get it',
-                name: '2026; 01; let\'s get it',
+                id: 'afterlife && hope',
+                name: 'afterlife && hope',
                 songs: [
                     { id: 'MO0LdXqwDP0', title: 'afterlife' },
                     { id: '8r-bTAvYkZw', title: 'ave maria' }

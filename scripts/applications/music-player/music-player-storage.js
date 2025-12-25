@@ -49,14 +49,14 @@ class MusicPlayerStorage {
         }
         
         // Ensure second playlist exists
-        const playlist2 = this.getPlaylist(data, '2026; 01; let\'s get it');
+        const playlist2 = this.getPlaylist(data, 'afterlife && hope');
         if (!playlist2) {
             if (!data.playlists) {
                 data.playlists = [];
             }
             data.playlists.push({
-                id: '2026; 01; let\'s get it',
-                name: '2026; 01; let\'s get it',
+                id: 'afterlife && hope',
+                name: 'afterlife && hope',
                 songs: [
                     { id: 'MO0LdXqwDP0', title: 'afterlife' },
                     { id: '8r-bTAvYkZw', title: 'ave maria' }
@@ -115,8 +115,8 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id: '2026; 01; let\'s get it',
-                    name: '2026; 01; let\'s get it',
+                    id: 'afterlife && hope',
+                    name: 'afterlife && hope',
                     songs: [
                         { id: 'MO0LdXqwDP0', title: 'afterlife' },
                         { id: '8r-bTAvYkZw', title: 'ave maria' }

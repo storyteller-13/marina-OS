@@ -43,7 +43,14 @@ class NotesStorage {
                 date: '2025-12-26T00:00:00.000Z',
                 title: '🌺',
                 content: this.cleanContent(`
-happy new year; we will be happy <3
+happy new year; we will be happy 
+
+
+
+
+
+
+ps: you can pre-order my new gnarly sci-fi book at 13.vonsteinkirch.com <3
                 `)
             },
             {
