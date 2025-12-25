@@ -163,6 +163,12 @@ class MusicPlayer {
             return;
         }
         
+        // If updating playlist, ensure we have latest data
+        if (this._updatingPlaylist) {
+            this.playlistsData = this.storage.load();
+            this.loadPlaylists();
+        }
+        
         // Reset the flag if it was set
         this._updatingPlaylist = false;
 
@@ -176,14 +182,28 @@ class MusicPlayer {
         }
 
         try {
+            // Ensure we have songs loaded
+            if (!this.songs || this.songs.length === 0) {
+                // Reload playlists if songs array is empty
+                this.loadPlaylists();
+            }
+            
             // Ensure currentSongIndex is valid
             if (this.currentSongIndex < 0 || this.currentSongIndex >= this.songs.length) {
                 this.currentSongIndex = 0;
             }
             
-            const currentSong = this.songs[this.currentSongIndex];
+            let currentSong = this.songs[this.currentSongIndex];
             if (!currentSong) {
-                return;
+                // If current song is invalid, reload playlists and try again
+                this.loadPlaylists();
+                if (this.songs.length > 0) {
+                    this.currentSongIndex = 0;
+                    currentSong = this.songs[this.currentSongIndex];
+                }
+                if (!currentSong) {
+                    return;
+                }
             }
 
             // If element is an iframe with src, replace it with a div for YT.Player
@@ -408,8 +428,17 @@ class MusicPlayer {
                 // Ignore errors if player is already destroyed
             }
             this.player = null;
-            // Reinitialize with new playlist
-            this.setupPlayer();
+            
+            // Clear the YouTube element to ensure clean state
+            const youtubeElement = document.getElementById(this.selectors.youtube);
+            if (youtubeElement) {
+                youtubeElement.innerHTML = '';
+            }
+            
+            // Wait a bit for YouTube API to clean up, then reinitialize with new playlist
+            setTimeout(() => {
+                this.setupPlayer();
+            }, 100);
         }
     }
 
@@ -551,11 +580,32 @@ class MusicPlayer {
                 // Switch to the playlist if not current
                 const playlistSwitched = playlistId !== currentPlaylistId;
                 if (playlistSwitched) {
+                    // Reload playlists data from storage to ensure we have latest
+                    this.playlistsData = this.storage.load();
                     this.storage.setCurrentPlaylist(this.playlistsData, playlistId);
                     this.loadPlaylists();
+                    // Verify the playlist was loaded correctly
+                    const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
+                    if (!currentPlaylist || currentPlaylist.id !== playlistId) {
+                        console.error('Failed to switch playlist');
+                        return;
+                    }
+                    // Double-check that songs array matches the current playlist
+                    if (this.songs.length !== currentPlaylist.songs.length || 
+                        !this.songs.every((s, i) => s.id === currentPlaylist.songs[i].id)) {
+                        this.songs = [...currentPlaylist.songs];
+                    }
                 }
 
                 // Find the song in the current songs array
+                // Verify the song exists in the current playlist
+                const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
+                if (!currentPlaylist || !currentPlaylist.songs || !currentPlaylist.songs.some(s => s.id === songId)) {
+                    // Song not in current playlist, reload and try again
+                    this.playlistsData = this.storage.load();
+                    this.loadPlaylists();
+                }
+                
                 const actualSongIndex = this.songs.findIndex(s => s.id === songId);
                 if (actualSongIndex >= 0) {
                     if (actualSongIndex !== this.currentSongIndex) {
