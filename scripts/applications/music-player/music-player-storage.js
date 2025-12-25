@@ -31,7 +31,7 @@ class MusicPlayerStorage {
         }
         
         // Ensure emo playlist exists
-        const emoPlaylist = this.getPlaylist(data, 'emo-playlist');
+        const emoPlaylist = this.getPlaylist(data, 'dualities-playlist');
         if (!emoPlaylist) {
             const defaultData = this.getDefaultData();
             const defaultEmoPlaylist = defaultData.playlists[0];
@@ -43,9 +43,25 @@ class MusicPlayerStorage {
             
             // Set as current if no current playlist
             if (!data.currentPlaylistId) {
-                data.currentPlaylistId = 'emo-playlist';
+                data.currentPlaylistId = 'dualities-playlist';
             }
             
+            this.save(data);
+        }
+        
+        // Ensure second playlist exists
+        const playlist2 = this.getPlaylist(data, '2026; 01; let\'s get it');
+        if (!playlist2) {
+            if (!data.playlists) {
+                data.playlists = [];
+            }
+            data.playlists.push({
+                id: '2026; 01; let\'s get it',
+                name: '2026; 01; let\'s get it',
+                songs: [
+                    { id: 'MO0LdXqwDP0', title: 'afterlife' }
+                ]
+            });
             this.save(data);
         }
         
@@ -72,7 +88,7 @@ class MusicPlayerStorage {
         return {
             playlists: [
                 {
-                    id: 'emo-playlist',
+                    id: 'dualities-playlist',
                     name: 'dualities playlist',
                     songs: [
                         { id: 'IXdNnw99-Ic', title: 'wish you were here' },
@@ -81,9 +97,16 @@ class MusicPlayerStorage {
                         { id: '7jMlFXouPk8', title: 'high hopes' },
                         { id: 'TFjmvfRvjTc', title: 'hey you' }
                     ]
+                },
+                {
+                    id: '2026; 01; let\'s get it',
+                    name: '2026; 01; let\'s get it',
+                    songs: [
+                        { id: 'MO0LdXqwDP0', title: 'afterlife' }
+                    ]
                 }
             ],
-            currentPlaylistId: 'emo-playlist'
+            currentPlaylistId: 'dualities-playlist'
         };
     }
 
