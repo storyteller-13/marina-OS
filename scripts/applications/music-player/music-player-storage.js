@@ -59,10 +59,27 @@ class MusicPlayerStorage {
                 id: '2026; 01; let\'s get it',
                 name: '2026; 01; let\'s get it',
                 songs: [
-                    { id: 'MO0LdXqwDP0', title: 'afterlife' }
+                    { id: 'MO0LdXqwDP0', title: 'afterlife' },
+                    { id: '8r-bTAvYkZw', title: 'ave maria' }
                 ]
             });
             this.save(data);
+        } else {
+            // Ensure the new song is in the playlist if it exists
+            const hasNewSong = playlist2.songs && playlist2.songs.some(s => s.id === '8r-bTAvYkZw');
+            if (!hasNewSong) {
+                if (!playlist2.songs) {
+                    playlist2.songs = [];
+                }
+                // Find the index of 'afterlife' and insert after it
+                const afterlifeIndex = playlist2.songs.findIndex(s => s.id === 'MO0LdXqwDP0');
+                if (afterlifeIndex >= 0) {
+                    playlist2.songs.splice(afterlifeIndex + 1, 0, { id: '8r-bTAvYkZw', title: 'ave maria' });
+                } else {
+                    playlist2.songs.push({ id: '8r-bTAvYkZw', title: 'ave maria' });
+                }
+                this.save(data);
+            }
         }
         
         return data;
@@ -102,7 +119,8 @@ class MusicPlayerStorage {
                     id: '2026; 01; let\'s get it',
                     name: '2026; 01; let\'s get it',
                     songs: [
-                        { id: 'MO0LdXqwDP0', title: 'afterlife' }
+                        { id: 'MO0LdXqwDP0', title: 'afterlife' },
+                        { id: '8r-bTAvYkZw', title: 'ave maria' }
                     ]
                 }
             ],

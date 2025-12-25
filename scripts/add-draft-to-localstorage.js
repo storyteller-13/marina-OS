@@ -14,7 +14,7 @@
         try {
             data = JSON.parse(stored);
         } catch (e) {
-            console.error('Error parsing email data from storage:', e);
+
             return;
         }
     } else {
