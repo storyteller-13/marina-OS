@@ -72,7 +72,8 @@ class MusicPlayer {
                 name: 'afterlife && hope',
                 songs: [
                     { id: 'MO0LdXqwDP0', title: 'afterlife' },
-                    { id: '8r-bTAvYkZw', title: 'ave maria' }
+                    { id: '8r-bTAvYkZw', title: 'ave maria' },
+                    { id: 'yB9_ImBoazY', title: 'leviticus' }
                 ]
             });
             
@@ -90,6 +91,21 @@ class MusicPlayer {
                     playlist2.songs.splice(afterlifeIndex + 1, 0, { id: '8r-bTAvYkZw', title: 'ave maria' });
                 } else {
                     playlist2.songs.push({ id: '8r-bTAvYkZw', title: 'ave maria' });
+                }
+                this.storage.save(this.playlistsData);
+            }
+            // Ensure the new song (yB9_ImBoazY) is in the playlist if it exists
+            const hasNewSong2 = playlist2.songs && playlist2.songs.some(s => s.id === 'yB9_ImBoazY');
+            if (!hasNewSong2) {
+                if (!playlist2.songs) {
+                    playlist2.songs = [];
+                }
+                // Find the index of 'ave maria' and insert after it
+                const aveMariaIndex = playlist2.songs.findIndex(s => s.id === '8r-bTAvYkZw');
+                if (aveMariaIndex >= 0) {
+                    playlist2.songs.splice(aveMariaIndex + 1, 0, { id: 'yB9_ImBoazY', title: 'leviticus' });
+                } else {
+                    playlist2.songs.push({ id: 'yB9_ImBoazY', title: 'leviticus' });
                 }
                 this.storage.save(this.playlistsData);
             }

@@ -12,6 +12,14 @@ class MusicPlayerStorage {
      * @returns {Object} Playlists data object with playlists array
      */
     load() {
+        // Clear cache from previous sessions only once per browser session
+        const sessionClearedKey = 'music-player-session-cleared';
+        if (!sessionStorage.getItem(sessionClearedKey)) {
+            localStorage.removeItem(this.storageKey);
+            sessionStorage.setItem(sessionClearedKey, 'true');
+        }
+        
+        // Load from localStorage or return default data
         const stored = localStorage.getItem(this.storageKey);
         let data;
         
@@ -21,64 +29,10 @@ class MusicPlayerStorage {
             } catch (e) {
                 data = this.getDefaultData();
                 this.save(data);
-                return data;
             }
         } else {
             data = this.getDefaultData();
             this.save(data);
-            return data;
-        }
-        
-        // Ensure emo playlist exists
-        const emoPlaylist = this.getPlaylist(data, 'dualities-playlist');
-        if (!emoPlaylist) {
-            const defaultData = this.getDefaultData();
-            const defaultEmoPlaylist = defaultData.playlists[0];
-            
-            if (!data.playlists) {
-                data.playlists = [];
-            }
-            data.playlists.push(defaultEmoPlaylist);
-            
-            // Set as current if no current playlist
-            if (!data.currentPlaylistId) {
-                data.currentPlaylistId = 'afterlife && hope';
-            }
-            
-            this.save(data);
-        }
-        
-        // Ensure second playlist exists
-        const playlist2 = this.getPlaylist(data, 'afterlife && hope');
-        if (!playlist2) {
-            if (!data.playlists) {
-                data.playlists = [];
-            }
-            data.playlists.push({
-                id: 'afterlife && hope',
-                name: 'afterlife && hope',
-                songs: [
-                    { id: 'MO0LdXqwDP0', title: 'afterlife' },
-                    { id: '8r-bTAvYkZw', title: 'ave maria' }
-                ]
-            });
-            this.save(data);
-        } else {
-            // Ensure the new song is in the playlist if it exists
-            const hasNewSong = playlist2.songs && playlist2.songs.some(s => s.id === '8r-bTAvYkZw');
-            if (!hasNewSong) {
-                if (!playlist2.songs) {
-                    playlist2.songs = [];
-                }
-                // Find the index of 'afterlife' and insert after it
-                const afterlifeIndex = playlist2.songs.findIndex(s => s.id === 'MO0LdXqwDP0');
-                if (afterlifeIndex >= 0) {
-                    playlist2.songs.splice(afterlifeIndex + 1, 0, { id: '8r-bTAvYkZw', title: 'ave maria' });
-                } else {
-                    playlist2.songs.push({ id: '8r-bTAvYkZw', title: 'ave maria' });
-                }
-                this.save(data);
-            }
         }
         
         return data;
@@ -119,7 +73,8 @@ class MusicPlayerStorage {
                     name: 'afterlife && hope',
                     songs: [
                         { id: 'MO0LdXqwDP0', title: 'afterlife' },
-                        { id: '8r-bTAvYkZw', title: 'ave maria' }
+                        { id: '8r-bTAvYkZw', title: 'ave maria' },
+                        { id: 'yB9_ImBoazY', title: 'leviticus' }
                     ]
                 }
             ],
