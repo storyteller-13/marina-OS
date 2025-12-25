@@ -42,7 +42,7 @@ class MusicPlayerStorage {
             
             // Set as current if no current playlist
             if (!data.currentPlaylistId) {
-                data.currentPlaylistId = 'dualities-playlist';
+                data.currentPlaylistId = 'afterlife && hope';
             }
             
             this.save(data);
@@ -123,7 +123,7 @@ class MusicPlayerStorage {
                     ]
                 }
             ],
-            currentPlaylistId: 'dualities-playlist'
+            currentPlaylistId: 'afterlife && hope'
         };
     }
 

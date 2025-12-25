@@ -54,7 +54,7 @@ class MusicPlayer {
             
             // Set as current playlist if no current playlist is set
             if (!this.playlistsData.currentPlaylistId) {
-                this.playlistsData.currentPlaylistId = 'dualities-playlist';
+                this.playlistsData.currentPlaylistId = 'afterlife && hope';
             }
             
             this.storage.save(this.playlistsData);
@@ -96,15 +96,27 @@ class MusicPlayer {
         }
         
         // Load songs from current playlist
+        // If current playlist is the old default, switch to afterlife && hope
+        if (this.playlistsData.currentPlaylistId === 'dualities-playlist') {
+            this.playlistsData.currentPlaylistId = 'afterlife && hope';
+            this.storage.save(this.playlistsData);
+        }
+        
+        // If no current playlist is set, default to afterlife && hope
+        if (!this.playlistsData.currentPlaylistId) {
+            this.playlistsData.currentPlaylistId = 'afterlife && hope';
+            this.storage.save(this.playlistsData);
+        }
+        
         const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
         if (currentPlaylist && currentPlaylist.songs && currentPlaylist.songs.length > 0) {
             this.songs = currentPlaylist.songs;
         } else {
-            // Fallback to emo playlist if current playlist is empty
-            const emoPlaylist = this.storage.getPlaylist(this.playlistsData, 'dualities-playlist');
-            if (emoPlaylist && emoPlaylist.songs && emoPlaylist.songs.length > 0) {
-                this.songs = emoPlaylist.songs;
-                this.playlistsData.currentPlaylistId = 'dualities-playlist';
+            // Fallback to afterlife playlist if current playlist is empty
+            const afterlifePlaylist = this.storage.getPlaylist(this.playlistsData, 'afterlife && hope');
+            if (afterlifePlaylist && afterlifePlaylist.songs && afterlifePlaylist.songs.length > 0) {
+                this.songs = afterlifePlaylist.songs;
+                this.playlistsData.currentPlaylistId = 'afterlife && hope';
                 this.storage.save(this.playlistsData);
             } else {
                 // Last resort: use default data
