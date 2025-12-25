@@ -217,6 +217,25 @@
             </div>
         </div>
 
+        <!-- Form Box -->
+        <div class="form-box" id="form-box" style="display: none;">
+            <div class="form-box-glow"></div>
+            <div class="form-box-content">
+                <div class="form-box-header">
+                    <div class="form-icon-wrapper">
+                        <span class="form-icon">💜</span>
+                    </div>
+                    <span class="form-box-title">Contact</span>
+                    <button class="form-box-close" id="form-box-close" title="Close">
+                        <span class="close-icon">×</span>
+                    </button>
+                </div>
+                <div class="form-box-iframe-container" id="form-box-iframe-container">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeveTfCo-Fb_uJ5N0CZ1VyklgG987xan-vN07cnq_p3OpZSmQ/viewform?embedded=true" width="320" height="389" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+            </div>
+        </div>
+
         <!-- APOD Popup -->
         <div class="apod-popup" id="apod-popup" style="display: none;">
             <div class="apod-popup-content">
@@ -299,7 +318,7 @@
                         <path d="M4 6 L3 5 M12 6 L13 5" stroke="#a855f7" stroke-width="0.8" opacity="0.5" stroke-linecap="round"/>
                     </svg>
                 </div>
-                <div class="icon-label">book</div>
+                <div class="icon-label">epic</div>
             </a>
             <a href="https://www.youtube.com/watch?v=WSLMN6g_Od4" class="desktop-icon" id="trash-desktop-icon" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
                 <div class="icon-image">
@@ -798,6 +817,16 @@
                 </div>
                 <span class="email-count-badge" id="email-count-badge" style="display: none;">0</span>
             </a>
+            <a href="javascript:void(0)" class="dock-item" id="form-dock-item" onclick="window.openFormWindow(); return false;" style="text-decoration: none; cursor: pointer;">
+                <div class="dock-icon">
+                    <svg width="32" height="32" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(8, 8) scale(1.15) translate(-8, -8) translate(0, 0.5)">
+                            <path d="M8 3 C6.5 2 4.5 2 3.5 3 C2.5 4 2.5 6 3.5 7 L8 11.5 L12.5 7 C13.5 6 13.5 4 12.5 3 C11.5 2 9.5 2 8 3 Z" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1.2" stroke-linejoin="round"/>
+                            <path d="M8 3 C6.5 2 4.5 2 3.5 3 C2.5 4 2.5 6 3.5 7 L8 11.5 L12.5 7 C13.5 6 13.5 4 12.5 3 C11.5 2 9.5 2 8 3 Z" fill="none" stroke="#a855f7" stroke-width="1.2" stroke-linejoin="round"/>
+                        </g>
+                    </svg>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -855,6 +884,65 @@
     <!-- Terminal App -->
     <script src="scripts/applications/terminal/terminal-app.js"></script>
     <script src="scripts/applications/terminal/terminal.js"></script>
+
+    <!-- Form Box Handler -->
+    <script>
+        (function() {
+            const formBox = document.getElementById('form-box');
+            const formBoxClose = document.getElementById('form-box-close');
+            
+            function hideBox() {
+                if (formBox) {
+                    formBox.style.opacity = '0';
+                    formBox.style.transform = 'translateY(-10px) scale(0.95)';
+                    setTimeout(() => {
+                        formBox.style.display = 'none';
+                    }, 400);
+                }
+            }
+
+            function showBox() {
+                if (formBox) {
+                    formBox.style.display = 'block';
+                    formBox.style.opacity = '0';
+                    formBox.style.transform = 'translateY(-10px) scale(0.95)';
+                    void formBox.offsetHeight; // Force reflow
+                    requestAnimationFrame(() => {
+                        formBox.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                        formBox.style.opacity = '1';
+                        formBox.style.transform = 'translateY(0) scale(1)';
+                    });
+                }
+            }
+
+            function toggleVisibility() {
+                if (!formBox) return;
+                
+                const isVisible = formBox.style.display !== 'none' &&
+                                 window.getComputedStyle(formBox).display !== 'none';
+
+                if (isVisible) {
+                    hideBox();
+                } else {
+                    showBox();
+                }
+            }
+            
+            if (formBoxClose) {
+                formBoxClose.addEventListener('click', hideBox);
+            }
+
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && formBox && formBox.style.display !== 'none') {
+                    hideBox();
+                }
+            });
+
+            // Expose toggle function globally
+            window.openFormWindow = toggleVisibility;
+        })();
+    </script>
 
 </body>
 </html>

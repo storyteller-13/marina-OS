@@ -43,7 +43,7 @@ class NotesStorage {
                 date: '2025-12-26T00:00:00.000Z',
                 title: '🌺',
                 content: this.cleanContent(`
-happy new year; we will be happy 
+happy new year; we will be very happy in 2026
 
 
 

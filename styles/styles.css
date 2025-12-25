@@ -476,6 +476,178 @@ a.menu-button {
     text-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
 }
 
+/* Form Box - Same styles as APOD but positioned on the right */
+.form-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 360px;
+    background: rgba(20, 10, 30, 0.95);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(34, 197, 94, 0.6);
+    border-radius: 12px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(34, 197, 94, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    z-index: 1001;
+    padding: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.form-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+    animation: rotate-glow 8s linear infinite;
+    pointer-events: none;
+}
+
+.form-box-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(21, 128, 61, 0.1) 100%);
+    opacity: 0.5;
+    pointer-events: none;
+    border-radius: 12px;
+}
+
+.form-box:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.9),
+        0 0 60px rgba(34, 197, 94, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-color: rgba(34, 197, 94, 0.8);
+}
+
+.form-box-content {
+    position: relative;
+    z-index: 1;
+    padding: 12px;
+}
+
+.form-box-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #bbf7d0;
+    font-size: 11px;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+    margin-bottom: 8px;
+}
+
+.form-box-title {
+    flex: 1;
+    min-width: 0;
+    font-weight: 700;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.form-icon-wrapper {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.form-icon {
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.8));
+}
+
+.form-box-close {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.4) 0%, rgba(21, 128, 61, 0.4) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.6);
+    color: #bbf7d0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+    padding: 0;
+    line-height: 1;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.form-box-close::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.form-box-close:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.form-box-close:hover {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.6) 0%, rgba(21, 128, 61, 0.6) 100%);
+    box-shadow: 0 0 25px rgba(34, 197, 94, 1), 0 0 40px rgba(21, 128, 61, 0.6);
+    transform: scale(1.15) rotate(5deg);
+    border-color: rgba(34, 197, 94, 0.9);
+}
+
+.form-box-close:active {
+    transform: scale(1.05) rotate(-5deg);
+}
+
+.form-box-iframe-container {
+    width: 100%;
+    height: 389px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.form-box-iframe-container:hover {
+    border-color: rgba(34, 197, 94, 0.5);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+}
+
+.form-box-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    max-width: 320px;
+    max-height: 389px;
+}
+
 .apod-popup {
     position: fixed;
     top: 0;
@@ -3601,6 +3773,30 @@ a.dock-item {
         flex-shrink: 0;
     }
 
+    .form-box {
+        width: calc(100% - 40px);
+        max-width: 360px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .form-box-iframe-container {
+        height: 350px;
+    }
+
+    .form-box-iframe-container iframe {
+        width: 320px;
+        height: 350px;
+    }
+
+    .form-box-close {
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+        min-width: 28px;
+        flex-shrink: 0;
+    }
+
     .apod-popup-content {
         max-width: 95%;
         max-height: 85vh;
@@ -4088,6 +4284,32 @@ a.dock-item {
         font-size: 20px;
     }
 
+    .form-box {
+        width: calc(100% - 12px);
+        max-width: 240px;
+        bottom: 6px;
+        right: 6px;
+    }
+
+    .form-box-content {
+        padding: 10px;
+    }
+
+    .form-box-iframe-container {
+        height: 200px;
+    }
+
+    .form-box-iframe-container iframe {
+        width: 100%;
+        height: 200px;
+    }
+
+    .form-box-close {
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+    }
+
     .music-player-content {
         padding: 10px;
     }
@@ -4352,6 +4574,27 @@ a.dock-item {
     }
 
     .apod-box-close {
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+    }
+
+    .form-box {
+        bottom: 8px;
+        right: 8px;
+        width: 220px;
+    }
+
+    .form-box-iframe-container {
+        height: 150px;
+    }
+
+    .form-box-iframe-container iframe {
+        width: 100%;
+        height: 150px;
+    }
+
+    .form-box-close {
         width: 28px;
         height: 28px;
         font-size: 20px;
