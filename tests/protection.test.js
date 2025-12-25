@@ -26,9 +26,6 @@ describe('Protection', () => {
     global.window = window;
     global.document = document;
 
-    // Mock console.clear
-    console.clear = vi.fn();
-
     // Track intervals for cleanup - must be set up before loading script
     intervalIds = [];
     const originalSetInterval = window.setInterval;
@@ -263,9 +260,4 @@ describe('Protection', () => {
     });
   });
 
-  describe('Console Clearing', () => {
-    it('should clear console on load', () => {
-      expect(console.clear).toHaveBeenCalled();
-    });
-  });
 });

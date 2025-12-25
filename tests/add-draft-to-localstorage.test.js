@@ -39,12 +39,6 @@ describe('add-draft-to-localstorage', () => {
       writable: true
     });
 
-    // Mock console methods
-    global.console = {
-      log: vi.fn(),
-      error: vi.fn(),
-      warn: vi.fn()
-    };
   });
 
   afterEach(() => {
@@ -216,16 +210,11 @@ describe('add-draft-to-localstorage', () => {
     beforeEach(() => {
       localStorage.getItem.mockReturnValue('invalid json{');
       localStorage.setItem.mockClear();
-      console.error.mockClear();
     });
 
     it('should handle parse error gracefully', () => {
       executeScript();
 
-      expect(console.error).toHaveBeenCalledWith(
-        'Error parsing email data from storage:',
-        expect.any(Error)
-      );
       expect(localStorage.setItem).not.toHaveBeenCalled();
     });
   });
@@ -310,7 +299,6 @@ describe('add-draft-to-localstorage', () => {
   describe('error handling', () => {
     beforeEach(() => {
       localStorage.getItem.mockReturnValue(null);
-      console.error.mockClear();
     });
 
     it('should handle localStorage.setItem error', () => {
@@ -319,11 +307,6 @@ describe('add-draft-to-localstorage', () => {
       });
 
       executeScript();
-
-      expect(console.error).toHaveBeenCalledWith(
-        'Error saving to localStorage:',
-        expect.any(Error)
-      );
     });
   });
 });

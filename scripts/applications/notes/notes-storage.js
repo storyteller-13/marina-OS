@@ -32,7 +32,6 @@ class NotesStorage {
         // Cache is disabled, so we don't save to localStorage
         // This method is kept for API compatibility but does nothing
         if (!Array.isArray(entries)) {
-            console.error('NotesStorage.save: entries must be an array');
             return;
         }
         // Intentionally not saving to localStorage (cache disabled)

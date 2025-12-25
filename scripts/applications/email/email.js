@@ -42,7 +42,6 @@ class EmailApp {
         this.dockItem = document.getElementById(this.dockItemId);
 
         if (!this.window) {
-            console.error('Email window not found');
             return;
         }
 

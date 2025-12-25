@@ -20,7 +20,6 @@ class HomeApp {
         this.desktopIcon = document.getElementById('home-desktop-icon');
 
         if (!this.window) {
-            console.error('Home window not found');
             return;
         }
 

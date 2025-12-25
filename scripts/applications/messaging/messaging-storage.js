@@ -17,7 +17,6 @@ class MessagingStorage {
             try {
                 return JSON.parse(stored);
             } catch (e) {
-                console.error('Error parsing messaging data from storage:', e);
                 return this.getDefaultConversations();
             }
         }
@@ -32,7 +31,7 @@ class MessagingStorage {
         try {
             localStorage.setItem(this.storageKey, JSON.stringify(conversations));
         } catch (e) {
-            console.error('Error saving messaging data to storage:', e);
+            // Error saving to storage
         }
     }
 

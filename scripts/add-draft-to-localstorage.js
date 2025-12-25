@@ -72,6 +72,6 @@
     try {
         localStorage.setItem(storageKey, JSON.stringify(data));
     } catch (e) {
-        console.error('Error saving to localStorage:', e);
+        // Error saving to localStorage
     }
 })();

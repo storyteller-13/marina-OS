@@ -80,7 +80,6 @@ class APODPanel {
                 this.displayAPOD(data);
             }
         } catch (error) {
-            console.error('Error loading APOD:', error);
             this.showError();
         }
     }
@@ -116,7 +115,6 @@ class APODPanel {
 
             return data;
         } catch (error) {
-            console.error('Error fetching APOD:', error);
             // Try a random date from the past week as fallback
             return this.fetchRandomAPOD();
         }
@@ -141,7 +139,7 @@ class APODPanel {
                 }
             }
         } catch (error) {
-            console.error('Error fetching random APOD:', error);
+            // Error fetching random APOD
         }
         return null;
     }
@@ -295,7 +293,6 @@ class APODPanel {
             localStorage.removeItem(this.cacheKey);
             return null;
         } catch (error) {
-            console.error('Error reading APOD cache:', error);
             return null;
         }
     }
@@ -311,7 +308,7 @@ class APODPanel {
             };
             localStorage.setItem(this.cacheKey, JSON.stringify(cache));
         } catch (error) {
-            console.error('Error caching APOD:', error);
+            // Error caching APOD
         }
     }
 

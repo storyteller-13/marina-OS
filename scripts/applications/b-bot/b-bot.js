@@ -38,7 +38,6 @@ class BBotApp {
         this.settingsPanel = document.getElementById('b-bot-settings-panel');
 
         if (!this.window) {
-            console.error('B-Bot window not found');
             return;
         }
 
@@ -329,7 +328,6 @@ class BBotApp {
         } catch (error) {
             this.modelSelect.innerHTML = '<option value="">Error loading models</option>';
             this.modelSelect.disabled = true;
-            console.error('Error loading models:', error);
         }
     }
 

@@ -21,7 +21,6 @@ class ArtworkApp {
         this.dockItem = document.getElementById(this.dockItemId);
 
         if (!this.window) {
-            console.error('Artwork window not found');
             return;
         }
 

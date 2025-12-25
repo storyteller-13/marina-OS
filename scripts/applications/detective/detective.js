@@ -17,7 +17,6 @@ class DetectiveApp {
         this.dockItem = document.getElementById(this.dockItemId);
 
         if (!this.window) {
-            console.error('Detective window not found');
             return;
         }
 

@@ -152,9 +152,6 @@ class MusicPlayer {
                     this.setupPlayer();
                 } else if (checkCount > 50) { // Stop checking after ~5 seconds
                     clearInterval(checkInterval);
-                    if (!this.player) {
-                        console.warn('YouTube API did not load within expected time');
-                    }
                 }
             }, 100);
         }
@@ -171,12 +168,10 @@ class MusicPlayer {
 
         const youtubeElement = document.getElementById(this.selectors.youtube);
         if (!youtubeElement) {
-            console.warn('YouTube element not found:', this.selectors.youtube);
             return;
         }
 
         if (typeof YT === 'undefined' || !YT.Player) {
-            console.warn('YouTube API not available');
             return;
         }
 
@@ -225,33 +220,26 @@ class MusicPlayer {
                             150: 'Embedding not allowed (same as 101)'
                         };
 
-                        console.error(`YouTube player error for "${currentSong.title}" (${currentSong.id}):`,
-                            errorCode, '-', errorMessages[errorCode] || 'Unknown error');
-
                         // YouTube error codes:
                         // 2=invalid parameter, 5=HTML5 error, 100=video not found,
                         // 101=embedding not allowed, 150=same as 101
                         if (errorCode === 100 || errorCode === 101 || errorCode === 150) {
-                            console.warn(`Video "${currentSong.title}" unavailable or embedding restricted, skipping to next song`);
                             setTimeout(() => {
                                 this.playNextSong();
                             }, 1000);
                         } else if (errorCode === 2) {
-                            console.error('Invalid parameter - check video ID:', currentSong.id);
                             // Try to continue with next song if current one fails
                             setTimeout(() => {
                                 if (this.currentSongIndex < this.songs.length - 1) {
                                     this.playNextSong();
                                 }
                             }, 1000);
-                        } else if (errorCode === 5) {
-                            console.error('HTML5 player error - browser may not support playback');
                         }
                     }
                 }
             });
         } catch (error) {
-            console.error('Failed to initialize YouTube player:', error);
+            // Failed to initialize YouTube player
         }
     }
 
@@ -320,11 +308,6 @@ class MusicPlayer {
     togglePlayPause() {
         if (!this.player || !this.isReady) {
             // Player not ready, do nothing - user must wait for initialization
-            console.warn('Music player not ready yet', {
-                hasPlayer: !!this.player,
-                isReady: this.isReady,
-                ytAvailable: typeof YT !== 'undefined'
-            });
             return;
         }
 
@@ -336,7 +319,7 @@ class MusicPlayer {
                 this.player.playVideo();
             }
         } catch (error) {
-            console.error('Failed to toggle play/pause:', error);
+            // Failed to toggle play/pause
         }
     }
 
@@ -416,13 +399,11 @@ class MusicPlayer {
 
     loadSong() {
         if (!this.player || !this.isReady) {
-            console.warn('Cannot load song: player not ready');
             return;
         }
 
         const currentSong = this.songs[this.currentSongIndex];
         if (!currentSong) {
-            console.error('No song found at index:', this.currentSongIndex);
             return;
         }
 
@@ -455,19 +436,17 @@ class MusicPlayer {
                                 this.player.playVideo();
                             } else if (attempts < 10) {
                                 // Retry after 200ms if not ready yet
-                                setTimeout(tryPlay, 200);
-                            } else {
-                                console.warn('Video did not load in time for:', currentSong.title);
-                            }
-                        } catch (error) {
-                            console.error('Failed to resume playback:', error);
-                        }
+                                                    setTimeout(tryPlay, 200);
+                                                }
+                                            } catch (error) {
+                                                // Failed to resume playback
+                                            }
                     }
                 };
                 setTimeout(tryPlay, 500);
             }
         } catch (error) {
-            console.error('Failed to load song:', currentSong.title, error);
+            // Failed to load song
         }
     }
 
@@ -593,7 +572,7 @@ class MusicPlayer {
                                                         setTimeout(tryPlay, 200);
                                                     }
                                                 } catch (error) {
-                                                    console.error('Failed to play selected song:', error);
+                                                    // Failed to play selected song
                                                 }
                                             } else if (playAttempts < 30) {
                                                 setTimeout(tryPlay, 200);
@@ -603,8 +582,6 @@ class MusicPlayer {
                                     }, 500);
                                 } else if (attempts < 50) {
                                     setTimeout(waitAndLoad, 100);
-                                } else {
-                                    console.warn('Player did not become ready after playlist switch');
                                 }
                             };
                             waitAndLoad();
@@ -630,11 +607,9 @@ class MusicPlayer {
                                             } else if (attempts < 15) {
                                                 // Retry after 200ms if not ready yet (up to 3 seconds)
                                                 setTimeout(tryPlay, 200);
-                                            } else {
-                                                console.warn('Video did not load in time for:', this.songs[actualSongIndex].title);
                                             }
                                         } catch (error) {
-                                            console.error('Failed to play selected song:', error);
+                                            // Failed to play selected song
                                         }
                                     }
                                 };

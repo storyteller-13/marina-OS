@@ -19,7 +19,6 @@ class MusicPlayerStorage {
             try {
                 data = JSON.parse(stored);
             } catch (e) {
-                console.error('Error parsing playlists data from storage:', e);
                 data = this.getDefaultData();
                 this.save(data);
                 return data;
@@ -93,7 +92,7 @@ class MusicPlayerStorage {
         try {
             localStorage.setItem(this.storageKey, JSON.stringify(data));
         } catch (e) {
-            console.error('Error saving playlists data to storage:', e);
+            // Error saving to storage
         }
     }
 

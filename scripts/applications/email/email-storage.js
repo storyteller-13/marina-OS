@@ -21,7 +21,6 @@ class EmailStorage {
             try {
                 return JSON.parse(stored);
             } catch (e) {
-                console.error('Error parsing email data from storage:', e);
                 return this.getDefaultData();
             }
         }
@@ -36,7 +35,7 @@ class EmailStorage {
         try {
             localStorage.setItem(this.storageKey, JSON.stringify(data));
         } catch (e) {
-            console.error('Error saving email data to storage:', e);
+            // Error saving to storage
         }
     }
 
@@ -52,7 +51,6 @@ class EmailStorage {
         }
 
         // Fallback: create default data structure (shouldn't happen if email-data.js is loaded)
-        console.warn('EmailStorage: DEFAULT_EMAIL_DATA not found, using fallback. Ensure email-data.js is loaded first.');
         return {
             inbox: [],
             sent: [],
