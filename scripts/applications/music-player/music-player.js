@@ -177,7 +177,18 @@ class MusicPlayer {
 
         try {
             const currentSong = this.songs[this.currentSongIndex];
-            const playlist = this.songs.map(song => song.id).join(',');
+            if (!currentSong) {
+                return;
+            }
+            
+            // Build playlist starting from current song to ensure correct playback order
+            // YouTube's playlist parameter will cycle through videos, so we need to start from current
+            const currentIndex = this.currentSongIndex;
+            const playlistSongs = [
+                ...this.songs.slice(currentIndex),
+                ...this.songs.slice(0, currentIndex)
+            ];
+            const playlist = playlistSongs.map(song => song.id).join(',');
 
             // If element is an iframe with src, replace it with a div for YT.Player
             // YT.Player works better with a div element
@@ -537,8 +548,6 @@ class MusicPlayer {
                 if (playlistSwitched) {
                     this.storage.setCurrentPlaylist(this.playlistsData, playlistId);
                     this.loadPlaylists();
-                    // Update player with new playlist
-                    this.updatePlayerPlaylist();
                 }
 
                 // Find the song in the current songs array
@@ -546,6 +555,11 @@ class MusicPlayer {
                 if (actualSongIndex >= 0) {
                     if (actualSongIndex !== this.currentSongIndex) {
                         this.currentSongIndex = actualSongIndex;
+                        
+                        // Update player with new playlist AFTER setting currentSongIndex
+                        if (playlistSwitched) {
+                            this.updatePlayerPlaylist();
+                        }
                         
                         // If we switched playlists, wait for player to be ready
                         if (playlistSwitched) {
