@@ -48,7 +48,7 @@ class MusicPlayer {
             
             this.playlistsData.playlists.push({
                 id: 'dualities-playlist',
-                name: 'dualities playlist',
+                name: 'dualities && healing',
                 songs: emoSongs
             });
             

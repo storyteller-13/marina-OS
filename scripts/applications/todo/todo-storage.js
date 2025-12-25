@@ -15,7 +15,9 @@ class TodoStorage {
 
     getTodos() {
         const defaultTodoData = [
-            { text: 'get ready for the best year ever yet', completed: false }
+            { text: 'finish the first book', completed: false },
+            { text: 'start the friday sermons', completed: false },
+            { text: 'get ready for the best year ever yet', completed: true }
         ];
 
         return defaultTodoData.map(data => this.createTodo(data.text, data.completed));

@@ -40,6 +40,13 @@ class NotesStorage {
     getDefaultEntries() {
         return [
             {
+                date: '2025-12-26T00:00:00.000Z',
+                title: '🌺',
+                content: this.cleanContent(`
+happy new year; we will be happy <3
+                `)
+            },
+            {
                 date: '2025-12-08T00:00:00.000Z',
                 title: 'today',
                 content: this.cleanContent(`

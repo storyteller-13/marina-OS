@@ -105,7 +105,7 @@ class MusicPlayerStorage {
             playlists: [
                 {
                     id: 'dualities-playlist',
-                    name: 'dualities playlist',
+                    name: 'dualities && healing',
                     songs: [
                         { id: 'IXdNnw99-Ic', title: 'wish you were here' },
                         { id: 'ujNeHIo7oTE', title: 'with or without you' },
