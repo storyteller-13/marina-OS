@@ -176,19 +176,15 @@ class MusicPlayer {
         }
 
         try {
+            // Ensure currentSongIndex is valid
+            if (this.currentSongIndex < 0 || this.currentSongIndex >= this.songs.length) {
+                this.currentSongIndex = 0;
+            }
+            
             const currentSong = this.songs[this.currentSongIndex];
             if (!currentSong) {
                 return;
             }
-            
-            // Build playlist starting from current song to ensure correct playback order
-            // YouTube's playlist parameter will cycle through videos, so we need to start from current
-            const currentIndex = this.currentSongIndex;
-            const playlistSongs = [
-                ...this.songs.slice(currentIndex),
-                ...this.songs.slice(0, currentIndex)
-            ];
-            const playlist = playlistSongs.map(song => song.id).join(',');
 
             // If element is an iframe with src, replace it with a div for YT.Player
             // YT.Player works better with a div element
@@ -200,16 +196,19 @@ class MusicPlayer {
                 parent.replaceChild(newDiv, youtubeElement);
             }
 
+            // Don't use playlist parameter - it causes YouTube to ignore videoId
+            // We'll handle looping manually via onStateChange when video ends
+            const playerVars = {
+                'autoplay': 0,
+                'loop': 0, // We'll handle looping manually via onStateChange
+                'controls': 0,
+                'modestbranding': 1,
+                'rel': 0
+            };
+
             this.player = new YT.Player(this.selectors.youtube, {
                 videoId: currentSong.id,
-                playerVars: {
-                    'autoplay': 0,
-                    'loop': 1,
-                    'playlist': playlist,
-                    'controls': 0,
-                    'modestbranding': 1,
-                    'rel': 0
-                },
+                playerVars: playerVars,
                 events: {
                     'onReady': () => {
                         this.isReady = true;
@@ -266,6 +265,12 @@ class MusicPlayer {
         } else if (event.data === YT.PlayerState.PAUSED) {
             if (musicToggle) musicToggle.classList.remove('playing');
             if (musicPlayer) musicPlayer.classList.remove('playing');
+        } else if (event.data === YT.PlayerState.ENDED) {
+            // When video ends, automatically play next song to create loop effect
+            // Only if player is ready and we have songs
+            if (this.isReady && this.songs.length > 0) {
+                this.playNextSong();
+            }
         }
     }
 
