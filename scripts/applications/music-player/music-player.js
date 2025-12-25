@@ -33,7 +33,6 @@ class MusicPlayer {
         // Ensure emo playlist exists, create it if it doesn't
         const emoPlaylist = this.storage.getPlaylist(this.playlistsData, 'emo-playlist');
         if (!emoPlaylist) {
-            console.log('Creating emo playlist...');
             // Create emo playlist with the current songs
             const emoSongs = [
                 { id: 'IXdNnw99-Ic', title: 'wish you were here' },
@@ -59,14 +58,12 @@ class MusicPlayer {
             }
             
             this.storage.save(this.playlistsData);
-            console.log('Dualities playlist created with', emoSongs.length, 'songs');
         }
         
         // Load songs from current playlist
         const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
         if (currentPlaylist && currentPlaylist.songs && currentPlaylist.songs.length > 0) {
             this.songs = currentPlaylist.songs;
-            console.log('Loaded playlist:', currentPlaylist.name, 'with', this.songs.length, 'songs');
         } else {
             // Fallback to emo playlist if current playlist is empty
             const emoPlaylist = this.storage.getPlaylist(this.playlistsData, 'emo-playlist');
@@ -74,10 +71,8 @@ class MusicPlayer {
                 this.songs = emoPlaylist.songs;
                 this.playlistsData.currentPlaylistId = 'emo-playlist';
                 this.storage.save(this.playlistsData);
-                console.log('Switched to emo playlist with', this.songs.length, 'songs');
             } else {
                 // Last resort: use default data
-                console.log('Using default playlist data');
                 this.playlistsData = this.storage.getDefaultData();
                 this.storage.save(this.playlistsData);
                 this.songs = this.playlistsData.playlists[0].songs;
@@ -174,7 +169,6 @@ class MusicPlayer {
                 events: {
                     'onReady': () => {
                         this.isReady = true;
-                        console.log('YouTube player ready');
                         // Player is initialized with autoplay: 0, so it won't start automatically
                         this.updateSongTitle();
                         this.renderSongList();
@@ -298,7 +292,6 @@ class MusicPlayer {
 
         try {
             const state = this.player.getPlayerState();
-            console.log('Current player state:', state);
             if (state === YT.PlayerState.PLAYING || state === YT.PlayerState.BUFFERING) {
                 this.player.pauseVideo();
             } else if (state === YT.PlayerState.PAUSED || state === YT.PlayerState.ENDED || state === YT.PlayerState.CUED || state === YT.PlayerState.UNSTARTED) {
@@ -378,7 +371,6 @@ class MusicPlayer {
             return;
         }
 
-        console.log('Loading song:', currentSong.title, 'ID:', currentSong.id);
         const wasPlaying = this.player.getPlayerState() === YT.PlayerState.PLAYING;
 
         try {
@@ -404,7 +396,6 @@ class MusicPlayer {
                                 state === YT.PlayerState.ENDED ||
                                 state === YT.PlayerState.UNSTARTED) {
                                 this.player.playVideo();
-                                console.log('Playing song:', currentSong.title);
                             } else if (attempts < 10) {
                                 // Retry after 200ms if not ready yet
                                 setTimeout(tryPlay, 200);
@@ -534,7 +525,6 @@ class MusicPlayer {
                                             state === YT.PlayerState.ENDED ||
                                             state === YT.PlayerState.UNSTARTED) {
                                             this.player.playVideo();
-                                            console.log('Playing selected song:', this.songs[actualSongIndex].title);
                                         } else if (attempts < 15) {
                                             // Retry after 200ms if not ready yet (up to 3 seconds)
                                             setTimeout(tryPlay, 200);
@@ -572,7 +562,6 @@ const initMusicPlayer = () => {
         if (window.MusicPlayer && window.MusicPlayer.playlistsData) {
             const storage = window.MusicPlayer.storage;
             const currentPlaylist = storage.getCurrentPlaylist(window.MusicPlayer.playlistsData);
-            console.log('Current playlist:', currentPlaylist);
             return currentPlaylist;
         }
         return null;

@@ -18,7 +18,6 @@
         const terminalInput = document.getElementById('terminal-input-main');
 
         if (!terminal || !terminalOutput || !terminalInput) {
-            console.log('No terminal found on this page');
             return;
         }
 

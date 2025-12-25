@@ -7,7 +7,6 @@ describe('Terminal', () => {
   let document;
   let terminalInput;
   let terminalOutput;
-  let originalLog;
   let originalPrompt;
 
   function loadTerminal() {
@@ -17,10 +16,7 @@ describe('Terminal', () => {
       path.join(__dirname, '../scripts/applications/terminal/terminal.js'),
       'utf8'
     );
-    originalLog = console.log;
-    console.log = vi.fn();
     eval(code);
-    console.log = originalLog;
   }
 
   function executeCommand(command) {
