@@ -97,7 +97,6 @@ export default async function handler(req, res) {
 
     res.status(response.status).json(data);
   } catch (error) {
-    console.error('Ollama proxy error:', error);
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     // Provide more helpful error messages

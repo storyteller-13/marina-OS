@@ -31,9 +31,8 @@ class MusicPlayer {
         this.playlistsData = this.storage.load();
         
         // Ensure emo playlist exists, create it if it doesn't
-        const emoPlaylist = this.storage.getPlaylist(this.playlistsData, 'emo-playlist');
+        const emoPlaylist = this.storage.getPlaylist(this.playlistsData, 'dualities-playlist');
         if (!emoPlaylist) {
-            console.log('Creating emo playlist...');
             // Create emo playlist with the current songs
             const emoSongs = [
                 { id: 'IXdNnw99-Ic', title: 'wish you were here' },
@@ -48,36 +47,79 @@ class MusicPlayer {
             }
             
             this.playlistsData.playlists.push({
-                id: 'emo-playlist',
-                name: 'dualities playlist',
+                id: 'dualities-playlist',
+                name: 'dualities && healing',
                 songs: emoSongs
             });
             
             // Set as current playlist if no current playlist is set
             if (!this.playlistsData.currentPlaylistId) {
-                this.playlistsData.currentPlaylistId = 'emo-playlist';
+                this.playlistsData.currentPlaylistId = 'afterlife && hope';
             }
             
             this.storage.save(this.playlistsData);
-            console.log('Dualities playlist created with', emoSongs.length, 'songs');
+        }
+        
+        // Ensure second playlist exists, create it if it doesn't
+        const playlist2 = this.storage.getPlaylist(this.playlistsData, 'afterlife && hope');
+        if (!playlist2) {
+            if (!this.playlistsData.playlists) {
+                this.playlistsData.playlists = [];
+            }
+            
+            this.playlistsData.playlists.push({
+                id: 'afterlife && hope',
+                name: 'afterlife && hope',
+                songs: [
+                    { id: 'MO0LdXqwDP0', title: 'afterlife' },
+                    { id: '8r-bTAvYkZw', title: 'ave maria' }
+                ]
+            });
+            
+            this.storage.save(this.playlistsData);
+        } else {
+            // Ensure the new song is in the playlist if it exists
+            const hasNewSong = playlist2.songs && playlist2.songs.some(s => s.id === '8r-bTAvYkZw');
+            if (!hasNewSong) {
+                if (!playlist2.songs) {
+                    playlist2.songs = [];
+                }
+                // Find the index of 'afterlife' and insert after it
+                const afterlifeIndex = playlist2.songs.findIndex(s => s.id === 'MO0LdXqwDP0');
+                if (afterlifeIndex >= 0) {
+                    playlist2.songs.splice(afterlifeIndex + 1, 0, { id: '8r-bTAvYkZw', title: 'ave maria' });
+                } else {
+                    playlist2.songs.push({ id: '8r-bTAvYkZw', title: 'ave maria' });
+                }
+                this.storage.save(this.playlistsData);
+            }
         }
         
         // Load songs from current playlist
+        // If current playlist is the old default, switch to afterlife && hope
+        if (this.playlistsData.currentPlaylistId === 'dualities-playlist') {
+            this.playlistsData.currentPlaylistId = 'afterlife && hope';
+            this.storage.save(this.playlistsData);
+        }
+        
+        // If no current playlist is set, default to afterlife && hope
+        if (!this.playlistsData.currentPlaylistId) {
+            this.playlistsData.currentPlaylistId = 'afterlife && hope';
+            this.storage.save(this.playlistsData);
+        }
+        
         const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
         if (currentPlaylist && currentPlaylist.songs && currentPlaylist.songs.length > 0) {
             this.songs = currentPlaylist.songs;
-            console.log('Loaded playlist:', currentPlaylist.name, 'with', this.songs.length, 'songs');
         } else {
-            // Fallback to emo playlist if current playlist is empty
-            const emoPlaylist = this.storage.getPlaylist(this.playlistsData, 'emo-playlist');
-            if (emoPlaylist && emoPlaylist.songs && emoPlaylist.songs.length > 0) {
-                this.songs = emoPlaylist.songs;
-                this.playlistsData.currentPlaylistId = 'emo-playlist';
+            // Fallback to afterlife playlist if current playlist is empty
+            const afterlifePlaylist = this.storage.getPlaylist(this.playlistsData, 'afterlife && hope');
+            if (afterlifePlaylist && afterlifePlaylist.songs && afterlifePlaylist.songs.length > 0) {
+                this.songs = afterlifePlaylist.songs;
+                this.playlistsData.currentPlaylistId = 'afterlife && hope';
                 this.storage.save(this.playlistsData);
-                console.log('Switched to emo playlist with', this.songs.length, 'songs');
             } else {
                 // Last resort: use default data
-                console.log('Using default playlist data');
                 this.playlistsData = this.storage.getDefaultData();
                 this.storage.save(this.playlistsData);
                 this.songs = this.playlistsData.playlists[0].songs;
@@ -122,34 +164,59 @@ class MusicPlayer {
                     this.setupPlayer();
                 } else if (checkCount > 50) { // Stop checking after ~5 seconds
                     clearInterval(checkInterval);
-                    if (!this.player) {
-                        console.warn('YouTube API did not load within expected time');
-                    }
                 }
             }, 100);
         }
     }
 
     setupPlayer() {
-        // Prevent multiple initializations
-        if (this.player && this.isReady) {
+        // Prevent multiple initializations unless we're updating the playlist
+        if (this.player && this.isReady && !this._updatingPlaylist) {
             return;
         }
+        
+        // If updating playlist, ensure we have latest data
+        if (this._updatingPlaylist) {
+            this.playlistsData = this.storage.load();
+            this.loadPlaylists();
+        }
+        
+        // Reset the flag if it was set
+        this._updatingPlaylist = false;
 
         const youtubeElement = document.getElementById(this.selectors.youtube);
         if (!youtubeElement) {
-            console.warn('YouTube element not found:', this.selectors.youtube);
             return;
         }
 
         if (typeof YT === 'undefined' || !YT.Player) {
-            console.warn('YouTube API not available');
             return;
         }
 
         try {
-            const currentSong = this.songs[this.currentSongIndex];
-            const playlist = this.songs.map(song => song.id).join(',');
+            // Ensure we have songs loaded
+            if (!this.songs || this.songs.length === 0) {
+                // Reload playlists if songs array is empty
+                this.loadPlaylists();
+            }
+            
+            // Ensure currentSongIndex is valid
+            if (this.currentSongIndex < 0 || this.currentSongIndex >= this.songs.length) {
+                this.currentSongIndex = 0;
+            }
+            
+            let currentSong = this.songs[this.currentSongIndex];
+            if (!currentSong) {
+                // If current song is invalid, reload playlists and try again
+                this.loadPlaylists();
+                if (this.songs.length > 0) {
+                    this.currentSongIndex = 0;
+                    currentSong = this.songs[this.currentSongIndex];
+                }
+                if (!currentSong) {
+                    return;
+                }
+            }
 
             // If element is an iframe with src, replace it with a div for YT.Player
             // YT.Player works better with a div element
@@ -161,20 +228,22 @@ class MusicPlayer {
                 parent.replaceChild(newDiv, youtubeElement);
             }
 
+            // Don't use playlist parameter - it causes YouTube to ignore videoId
+            // We'll handle looping manually via onStateChange when video ends
+            const playerVars = {
+                'autoplay': 0,
+                'loop': 0, // We'll handle looping manually via onStateChange
+                'controls': 0,
+                'modestbranding': 1,
+                'rel': 0
+            };
+
             this.player = new YT.Player(this.selectors.youtube, {
                 videoId: currentSong.id,
-                playerVars: {
-                    'autoplay': 0,
-                    'loop': 1,
-                    'playlist': playlist,
-                    'controls': 0,
-                    'modestbranding': 1,
-                    'rel': 0
-                },
+                playerVars: playerVars,
                 events: {
                     'onReady': () => {
                         this.isReady = true;
-                        console.log('YouTube player ready');
                         // Player is initialized with autoplay: 0, so it won't start automatically
                         this.updateSongTitle();
                         this.renderSongList();
@@ -193,33 +262,26 @@ class MusicPlayer {
                             150: 'Embedding not allowed (same as 101)'
                         };
 
-                        console.error(`YouTube player error for "${currentSong.title}" (${currentSong.id}):`,
-                            errorCode, '-', errorMessages[errorCode] || 'Unknown error');
-
                         // YouTube error codes:
                         // 2=invalid parameter, 5=HTML5 error, 100=video not found,
                         // 101=embedding not allowed, 150=same as 101
                         if (errorCode === 100 || errorCode === 101 || errorCode === 150) {
-                            console.warn(`Video "${currentSong.title}" unavailable or embedding restricted, skipping to next song`);
                             setTimeout(() => {
                                 this.playNextSong();
                             }, 1000);
                         } else if (errorCode === 2) {
-                            console.error('Invalid parameter - check video ID:', currentSong.id);
                             // Try to continue with next song if current one fails
                             setTimeout(() => {
                                 if (this.currentSongIndex < this.songs.length - 1) {
                                     this.playNextSong();
                                 }
                             }, 1000);
-                        } else if (errorCode === 5) {
-                            console.error('HTML5 player error - browser may not support playback');
                         }
                     }
                 }
             });
         } catch (error) {
-            console.error('Failed to initialize YouTube player:', error);
+            // Failed to initialize YouTube player
         }
     }
 
@@ -235,6 +297,12 @@ class MusicPlayer {
         } else if (event.data === YT.PlayerState.PAUSED) {
             if (musicToggle) musicToggle.classList.remove('playing');
             if (musicPlayer) musicPlayer.classList.remove('playing');
+        } else if (event.data === YT.PlayerState.ENDED) {
+            // When video ends, automatically play next song to create loop effect
+            // Only if player is ready and we have songs
+            if (this.isReady && this.songs.length > 0) {
+                this.playNextSong();
+            }
         }
     }
 
@@ -288,24 +356,18 @@ class MusicPlayer {
     togglePlayPause() {
         if (!this.player || !this.isReady) {
             // Player not ready, do nothing - user must wait for initialization
-            console.warn('Music player not ready yet', {
-                hasPlayer: !!this.player,
-                isReady: this.isReady,
-                ytAvailable: typeof YT !== 'undefined'
-            });
             return;
         }
 
         try {
             const state = this.player.getPlayerState();
-            console.log('Current player state:', state);
             if (state === YT.PlayerState.PLAYING || state === YT.PlayerState.BUFFERING) {
                 this.player.pauseVideo();
             } else if (state === YT.PlayerState.PAUSED || state === YT.PlayerState.ENDED || state === YT.PlayerState.CUED || state === YT.PlayerState.UNSTARTED) {
                 this.player.playVideo();
             }
         } catch (error) {
-            console.error('Failed to toggle play/pause:', error);
+            // Failed to toggle play/pause
         }
     }
 
@@ -366,22 +428,47 @@ class MusicPlayer {
         this.loadSong();
     }
 
+    updatePlayerPlaylist() {
+        // Reinitialize player with new playlist when switching playlists
+        if (this.player && this.isReady) {
+            this._updatingPlaylist = true;
+            this.isReady = false;
+            // Destroy the old player
+            try {
+                this.player.destroy();
+            } catch (e) {
+                // Ignore errors if player is already destroyed
+            }
+            this.player = null;
+            
+            // Clear the YouTube element to ensure clean state
+            const youtubeElement = document.getElementById(this.selectors.youtube);
+            if (youtubeElement) {
+                youtubeElement.innerHTML = '';
+            }
+            
+            // Wait a bit for YouTube API to clean up, then reinitialize with new playlist
+            setTimeout(() => {
+                this.setupPlayer();
+            }, 100);
+        }
+    }
+
     loadSong() {
         if (!this.player || !this.isReady) {
-            console.warn('Cannot load song: player not ready');
             return;
         }
 
         const currentSong = this.songs[this.currentSongIndex];
         if (!currentSong) {
-            console.error('No song found at index:', this.currentSongIndex);
             return;
         }
 
-        console.log('Loading song:', currentSong.title, 'ID:', currentSong.id);
         const wasPlaying = this.player.getPlayerState() === YT.PlayerState.PLAYING;
 
         try {
+            // Load the video - loadVideoById works for individual videos
+            // The playlist parameter in player initialization handles looping
             this.player.loadVideoById({
                 videoId: currentSong.id,
                 startSeconds: 0
@@ -404,22 +491,19 @@ class MusicPlayer {
                                 state === YT.PlayerState.ENDED ||
                                 state === YT.PlayerState.UNSTARTED) {
                                 this.player.playVideo();
-                                console.log('Playing song:', currentSong.title);
                             } else if (attempts < 10) {
                                 // Retry after 200ms if not ready yet
-                                setTimeout(tryPlay, 200);
-                            } else {
-                                console.warn('Video did not load in time for:', currentSong.title);
-                            }
-                        } catch (error) {
-                            console.error('Failed to resume playback:', error);
-                        }
+                                                    setTimeout(tryPlay, 200);
+                                                }
+                                            } catch (error) {
+                                                // Failed to resume playback
+                                            }
                     }
                 };
                 setTimeout(tryPlay, 500);
             }
         } catch (error) {
-            console.error('Failed to load song:', currentSong.title, error);
+            // Failed to load song
         }
     }
 
@@ -506,47 +590,112 @@ class MusicPlayer {
                 const songId = item.getAttribute('data-song-id');
 
                 // Switch to the playlist if not current
-                if (playlistId !== currentPlaylistId) {
+                const playlistSwitched = playlistId !== currentPlaylistId;
+                if (playlistSwitched) {
+                    // Reload playlists data from storage to ensure we have latest
+                    this.playlistsData = this.storage.load();
                     this.storage.setCurrentPlaylist(this.playlistsData, playlistId);
                     this.loadPlaylists();
+                    // Verify the playlist was loaded correctly
+                    const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
+                    if (!currentPlaylist || currentPlaylist.id !== playlistId) {
+                        console.error('Failed to switch playlist');
+                        return;
+                    }
+                    // Double-check that songs array matches the current playlist
+                    if (this.songs.length !== currentPlaylist.songs.length || 
+                        !this.songs.every((s, i) => s.id === currentPlaylist.songs[i].id)) {
+                        this.songs = [...currentPlaylist.songs];
+                    }
                 }
 
                 // Find the song in the current songs array
+                // Verify the song exists in the current playlist
+                const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
+                if (!currentPlaylist || !currentPlaylist.songs || !currentPlaylist.songs.some(s => s.id === songId)) {
+                    // Song not in current playlist, reload and try again
+                    this.playlistsData = this.storage.load();
+                    this.loadPlaylists();
+                }
+                
                 const actualSongIndex = this.songs.findIndex(s => s.id === songId);
                 if (actualSongIndex >= 0) {
                     if (actualSongIndex !== this.currentSongIndex) {
                         this.currentSongIndex = actualSongIndex;
-                        const wasPlaying = this.player && this.isReady &&
-                            this.player.getPlayerState() === YT.PlayerState.PLAYING;
-                        this.loadSong();
-                        // If nothing was playing, start playing the selected song
-                        if (!wasPlaying && this.player && this.isReady) {
-                            // Wait for video to load before playing
+                        
+                        // Update player with new playlist AFTER setting currentSongIndex
+                        if (playlistSwitched) {
+                            this.updatePlayerPlaylist();
+                        }
+                        
+                        // If we switched playlists, wait for player to be ready
+                        if (playlistSwitched) {
+                            const wasPlaying = false; // Don't resume if we switched playlists
                             let attempts = 0;
-                            const tryPlay = () => {
+                            const waitAndLoad = () => {
                                 attempts++;
                                 if (this.player && this.isReady) {
-                                    try {
-                                        const state = this.player.getPlayerState();
-                                        // Check if video is loaded (CUED, PAUSED, or ENDED means it's ready)
-                                        if (state === YT.PlayerState.CUED ||
-                                            state === YT.PlayerState.PAUSED ||
-                                            state === YT.PlayerState.ENDED ||
-                                            state === YT.PlayerState.UNSTARTED) {
-                                            this.player.playVideo();
-                                            console.log('Playing selected song:', this.songs[actualSongIndex].title);
-                                        } else if (attempts < 15) {
-                                            // Retry after 200ms if not ready yet (up to 3 seconds)
-                                            setTimeout(tryPlay, 200);
-                                        } else {
-                                            console.warn('Video did not load in time for:', this.songs[actualSongIndex].title);
-                                        }
-                                    } catch (error) {
-                                        console.error('Failed to play selected song:', error);
-                                    }
+                                    this.loadSong();
+                                    // Start playing the selected song
+                                    setTimeout(() => {
+                                        let playAttempts = 0;
+                                        const tryPlay = () => {
+                                            playAttempts++;
+                                            if (this.player && this.isReady) {
+                                                try {
+                                                    const state = this.player.getPlayerState();
+                                                    if (state === YT.PlayerState.CUED ||
+                                                        state === YT.PlayerState.PAUSED ||
+                                                        state === YT.PlayerState.ENDED ||
+                                                        state === YT.PlayerState.UNSTARTED) {
+                                                        this.player.playVideo();
+                                                    } else if (playAttempts < 15) {
+                                                        setTimeout(tryPlay, 200);
+                                                    }
+                                                } catch (error) {
+                                                    // Failed to play selected song
+                                                }
+                                            } else if (playAttempts < 30) {
+                                                setTimeout(tryPlay, 200);
+                                            }
+                                        };
+                                        tryPlay();
+                                    }, 500);
+                                } else if (attempts < 50) {
+                                    setTimeout(waitAndLoad, 100);
                                 }
                             };
-                            setTimeout(tryPlay, 500);
+                            waitAndLoad();
+                        } else {
+                            const wasPlaying = this.player && this.isReady &&
+                                this.player.getPlayerState() === YT.PlayerState.PLAYING;
+                            this.loadSong();
+                            // If nothing was playing, start playing the selected song
+                            if (!wasPlaying && this.player && this.isReady) {
+                                // Wait for video to load before playing
+                                let attempts = 0;
+                                const tryPlay = () => {
+                                    attempts++;
+                                    if (this.player && this.isReady) {
+                                        try {
+                                            const state = this.player.getPlayerState();
+                                            // Check if video is loaded (CUED, PAUSED, or ENDED means it's ready)
+                                            if (state === YT.PlayerState.CUED ||
+                                                state === YT.PlayerState.PAUSED ||
+                                                state === YT.PlayerState.ENDED ||
+                                                state === YT.PlayerState.UNSTARTED) {
+                                                this.player.playVideo();
+                                            } else if (attempts < 15) {
+                                                // Retry after 200ms if not ready yet (up to 3 seconds)
+                                                setTimeout(tryPlay, 200);
+                                            }
+                                        } catch (error) {
+                                            // Failed to play selected song
+                                        }
+                                    }
+                                };
+                                setTimeout(tryPlay, 500);
+                            }
                         }
                     } else {
                         // If clicking the same song, toggle play/pause
@@ -572,7 +721,6 @@ const initMusicPlayer = () => {
         if (window.MusicPlayer && window.MusicPlayer.playlistsData) {
             const storage = window.MusicPlayer.storage;
             const currentPlaylist = storage.getCurrentPlaylist(window.MusicPlayer.playlistsData);
-            console.log('Current playlist:', currentPlaylist);
             return currentPlaylist;
         }
         return null;

@@ -31,7 +31,6 @@ class BBotAPI {
             });
             return response.ok;
         } catch (error) {
-            console.error('Ollama connection check failed:', error);
             return false;
         }
     }
@@ -94,7 +93,6 @@ class BBotAPI {
             const data = await response.json();
             return data.models || [];
         } catch (error) {
-            console.error('Failed to list Ollama models:', error);
             // Return empty array on error - caller will handle display
             return [];
         }
@@ -162,7 +160,6 @@ class BBotAPI {
 
             return { success: true, model: modelName };
         } catch (error) {
-            console.error('Failed to pull Ollama model:', error);
             return { success: false, error: this.getErrorMessage(error) };
         }
     }
@@ -206,7 +203,6 @@ class BBotAPI {
             const data = await response.json();
             return data.response || "i couldn't generate a response";
         } catch (error) {
-            console.error('Ollama API error:', error);
             // Re-throw with better error message
             const friendlyError = new Error(this.getErrorMessage(error));
             friendlyError.originalError = error;

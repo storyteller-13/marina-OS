@@ -62,11 +62,10 @@ async function main() {
     const filePath = join(testsDir, file);
     if (await fixTestFile(filePath)) {
       fixedCount++;
-      console.log(`Fixed: ${file}`);
     }
   }
-
-  console.log(`\nFixed ${fixedCount} test files`);
 }
 
-main().catch(console.error);
+main().catch((error) => {
+  process.exit(1);
+});

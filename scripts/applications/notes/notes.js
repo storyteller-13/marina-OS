@@ -20,7 +20,6 @@ class NotesApp {
         this.dockItem = document.getElementById(this.dockItemId);
 
         if (!this.window) {
-            console.error('Notes window not found');
             return;
         }
 

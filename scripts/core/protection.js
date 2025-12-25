@@ -102,17 +102,9 @@
         });
     }
 
-    /**
-     * Clears console on page load
-     */
-    function clearConsole() {
-        console.clear();
-    }
-
     // Initialize all protection features
     preventContextMenu();
     preventKeyboardShortcuts();
     monitorDevTools();
     preventImageDragging();
-    clearConsole();
 })();

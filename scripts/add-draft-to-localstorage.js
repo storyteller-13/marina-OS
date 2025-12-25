@@ -14,7 +14,7 @@
         try {
             data = JSON.parse(stored);
         } catch (e) {
-            console.error('Error parsing email data from storage:', e);
+
             return;
         }
     } else {
@@ -39,7 +39,6 @@
     );
 
     if (existingDraft) {
-        console.log('Draft already exists:', existingDraft);
         return;
     }
 
@@ -72,12 +71,7 @@
     // Save back to localStorage
     try {
         localStorage.setItem(storageKey, JSON.stringify(data));
-        console.log('✓ Draft reply to nikolai added to localStorage');
-        console.log('  Draft ID:', draftEmail.id);
-        console.log('  To:', draftEmail.to);
-        console.log('  Subject:', draftEmail.subject);
-        console.log('\nRefresh the page to see the draft in your drafts folder.');
     } catch (e) {
-        console.error('Error saving to localStorage:', e);
+        // Error saving to localStorage
     }
 })();

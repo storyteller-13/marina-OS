@@ -20,7 +20,6 @@ class TerminalApp {
         this.dockItem = document.getElementById(this.dockItemId);
 
         if (!this.window) {
-            console.error('Terminal window not found');
             return;
         }
 

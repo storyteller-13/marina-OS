@@ -19,7 +19,6 @@ class MusicPlayerStorage {
             try {
                 data = JSON.parse(stored);
             } catch (e) {
-                console.error('Error parsing playlists data from storage:', e);
                 data = this.getDefaultData();
                 this.save(data);
                 return data;
@@ -31,7 +30,7 @@ class MusicPlayerStorage {
         }
         
         // Ensure emo playlist exists
-        const emoPlaylist = this.getPlaylist(data, 'emo-playlist');
+        const emoPlaylist = this.getPlaylist(data, 'dualities-playlist');
         if (!emoPlaylist) {
             const defaultData = this.getDefaultData();
             const defaultEmoPlaylist = defaultData.playlists[0];
@@ -43,10 +42,43 @@ class MusicPlayerStorage {
             
             // Set as current if no current playlist
             if (!data.currentPlaylistId) {
-                data.currentPlaylistId = 'emo-playlist';
+                data.currentPlaylistId = 'afterlife && hope';
             }
             
             this.save(data);
+        }
+        
+        // Ensure second playlist exists
+        const playlist2 = this.getPlaylist(data, 'afterlife && hope');
+        if (!playlist2) {
+            if (!data.playlists) {
+                data.playlists = [];
+            }
+            data.playlists.push({
+                id: 'afterlife && hope',
+                name: 'afterlife && hope',
+                songs: [
+                    { id: 'MO0LdXqwDP0', title: 'afterlife' },
+                    { id: '8r-bTAvYkZw', title: 'ave maria' }
+                ]
+            });
+            this.save(data);
+        } else {
+            // Ensure the new song is in the playlist if it exists
+            const hasNewSong = playlist2.songs && playlist2.songs.some(s => s.id === '8r-bTAvYkZw');
+            if (!hasNewSong) {
+                if (!playlist2.songs) {
+                    playlist2.songs = [];
+                }
+                // Find the index of 'afterlife' and insert after it
+                const afterlifeIndex = playlist2.songs.findIndex(s => s.id === 'MO0LdXqwDP0');
+                if (afterlifeIndex >= 0) {
+                    playlist2.songs.splice(afterlifeIndex + 1, 0, { id: '8r-bTAvYkZw', title: 'ave maria' });
+                } else {
+                    playlist2.songs.push({ id: '8r-bTAvYkZw', title: 'ave maria' });
+                }
+                this.save(data);
+            }
         }
         
         return data;
@@ -60,7 +92,7 @@ class MusicPlayerStorage {
         try {
             localStorage.setItem(this.storageKey, JSON.stringify(data));
         } catch (e) {
-            console.error('Error saving playlists data to storage:', e);
+            // Error saving to storage
         }
     }
 
@@ -72,8 +104,8 @@ class MusicPlayerStorage {
         return {
             playlists: [
                 {
-                    id: 'emo-playlist',
-                    name: 'dualities playlist',
+                    id: 'dualities-playlist',
+                    name: 'dualities && healing',
                     songs: [
                         { id: 'IXdNnw99-Ic', title: 'wish you were here' },
                         { id: 'ujNeHIo7oTE', title: 'with or without you' },
@@ -81,9 +113,17 @@ class MusicPlayerStorage {
                         { id: '7jMlFXouPk8', title: 'high hopes' },
                         { id: 'TFjmvfRvjTc', title: 'hey you' }
                     ]
+                },
+                {
+                    id: 'afterlife && hope',
+                    name: 'afterlife && hope',
+                    songs: [
+                        { id: 'MO0LdXqwDP0', title: 'afterlife' },
+                        { id: '8r-bTAvYkZw', title: 'ave maria' }
+                    ]
                 }
             ],
-            currentPlaylistId: 'emo-playlist'
+            currentPlaylistId: 'afterlife && hope'
         };
     }
 

@@ -32,7 +32,6 @@ class NotesStorage {
         // Cache is disabled, so we don't save to localStorage
         // This method is kept for API compatibility but does nothing
         if (!Array.isArray(entries)) {
-            console.error('NotesStorage.save: entries must be an array');
             return;
         }
         // Intentionally not saving to localStorage (cache disabled)
@@ -40,6 +39,20 @@ class NotesStorage {
 
     getDefaultEntries() {
         return [
+            {
+                date: '2025-12-26T00:00:00.000Z',
+                title: '🌺',
+                content: this.cleanContent(`
+happy new year; we will be very happy in 2026
+
+
+
+
+
+
+ps: you can pre-order my new gnarly sci-fi book at 13.vonsteinkirch.com <3
+                `)
+            },
             {
                 date: '2025-12-08T00:00:00.000Z',
                 title: 'today',

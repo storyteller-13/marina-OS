@@ -39,12 +39,6 @@ describe('add-draft-to-localstorage', () => {
       writable: true
     });
 
-    // Mock console methods
-    global.console = {
-      log: vi.fn(),
-      error: vi.fn(),
-      warn: vi.fn()
-    };
   });
 
   afterEach(() => {
@@ -127,11 +121,9 @@ describe('add-draft-to-localstorage', () => {
       };
       localStorage.getItem.mockReturnValue(JSON.stringify(existingData));
       localStorage.setItem.mockClear();
-      console.log.mockClear();
 
       executeScript();
 
-      expect(console.log).toHaveBeenCalledWith('Draft already exists:', expect.any(Object));
       // Should not have called setItem
       expect(localStorage.setItem).not.toHaveBeenCalled();
     });
@@ -152,11 +144,9 @@ describe('add-draft-to-localstorage', () => {
       };
       localStorage.getItem.mockReturnValue(JSON.stringify(existingData));
       localStorage.setItem.mockClear();
-      console.log.mockClear();
 
       executeScript();
 
-      expect(console.log).toHaveBeenCalledWith('Draft already exists:', expect.any(Object));
       expect(localStorage.setItem).not.toHaveBeenCalled();
     });
 
@@ -220,16 +210,11 @@ describe('add-draft-to-localstorage', () => {
     beforeEach(() => {
       localStorage.getItem.mockReturnValue('invalid json{');
       localStorage.setItem.mockClear();
-      console.error.mockClear();
     });
 
     it('should handle parse error gracefully', () => {
       executeScript();
 
-      expect(console.error).toHaveBeenCalledWith(
-        'Error parsing email data from storage:',
-        expect.any(Error)
-      );
       expect(localStorage.setItem).not.toHaveBeenCalled();
     });
   });
@@ -310,38 +295,10 @@ describe('add-draft-to-localstorage', () => {
     });
   });
 
-  describe('console output', () => {
-    beforeEach(() => {
-      localStorage.getItem.mockReturnValue(null);
-      localStorage.setItem.mockClear();
-      console.log.mockClear();
-    });
-
-    it('should log success message', () => {
-      executeScript();
-
-      expect(console.log).toHaveBeenCalledWith('✓ Draft reply to nikolai added to localStorage');
-    });
-
-    it('should log draft details', () => {
-      executeScript();
-
-      expect(console.log).toHaveBeenCalledWith('  Draft ID:', expect.any(Number));
-      expect(console.log).toHaveBeenCalledWith('  To:', 'nikolai@drugoyepolushariye.ru');
-      expect(console.log).toHaveBeenCalledWith('  Subject:', 'Re: Отправляю виртуальный пирожок и немного заботы');
-    });
-
-    it('should log refresh instruction', () => {
-      executeScript();
-
-      expect(console.log).toHaveBeenCalledWith('\nRefresh the page to see the draft in your drafts folder.');
-    });
-  });
 
   describe('error handling', () => {
     beforeEach(() => {
       localStorage.getItem.mockReturnValue(null);
-      console.error.mockClear();
     });
 
     it('should handle localStorage.setItem error', () => {
@@ -350,11 +307,6 @@ describe('add-draft-to-localstorage', () => {
       });
 
       executeScript();
-
-      expect(console.error).toHaveBeenCalledWith(
-        'Error saving to localStorage:',
-        expect.any(Error)
-      );
     });
   });
 });

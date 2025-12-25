@@ -20,7 +20,6 @@ class TodoApp {
         this.dockItem = document.getElementById(this.dockItemId);
 
         if (!this.window) {
-            console.error('Todo window not found');
             return;
         }
 
