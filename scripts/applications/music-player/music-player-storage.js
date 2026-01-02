@@ -58,6 +58,13 @@ class MusicPlayerStorage {
         return {
             playlists: [
                 {
+                    id: 'renewal',
+                    name: 'renewal 2026',
+                    songs: [
+                        { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' }
+                    ]
+                },
+                {
                     id: 'dualities-playlist',
                     name: 'dualities 2025',
                     songs: [
@@ -78,7 +85,7 @@ class MusicPlayerStorage {
                     ]
                 }
             ],
-            currentPlaylistId: 'afterlife 2025'
+            currentPlaylistId: 'renewal'
         };
     }
 

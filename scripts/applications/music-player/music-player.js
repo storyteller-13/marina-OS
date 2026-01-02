@@ -30,6 +30,40 @@ class MusicPlayer {
     loadPlaylists() {
         this.playlistsData = this.storage.load();
         
+        // Ensure renewal playlist exists, create it if it doesn't, and ensure it's at the top
+        const renewalPlaylist = this.storage.getPlaylist(this.playlistsData, 'renewal');
+        if (!renewalPlaylist) {
+            if (!this.playlistsData.playlists) {
+                this.playlistsData.playlists = [];
+            }
+            
+            // Add renewal playlist at the beginning
+            this.playlistsData.playlists.unshift({
+                id: 'renewal',
+                name: 'renewal 2026',
+                songs: [
+                    { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' }
+                ]
+            });
+            
+            this.storage.save(this.playlistsData);
+        } else {
+            // Ensure renewal playlist is at the top
+            const renewalIndex = this.playlistsData.playlists.findIndex(p => p.id === 'renewal');
+            if (renewalIndex > 0) {
+                // Remove from current position and add to beginning
+                const renewal = this.playlistsData.playlists.splice(renewalIndex, 1)[0];
+                this.playlistsData.playlists.unshift(renewal);
+                this.storage.save(this.playlistsData);
+            }
+            
+            // Replace all songs in renewal playlist with the new song
+            renewalPlaylist.songs = [
+                { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' }
+            ];
+            this.storage.save(this.playlistsData);
+        }
+        
         // Ensure emo playlist exists, create it if it doesn't
         const emoPlaylist = this.storage.getPlaylist(this.playlistsData, 'dualities-playlist');
         if (!emoPlaylist) {
@@ -112,15 +146,15 @@ class MusicPlayer {
         }
         
         // Load songs from current playlist
-        // If current playlist is the old default, switch to afterlife && hope
+        // If current playlist is the old default, switch to renewal
         if (this.playlistsData.currentPlaylistId === 'dualities-playlist') {
-            this.playlistsData.currentPlaylistId = 'afterlife 2025';
+            this.playlistsData.currentPlaylistId = 'renewal';
             this.storage.save(this.playlistsData);
         }
         
-        // If no current playlist is set, default to afterlife && hope
+        // If no current playlist is set, default to renewal
         if (!this.playlistsData.currentPlaylistId) {
-            this.playlistsData.currentPlaylistId = 'afterlife 2025';
+            this.playlistsData.currentPlaylistId = 'renewal';
             this.storage.save(this.playlistsData);
         }
         
@@ -128,11 +162,11 @@ class MusicPlayer {
         if (currentPlaylist && currentPlaylist.songs && currentPlaylist.songs.length > 0) {
             this.songs = currentPlaylist.songs;
         } else {
-            // Fallback to afterlife playlist if current playlist is empty
-            const afterlifePlaylist = this.storage.getPlaylist(this.playlistsData, 'afterlife 2025');
-            if (afterlifePlaylist && afterlifePlaylist.songs && afterlifePlaylist.songs.length > 0) {
-                this.songs = afterlifePlaylist.songs;
-                this.playlistsData.currentPlaylistId = 'afterlife 2025';
+            // Fallback to renewal playlist if current playlist is empty
+            const renewalPlaylistFallback = this.storage.getPlaylist(this.playlistsData, 'renewal');
+            if (renewalPlaylistFallback && renewalPlaylistFallback.songs && renewalPlaylistFallback.songs.length > 0) {
+                this.songs = renewalPlaylistFallback.songs;
+                this.playlistsData.currentPlaylistId = 'renewal';
                 this.storage.save(this.playlistsData);
             } else {
                 // Last resort: use default data

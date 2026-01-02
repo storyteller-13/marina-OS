@@ -110,11 +110,9 @@ let's get it, fam!
         const d = new Date(date);
         if (isNaN(d.getTime())) return '';
 
-        const months = ['january', 'february', 'march', 'april', 'may', 'june',
-                       'july', 'august', 'september', 'october', 'november', 'december'];
         const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
-        return `${d.getFullYear()}; ${months[d.getMonth()]}; ${d.getDate()}; ${days[d.getDay()]}`;
+        return `${d.getFullYear()}; ${d.getMonth() + 1}; ${d.getDate()}; ${days[d.getDay()]}`;
     }
 }
 
