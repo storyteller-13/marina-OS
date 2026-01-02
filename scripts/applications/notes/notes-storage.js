@@ -41,7 +41,7 @@ class NotesStorage {
         return [
             {
                 date: '2026-01-02T00:00:00.000Z',
-                title: '0, 1, 2, 3 ...',
+                title: '0, 1, 2, 3 ... ♾️',
                 content: this.cleanContent(`
 
 happy new year of 2026 AD, my anon friends!
