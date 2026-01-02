@@ -1,6 +1,9 @@
 /**
- * Vercel Serverless Function - XKCD API Proxy
- * Proxies requests to the XKCD API to avoid CORS issues
+ * Vercel Serverless Function - NASA APOD API Proxy
+ * Proxies requests to the NASA APOD API to avoid CORS and rate limiting issues
+ * 
+ * Set NASA_API_KEY in Vercel environment variables for better rate limits
+ * Get your free API key at: https://api.nasa.gov/
  */
 
 export default async function handler(req, res) {
@@ -19,13 +22,15 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Get the comic number from query params, default to latest (info.0.json)
-    const comicNumber = req.query.num || '0';
-    const apiUrl = comicNumber === '0' 
-      ? 'https://xkcd.com/info.0.json'
-      : `https://xkcd.com/${comicNumber}/info.0.json`;
+    // Use environment variable API key if available, otherwise use DEMO_KEY
+    const apiKey = process.env.NASA_API_KEY || 'DEMO_KEY';
+    
+    // Get date from query params, default to today
+    const date = req.query.date || new Date().toISOString().split('T')[0];
+    
+    const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${date}`;
 
-    // Fetch from XKCD API
+    // Fetch from NASA API
     const response = await fetch(apiUrl, {
       headers: {
         'User-Agent': 'vonsteinkirch.com/1.0',
@@ -33,7 +38,17 @@ export default async function handler(req, res) {
     });
 
     if (!response.ok) {
-      throw new Error(`XKCD API returned ${response.status}: ${response.statusText}`);
+      // Handle rate limiting
+      if (response.status === 429) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        return res.status(429).json({
+          error: 'Rate limit exceeded',
+          message: 'Too many requests. Please try again later.',
+          retryAfter: response.headers.get('Retry-After') || 3600
+        });
+      }
+      
+      throw new Error(`NASA API returned ${response.status}: ${response.statusText}`);
     }
 
     const data = await response.json();
@@ -44,13 +59,9 @@ export default async function handler(req, res) {
     return res.status(200).json(data);
 
   } catch (error) {
-<<<<<<< HEAD
-    console.error('XKCD proxy error:', error);
-=======
->>>>>>> f858d6426cf368fd9a4609d9883230d62c3723be
     res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(500).json({
-      error: 'Failed to fetch XKCD comic',
+      error: 'Failed to fetch APOD',
       message: error.message || 'An unexpected error occurred'
     });
   }

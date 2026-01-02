@@ -27,19 +27,15 @@ class XKCDPanel {
     init() {
         try {
             this.setupEventListeners();
-            // Make sure box is visible
+            // Box should start visible on page load
             const box = document.getElementById('xkcd-box');
             if (box) {
                 box.style.display = 'block';
-                // Ensure box is visible even if CSS hides it
-                const computedStyle = window.getComputedStyle(box);
-                if (computedStyle.display === 'none') {
-                    box.style.display = 'block';
-                }
             }
+            // Load XKCD data and show the box
             this.loadXKCD();
         } catch (error) {
-            console.error('Error initializing XKCD panel:', error);
+            // Error initializing XKCD panel
         }
     }
 
@@ -93,28 +89,22 @@ class XKCDPanel {
      * Loads XKCD data, checking cache first
      */
     async loadXKCD() {
-        console.log('Loading XKCD...');
         // Check cache first
         const cached = this.getCachedXKCD();
         if (cached) {
-            console.log('Using cached XKCD data:', cached);
             this.displayXKCD(cached);
             return;
         }
 
         try {
-            console.log('Fetching XKCD from API...');
             const data = await this.fetchXKCD();
-            console.log('XKCD API response:', data);
             if (data) {
                 this.cacheXKCD(data);
                 this.displayXKCD(data);
             } else {
-                console.error('No data returned from XKCD API');
                 this.showError();
             }
         } catch (error) {
-            console.error('Error in loadXKCD:', error);
             this.showError();
         }
     }
@@ -137,7 +127,6 @@ class XKCDPanel {
         
         if (!isLocalhost && this.apiUrl === '/api/xkcd') {
             try {
-                console.log('Fetching from API endpoint:', this.apiUrl);
                 const response = await this.fetchWithTimeout(this.apiUrl, 10000);
                 
                 if (response.ok) {
@@ -148,7 +137,7 @@ class XKCDPanel {
                     }
                 }
             } catch (error) {
-                console.warn('API endpoint failed, trying CORS proxies...', error);
+                // API endpoint failed, trying CORS proxies
             }
         }
         
@@ -156,7 +145,6 @@ class XKCDPanel {
         for (const proxy of corsProxies) {
             try {
                 const proxyUrl = proxy + encodeURIComponent(xkcdApiUrl);
-                console.log('Trying CORS proxy:', proxyUrl);
                 
                 const response = await this.fetchWithTimeout(proxyUrl, 8000);
                 
@@ -170,17 +158,14 @@ class XKCDPanel {
                     
                     if (data && data.img) {
                         this.ensureAbsoluteImageUrl(data);
-                        console.log('Successfully fetched via CORS proxy');
                         return data;
                     }
                 }
             } catch (error) {
-                console.warn('CORS proxy failed:', error.message);
                 continue; // Try next proxy
             }
         }
         
-        console.error('All fetch methods failed');
         return null;
     }
     
@@ -219,7 +204,6 @@ class XKCDPanel {
      * Displays XKCD data in the box
      */
     displayXKCD(data) {
-        console.log('Displaying XKCD data:', data);
         const imageContainer = document.getElementById('xkcd-box-image-container');
         const titleElement = document.getElementById('xkcd-box-title');
         const popupImage = document.getElementById('xkcd-popup-image');
@@ -227,7 +211,6 @@ class XKCDPanel {
         const popupAlt = document.getElementById('xkcd-alt');
 
         if (!imageContainer) {
-            console.error('XKCD image container not found!');
             return;
         }
 
@@ -236,7 +219,6 @@ class XKCDPanel {
 
         // Ensure we have a valid image URL
         if (!data || !data.img) {
-            console.error('No image URL in data:', data);
             this.showError();
             return;
         }
@@ -245,7 +227,6 @@ class XKCDPanel {
         let imageUrl = data.img;
         
         if (!imageUrl || typeof imageUrl !== 'string') {
-            console.error('Invalid image URL:', imageUrl);
             this.showError();
             return;
         }
@@ -256,8 +237,6 @@ class XKCDPanel {
             imageUrl = 'https://imgs.xkcd.com/comics/' + imageUrl;
         }
         
-        console.log('Loading XKCD image from:', imageUrl);
-        
         // Create image element and set up handlers BEFORE setting src
         const img = document.createElement('img');
         img.alt = data.alt || 'XKCD Comic';
@@ -267,7 +246,6 @@ class XKCDPanel {
         // Force reload if image doesn't load within 5 seconds
         const loadTimeout = setTimeout(() => {
             if (!img.complete || img.naturalWidth === 0) {
-                console.warn('Image load timeout, trying to reload...');
                 const currentSrc = img.src;
                 img.src = '';
                 setTimeout(() => {
@@ -279,8 +257,6 @@ class XKCDPanel {
         // Set up event handlers first
         img.onload = () => {
             clearTimeout(loadTimeout);
-            console.log('✓ XKCD image loaded successfully:', imageUrl);
-            console.log('  Image dimensions:', img.naturalWidth, 'x', img.naturalHeight);
             // Remove any error/loading state
             const errorDiv = imageContainer.querySelector('.xkcd-error, .xkcd-loading');
             if (errorDiv) {
@@ -290,10 +266,6 @@ class XKCDPanel {
         
         img.onerror = (e) => {
             clearTimeout(loadTimeout);
-            console.error('✗ Failed to load XKCD image from:', imageUrl);
-            console.error('  Error event:', e);
-            console.error('  Image src:', img.src);
-            console.error('  Image complete:', img.complete);
             // Remove the failed image
             if (img.parentNode) {
                 img.parentNode.removeChild(img);
@@ -306,23 +278,6 @@ class XKCDPanel {
         
         // Now set the src to trigger loading
         img.src = imageUrl;
-        
-        console.log('Image element created and src set. Waiting for load...');
-        
-        // Log container state after a brief delay
-        setTimeout(() => {
-            const loadedImg = imageContainer.querySelector('img');
-            console.log('Image container state:', {
-                hasImage: loadedImg !== null,
-                containerVisible: imageContainer.offsetWidth > 0 && imageContainer.offsetHeight > 0,
-                containerWidth: imageContainer.offsetWidth,
-                containerHeight: imageContainer.offsetHeight,
-                imageSrc: loadedImg ? loadedImg.src : 'none',
-                imageComplete: loadedImg ? loadedImg.complete : false,
-                imageNaturalWidth: loadedImg ? loadedImg.naturalWidth : 0,
-                imageNaturalHeight: loadedImg ? loadedImg.naturalHeight : 0
-            });
-        }, 500);
 
         // Keep title as "XKCD"
         if (titleElement) {
