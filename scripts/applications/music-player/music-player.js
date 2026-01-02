@@ -661,7 +661,6 @@ class MusicPlayer {
                     // Verify the playlist was loaded correctly
                     const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
                     if (!currentPlaylist || currentPlaylist.id !== playlistId) {
-                        console.error('Failed to switch playlist');
                         return;
                     }
                     // Double-check that songs array matches the current playlist

@@ -59,7 +59,6 @@ export default async function handler(req, res) {
     return res.status(200).json(data);
 
   } catch (error) {
-    console.error('APOD proxy error:', error);
     res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(500).json({
       error: 'Failed to fetch APOD',

@@ -108,7 +108,6 @@ class APODPanel {
                 this.showError('Unable to load APOD. Rate limit may be active.');
             }
         } catch (error) {
-            console.error('Error loading APOD:', error);
             // Check if we have any cached data to show (even if expired)
             const cachedData = this.getCachedAPOD();
             if (cachedData) {
@@ -140,7 +139,6 @@ class APODPanel {
             
             // Handle rate limiting
             if (response.status === 429) {
-                console.warn('Rate limited by NASA API, using cached data if available');
                 const cached = this.getCachedAPOD();
                 if (cached) {
                     return cached;
@@ -176,7 +174,6 @@ class APODPanel {
 
             return data;
         } catch (error) {
-            console.error('Error fetching APOD:', error);
             // Try a random date from the past week as fallback (only if not rate limited)
             if (!error.message.includes('Rate limited')) {
                 return this.fetchRandomAPOD();
