@@ -61,7 +61,8 @@ class MusicPlayerStorage {
                     id: 'renewal',
                     name: '2026 renewal',
                     songs: [
-                        { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' }
+                        { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' },
+                        { id: 'X2959NkomEc', title: 'up all night' }
                     ]
                 },
                 {

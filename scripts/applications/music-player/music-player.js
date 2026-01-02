@@ -42,7 +42,8 @@ class MusicPlayer {
                 id: 'renewal',
                 name: '2026 renewal',
                 songs: [
-                    { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' }
+                    { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' },
+                    { id: 'X2959NkomEc', title: 'up all night' }
                 ]
             });
             
@@ -57,11 +58,22 @@ class MusicPlayer {
                 this.storage.save(this.playlistsData);
             }
             
-            // Replace all songs in renewal playlist with the new song
-            renewalPlaylist.songs = [
-                { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' }
-            ];
-            this.storage.save(this.playlistsData);
+            // Ensure the new song is in the renewal playlist if it doesn't exist
+            const newSongId = 'X2959NkomEc';
+            const hasNewSong = renewalPlaylist.songs && renewalPlaylist.songs.some(s => s.id === newSongId);
+            if (!hasNewSong) {
+                if (!renewalPlaylist.songs) {
+                    renewalPlaylist.songs = [];
+                }
+                // Ensure the default song exists
+                const hasDefaultSong = renewalPlaylist.songs.some(s => s.id === 'ya7L3A1DOlg');
+                if (!hasDefaultSong) {
+                    renewalPlaylist.songs.push({ id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' });
+                }
+                // Add the new song
+                renewalPlaylist.songs.push({ id: newSongId, title: 'up all night' });
+                this.storage.save(this.playlistsData);
+            }
         }
         
         // Ensure emo playlist exists, create it if it doesn't
