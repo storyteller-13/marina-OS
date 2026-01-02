@@ -42,8 +42,8 @@ class MusicPlayer {
                 id: 'renewal',
                 name: '2026 renewal',
                 songs: [
-                    { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' },
-                    { id: 'X2959NkomEc', title: 'up all night' }
+                    { id: 'X2959NkomEc', title: 'up all night' },
+                    { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' }
                 ]
             });
             
@@ -65,13 +65,13 @@ class MusicPlayer {
                 if (!renewalPlaylist.songs) {
                     renewalPlaylist.songs = [];
                 }
+                // Add the new song first
+                renewalPlaylist.songs.push({ id: newSongId, title: 'up all night' });
                 // Ensure the default song exists
                 const hasDefaultSong = renewalPlaylist.songs.some(s => s.id === 'ya7L3A1DOlg');
                 if (!hasDefaultSong) {
                     renewalPlaylist.songs.push({ id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' });
                 }
-                // Add the new song
-                renewalPlaylist.songs.push({ id: newSongId, title: 'up all night' });
                 this.storage.save(this.playlistsData);
             }
         }
