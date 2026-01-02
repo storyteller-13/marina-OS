@@ -57,7 +57,7 @@ time to believe in ourselves like never before
 here some dates for you to keep in mind:
 
 ➡️ january is big cap energy - the best month in the year to get things done - do not waste your time (plus, you should join me on my new weird weekly podcast, more dets soon!)
-➡️ february is when the eclipse season in aqua starts, plus the big neptune+saturn conjuct, things are going to get whimsical, get ready! (plus, LOGIC 13 Act I will be out!)
+➡️ february is when the eclipse season in aqua starts, plus the big neptune+saturn conjuction, things are going to get whimsical, get ready! (plus, LOGIC 13 Act I will be out!)
 
 let's get it, fam!
 
