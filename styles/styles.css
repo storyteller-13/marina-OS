@@ -621,31 +621,119 @@ a.menu-button {
     transform: scale(1.05) rotate(-5deg);
 }
 
-.form-box-iframe-container {
+.form-box-form-container {
     width: 100%;
-    height: 389px;
     border-radius: 8px;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px;
+}
+
+.contact-form {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-group label {
+    color: #bbf7d0;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: lowercase;
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 6px;
+    padding: 8px 10px;
+    color: #e0e0e0;
+    font-size: 12px;
+    font-family: inherit;
     transition: all 0.2s;
-    border: 1px solid rgba(34, 197, 94, 0.2);
-}
-
-.form-box-iframe-container:hover {
-    border-color: rgba(34, 197, 94, 0.5);
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
-}
-
-.form-box-iframe-container iframe {
     width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-    max-width: 320px;
-    max-height: 389px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(34, 197, 94, 0.7);
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(187, 247, 208, 0.4);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.form-submit-btn {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.4) 0%, rgba(21, 128, 61, 0.4) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.6);
+    color: #bbf7d0;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: lowercase;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+    font-family: inherit;
+    margin-top: 4px;
+}
+
+.form-submit-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.6) 0%, rgba(21, 128, 61, 0.6) 100%);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+    border-color: rgba(34, 197, 94, 0.9);
+    transform: translateY(-1px);
+}
+
+.form-submit-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.form-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.form-message {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    text-align: center;
+    margin-top: 4px;
+}
+
+.form-message.form-success {
+    background: rgba(34, 197, 94, 0.2);
+    border: 1px solid rgba(34, 197, 94, 0.5);
+    color: #bbf7d0;
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+}
+
+.form-message.form-error {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    color: #fca5a5;
+    text-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
 }
 
 .apod-popup {
@@ -3445,13 +3533,8 @@ a.dock-item {
         right: 20px;
     }
 
-    .form-box-iframe-container {
-        height: 350px;
-    }
-
-    .form-box-iframe-container iframe {
-        width: 320px;
-        height: 350px;
+    .form-box-form-container {
+        padding: 10px;
     }
 
     .form-box-close {
@@ -3872,13 +3955,12 @@ a.dock-item {
         padding: 10px;
     }
 
-    .form-box-iframe-container {
-        height: 200px;
+    .form-box-form-container {
+        padding: 8px;
     }
 
-    .form-box-iframe-container iframe {
-        width: 100%;
-        height: 200px;
+    .form-group textarea {
+        min-height: 80px;
     }
 
     .form-box-close {
@@ -4033,13 +4115,12 @@ a.dock-item {
         width: 220px;
     }
 
-    .form-box-iframe-container {
-        height: 150px;
+    .form-box-form-container {
+        padding: 6px;
     }
 
-    .form-box-iframe-container iframe {
-        width: 100%;
-        height: 150px;
+    .form-group textarea {
+        min-height: 60px;
     }
 
     .form-box-close {

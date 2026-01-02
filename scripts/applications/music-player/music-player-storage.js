@@ -59,14 +59,14 @@ class MusicPlayerStorage {
             playlists: [
                 {
                     id: 'renewal',
-                    name: 'renewal 2026',
+                    name: '2026 renewal',
                     songs: [
                         { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' }
                     ]
                 },
                 {
                     id: 'dualities-playlist',
-                    name: 'dualities 2025',
+                    name: '2025 dualities',
                     songs: [
                         { id: 'IXdNnw99-Ic', title: 'wish you were here' },
                         { id: 'ujNeHIo7oTE', title: 'with or without you' },
@@ -77,7 +77,7 @@ class MusicPlayerStorage {
                 },
                 {
                     id: 'afterlife 2025',
-                    name: 'afterlife 2025',
+                    name: '2025 afterlife',
                     songs: [
                         { id: 'MO0LdXqwDP0', title: 'afterlife' },
                         { id: '8r-bTAvYkZw', title: 'ave maria' },
