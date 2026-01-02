@@ -47,7 +47,10 @@ class NotesStorage {
 happy new year of 2026 AD, my anon friends!
 we did it - 2025 is now over - thanks g0ds.
 
-time to go chase all our wildest dreams and create the best year of our lives
+it's renewal time
+
+time to go chase all our wildest dreams
+time to create the best year of our lives yet
 time to stop the excuses and live the life we've always wanted
 time to dream
 
