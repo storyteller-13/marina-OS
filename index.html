@@ -198,6 +198,25 @@
             </div>
         </div>
 
+        <!-- XKCD Box -->
+        <div class="xkcd-box" id="xkcd-box">
+            <div class="xkcd-box-glow"></div>
+            <div class="xkcd-box-content">
+                <div class="xkcd-box-header">
+                    <div class="xkcd-icon-wrapper">
+                        <span class="xkcd-icon">📰</span>
+                    </div>
+                    <span class="xkcd-box-title" id="xkcd-box-title">XKCD</span>
+                    <button class="xkcd-box-close" id="xkcd-box-close" title="Close">
+                        <span class="close-icon">×</span>
+                    </button>
+                </div>
+                <div class="xkcd-box-image-container" id="xkcd-box-image-container">
+                    <div class="xkcd-loading">loading...</div>
+                </div>
+            </div>
+        </div>
+
         <!-- APOD Box -->
         <div class="apod-box" id="apod-box">
             <div class="apod-box-glow"></div>
@@ -251,6 +270,20 @@
                         <div class="form-message" id="form-message" style="display: none;"></div>
                     </form>
                 </div>
+            </div>
+        </div>
+
+        <!-- XKCD Popup -->
+        <div class="xkcd-popup" id="xkcd-popup" style="display: none;">
+            <div class="xkcd-popup-content">
+                <div class="xkcd-popup-header">
+                    <span class="xkcd-title" id="xkcd-title"></span>
+                    <button class="xkcd-close" id="xkcd-close">×</button>
+                </div>
+                <div class="xkcd-popup-image-container">
+                    <img class="xkcd-popup-image" id="xkcd-popup-image" alt="XKCD Comic">
+                </div>
+                <div class="xkcd-popup-alt" id="xkcd-alt"></div>
             </div>
         </div>
 
@@ -883,6 +916,9 @@
     <!-- B-Bot App -->
     <script src="scripts/applications/b-bot/b-bot-api.js"></script>
     <script src="scripts/applications/b-bot/b-bot.js"></script>
+
+    <!-- XKCD Panel -->
+    <script src="scripts/applications/xkcd/xkcd.js"></script>
 
     <!-- APOD Panel -->
     <script src="scripts/applications/apod/apod.js"></script>
