@@ -59,7 +59,7 @@ class MusicPlayerStorage {
             playlists: [
                 {
                     id: 'dualities-playlist',
-                    name: 'dualities && healing',
+                    name: 'dualities 2025',
                     songs: [
                         { id: 'IXdNnw99-Ic', title: 'wish you were here' },
                         { id: 'ujNeHIo7oTE', title: 'with or without you' },
@@ -69,8 +69,8 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id: 'afterlife && hope',
-                    name: 'afterlife && hope',
+                    id: 'afterlife 2025',
+                    name: 'afterlife 2025',
                     songs: [
                         { id: 'MO0LdXqwDP0', title: 'afterlife' },
                         { id: '8r-bTAvYkZw', title: 'ave maria' },
@@ -78,7 +78,7 @@ class MusicPlayerStorage {
                     ]
                 }
             ],
-            currentPlaylistId: 'afterlife && hope'
+            currentPlaylistId: 'afterlife 2025'
         };
     }
 

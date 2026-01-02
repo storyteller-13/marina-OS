@@ -15,6 +15,7 @@ class TodoStorage {
 
     getTodos() {
         const defaultTodoData = [
+            { text: 'be happy && grateful every single day', completed: false },
             { text: 'finish the first book', completed: false },
             { text: 'start the friday sermons', completed: false },
             { text: 'get ready for the best year ever yet', completed: true }

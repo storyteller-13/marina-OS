@@ -48,28 +48,28 @@ class MusicPlayer {
             
             this.playlistsData.playlists.push({
                 id: 'dualities-playlist',
-                name: 'dualities && healing',
+                name: 'dualities 2025',
                 songs: emoSongs
             });
             
             // Set as current playlist if no current playlist is set
             if (!this.playlistsData.currentPlaylistId) {
-                this.playlistsData.currentPlaylistId = 'afterlife && hope';
+                this.playlistsData.currentPlaylistId = 'afterlife 2025';
             }
             
             this.storage.save(this.playlistsData);
         }
         
         // Ensure second playlist exists, create it if it doesn't
-        const playlist2 = this.storage.getPlaylist(this.playlistsData, 'afterlife && hope');
+        const playlist2 = this.storage.getPlaylist(this.playlistsData, 'afterlife 2025');
         if (!playlist2) {
             if (!this.playlistsData.playlists) {
                 this.playlistsData.playlists = [];
             }
             
             this.playlistsData.playlists.push({
-                id: 'afterlife && hope',
-                name: 'afterlife && hope',
+                id: 'afterlife 2025',
+                name: 'afterlife 2025',
                 songs: [
                     { id: 'MO0LdXqwDP0', title: 'afterlife' },
                     { id: '8r-bTAvYkZw', title: 'ave maria' },
@@ -114,13 +114,13 @@ class MusicPlayer {
         // Load songs from current playlist
         // If current playlist is the old default, switch to afterlife && hope
         if (this.playlistsData.currentPlaylistId === 'dualities-playlist') {
-            this.playlistsData.currentPlaylistId = 'afterlife && hope';
+            this.playlistsData.currentPlaylistId = 'afterlife 2025';
             this.storage.save(this.playlistsData);
         }
         
         // If no current playlist is set, default to afterlife && hope
         if (!this.playlistsData.currentPlaylistId) {
-            this.playlistsData.currentPlaylistId = 'afterlife && hope';
+            this.playlistsData.currentPlaylistId = 'afterlife 2025';
             this.storage.save(this.playlistsData);
         }
         
@@ -129,10 +129,10 @@ class MusicPlayer {
             this.songs = currentPlaylist.songs;
         } else {
             // Fallback to afterlife playlist if current playlist is empty
-            const afterlifePlaylist = this.storage.getPlaylist(this.playlistsData, 'afterlife && hope');
+            const afterlifePlaylist = this.storage.getPlaylist(this.playlistsData, 'afterlife 2025');
             if (afterlifePlaylist && afterlifePlaylist.songs && afterlifePlaylist.songs.length > 0) {
                 this.songs = afterlifePlaylist.songs;
-                this.playlistsData.currentPlaylistId = 'afterlife && hope';
+                this.playlistsData.currentPlaylistId = 'afterlife 2025';
                 this.storage.save(this.playlistsData);
             } else {
                 // Last resort: use default data
