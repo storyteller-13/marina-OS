@@ -52,7 +52,7 @@ it's renewal time
 time to go chase all our wildest dreams
 time to create the best year of our lives yet
 time to stop the excuses and live the life we've always wanted
-time to dream bigger and believe in ourselves
+time to believe in ourselves like never before
 
 here some dates for you to keep in mind:
 
