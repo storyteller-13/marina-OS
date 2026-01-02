@@ -60,6 +60,8 @@ here some dates for you to keep in mind:
 ➡️ february is when the eclipse season in aqua starts, plus the big neptune+saturn conjuct, things are going to get whimsical, get ready! (plus, LOGIC 13 Act I will be out!)
 
 let's get it, fam!
+
+ps: is he coming??
                 `)
             }
         ];
