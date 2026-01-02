@@ -4,8 +4,22 @@
  */
 class APODPanel {
     constructor() {
-        this.apiUrl = 'https://api.nasa.gov/planetary/apod';
-        this.apiKey = 'DEMO_KEY'; // Free API key, can be replaced with your own
+        // Use API proxy to avoid CORS and rate limiting issues
+        // Check if we're on localhost (local dev) or production
+        const isLocalhost = window.location.hostname === 'localhost' || 
+                           window.location.hostname === '127.0.0.1' ||
+                           window.location.hostname === '';
+        
+        if (isLocalhost) {
+            // For local development, use NASA API directly with DEMO_KEY
+            this.apiUrl = 'https://api.nasa.gov/planetary/apod';
+            this.apiKey = 'DEMO_KEY';
+        } else {
+            // For production, use our API endpoint
+            this.apiUrl = '/api/apod';
+            this.apiKey = null; // Not needed when using proxy
+        }
+        
         this.cacheKey = 'apod_cache';
         this.cacheExpiry = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
         this.init();
@@ -70,6 +84,18 @@ class APODPanel {
         const cached = this.getCachedAPOD();
         if (cached) {
             this.displayAPOD(cached);
+            // Still try to fetch fresh data in background (but don't block on it)
+            this.fetchAPOD().then(data => {
+                if (data) {
+                    this.cacheAPOD(data);
+                    // Only update if we got new data
+                    if (data.date !== cached.date) {
+                        this.displayAPOD(data);
+                    }
+                }
+            }).catch(() => {
+                // Silently fail - we already have cached data displayed
+            });
             return;
         }
 
@@ -78,9 +104,18 @@ class APODPanel {
             if (data) {
                 this.cacheAPOD(data);
                 this.displayAPOD(data);
+            } else {
+                this.showError('Unable to load APOD. Rate limit may be active.');
             }
         } catch (error) {
-            this.showError();
+            console.error('Error loading APOD:', error);
+            // Check if we have any cached data to show (even if expired)
+            const cachedData = this.getCachedAPOD();
+            if (cachedData) {
+                this.displayAPOD(cachedData);
+            } else {
+                this.showError('Unable to load APOD. Please try again later.');
+            }
         }
     }
 
@@ -91,9 +126,28 @@ class APODPanel {
         try {
             // Try to get today's picture
             const today = new Date().toISOString().split('T')[0];
-            const url = `${this.apiUrl}?api_key=${this.apiKey}&date=${today}`;
+            let url;
+            
+            if (this.apiKey) {
+                // Direct API call (local dev)
+                url = `${this.apiUrl}?api_key=${this.apiKey}&date=${today}`;
+            } else {
+                // API proxy (production)
+                url = `${this.apiUrl}?date=${today}`;
+            }
 
             const response = await fetch(url);
+            
+            // Handle rate limiting
+            if (response.status === 429) {
+                console.warn('Rate limited by NASA API, using cached data if available');
+                const cached = this.getCachedAPOD();
+                if (cached) {
+                    return cached;
+                }
+                throw new Error('Rate limited and no cached data available');
+            }
+            
             if (!response.ok) {
                 throw new Error(`API returned ${response.status}`);
             }
@@ -106,7 +160,14 @@ class APODPanel {
                 const yesterday = new Date();
                 yesterday.setDate(yesterday.getDate() - 1);
                 const yesterdayStr = yesterday.toISOString().split('T')[0];
-                const yesterdayUrl = `${this.apiUrl}?api_key=${this.apiKey}&date=${yesterdayStr}`;
+                
+                let yesterdayUrl;
+                if (this.apiKey) {
+                    yesterdayUrl = `${this.apiUrl}?api_key=${this.apiKey}&date=${yesterdayStr}`;
+                } else {
+                    yesterdayUrl = `${this.apiUrl}?date=${yesterdayStr}`;
+                }
+                
                 const yesterdayResponse = await fetch(yesterdayUrl);
                 if (yesterdayResponse.ok) {
                     return await yesterdayResponse.json();
@@ -115,8 +176,12 @@ class APODPanel {
 
             return data;
         } catch (error) {
-            // Try a random date from the past week as fallback
-            return this.fetchRandomAPOD();
+            console.error('Error fetching APOD:', error);
+            // Try a random date from the past week as fallback (only if not rate limited)
+            if (!error.message.includes('Rate limited')) {
+                return this.fetchRandomAPOD();
+            }
+            return null;
         }
     }
 
@@ -129,9 +194,21 @@ class APODPanel {
             const date = new Date();
             date.setDate(date.getDate() - daysAgo);
             const dateStr = date.toISOString().split('T')[0];
-            const url = `${this.apiUrl}?api_key=${this.apiKey}&date=${dateStr}`;
+            
+            let url;
+            if (this.apiKey) {
+                url = `${this.apiUrl}?api_key=${this.apiKey}&date=${dateStr}`;
+            } else {
+                url = `${this.apiUrl}?date=${dateStr}`;
+            }
 
             const response = await fetch(url);
+            
+            // Don't retry if rate limited
+            if (response.status === 429) {
+                return null;
+            }
+            
             if (response.ok) {
                 const data = await response.json();
                 if (data.media_type === 'image') {
@@ -215,10 +292,14 @@ class APODPanel {
     /**
      * Shows error state
      */
-    showError() {
+    showError(message = '') {
         const imageContainer = document.getElementById('apod-box-image-container');
         if (imageContainer) {
-            imageContainer.innerHTML = '<div class="apod-error">🌌</div>';
+            if (message) {
+                imageContainer.innerHTML = `<div class="apod-error">🌌<br><small>${message}</small></div>`;
+            } else {
+                imageContainer.innerHTML = '<div class="apod-error">🌌</div>';
+            }
         }
     }
 
