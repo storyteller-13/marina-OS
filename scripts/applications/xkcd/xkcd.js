@@ -27,12 +27,16 @@ class XKCDPanel {
     init() {
         try {
             this.setupEventListeners();
-            // Box should start visible on page load
+            // Make sure box is visible
             const box = document.getElementById('xkcd-box');
             if (box) {
                 box.style.display = 'block';
+                // Ensure box is visible even if CSS hides it
+                const computedStyle = window.getComputedStyle(box);
+                if (computedStyle.display === 'none') {
+                    box.style.display = 'block';
+                }
             }
-            // Load XKCD data and show the box
             this.loadXKCD();
         } catch (error) {
             // Error initializing XKCD panel
