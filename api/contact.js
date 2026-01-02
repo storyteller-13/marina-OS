@@ -99,7 +99,6 @@ ${message}
     });
 
   } catch (error) {
-    console.error('Contact form error:', error);
     res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(500).json({
       error: 'Failed to send email',
