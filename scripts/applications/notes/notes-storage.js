@@ -40,76 +40,28 @@ class NotesStorage {
     getDefaultEntries() {
         return [
             {
-                date: '2025-12-26T00:00:00.000Z',
-                title: '🌺',
+                date: '2026-01-02T00:00:00.000Z',
+                title: '0, 1, 2, 3 ... ♾️',
                 content: this.cleanContent(`
-happy new year; we will be very happy in 2026
 
+happy new year of 2026 AD, my anon friends!
+we did it - 2025 is now over - thanks g0ds.
 
+it's renewal time
 
+time to go chase all our wildest dreams
+time to create the best year of our lives yet
+time to stop the excuses and live the life we've always wanted
+time to believe in ourselves like never before
 
+here some dates for you to keep in mind:
 
+➡️ january is big cap energy - the best month in the year to get things done - do not waste your time (plus, you should join me on my new weird weekly podcast, more dets soon!)
+➡️ february is when the eclipse season in aqua starts, plus the big neptune+saturn conjuction, things are going to get whimsical, get ready! (plus, LOGIC 13 Act I will be out!)
 
-ps: you can pre-order my new gnarly sci-fi book at 13.vonsteinkirch.com <3
-                `)
-            },
-            {
-                date: '2025-12-08T00:00:00.000Z',
-                title: 'today',
-                content: this.cleanContent(`
-we get up and fight...
-                `)
-            },
-            {
-                date: '2025-12-15T00:00:00.000Z',
-                title: 'i am a perfect 10',
-                content: this.cleanContent(`
-obviously, last week was very shocking and painful.
-all these years. all these people in my old life failed me.
-and i don't want to have anything to do with any of them anymore.
+let's get it, fam!
 
-
-i am still learning how to cope with this reality that i was sucked into.
-but i am stronger than i have ever been. and i will make it my reality.
-
-
-and most of my strength is due to the beautiful folks who have been supporting me.
-i don't care about the haters anymore. 
-i have enough good people on my side.
-and i will not die.
-on the contrary, i will be reborn as the star i always have been.
-
-
-and i am a powerful magickian.
-i proved that reality is an illusion several times.
-perhaps i can even claim to be the biggest of our lifetime.
-(and obviously, next year bad people will be prosecuted like hell)
-
-
-but for now, i need to be resurrected from death.
-completely new and apologetically me.
-stronger than ever.
-smarter than ever.
-brighter than ever.
-hotter than ever.
-perfecter than ever.
-
-
-taking a well-deserved break from the interwebs for now.
-need to focus on my work, my new community, my future.
-2026 is going to be the best year ever yet. period.
-
-
-whoever is my real tribe will find me offline.
-my new friends should be excited to meet me there.
-my soulmate can't wait to finally find me in real life.
-
-
-i will be back online when my new artwork is ready.
-all the pain alchemized into gold.
-
-and that's where i start my next glorious life chapter.
-
+ps: is he coming??
                 `)
             }
         ];
@@ -163,11 +115,9 @@ and that's where i start my next glorious life chapter.
         const d = new Date(date);
         if (isNaN(d.getTime())) return '';
 
-        const months = ['january', 'february', 'march', 'april', 'may', 'june',
-                       'july', 'august', 'september', 'october', 'november', 'december'];
         const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
-        return `${d.getFullYear()}; ${months[d.getMonth()]}; ${d.getDate()}; ${days[d.getDay()]}`;
+        return `${d.getFullYear()}; ${d.getMonth() + 1}; ${d.getDate()}; ${days[d.getDay()]}`;
     }
 }
 
