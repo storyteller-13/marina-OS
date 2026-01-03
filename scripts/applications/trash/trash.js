@@ -11,7 +11,7 @@ class TrashApp {
         this.dockItem = null;
         this.desktopIcon = null;
         this.iframe = null;
-        this.originalSrc = 'https://www.youtube.com/embed/WSLMN6g_Od4';
+        this.originalSrc = 'https://www.youtube.com/embed/h1LucGjqXp4';
 
         this.init();
     }
