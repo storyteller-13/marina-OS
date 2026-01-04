@@ -43,7 +43,8 @@ class MusicPlayer {
                 name: '2026 renewal',
                 songs: [
                     { id: 'X2959NkomEc', title: 'up all night' },
-                    { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' }
+                    { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' },
+                    { id: 'kryV3E4QKGk', title: 'secret smile' }
                 ]
             });
             
@@ -72,6 +73,16 @@ class MusicPlayer {
                 if (!hasDefaultSong) {
                     renewalPlaylist.songs.push({ id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' });
                 }
+                this.storage.save(this.playlistsData);
+            }
+            
+            // Ensure the new song (kryV3E4QKGk) is in the renewal playlist if it doesn't exist
+            const hasNewSong2 = renewalPlaylist.songs && renewalPlaylist.songs.some(s => s.id === 'kryV3E4QKGk');
+            if (!hasNewSong2) {
+                if (!renewalPlaylist.songs) {
+                    renewalPlaylist.songs = [];
+                }
+                renewalPlaylist.songs.push({ id: 'kryV3E4QKGk', title: 'secret smile' });
                 this.storage.save(this.playlistsData);
             }
         }
