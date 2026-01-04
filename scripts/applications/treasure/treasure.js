@@ -1,17 +1,17 @@
 /**
- * Trash Window Application Module
+ * Treasure Window Application Module
  * Simple iframe-based window
  */
-class TrashApp {
+class TreasureApp {
     constructor() {
-        this.windowId = 'trash-window';
-        this.dockItemId = 'trash-dock-item';
+        this.windowId = 'treasure-window';
+        this.dockItemId = 'treasure-dock-item';
 
         this.window = null;
         this.dockItem = null;
         this.desktopIcon = null;
         this.iframe = null;
-        this.originalSrc = 'https://www.youtube.com/embed/h1LucGjqXp4';
+        this.originalSrc = 'https://www.youtube.com/embed/2Nb2GAahJIw';
 
         this.init();
     }
@@ -19,8 +19,8 @@ class TrashApp {
     init() {
         this.window = document.getElementById(this.windowId);
         this.dockItem = document.getElementById(this.dockItemId);
-        this.desktopIcon = document.getElementById('trash-desktop-icon');
-        this.iframe = document.getElementById('trash-iframe');
+        this.desktopIcon = document.getElementById('treasure-desktop-icon');
+        this.iframe = document.getElementById('treasure-iframe');
 
         if (!this.window) {
             return;
@@ -118,23 +118,24 @@ class TrashApp {
 }
 
 // Expose class constructor for testing
-window.TrashAppClass = TrashApp;
+window.TreasureAppClass = TreasureApp;
 
 // Initialize when DOM is ready
-const initTrashApp = () => {
-    window.TrashApp = new TrashApp();
+const initTreasureApp = () => {
+    window.TreasureApp = new TreasureApp();
 };
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initTrashApp);
+    document.addEventListener('DOMContentLoaded', initTreasureApp);
 } else {
-    initTrashApp();
+    initTreasureApp();
 }
 
 // Expose open function globally for onclick handlers
-window.openTrashWindow = () => {
-    if (window.TrashApp) {
-        window.TrashApp.open();
+window.openTreasureWindow = () => {
+    if (window.TreasureApp) {
+        window.TreasureApp.open();
     }
 };
+
 

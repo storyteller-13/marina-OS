@@ -51,17 +51,17 @@ it's renewal time
 
 time to go chase all our wildest dreams
 time to create the best year of our lives yet
-time to stop the excuses and live the life we've always wanted
 time to believe in ourselves like never before
+time to stop excuses and live the life we want
 
 here some dates for you to keep in mind:
 
-➡️ january is big cap energy - the best month in the year to get things done - do not waste your time (plus, you should join me on my new weird weekly podcast, more dets soon!)
-➡️ february is when the eclipse season in aqua starts, plus the big neptune+saturn conjuction, things are going to get whimsical, get ready! (plus, LOGIC 13 Act I will be out!)
+➡️ january is big cap energy - the best month in the year to get things done - do not waste time!
+
+➡️ february is when the eclipse season in aqua starts - plus the big neptune+saturn conjuction - things are going to get whimsical, get ready!
 
 let's get it, fam!
 
-ps: is he coming??
                 `)
             }
         ];
