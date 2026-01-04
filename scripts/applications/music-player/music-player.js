@@ -44,7 +44,8 @@ class MusicPlayer {
                 songs: [
                     { id: 'X2959NkomEc', title: 'up all night' },
                     { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' },
-                    { id: 'kryV3E4QKGk', title: 'secret smile' }
+                    { id: 'kryV3E4QKGk', title: 'secret smile' },
+                    { id: 'b9WKC5sT9Z4', title: 'gymnopedies' }
                 ]
             });
             
@@ -83,6 +84,16 @@ class MusicPlayer {
                     renewalPlaylist.songs = [];
                 }
                 renewalPlaylist.songs.push({ id: 'kryV3E4QKGk', title: 'secret smile' });
+                this.storage.save(this.playlistsData);
+            }
+            
+            // Ensure the new song (b9WKC5sT9Z4) is in the renewal playlist if it doesn't exist
+            const hasNewSong3 = renewalPlaylist.songs && renewalPlaylist.songs.some(s => s.id === 'b9WKC5sT9Z4');
+            if (!hasNewSong3) {
+                if (!renewalPlaylist.songs) {
+                    renewalPlaylist.songs = [];
+                }
+                renewalPlaylist.songs.push({ id: 'b9WKC5sT9Z4', title: 'gymnopedies' });
                 this.storage.save(this.playlistsData);
             }
         }

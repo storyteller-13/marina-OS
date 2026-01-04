@@ -63,7 +63,8 @@ class MusicPlayerStorage {
                     songs: [
                         { id: 'X2959NkomEc', title: 'up all night' },
                         { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' },
-                        { id: 'kryV3E4QKGk', title: 'secret smile' }
+                        { id: 'kryV3E4QKGk', title: 'secret smile' },
+                        { id: 'b9WKC5sT9Z4', title: 'gymnopedies' }
                     ]
                 },
                 {
