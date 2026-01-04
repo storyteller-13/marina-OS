@@ -11,7 +11,7 @@ class ArtworkApp {
         this.imagesLoaded = false;
 
         // List of images in pages/artwork directory
-        this.images = ['you_met_me_at_a_very_strange_time_in_my_life.png'];
+        this.images = ['you_met_me_at_a_very_strange_time_in_my_life.png', 'cypherpunk.png'];
 
         this.init();
     }

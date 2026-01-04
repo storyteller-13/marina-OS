@@ -41,7 +41,8 @@
                 'os-release': 'name="vonsteinkirch.com"\nversion="2024.12"\nid=vonsteinkirch\npretty_name="vonsteinkirch.com 2024.12"\nansi_color="0;34"'
             },
             '/artwork': {
-                'you_met_me_at_a_very_strange_time_in_my_life.png': 'file'
+                'you_met_me_at_a_very_strange_time_in_my_life.png': 'file',
+                'cypherpunk.png': 'file'
             }
         };
 
