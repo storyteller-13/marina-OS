@@ -9,6 +9,9 @@ body {
     overflow: hidden;
     background: #000;
     height: 100vh;
+    width: 100vw;
+    position: fixed;
+    -webkit-overflow-scrolling: touch;
 }
 
 .desktop {
@@ -16,6 +19,8 @@ body {
     height: 100vh;
     position: relative;
     background: #000;
+    overflow: hidden;
+    max-width: 100vw;
 }
 
 /* Neon Heart Wallpaper */
@@ -170,7 +175,7 @@ a.menu-button {
     display: inline-block;
 }
 
-.menu-dropdown {
+    .menu-dropdown {
     position: absolute;
     top: 100%;
     left: 0;
@@ -180,6 +185,7 @@ a.menu-button {
     border-radius: 6px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 20px rgba(34, 197, 94, 0.3);
     min-width: 200px;
+    max-width: calc(100vw - 32px);
     display: none;
     z-index: 20001;
     backdrop-filter: blur(10px);
@@ -2154,11 +2160,12 @@ a.desktop-icon {
 }
 
 
-.window-content {
-    height: calc(100% - 32px);
-    overflow: auto;
-    background: rgba(10, 5, 15, 0.9);
-}
+    .window-content {
+        height: calc(100% - 32px);
+        overflow: auto;
+        background: rgba(10, 5, 15, 0.9);
+        -webkit-overflow-scrolling: touch;
+    }
 
 /* Home Window */
 .home-container {
@@ -3862,6 +3869,7 @@ a.dock-item {
     /* Desktop container padding for fixed top panel */
     .desktop {
         padding-top: 48px;
+        padding-bottom: 80px; /* Space for bottom dock */
     }
 
     /* Top Panel */
@@ -3873,6 +3881,20 @@ a.dock-item {
         left: 0;
         right: 0;
         width: 100%;
+        z-index: 20000;
+    }
+
+    .panel-left {
+        flex-shrink: 0;
+    }
+
+    .panel-center {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .panel-right {
+        flex-shrink: 0;
     }
 
     .menu-button {
@@ -3880,19 +3902,53 @@ a.dock-item {
         font-size: 11px;
     }
 
+    .menu-button.cherry-icon {
+        padding: 6px 8px;
+    }
+
+    .menu-button.cherry-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
     .clock {
         font-size: 11px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .system-tray {
+        gap: 8px;
     }
 
     .tray-icon {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        min-height: 24px;
+    }
+
+    .menu-dropdown {
+        max-width: calc(100vw - 32px);
+        left: 0;
+        right: auto;
+    }
+
+    /* Prevent horizontal scrolling */
+    * {
+        max-width: 100%;
+    }
+
+    img, svg, iframe {
+        max-width: 100%;
+        height: auto;
     }
 
     .xkcd-box {
         width: calc(100% - 40px);
         max-width: 360px;
-        bottom: 20px;
+        bottom: 90px; /* Above bottom dock */
         left: 20px;
     }
 
@@ -3911,7 +3967,7 @@ a.dock-item {
     .apod-box {
         width: calc(100% - 40px);
         max-width: 360px;
-        bottom: 20px;
+        bottom: 90px; /* Above bottom dock */
         right: 20px;
     }
 
@@ -3930,7 +3986,7 @@ a.dock-item {
     .form-box {
         width: calc(100% - 40px);
         max-width: 360px;
-        bottom: 20px;
+        bottom: 90px; /* Above bottom dock */
         right: 20px;
     }
 
@@ -4019,20 +4075,27 @@ a.dock-item {
     }
 
     /* Windows */
+    .window {
+        max-width: 100vw;
+        max-height: calc(100vh - 48px - 80px); /* Account for top panel and bottom dock */
+    }
+
     .terminal-window {
         width: 95%;
-        height: 60vh;
-        top: 50%;
+        height: calc(100vh - 48px - 80px);
+        max-height: calc(100vh - 48px - 80px);
+        top: 48px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
     }
 
     .email-window {
         width: 95%;
-        height: 70vh;
-        top: 50%;
+        height: calc(100vh - 48px - 80px);
+        max-height: calc(100vh - 48px - 80px);
+        top: 48px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
     }
 
     .email-layout {
@@ -4071,64 +4134,83 @@ a.dock-item {
 
     .todo-window {
         width: 95%;
-        height: 70vh;
-        top: 50%;
+        height: calc(100vh - 48px - 80px);
+        max-height: calc(100vh - 48px - 80px);
+        top: 48px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
     }
 
     .notes-window {
         width: 95%;
-        height: 75vh;
-        top: 50%;
+        height: calc(100vh - 48px - 80px);
+        max-height: calc(100vh - 48px - 80px);
+        top: 48px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
     }
 
     .notes-letter-window {
         width: 95%;
-        height: 70vh;
+        height: calc(100vh - 48px - 80px);
+        max-height: calc(100vh - 48px - 80px);
+        top: 48px;
+        left: 50%;
+        transform: translateX(-50%);
     }
-
 
     .home-window {
         width: 95%;
-        height: 70vh;
-        top: 50%;
+        height: calc(100vh - 48px - 80px);
+        max-height: calc(100vh - 48px - 80px);
+        top: 48px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
     }
 
     .fridays-window {
         width: 95%;
-        height: 70vh;
-        top: 50%;
+        height: calc(100vh - 48px - 80px);
+        max-height: calc(100vh - 48px - 80px);
+        top: 48px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
     }
 
     .treasure-window {
         width: 95%;
-        height: 70vh;
-        top: 50%;
+        height: calc(100vh - 48px - 80px);
+        max-height: calc(100vh - 48px - 80px);
+        top: 48px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
     }
 
     .b-bot-window {
         width: 95%;
-        height: 70vh;
-        top: 50%;
+        height: calc(100vh - 48px - 80px);
+        max-height: calc(100vh - 48px - 80px);
+        top: 48px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
     }
 
     .artwork-window {
         width: 95%;
-        height: 60vh;
-        top: 50%;
+        height: calc(100vh - 48px - 80px);
+        max-height: calc(100vh - 48px - 80px);
+        top: 48px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
+    }
+
+    .detective-window {
+        width: 95%;
+        height: calc(100vh - 48px - 80px);
+        max-height: calc(100vh - 48px - 80px);
+        top: 48px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
 
@@ -4152,26 +4234,40 @@ a.dock-item {
         bottom: 10px;
         left: 50%;
         transform: translateX(-50%);
-        padding: 6px 8px;
-        gap: 4px;
+        padding: 8px 12px;
+        gap: 6px;
         max-width: calc(100% - 20px);
         overflow-x: auto;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
+        position: fixed;
+        z-index: 1000;
     }
 
     .bottom-dock::-webkit-scrollbar {
         height: 4px;
     }
 
+    .bottom-dock::-webkit-scrollbar-thumb {
+        background: rgba(34, 197, 94, 0.5);
+        border-radius: 2px;
+    }
+
     .dock-item {
-        width: 44px;
-        height: 44px;
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
         flex-shrink: 0;
     }
 
     .dock-icon {
-        font-size: 20px;
+        font-size: 22px;
+    }
+
+    .dock-icon svg {
+        width: 100%;
+        height: 100%;
     }
 
     /* Desktop Icons */
@@ -4335,6 +4431,7 @@ a.dock-item {
     /* Desktop container padding for fixed top panel */
     .desktop {
         padding-top: 52px;
+        padding-bottom: 80px; /* Space for bottom dock */
     }
 
     .top-panel {
@@ -4345,15 +4442,52 @@ a.dock-item {
         left: 0;
         right: 0;
         width: 100%;
+        z-index: 20000;
+    }
+
+    .panel-left {
+        flex-shrink: 0;
+    }
+
+    .panel-center {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .panel-right {
+        flex-shrink: 0;
     }
 
     .menu-button {
-        padding: 8px 8px;
+        padding: 8px 6px;
         font-size: 10px;
+    }
+
+    .menu-button.cherry-icon {
+        padding: 6px 6px;
+    }
+
+    .menu-button.cherry-icon svg {
+        width: 20px;
+        height: 20px;
     }
 
     .clock {
         font-size: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .system-tray {
+        gap: 6px;
+    }
+
+    .tray-icon {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+        min-height: 22px;
     }
 
     .music-player {
@@ -4366,7 +4500,7 @@ a.dock-item {
     .xkcd-box {
         width: calc(100% - 12px);
         max-width: 240px;
-        bottom: 6px;
+        bottom: 90px; /* Above bottom dock */
         left: 6px;
     }
 
@@ -4387,7 +4521,7 @@ a.dock-item {
     .apod-box {
         width: calc(100% - 12px);
         max-width: 240px;
-        bottom: 6px;
+        bottom: 90px; /* Above bottom dock */
         right: 6px;
     }
 
@@ -4408,7 +4542,7 @@ a.dock-item {
     .form-box {
         width: calc(100% - 12px);
         max-width: 240px;
-        bottom: 6px;
+        bottom: 90px; /* Above bottom dock */
         right: 6px;
     }
 
@@ -4450,23 +4584,25 @@ a.dock-item {
     .notes-window,
     .home-window,
     .b-bot-window,
-    .artwork-window {
+    .artwork-window,
+    .detective-window {
         width: 100%;
-        height: calc(100vh - 52px);
+        height: calc(100vh - 52px - 80px);
         top: 52px;
         left: 0;
         transform: none;
         border-radius: 0;
-        max-height: calc(100vh - 52px);
+        max-height: calc(100vh - 52px - 80px);
     }
 
     .notes-letter-window {
         width: 100%;
-        height: calc(100vh - 100px);
-        top: 60px;
+        height: calc(100vh - 52px - 80px);
+        top: 52px;
         left: 0;
         transform: none;
         border-radius: 0;
+        max-height: calc(100vh - 52px - 80px);
     }
 
     .window-header {
@@ -4481,18 +4617,27 @@ a.dock-item {
 
     .bottom-dock {
         bottom: 8px;
-        padding: 6px;
-        gap: 3px;
+        padding: 8px 10px;
+        gap: 4px;
         max-width: calc(100% - 16px);
+        position: fixed;
+        z-index: 1000;
     }
 
     .dock-item {
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
     }
 
     .dock-icon {
-        font-size: 18px;
+        font-size: 20px;
+    }
+
+    .dock-icon svg {
+        width: 100%;
+        height: 100%;
     }
 
     .email-sidebar {
@@ -4537,7 +4682,8 @@ a.dock-item {
 @media (max-width: 768px) and (orientation: landscape) {
     /* Desktop container padding for fixed top panel */
     .desktop {
-        padding-top: 36px;
+        padding-top: 44px;
+        padding-bottom: 70px; /* Space for bottom dock in landscape */
     }
 
     .top-panel {
@@ -4547,6 +4693,20 @@ a.dock-item {
         left: 0;
         right: 0;
         width: 100%;
+        z-index: 20000;
+    }
+
+    .panel-left {
+        flex-shrink: 0;
+    }
+
+    .panel-center {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .panel-right {
+        flex-shrink: 0;
     }
 
     .music-player {
@@ -4555,7 +4715,7 @@ a.dock-item {
     }
 
     .xkcd-box {
-        bottom: 8px;
+        bottom: 70px; /* Above bottom dock */
         left: 8px;
         width: 220px;
     }
@@ -4571,7 +4731,7 @@ a.dock-item {
     }
 
     .apod-box {
-        bottom: 8px;
+        bottom: 70px; /* Above bottom dock */
         right: 8px;
         width: 220px;
     }
@@ -4587,7 +4747,7 @@ a.dock-item {
     }
 
     .form-box {
-        bottom: 8px;
+        bottom: 70px; /* Above bottom dock */
         right: 8px;
         width: 220px;
     }
@@ -4612,22 +4772,41 @@ a.dock-item {
     .notes-window,
     .home-window,
     .b-bot-window,
-    .artwork-window {
-        height: calc(100vh - 88px);
+    .artwork-window,
+    .detective-window {
+        width: 95%;
+        height: calc(100vh - 44px - 70px);
+        max-height: calc(100vh - 44px - 70px);
+        top: 44px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .notes-letter-window {
-        height: calc(100vh - 80px);
+        width: 95%;
+        height: calc(100vh - 44px - 70px);
+        max-height: calc(100vh - 44px - 70px);
+        top: 44px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .bottom-dock {
         bottom: 8px;
-        padding: 4px 6px;
+        padding: 6px 10px;
+        position: fixed;
+        z-index: 1000;
     }
 
     .dock-item {
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .dock-icon {
+        font-size: 18px;
     }
 }
 

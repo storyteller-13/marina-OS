@@ -147,33 +147,7 @@
                                 <span class="menu-item-text">artwork</span>
                             </a>
                         </div>
-                        <div class="menu-separator"></div>
-                        <div class="menu-group">
-                            <div class="menu-group-label">outreach</div>
-                            <a href="javascript:void(0)" class="menu-item" onclick="window.openLogicWindow(); return false;">
-                                <span class="menu-item-icon">
-                                    <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4 8 C4 6 6 4 8 4 C10 4 12 6 12 8 C12 10 10 12 8 12 C6 12 4 10 4 8 Z" fill="none" stroke="#a855f7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M8 4 C8 6 10 6 12 8 C10 10 8 10 8 12 C8 10 6 10 4 8 C6 6 8 6 8 4 Z" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <circle cx="8" cy="8" r="1" fill="#a855f7" opacity="0.6"/>
-                                    </svg>
-                                </span>
-                                <span class="menu-item-text">logic</span>
-                            </a>
-                            <a href="javascript:void(0)" class="menu-item" onclick="window.openFridaysWindow(); return false;">
-                                <span class="menu-item-icon">
-                                    <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="2" y="3" width="12" height="9" rx="1" fill="none" stroke="#a855f7" stroke-width="1.2"/>
-                                        <rect x="2" y="3" width="12" height="9" rx="1" fill="rgba(168, 85, 247, 0.15)"/>
-                                        <rect x="4" y="5" width="8" height="5" rx="0.5" fill="#a855f7" opacity="0.3"/>
-                                        <circle cx="8" cy="7.5" r="1.5" fill="#a855f7" opacity="0.6"/>
-                                        <rect x="6" y="12" width="4" height="1" rx="0.5" fill="#a855f7"/>
-                                        <path d="M5 13 L11 13" stroke="#a855f7" stroke-width="1.2" stroke-linecap="round"/>
-                                    </svg>
-                                </span>
-                                <span class="menu-item-text">friday</span>
-                            </a>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -253,43 +227,6 @@
                 </div>
                 <div class="apod-box-image-container" id="apod-box-image-container">
                     <div class="apod-loading">loading...</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Form Box -->
-        <div class="form-box" id="form-box" style="display: none;">
-            <div class="form-box-glow"></div>
-            <div class="form-box-content">
-                <div class="form-box-header">
-                    <div class="form-icon-wrapper">
-                        <span class="form-icon">💜</span>
-                    </div>
-                    <span class="form-box-title">say hi</span>
-                    <button class="form-box-close" id="form-box-close" title="Close">
-                        <span class="close-icon">×</span>
-                    </button>
-                </div>
-                <div class="form-box-form-container" id="form-box-form-container">
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-group">
-                            <label for="contact-name">name</label>
-                            <input type="text" id="contact-name" name="name" required autocomplete="name">
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-email">email</label>
-                            <input type="email" id="contact-email" name="email" required autocomplete="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-message">message</label>
-                            <textarea id="contact-message" name="message" rows="6" required></textarea>
-                        </div>
-                        <button type="submit" class="form-submit-btn" id="form-submit-btn">
-                            <span class="submit-text">send</span>
-                            <span class="submit-loading" style="display: none;">sending...</span>
-                        </button>
-                        <div class="form-message" id="form-message" style="display: none;"></div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -374,24 +311,6 @@
                     </svg>
                 </div>
                 <div class="icon-label">home</div>
-            </a>
-            <a href="javascript:void(0)" class="desktop-icon" id="fridays-desktop-icon" onclick="window.openFridaysWindow(); return false;" style="text-decoration: none; cursor: pointer;">
-                <div class="icon-image">
-                    <svg width="48" height="48" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="2" y="3" width="12" height="9" rx="1" fill="none" stroke="#a855f7" stroke-width="1.2"/>
-                        <rect x="2" y="3" width="12" height="9" rx="1" fill="rgba(168, 85, 247, 0.15)"/>
-                        <rect x="3.5" y="4.5" width="9" height="6" rx="0.5" fill="#1a1a2e" stroke="#a855f7" stroke-width="0.8" opacity="0.3"/>
-                        <rect x="6" y="12" width="4" height="1" rx="0.5" fill="#a855f7"/>
-                        <path d="M5 13 L11 13" stroke="#a855f7" stroke-width="1.2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <div class="icon-label">friday</div>
-            </a>
-            <a href="javascript:void(0)" class="desktop-icon" id="logic-desktop-icon" onclick="window.openLogicWindow(); return false;" style="text-decoration: none; cursor: pointer;">
-                <div class="icon-image" style="font-size: 48px; line-height: 48px; display: flex; align-items: center; justify-content: center; color: #a855f7; filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.8));">
-                    ♾️
-                </div>
-                <div class="icon-label">logic</div>
             </a>
             <a href="javascript:void(0)" class="desktop-icon" id="treasure-desktop-icon" onclick="window.openTreasureWindow(); return false;" style="text-decoration: none; cursor: pointer;">
                 <div class="icon-image">
@@ -969,16 +888,6 @@
                 </div>
                 <span class="email-count-badge" id="email-count-badge" style="display: none;">0</span>
             </a>
-            <a href="javascript:void(0)" class="dock-item" id="form-dock-item" onclick="window.openFormWindow(); return false;" style="text-decoration: none; cursor: pointer;">
-                <div class="dock-icon">
-                    <svg width="32" height="32" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                        <g transform="translate(8, 8) scale(1.15) translate(-8, -8) translate(0, 0.5)">
-                            <path d="M8 3 C6.5 2 4.5 2 3.5 3 C2.5 4 2.5 6 3.5 7 L8 11.5 L12.5 7 C13.5 6 13.5 4 12.5 3 C11.5 2 9.5 2 8 3 Z" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1.2" stroke-linejoin="round"/>
-                            <path d="M8 3 C6.5 2 4.5 2 3.5 3 C2.5 4 2.5 6 3.5 7 L8 11.5 L12.5 7 C13.5 6 13.5 4 12.5 3 C11.5 2 9.5 2 8 3 Z" fill="none" stroke="#a855f7" stroke-width="1.2" stroke-linejoin="round"/>
-                        </g>
-                    </svg>
-                </div>
-            </a>
         </div>
     </div>
 
@@ -1048,129 +957,6 @@
     <!-- Terminal App -->
     <script src="scripts/applications/terminal/terminal-app.js"></script>
     <script src="scripts/applications/terminal/terminal.js"></script>
-
-    <!-- Form Box Handler -->
-    <script>
-        (function() {
-            const formBox = document.getElementById('form-box');
-            const formBoxClose = document.getElementById('form-box-close');
-            const contactForm = document.getElementById('contact-form');
-            const submitBtn = document.getElementById('form-submit-btn');
-            const submitText = submitBtn.querySelector('.submit-text');
-            const submitLoading = submitBtn.querySelector('.submit-loading');
-            const formMessage = document.getElementById('form-message');
-            
-            function hideBox() {
-                if (formBox) {
-                    formBox.style.opacity = '0';
-                    formBox.style.transform = 'translateY(-10px) scale(0.95)';
-                    setTimeout(() => {
-                        formBox.style.display = 'none';
-                    }, 400);
-                }
-            }
-
-            function showBox() {
-                if (formBox) {
-                    formBox.style.display = 'block';
-                    formBox.style.opacity = '0';
-                    formBox.style.transform = 'translateY(-10px) scale(0.95)';
-                    void formBox.offsetHeight; // Force reflow
-                    requestAnimationFrame(() => {
-                        formBox.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-                        formBox.style.opacity = '1';
-                        formBox.style.transform = 'translateY(0) scale(1)';
-                    });
-                }
-            }
-
-            function toggleVisibility() {
-                if (!formBox) return;
-                
-                const isVisible = formBox.style.display !== 'none' &&
-                                 window.getComputedStyle(formBox).display !== 'none';
-
-                if (isVisible) {
-                    hideBox();
-                } else {
-                    showBox();
-                }
-            }
-
-            function showMessage(text, isError = false) {
-                formMessage.textContent = text;
-                formMessage.style.display = 'block';
-                formMessage.className = 'form-message ' + (isError ? 'form-error' : 'form-success');
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            }
-
-            function setLoading(loading) {
-                if (loading) {
-                    submitBtn.disabled = true;
-                    submitText.style.display = 'none';
-                    submitLoading.style.display = 'inline';
-                } else {
-                    submitBtn.disabled = false;
-                    submitText.style.display = 'inline';
-                    submitLoading.style.display = 'none';
-                }
-            }
-            
-            if (formBoxClose) {
-                formBoxClose.addEventListener('click', hideBox);
-            }
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-                    
-                    const formData = {
-                        name: document.getElementById('contact-name').value.trim(),
-                        email: document.getElementById('contact-email').value.trim(),
-                        message: document.getElementById('contact-message').value.trim()
-                    };
-
-                    setLoading(true);
-                    formMessage.style.display = 'none';
-
-                    try {
-                        const response = await fetch('/api/contact', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(formData)
-                        });
-
-                        const data = await response.json();
-
-                        if (response.ok) {
-                            showMessage('message sent successfully!', false);
-                            contactForm.reset();
-                        } else {
-                            showMessage(data.message || data.error || 'failed to send message', true);
-                        }
-                    } catch (error) {
-                        showMessage('network error. please try again.', true);
-                    } finally {
-                        setLoading(false);
-                    }
-                });
-            }
-
-            // Close on Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && formBox && formBox.style.display !== 'none') {
-                    hideBox();
-                }
-            });
-
-            // Expose toggle function globally
-            window.openFormWindow = toggleVisibility;
-        })();
-    </script>
 
 </body>
 </html>
