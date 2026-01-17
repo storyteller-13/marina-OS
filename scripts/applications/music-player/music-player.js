@@ -30,15 +30,59 @@ class MusicPlayer {
     loadPlaylists() {
         this.playlistsData = this.storage.load();
         
-        // Ensure renewal playlist exists, create it if it doesn't, and ensure it's at the top
+        // Ensure flow playlist exists, create it if it doesn't, and ensure it's at the top
+        const flowPlaylist = this.storage.getPlaylist(this.playlistsData, 'flow');
+        if (!flowPlaylist) {
+            if (!this.playlistsData.playlists) {
+                this.playlistsData.playlists = [];
+            }
+            
+            // Add flow playlist at the very beginning
+            this.playlistsData.playlists.unshift({
+                id: 'flow',
+                name: '2026 flow',
+                songs: [
+                    { id: 'FoYdeEDdtK4', title: 'peaches in regalia' }
+                ]
+            });
+            
+            this.storage.save(this.playlistsData);
+        } else {
+            // Ensure flow playlist is at the very top
+            const flowIndex = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
+            if (flowIndex > 0) {
+                // Remove from current position and add to beginning
+                const flow = this.playlistsData.playlists.splice(flowIndex, 1)[0];
+                this.playlistsData.playlists.unshift(flow);
+                this.storage.save(this.playlistsData);
+            }
+        }
+        
+        // Ensure the song "peaches in regalia" is in the flow playlist
+        const flowPlaylistFinal = this.storage.getPlaylist(this.playlistsData, 'flow');
+        if (flowPlaylistFinal) {
+            const songId = 'FoYdeEDdtK4';
+            const hasSong = flowPlaylistFinal.songs && flowPlaylistFinal.songs.some(s => s.id === songId);
+            if (!hasSong) {
+                if (!flowPlaylistFinal.songs) {
+                    flowPlaylistFinal.songs = [];
+                }
+                flowPlaylistFinal.songs.push({ id: songId, title: 'peaches in regalia' });
+                this.storage.save(this.playlistsData);
+            }
+        }
+        
+        // Ensure renewal playlist exists, create it if it doesn't, and ensure it's at the top (after flow)
         const renewalPlaylist = this.storage.getPlaylist(this.playlistsData, 'renewal');
         if (!renewalPlaylist) {
             if (!this.playlistsData.playlists) {
                 this.playlistsData.playlists = [];
             }
             
-            // Add renewal playlist at the beginning
-            this.playlistsData.playlists.unshift({
+            // Add renewal playlist after flow (at index 1, or at beginning if flow doesn't exist)
+            const flowIndex = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
+            const insertIndex = flowIndex >= 0 ? 1 : 0;
+            this.playlistsData.playlists.splice(insertIndex, 0, {
                 id: 'renewal',
                 name: '2026 renewal',
                 songs: [
@@ -51,12 +95,15 @@ class MusicPlayer {
             
             this.storage.save(this.playlistsData);
         } else {
-            // Ensure renewal playlist is at the top
+            // Ensure renewal playlist is at the top (after flow)
             const renewalIndex = this.playlistsData.playlists.findIndex(p => p.id === 'renewal');
-            if (renewalIndex > 0) {
-                // Remove from current position and add to beginning
+            const flowIndex = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
+            if (renewalIndex !== 1 || (flowIndex >= 0 && renewalIndex <= flowIndex)) {
+                // Remove from current position
                 const renewal = this.playlistsData.playlists.splice(renewalIndex, 1)[0];
-                this.playlistsData.playlists.unshift(renewal);
+                // Insert at index 1 (right after flow, or at beginning if flow doesn't exist)
+                const insertIndex = flowIndex >= 0 ? 1 : 0;
+                this.playlistsData.playlists.splice(insertIndex, 0, renewal);
                 this.storage.save(this.playlistsData);
             }
             
