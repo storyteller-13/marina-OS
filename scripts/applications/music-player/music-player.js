@@ -59,8 +59,10 @@ class MusicPlayer {
         }
         
         // Ensure the song "peaches in regalia" is in the flow playlist
-        const flowPlaylistFinal = this.storage.getPlaylist(this.playlistsData, 'flow');
-        if (flowPlaylistFinal) {
+        // Get the playlist directly from the array to ensure we have the right reference
+        const flowIndex = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
+        if (flowIndex >= 0) {
+            const flowPlaylistFinal = this.playlistsData.playlists[flowIndex];
             if (!flowPlaylistFinal.songs) {
                 flowPlaylistFinal.songs = [];
             }
@@ -233,80 +235,74 @@ class MusicPlayer {
             this.storage.save(this.playlistsData);
         }
         
-        // If no current playlist is set, default to flow (since it's at the top)
-        if (!this.playlistsData.currentPlaylistId) {
-            const flowPlaylistCheck = this.storage.getPlaylist(this.playlistsData, 'flow');
-            if (flowPlaylistCheck && flowPlaylistCheck.songs && flowPlaylistCheck.songs.length > 0) {
-                this.playlistsData.currentPlaylistId = 'flow';
-            } else {
-                this.playlistsData.currentPlaylistId = 'renewal';
-            }
-            this.storage.save(this.playlistsData);
-        }
-        
-        // Get current playlist and ensure it has songs
-        let currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
-        
-        // If currentPlaylistId is flow but getCurrentPlaylist returned null, get flow directly
-        if (this.playlistsData.currentPlaylistId === 'flow' && !currentPlaylist) {
-            currentPlaylist = this.storage.getPlaylist(this.playlistsData, 'flow');
-        }
-        
-        // If current playlist is flow, ensure it has the song
-        if (currentPlaylist && currentPlaylist.id === 'flow') {
-            if (!currentPlaylist.songs) {
-                currentPlaylist.songs = [];
+        // Always check if flow playlist exists and has songs - if so, use it as default
+        const flowIndexCheck = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
+        if (flowIndexCheck >= 0) {
+            const flowPlaylistCheck = this.playlistsData.playlists[flowIndexCheck];
+            // Ensure flow has the song
+            if (!flowPlaylistCheck.songs) {
+                flowPlaylistCheck.songs = [];
             }
             const songId = 'FoYdeEDdtK4';
-            const hasSong = currentPlaylist.songs.some(s => s.id === songId);
-            if (!hasSong) {
-                currentPlaylist.songs.push({ id: songId, title: 'peaches in regalia' });
+            if (!flowPlaylistCheck.songs.some(s => s.id === songId)) {
+                flowPlaylistCheck.songs.push({ id: songId, title: 'peaches in regalia' });
                 this.storage.save(this.playlistsData);
             }
-            // Re-fetch to ensure we have the latest data
-            currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
-            if (!currentPlaylist) {
-                currentPlaylist = this.storage.getPlaylist(this.playlistsData, 'flow');
-            }
-        }
-        
-        // Final check: if current playlist is flow, ensure it definitely has songs
-        if (currentPlaylist && currentPlaylist.id === 'flow') {
-            if (!currentPlaylist.songs || currentPlaylist.songs.length === 0) {
-                // Force add the song if missing
-                if (!currentPlaylist.songs) {
-                    currentPlaylist.songs = [];
-                }
-                const songId = 'FoYdeEDdtK4';
-                if (!currentPlaylist.songs.some(s => s.id === songId)) {
-                    currentPlaylist.songs.push({ id: songId, title: 'peaches in regalia' });
+            // If flow has songs, set it as current playlist (override any existing selection)
+            if (flowPlaylistCheck.songs && flowPlaylistCheck.songs.length > 0) {
+                if (this.playlistsData.currentPlaylistId !== 'flow') {
+                    this.playlistsData.currentPlaylistId = 'flow';
                     this.storage.save(this.playlistsData);
                 }
             }
         }
         
+        // If no current playlist is set, default to flow (since it's at the top)
+        if (!this.playlistsData.currentPlaylistId) {
+            const flowIndex = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
+            if (flowIndex >= 0) {
+                const flowPlaylistCheck = this.playlistsData.playlists[flowIndex];
+                if (flowPlaylistCheck && flowPlaylistCheck.songs && flowPlaylistCheck.songs.length > 0) {
+                    this.playlistsData.currentPlaylistId = 'flow';
+                    this.storage.save(this.playlistsData);
+                } else {
+                    this.playlistsData.currentPlaylistId = 'renewal';
+                    this.storage.save(this.playlistsData);
+                }
+            } else {
+                this.playlistsData.currentPlaylistId = 'renewal';
+                this.storage.save(this.playlistsData);
+            }
+        }
+        
+        // Special handling for flow playlist - get it directly from the array
+        if (this.playlistsData.currentPlaylistId === 'flow') {
+            const flowIndex = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
+            if (flowIndex >= 0) {
+                const flowPlaylist = this.playlistsData.playlists[flowIndex];
+                // Ensure it has the song
+                if (!flowPlaylist.songs) {
+                    flowPlaylist.songs = [];
+                }
+                const songId = 'FoYdeEDdtK4';
+                if (!flowPlaylist.songs.some(s => s.id === songId)) {
+                    flowPlaylist.songs.push({ id: songId, title: 'peaches in regalia' });
+                    this.storage.save(this.playlistsData);
+                }
+                // Use flow playlist songs directly - create a fresh array to avoid reference issues
+                if (flowPlaylist.songs && flowPlaylist.songs.length > 0) {
+                    this.songs = [...flowPlaylist.songs]; // Create a copy to ensure we have the right data
+                    this.currentSongIndex = 0; // Reset to first song
+                    return; // Exit early - we have the songs
+                }
+            }
+        }
+        
+        // For other playlists, use the standard logic
+        const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
         if (currentPlaylist && currentPlaylist.songs && currentPlaylist.songs.length > 0) {
             this.songs = currentPlaylist.songs;
         } else {
-            // Special case: if flow is selected but appears empty, try one more time to get it
-            if (this.playlistsData.currentPlaylistId === 'flow') {
-                const flowPlaylistRetry = this.storage.getPlaylist(this.playlistsData, 'flow');
-                if (flowPlaylistRetry) {
-                    if (!flowPlaylistRetry.songs) {
-                        flowPlaylistRetry.songs = [];
-                    }
-                    const songId = 'FoYdeEDdtK4';
-                    if (!flowPlaylistRetry.songs.some(s => s.id === songId)) {
-                        flowPlaylistRetry.songs.push({ id: songId, title: 'peaches in regalia' });
-                        this.storage.save(this.playlistsData);
-                    }
-                    if (flowPlaylistRetry.songs && flowPlaylistRetry.songs.length > 0) {
-                        this.songs = flowPlaylistRetry.songs;
-                        return; // Exit early, don't fall back to renewal
-                    }
-                }
-            }
-            
             // Fallback to renewal playlist if current playlist is empty
             const renewalPlaylistFallback = this.storage.getPlaylist(this.playlistsData, 'renewal');
             if (renewalPlaylistFallback && renewalPlaylistFallback.songs && renewalPlaylistFallback.songs.length > 0) {
