@@ -10,7 +10,8 @@ class MusicPlayer {
         this.songs = [];
         this.storage = new MusicPlayerStorage();
         this.playlistsData = null;
-        this.expandedPlaylists = new Set(); // Track which playlists are expanded
+        this.expandedPlaylists = new Set();
+        this.isLoadingSong = false;
         this.selectors = {
             youtube: 'music-youtube',
             toggle: 'music-toggle',
@@ -27,64 +28,26 @@ class MusicPlayer {
         this.init();
     }
 
+    /**
+     * Initialize playlists and ensure required playlists exist
+     */
     loadPlaylists() {
         this.playlistsData = this.storage.load();
         
-        // Ensure flow playlist exists, create it if it doesn't, and ensure it's at the top
-        const flowPlaylist = this.storage.getPlaylist(this.playlistsData, 'flow');
-        if (!flowPlaylist) {
-            if (!this.playlistsData.playlists) {
-                this.playlistsData.playlists = [];
-            }
-            
-            // Add flow playlist at the very beginning
-            this.playlistsData.playlists.unshift({
+        // Ensure playlists array exists
+        if (!this.playlistsData.playlists) {
+            this.playlistsData.playlists = [];
+        }
+
+        // Define required playlists with their songs
+        const requiredPlaylists = [
+            {
                 id: 'flow',
                 name: '2026 floater',
-                songs: [
-                    { id: 'FoYdeEDdtK4', title: 'peaches in regalia' }
-                ]
-            });
-            
-            this.storage.save(this.playlistsData);
-        } else {
-            // Ensure flow playlist is at the very top
-            const flowIndex = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
-            if (flowIndex > 0) {
-                // Remove from current position and add to beginning
-                const flow = this.playlistsData.playlists.splice(flowIndex, 1)[0];
-                this.playlistsData.playlists.unshift(flow);
-                this.storage.save(this.playlistsData);
-            }
-        }
-        
-        // Ensure the song "peaches in regalia" is in the flow playlist
-        // Get the playlist directly from the array to ensure we have the right reference
-        const flowIndex = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
-        if (flowIndex >= 0) {
-            const flowPlaylistFinal = this.playlistsData.playlists[flowIndex];
-            if (!flowPlaylistFinal.songs) {
-                flowPlaylistFinal.songs = [];
-            }
-            const songId = 'FoYdeEDdtK4';
-            const hasSong = flowPlaylistFinal.songs.some(s => s.id === songId);
-            if (!hasSong) {
-                flowPlaylistFinal.songs.push({ id: songId, title: 'peaches in regalia' });
-                this.storage.save(this.playlistsData);
-            }
-        }
-        
-        // Ensure renewal playlist exists, create it if it doesn't, and ensure it's at the top (after flow)
-        const renewalPlaylist = this.storage.getPlaylist(this.playlistsData, 'renewal');
-        if (!renewalPlaylist) {
-            if (!this.playlistsData.playlists) {
-                this.playlistsData.playlists = [];
-            }
-            
-            // Add renewal playlist after flow (at index 1, or at beginning if flow doesn't exist)
-            const flowIndex = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
-            const insertIndex = flowIndex >= 0 ? 1 : 0;
-            this.playlistsData.playlists.splice(insertIndex, 0, {
+                songs: [{ id: 'FoYdeEDdtK4', title: 'peaches in regalia' }],
+                position: 0
+            },
+            {
                 id: 'renewal',
                 name: '2026 renewal',
                 songs: [
@@ -92,229 +55,108 @@ class MusicPlayer {
                     { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' },
                     { id: 'kryV3E4QKGk', title: 'secret smile' },
                     { id: 'b9WKC5sT9Z4', title: 'gymnopedies' }
-                ]
-            });
-            
-            this.storage.save(this.playlistsData);
-        } else {
-            // Ensure renewal playlist is at the top (after flow)
-            const renewalIndex = this.playlistsData.playlists.findIndex(p => p.id === 'renewal');
-            const flowIndex = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
-            if (renewalIndex !== 1 || (flowIndex >= 0 && renewalIndex <= flowIndex)) {
-                // Remove from current position
-                const renewal = this.playlistsData.playlists.splice(renewalIndex, 1)[0];
-                // Insert at index 1 (right after flow, or at beginning if flow doesn't exist)
-                const insertIndex = flowIndex >= 0 ? 1 : 0;
-                this.playlistsData.playlists.splice(insertIndex, 0, renewal);
-                this.storage.save(this.playlistsData);
-            }
-            
-            // Ensure the new song is in the renewal playlist if it doesn't exist
-            const newSongId = 'X2959NkomEc';
-            const hasNewSong = renewalPlaylist.songs && renewalPlaylist.songs.some(s => s.id === newSongId);
-            if (!hasNewSong) {
-                if (!renewalPlaylist.songs) {
-                    renewalPlaylist.songs = [];
-                }
-                // Add the new song first
-                renewalPlaylist.songs.push({ id: newSongId, title: 'up all night' });
-                // Ensure the default song exists
-                const hasDefaultSong = renewalPlaylist.songs.some(s => s.id === 'ya7L3A1DOlg');
-                if (!hasDefaultSong) {
-                    renewalPlaylist.songs.push({ id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' });
-                }
-                this.storage.save(this.playlistsData);
-            }
-            
-            // Ensure the new song (kryV3E4QKGk) is in the renewal playlist if it doesn't exist
-            const hasNewSong2 = renewalPlaylist.songs && renewalPlaylist.songs.some(s => s.id === 'kryV3E4QKGk');
-            if (!hasNewSong2) {
-                if (!renewalPlaylist.songs) {
-                    renewalPlaylist.songs = [];
-                }
-                renewalPlaylist.songs.push({ id: 'kryV3E4QKGk', title: 'secret smile' });
-                this.storage.save(this.playlistsData);
-            }
-            
-            // Ensure the new song (b9WKC5sT9Z4) is in the renewal playlist if it doesn't exist
-            const hasNewSong3 = renewalPlaylist.songs && renewalPlaylist.songs.some(s => s.id === 'b9WKC5sT9Z4');
-            if (!hasNewSong3) {
-                if (!renewalPlaylist.songs) {
-                    renewalPlaylist.songs = [];
-                }
-                renewalPlaylist.songs.push({ id: 'b9WKC5sT9Z4', title: 'gymnopedies' });
-                this.storage.save(this.playlistsData);
-            }
-        }
-        
-        // Ensure emo playlist exists, create it if it doesn't
-        const emoPlaylist = this.storage.getPlaylist(this.playlistsData, 'dualities-playlist');
-        if (!emoPlaylist) {
-            // Create emo playlist with the current songs
-            const emoSongs = [
-                { id: 'IXdNnw99-Ic', title: 'wish you were here' },
-                { id: 'ujNeHIo7oTE', title: 'with or without you' },
-                { id: '1lyu1KKwC74', title: 'bitter sweet symphony' },
-                { id: '7jMlFXouPk8', title: 'high hopes' },
-                { id: 'TFjmvfRvjTc', title: 'hey you' }
-            ];
-            
-            if (!this.playlistsData.playlists) {
-                this.playlistsData.playlists = [];
-            }
-            
-            this.playlistsData.playlists.push({
+                ],
+                position: 1
+            },
+            {
                 id: 'dualities-playlist',
                 name: '2025 dualities',
-                songs: emoSongs
-            });
-            
-            // Set as current playlist if no current playlist is set
-            if (!this.playlistsData.currentPlaylistId) {
-                this.playlistsData.currentPlaylistId = 'afterlife 2025';
-            }
-            
-            this.storage.save(this.playlistsData);
-        }
-        
-        // Ensure second playlist exists, create it if it doesn't
-        const playlist2 = this.storage.getPlaylist(this.playlistsData, 'afterlife 2025');
-        if (!playlist2) {
-            if (!this.playlistsData.playlists) {
-                this.playlistsData.playlists = [];
-            }
-            
-            this.playlistsData.playlists.push({
+                songs: [
+                    { id: 'IXdNnw99-Ic', title: 'wish you were here' },
+                    { id: 'ujNeHIo7oTE', title: 'with or without you' },
+                    { id: '1lyu1KKwC74', title: 'bitter sweet symphony' },
+                    { id: '7jMlFXouPk8', title: 'high hopes' },
+                    { id: 'TFjmvfRvjTc', title: 'hey you' }
+                ],
+                position: -1 // Append to end
+            },
+            {
                 id: 'afterlife 2025',
                 name: '2025 afterlife',
                 songs: [
                     { id: 'MO0LdXqwDP0', title: 'afterlife' },
                     { id: '8r-bTAvYkZw', title: 'ave maria' },
                     { id: 'yB9_ImBoazY', title: 'leviticus' }
-                ]
-            });
+                ],
+                position: -1 // Append to end
+            }
+        ];
+
+        // Ensure all required playlists exist and are properly configured
+        requiredPlaylists.forEach(required => {
+            let playlist = this.storage.getPlaylist(this.playlistsData, required.id);
             
-            this.storage.save(this.playlistsData);
-        } else {
-            // Ensure the new song is in the playlist if it exists
-            const hasNewSong = playlist2.songs && playlist2.songs.some(s => s.id === '8r-bTAvYkZw');
-            if (!hasNewSong) {
-                if (!playlist2.songs) {
-                    playlist2.songs = [];
-                }
-                // Find the index of 'afterlife' and insert after it
-                const afterlifeIndex = playlist2.songs.findIndex(s => s.id === 'MO0LdXqwDP0');
-                if (afterlifeIndex >= 0) {
-                    playlist2.songs.splice(afterlifeIndex + 1, 0, { id: '8r-bTAvYkZw', title: 'ave maria' });
+            if (!playlist) {
+                // Create new playlist
+                playlist = {
+                    id: required.id,
+                    name: required.name,
+                    songs: [...required.songs]
+                };
+                
+                if (required.position >= 0) {
+                    this.playlistsData.playlists.splice(required.position, 0, playlist);
                 } else {
-                    playlist2.songs.push({ id: '8r-bTAvYkZw', title: 'ave maria' });
-                }
-                this.storage.save(this.playlistsData);
-            }
-            // Ensure the new song (yB9_ImBoazY) is in the playlist if it exists
-            const hasNewSong2 = playlist2.songs && playlist2.songs.some(s => s.id === 'yB9_ImBoazY');
-            if (!hasNewSong2) {
-                if (!playlist2.songs) {
-                    playlist2.songs = [];
-                }
-                // Find the index of 'ave maria' and insert after it
-                const aveMariaIndex = playlist2.songs.findIndex(s => s.id === '8r-bTAvYkZw');
-                if (aveMariaIndex >= 0) {
-                    playlist2.songs.splice(aveMariaIndex + 1, 0, { id: 'yB9_ImBoazY', title: 'leviticus' });
-                } else {
-                    playlist2.songs.push({ id: 'yB9_ImBoazY', title: 'leviticus' });
-                }
-                this.storage.save(this.playlistsData);
-            }
-        }
-        
-        // Load songs from current playlist
-        // If current playlist is the old default, switch to renewal
-        if (this.playlistsData.currentPlaylistId === 'dualities-playlist') {
-            this.playlistsData.currentPlaylistId = 'renewal';
-            this.storage.save(this.playlistsData);
-        }
-        
-        // Always check if flow playlist exists and has songs - if so, use it as default
-        const flowIndexCheck = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
-        if (flowIndexCheck >= 0) {
-            const flowPlaylistCheck = this.playlistsData.playlists[flowIndexCheck];
-            // Ensure flow has the song
-            if (!flowPlaylistCheck.songs) {
-                flowPlaylistCheck.songs = [];
-            }
-            const songId = 'FoYdeEDdtK4';
-            if (!flowPlaylistCheck.songs.some(s => s.id === songId)) {
-                flowPlaylistCheck.songs.push({ id: songId, title: 'peaches in regalia' });
-                this.storage.save(this.playlistsData);
-            }
-            // If flow has songs, set it as current playlist (override any existing selection)
-            if (flowPlaylistCheck.songs && flowPlaylistCheck.songs.length > 0) {
-                if (this.playlistsData.currentPlaylistId !== 'flow') {
-                    this.playlistsData.currentPlaylistId = 'flow';
-                    this.storage.save(this.playlistsData);
-                }
-            }
-        }
-        
-        // If no current playlist is set, default to flow (since it's at the top)
-        if (!this.playlistsData.currentPlaylistId) {
-            const flowIndex = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
-            if (flowIndex >= 0) {
-                const flowPlaylistCheck = this.playlistsData.playlists[flowIndex];
-                if (flowPlaylistCheck && flowPlaylistCheck.songs && flowPlaylistCheck.songs.length > 0) {
-                    this.playlistsData.currentPlaylistId = 'flow';
-                    this.storage.save(this.playlistsData);
-                } else {
-                    this.playlistsData.currentPlaylistId = 'renewal';
-                    this.storage.save(this.playlistsData);
+                    this.playlistsData.playlists.push(playlist);
                 }
             } else {
+                // Ensure all required songs exist in the playlist
+                if (!playlist.songs) {
+                    playlist.songs = [];
+                }
+                
+                required.songs.forEach(requiredSong => {
+                    if (!playlist.songs.some(s => s.id === requiredSong.id)) {
+                        playlist.songs.push({ ...requiredSong });
+                    }
+                });
+                
+                // Ensure playlist is in correct position
+                const currentIndex = this.playlistsData.playlists.findIndex(p => p.id === required.id);
+                if (required.position >= 0 && currentIndex !== required.position) {
+                    this.playlistsData.playlists.splice(currentIndex, 1);
+                    this.playlistsData.playlists.splice(required.position, 0, playlist);
+                }
+            }
+        });
+
+        // Set default playlist if none is set
+        if (!this.playlistsData.currentPlaylistId) {
+            const flowPlaylist = this.storage.getPlaylist(this.playlistsData, 'flow');
+            if (flowPlaylist && flowPlaylist.songs && flowPlaylist.songs.length > 0) {
+                this.playlistsData.currentPlaylistId = 'flow';
+            } else {
                 this.playlistsData.currentPlaylistId = 'renewal';
-                this.storage.save(this.playlistsData);
             }
         }
-        
-        // Special handling for flow playlist - get it directly from the array
-        if (this.playlistsData.currentPlaylistId === 'flow') {
-            const flowIndex = this.playlistsData.playlists.findIndex(p => p.id === 'flow');
-            if (flowIndex >= 0) {
-                const flowPlaylist = this.playlistsData.playlists[flowIndex];
-                // Ensure it has the song
-                if (!flowPlaylist.songs) {
-                    flowPlaylist.songs = [];
-                }
-                const songId = 'FoYdeEDdtK4';
-                if (!flowPlaylist.songs.some(s => s.id === songId)) {
-                    flowPlaylist.songs.push({ id: songId, title: 'peaches in regalia' });
-                    this.storage.save(this.playlistsData);
-                }
-                // Use flow playlist songs directly - create a fresh array to avoid reference issues
-                if (flowPlaylist.songs && flowPlaylist.songs.length > 0) {
-                    this.songs = [...flowPlaylist.songs]; // Create a copy to ensure we have the right data
-                    this.currentSongIndex = 0; // Reset to first song
-                    return; // Exit early - we have the songs
-                }
-            }
+
+        // Migrate old playlist ID if needed
+        if (this.playlistsData.currentPlaylistId === 'dualities-playlist') {
+            this.playlistsData.currentPlaylistId = 'renewal';
         }
-        
-        // For other playlists, use the standard logic
+
+        // Save any changes
+        this.storage.save(this.playlistsData);
+
+        // Load songs from current playlist
         const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
         if (currentPlaylist && currentPlaylist.songs && currentPlaylist.songs.length > 0) {
-            this.songs = currentPlaylist.songs;
+            this.songs = [...currentPlaylist.songs]; // Create a copy
+            this.currentSongIndex = Math.max(0, Math.min(this.currentSongIndex, this.songs.length - 1));
         } else {
-            // Fallback to renewal playlist if current playlist is empty
-            const renewalPlaylistFallback = this.storage.getPlaylist(this.playlistsData, 'renewal');
-            if (renewalPlaylistFallback && renewalPlaylistFallback.songs && renewalPlaylistFallback.songs.length > 0) {
-                this.songs = renewalPlaylistFallback.songs;
+            // Fallback to renewal playlist
+            const renewalPlaylist = this.storage.getPlaylist(this.playlistsData, 'renewal');
+            if (renewalPlaylist && renewalPlaylist.songs && renewalPlaylist.songs.length > 0) {
+                this.songs = [...renewalPlaylist.songs];
                 this.playlistsData.currentPlaylistId = 'renewal';
                 this.storage.save(this.playlistsData);
             } else {
                 // Last resort: use default data
                 this.playlistsData = this.storage.getDefaultData();
                 this.storage.save(this.playlistsData);
-                this.songs = this.playlistsData.playlists[0].songs;
+                this.songs = [...this.playlistsData.playlists[0].songs];
             }
+            this.currentSongIndex = 0;
         }
     }
     
@@ -353,7 +195,7 @@ class MusicPlayer {
                 if (typeof YT !== 'undefined' && YT.Player && !this.player) {
                     clearInterval(checkInterval);
                     this.setupPlayer();
-                } else if (checkCount > 50) { // Stop checking after ~5 seconds
+                } else if (checkCount > 50) {
                     clearInterval(checkInterval);
                 }
             }, 100);
@@ -361,19 +203,10 @@ class MusicPlayer {
     }
 
     setupPlayer() {
-        // Prevent multiple initializations unless we're updating the playlist
-        if (this.player && this.isReady && !this._updatingPlaylist) {
+        // Prevent multiple initializations
+        if (this.player && this.isReady) {
             return;
         }
-        
-        // If updating playlist, ensure we have latest data
-        if (this._updatingPlaylist) {
-            this.playlistsData = this.storage.load();
-            this.loadPlaylists();
-        }
-        
-        // Reset the flag if it was set
-        this._updatingPlaylist = false;
 
         const youtubeElement = document.getElementById(this.selectors.youtube);
         if (!youtubeElement) {
@@ -384,58 +217,50 @@ class MusicPlayer {
             return;
         }
 
-        try {
-            // Ensure we have songs loaded
-            if (!this.songs || this.songs.length === 0) {
-                // Reload playlists if songs array is empty
-                this.loadPlaylists();
-            }
-            
-            // Ensure currentSongIndex is valid
-            if (this.currentSongIndex < 0 || this.currentSongIndex >= this.songs.length) {
+        // Ensure we have songs loaded
+        if (!this.songs || this.songs.length === 0) {
+            this.loadPlaylists();
+        }
+
+        // Validate and fix currentSongIndex
+        if (this.currentSongIndex < 0 || this.currentSongIndex >= this.songs.length) {
+            this.currentSongIndex = 0;
+        }
+
+        const currentSong = this.songs[this.currentSongIndex];
+        if (!currentSong) {
+            this.loadPlaylists();
+            if (this.songs.length > 0) {
                 this.currentSongIndex = 0;
+            } else {
+                return;
             }
-            
-            let currentSong = this.songs[this.currentSongIndex];
-            if (!currentSong) {
-                // If current song is invalid, reload playlists and try again
-                this.loadPlaylists();
-                if (this.songs.length > 0) {
-                    this.currentSongIndex = 0;
-                    currentSong = this.songs[this.currentSongIndex];
-                }
-                if (!currentSong) {
-                    return;
-                }
-            }
+        }
 
-            // If element is an iframe with src, replace it with a div for YT.Player
-            // YT.Player works better with a div element
-            if (youtubeElement.tagName === 'IFRAME') {
-                const parent = youtubeElement.parentNode;
-                const newDiv = document.createElement('div');
-                newDiv.id = this.selectors.youtube;
-                newDiv.style.display = youtubeElement.style.display;
-                parent.replaceChild(newDiv, youtubeElement);
-            }
+        // If element is an iframe with src, replace it with a div for YT.Player
+        if (youtubeElement.tagName === 'IFRAME') {
+            const parent = youtubeElement.parentNode;
+            const newDiv = document.createElement('div');
+            newDiv.id = this.selectors.youtube;
+            newDiv.style.display = youtubeElement.style.display;
+            parent.replaceChild(newDiv, youtubeElement);
+        }
 
-            // Don't use playlist parameter - it causes YouTube to ignore videoId
-            // We'll handle looping manually via onStateChange when video ends
-            const playerVars = {
-                'autoplay': 0,
-                'loop': 0, // We'll handle looping manually via onStateChange
-                'controls': 0,
-                'modestbranding': 1,
-                'rel': 0
-            };
+        const playerVars = {
+            'autoplay': 0,
+            'loop': 0,
+            'controls': 0,
+            'modestbranding': 1,
+            'rel': 0
+        };
 
+        try {
             this.player = new YT.Player(this.selectors.youtube, {
-                videoId: currentSong.id,
+                videoId: this.songs[this.currentSongIndex].id,
                 playerVars: playerVars,
                 events: {
                     'onReady': () => {
                         this.isReady = true;
-                        // Player is initialized with autoplay: 0, so it won't start automatically
                         this.updateSongTitle();
                         this.renderSongList();
                     },
@@ -443,36 +268,37 @@ class MusicPlayer {
                         this.onStateChange(event);
                     },
                     'onError': (event) => {
-                        const errorCode = event.data;
-                        const currentSong = this.songs[this.currentSongIndex];
-                        const errorMessages = {
-                            2: 'Invalid parameter - check video ID',
-                            5: 'HTML5 player error - browser may not support playback',
-                            100: 'Video not found',
-                            101: 'Embedding not allowed',
-                            150: 'Embedding not allowed (same as 101)'
-                        };
-
-                        // YouTube error codes:
-                        // 2=invalid parameter, 5=HTML5 error, 100=video not found,
-                        // 101=embedding not allowed, 150=same as 101
-                        if (errorCode === 100 || errorCode === 101 || errorCode === 150) {
-                            setTimeout(() => {
-                                this.playNextSong();
-                            }, 1000);
-                        } else if (errorCode === 2) {
-                            // Try to continue with next song if current one fails
-                            setTimeout(() => {
-                                if (this.currentSongIndex < this.songs.length - 1) {
-                                    this.playNextSong();
-                                }
-                            }, 1000);
-                        }
+                        this.handlePlayerError(event);
                     }
                 }
             });
         } catch (error) {
-            // Failed to initialize YouTube player
+            console.error('Failed to initialize YouTube player:', error);
+        }
+    }
+
+    handlePlayerError(event) {
+        const errorCode = event.data;
+        const errorMessages = {
+            2: 'Invalid parameter - check video ID',
+            5: 'HTML5 player error - browser may not support playback',
+            100: 'Video not found',
+            101: 'Embedding not allowed',
+            150: 'Embedding not allowed (same as 101)'
+        };
+
+        // Auto-skip to next song on certain errors
+        if (errorCode === 100 || errorCode === 101 || errorCode === 150) {
+            setTimeout(() => {
+                this.playNextSong();
+            }, 1000);
+        } else if (errorCode === 2) {
+            // Invalid parameter - try next song
+            setTimeout(() => {
+                if (this.currentSongIndex < this.songs.length - 1) {
+                    this.playNextSong();
+                }
+            }, 1000);
         }
     }
 
@@ -489,8 +315,7 @@ class MusicPlayer {
             if (musicToggle) musicToggle.classList.remove('playing');
             if (musicPlayer) musicPlayer.classList.remove('playing');
         } else if (event.data === YT.PlayerState.ENDED) {
-            // When video ends, automatically play next song to create loop effect
-            // Only if player is ready and we have songs
+            // When video ends, automatically play next song
             if (this.isReady && this.songs.length > 0) {
                 this.playNextSong();
             }
@@ -546,7 +371,6 @@ class MusicPlayer {
 
     togglePlayPause() {
         if (!this.player || !this.isReady) {
-            // Player not ready, do nothing - user must wait for initialization
             return;
         }
 
@@ -554,11 +378,14 @@ class MusicPlayer {
             const state = this.player.getPlayerState();
             if (state === YT.PlayerState.PLAYING || state === YT.PlayerState.BUFFERING) {
                 this.player.pauseVideo();
-            } else if (state === YT.PlayerState.PAUSED || state === YT.PlayerState.ENDED || state === YT.PlayerState.CUED || state === YT.PlayerState.UNSTARTED) {
+            } else if (state === YT.PlayerState.PAUSED || 
+                       state === YT.PlayerState.ENDED || 
+                       state === YT.PlayerState.CUED || 
+                       state === YT.PlayerState.UNSTARTED) {
                 this.player.playVideo();
             }
         } catch (error) {
-            // Failed to toggle play/pause
+            console.error('Failed to toggle play/pause:', error);
         }
     }
 
@@ -610,92 +437,139 @@ class MusicPlayer {
     }
 
     playNextSong() {
+        if (this.songs.length === 0) return;
         this.currentSongIndex = (this.currentSongIndex + 1) % this.songs.length;
         this.loadSong();
     }
 
     playPreviousSong() {
+        if (this.songs.length === 0) return;
         this.currentSongIndex = (this.currentSongIndex - 1 + this.songs.length) % this.songs.length;
         this.loadSong();
     }
 
-    updatePlayerPlaylist() {
-        // Reinitialize player with new playlist when switching playlists
+    /**
+     * Switch to a different playlist
+     */
+    switchPlaylist(playlistId) {
+        if (!this.playlistsData) return;
+        
+        const playlist = this.storage.getPlaylist(this.playlistsData, playlistId);
+        if (!playlist || !playlist.songs || playlist.songs.length === 0) return;
+
+        // Update current playlist
+        this.storage.setCurrentPlaylist(this.playlistsData, playlistId);
+        this.loadPlaylists(); // Reload to get fresh data
+        
+        // Reset to first song
+        this.currentSongIndex = 0;
+        
+        // Update player if it exists
         if (this.player && this.isReady) {
-            this._updatingPlaylist = true;
-            this.isReady = false;
-            // Destroy the old player
-            try {
-                this.player.destroy();
-            } catch (e) {
-                // Ignore errors if player is already destroyed
-            }
-            this.player = null;
-            
-            // Clear the YouTube element to ensure clean state
-            const youtubeElement = document.getElementById(this.selectors.youtube);
-            if (youtubeElement) {
-                youtubeElement.innerHTML = '';
-            }
-            
-            // Wait a bit for YouTube API to clean up, then reinitialize with new playlist
-            setTimeout(() => {
-                this.setupPlayer();
-            }, 100);
+            this.loadSong();
+        } else if (!this.player) {
+            // Player not initialized yet, it will load the correct song on init
+            this.setupPlayer();
         }
     }
 
-    loadSong() {
-        if (!this.player || !this.isReady) {
-            return;
+    /**
+     * Load and play a specific song
+     */
+    loadSong(shouldPlay = false) {
+        if (this.isLoadingSong) return; // Prevent concurrent loads
+        if (!this.player || !this.isReady) return;
+        if (!this.songs || this.songs.length === 0) return;
+
+        // Validate song index
+        if (this.currentSongIndex < 0 || this.currentSongIndex >= this.songs.length) {
+            this.currentSongIndex = 0;
         }
 
         const currentSong = this.songs[this.currentSongIndex];
-        if (!currentSong) {
-            return;
-        }
+        if (!currentSong) return;
 
-        const wasPlaying = this.player.getPlayerState() === YT.PlayerState.PLAYING;
+        this.isLoadingSong = true;
 
         try {
-            // Load the video - loadVideoById works for individual videos
-            // The playlist parameter in player initialization handles looping
+            const wasPlaying = this.player.getPlayerState() === YT.PlayerState.PLAYING;
+            
+            // Load the video
             this.player.loadVideoById({
                 videoId: currentSong.id,
                 startSeconds: 0
             });
+            
             this.updateSongTitle();
 
-            // Only resume playing if it was already playing (user-initiated)
-            // This prevents auto-play when switching songs, but allows continuation if user was playing
-            if (wasPlaying) {
-                // Wait for video to load before playing
-                let attempts = 0;
-                const tryPlay = () => {
-                    attempts++;
-                    if (this.player && this.isReady) {
-                        try {
-                            const state = this.player.getPlayerState();
-                            // Check if video is loaded (CUED, PAUSED, or ENDED means it's ready)
-                            if (state === YT.PlayerState.CUED ||
-                                state === YT.PlayerState.PAUSED ||
-                                state === YT.PlayerState.ENDED ||
-                                state === YT.PlayerState.UNSTARTED) {
-                                this.player.playVideo();
-                            } else if (attempts < 10) {
-                                // Retry after 200ms if not ready yet
-                                                    setTimeout(tryPlay, 200);
-                                                }
-                                            } catch (error) {
-                                                // Failed to resume playback
-                                            }
+            // Determine if we should play
+            const shouldAutoPlay = shouldPlay || wasPlaying;
+
+            if (shouldAutoPlay) {
+                // Wait for video to be ready, then play
+                this.waitForVideoReady(() => {
+                    try {
+                        if (this.player && this.isReady) {
+                            this.player.playVideo();
+                        }
+                    } catch (error) {
+                        console.error('Failed to play video:', error);
+                    } finally {
+                        this.isLoadingSong = false;
                     }
-                };
-                setTimeout(tryPlay, 500);
+                });
+            } else {
+                this.isLoadingSong = false;
             }
         } catch (error) {
-            // Failed to load song
+            console.error('Failed to load song:', error);
+            this.isLoadingSong = false;
         }
+    }
+
+    /**
+     * Wait for video to be ready to play
+     */
+    waitForVideoReady(callback, maxAttempts = 20) {
+        let attempts = 0;
+        
+        const checkReady = () => {
+            attempts++;
+            
+            if (!this.player || !this.isReady) {
+                if (attempts < maxAttempts) {
+                    setTimeout(checkReady, 200);
+                } else {
+                    callback();
+                }
+                return;
+            }
+
+            try {
+                const state = this.player.getPlayerState();
+                // Video is ready if it's CUED, PAUSED, ENDED, or UNSTARTED
+                if (state === YT.PlayerState.CUED ||
+                    state === YT.PlayerState.PAUSED ||
+                    state === YT.PlayerState.ENDED ||
+                    state === YT.PlayerState.UNSTARTED) {
+                    callback();
+                } else if (attempts < maxAttempts) {
+                    setTimeout(checkReady, 200);
+                } else {
+                    // Timeout - try anyway
+                    callback();
+                }
+            } catch (error) {
+                if (attempts < maxAttempts) {
+                    setTimeout(checkReady, 200);
+                } else {
+                    callback();
+                }
+            }
+        };
+
+        // Start checking after a short delay
+        setTimeout(checkReady, 100);
     }
 
     updateSongTitle() {
@@ -759,12 +633,7 @@ class MusicPlayer {
                 
                 // Switch to the playlist if not current
                 if (playlistId !== currentPlaylistId) {
-                    this.storage.setCurrentPlaylist(this.playlistsData, playlistId);
-                    this.loadPlaylists();
-                    // Reset to first song in playlist but don't load/play it
-                    this.currentSongIndex = 0;
-                    // Update title to show first song name
-                    this.updateSongTitle();
+                    this.switchPlaylist(playlistId);
                 }
                 
                 // Re-render to update active states and expansion
@@ -781,121 +650,49 @@ class MusicPlayer {
                 const songId = item.getAttribute('data-song-id');
 
                 // Switch to the playlist if not current
-                const playlistSwitched = playlistId !== currentPlaylistId;
-                if (playlistSwitched) {
-                    // Reload playlists data from storage to ensure we have latest
-                    this.playlistsData = this.storage.load();
-                    this.storage.setCurrentPlaylist(this.playlistsData, playlistId);
-                    this.loadPlaylists();
-                    // Verify the playlist was loaded correctly
-                    const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
-                    if (!currentPlaylist || currentPlaylist.id !== playlistId) {
-                        return;
-                    }
-                    // Double-check that songs array matches the current playlist
-                    if (this.songs.length !== currentPlaylist.songs.length || 
-                        !this.songs.every((s, i) => s.id === currentPlaylist.songs[i].id)) {
-                        this.songs = [...currentPlaylist.songs];
-                    }
-                }
-
-                // Find the song in the current songs array
-                // Verify the song exists in the current playlist
-                const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
-                if (!currentPlaylist || !currentPlaylist.songs || !currentPlaylist.songs.some(s => s.id === songId)) {
-                    // Song not in current playlist, reload and try again
-                    this.playlistsData = this.storage.load();
-                    this.loadPlaylists();
-                }
-                
-                const actualSongIndex = this.songs.findIndex(s => s.id === songId);
-                if (actualSongIndex >= 0) {
-                    if (actualSongIndex !== this.currentSongIndex) {
-                        this.currentSongIndex = actualSongIndex;
-                        
-                        // Update player with new playlist AFTER setting currentSongIndex
-                        if (playlistSwitched) {
-                            this.updatePlayerPlaylist();
-                        }
-                        
-                        // If we switched playlists, wait for player to be ready
-                        if (playlistSwitched) {
-                            const wasPlaying = false; // Don't resume if we switched playlists
-                            let attempts = 0;
-                            const waitAndLoad = () => {
-                                attempts++;
-                                if (this.player && this.isReady) {
-                                    this.loadSong();
-                                    // Start playing the selected song
-                                    setTimeout(() => {
-                                        let playAttempts = 0;
-                                        const tryPlay = () => {
-                                            playAttempts++;
-                                            if (this.player && this.isReady) {
-                                                try {
-                                                    const state = this.player.getPlayerState();
-                                                    if (state === YT.PlayerState.CUED ||
-                                                        state === YT.PlayerState.PAUSED ||
-                                                        state === YT.PlayerState.ENDED ||
-                                                        state === YT.PlayerState.UNSTARTED) {
-                                                        this.player.playVideo();
-                                                    } else if (playAttempts < 15) {
-                                                        setTimeout(tryPlay, 200);
-                                                    }
-                                                } catch (error) {
-                                                    // Failed to play selected song
-                                                }
-                                            } else if (playAttempts < 30) {
-                                                setTimeout(tryPlay, 200);
-                                            }
-                                        };
-                                        tryPlay();
-                                    }, 500);
-                                } else if (attempts < 50) {
-                                    setTimeout(waitAndLoad, 100);
-                                }
-                            };
-                            waitAndLoad();
-                        } else {
-                            const wasPlaying = this.player && this.isReady &&
-                                this.player.getPlayerState() === YT.PlayerState.PLAYING;
-                            this.loadSong();
-                            // If nothing was playing, start playing the selected song
-                            if (!wasPlaying && this.player && this.isReady) {
-                                // Wait for video to load before playing
-                                let attempts = 0;
-                                const tryPlay = () => {
-                                    attempts++;
-                                    if (this.player && this.isReady) {
-                                        try {
-                                            const state = this.player.getPlayerState();
-                                            // Check if video is loaded (CUED, PAUSED, or ENDED means it's ready)
-                                            if (state === YT.PlayerState.CUED ||
-                                                state === YT.PlayerState.PAUSED ||
-                                                state === YT.PlayerState.ENDED ||
-                                                state === YT.PlayerState.UNSTARTED) {
-                                                this.player.playVideo();
-                                            } else if (attempts < 15) {
-                                                // Retry after 200ms if not ready yet (up to 3 seconds)
-                                                setTimeout(tryPlay, 200);
-                                            }
-                                        } catch (error) {
-                                            // Failed to play selected song
-                                        }
-                                    }
-                                };
-                                setTimeout(tryPlay, 500);
-                            }
-                        }
-                    } else {
-                        // If clicking the same song, toggle play/pause
-                        this.togglePlayPause();
-                    }
-                    // Re-render to update active states
-                    this.renderSongList();
+                if (playlistId !== currentPlaylistId) {
+                    this.switchPlaylist(playlistId);
+                    // Wait for playlist to switch, then find and play the song
+                    setTimeout(() => {
+                        this.playSongById(songId);
+                    }, 100);
+                } else {
+                    // Play the song in current playlist
+                    this.playSongById(songId);
                 }
             });
         });
+    }
+
+    /**
+     * Play a song by its ID in the current playlist
+     */
+    playSongById(songId) {
+        if (!this.songs || this.songs.length === 0) return;
+
+        const songIndex = this.songs.findIndex(s => s.id === songId);
+        if (songIndex < 0) return;
+
+        // If clicking the same song, toggle play/pause
+        if (songIndex === this.currentSongIndex && this.player && this.isReady) {
+            try {
+                const state = this.player.getPlayerState();
+                if (state === YT.PlayerState.PLAYING) {
+                    this.player.pauseVideo();
+                } else {
+                    this.player.playVideo();
+                }
+            } catch (error) {
+                console.error('Failed to toggle play/pause:', error);
+            }
+        } else {
+            // Switch to the new song
+            this.currentSongIndex = songIndex;
+            this.loadSong(true); // Load and play the song
+        }
+
+        // Re-render to update active states
+        this.renderSongList();
     }
 }
 
