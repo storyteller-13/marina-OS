@@ -40,7 +40,7 @@ class MusicPlayer {
             // Add flow playlist at the very beginning
             this.playlistsData.playlists.unshift({
                 id: 'flow',
-                name: '2026 flow',
+                name: '2026 floater',
                 songs: [
                     { id: 'FoYdeEDdtK4', title: 'peaches in regalia' }
                 ]
@@ -61,12 +61,12 @@ class MusicPlayer {
         // Ensure the song "peaches in regalia" is in the flow playlist
         const flowPlaylistFinal = this.storage.getPlaylist(this.playlistsData, 'flow');
         if (flowPlaylistFinal) {
+            if (!flowPlaylistFinal.songs) {
+                flowPlaylistFinal.songs = [];
+            }
             const songId = 'FoYdeEDdtK4';
-            const hasSong = flowPlaylistFinal.songs && flowPlaylistFinal.songs.some(s => s.id === songId);
+            const hasSong = flowPlaylistFinal.songs.some(s => s.id === songId);
             if (!hasSong) {
-                if (!flowPlaylistFinal.songs) {
-                    flowPlaylistFinal.songs = [];
-                }
                 flowPlaylistFinal.songs.push({ id: songId, title: 'peaches in regalia' });
                 this.storage.save(this.playlistsData);
             }
@@ -233,16 +233,80 @@ class MusicPlayer {
             this.storage.save(this.playlistsData);
         }
         
-        // If no current playlist is set, default to renewal
+        // If no current playlist is set, default to flow (since it's at the top)
         if (!this.playlistsData.currentPlaylistId) {
-            this.playlistsData.currentPlaylistId = 'renewal';
+            const flowPlaylistCheck = this.storage.getPlaylist(this.playlistsData, 'flow');
+            if (flowPlaylistCheck && flowPlaylistCheck.songs && flowPlaylistCheck.songs.length > 0) {
+                this.playlistsData.currentPlaylistId = 'flow';
+            } else {
+                this.playlistsData.currentPlaylistId = 'renewal';
+            }
             this.storage.save(this.playlistsData);
         }
         
-        const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
+        // Get current playlist and ensure it has songs
+        let currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
+        
+        // If currentPlaylistId is flow but getCurrentPlaylist returned null, get flow directly
+        if (this.playlistsData.currentPlaylistId === 'flow' && !currentPlaylist) {
+            currentPlaylist = this.storage.getPlaylist(this.playlistsData, 'flow');
+        }
+        
+        // If current playlist is flow, ensure it has the song
+        if (currentPlaylist && currentPlaylist.id === 'flow') {
+            if (!currentPlaylist.songs) {
+                currentPlaylist.songs = [];
+            }
+            const songId = 'FoYdeEDdtK4';
+            const hasSong = currentPlaylist.songs.some(s => s.id === songId);
+            if (!hasSong) {
+                currentPlaylist.songs.push({ id: songId, title: 'peaches in regalia' });
+                this.storage.save(this.playlistsData);
+            }
+            // Re-fetch to ensure we have the latest data
+            currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
+            if (!currentPlaylist) {
+                currentPlaylist = this.storage.getPlaylist(this.playlistsData, 'flow');
+            }
+        }
+        
+        // Final check: if current playlist is flow, ensure it definitely has songs
+        if (currentPlaylist && currentPlaylist.id === 'flow') {
+            if (!currentPlaylist.songs || currentPlaylist.songs.length === 0) {
+                // Force add the song if missing
+                if (!currentPlaylist.songs) {
+                    currentPlaylist.songs = [];
+                }
+                const songId = 'FoYdeEDdtK4';
+                if (!currentPlaylist.songs.some(s => s.id === songId)) {
+                    currentPlaylist.songs.push({ id: songId, title: 'peaches in regalia' });
+                    this.storage.save(this.playlistsData);
+                }
+            }
+        }
+        
         if (currentPlaylist && currentPlaylist.songs && currentPlaylist.songs.length > 0) {
             this.songs = currentPlaylist.songs;
         } else {
+            // Special case: if flow is selected but appears empty, try one more time to get it
+            if (this.playlistsData.currentPlaylistId === 'flow') {
+                const flowPlaylistRetry = this.storage.getPlaylist(this.playlistsData, 'flow');
+                if (flowPlaylistRetry) {
+                    if (!flowPlaylistRetry.songs) {
+                        flowPlaylistRetry.songs = [];
+                    }
+                    const songId = 'FoYdeEDdtK4';
+                    if (!flowPlaylistRetry.songs.some(s => s.id === songId)) {
+                        flowPlaylistRetry.songs.push({ id: songId, title: 'peaches in regalia' });
+                        this.storage.save(this.playlistsData);
+                    }
+                    if (flowPlaylistRetry.songs && flowPlaylistRetry.songs.length > 0) {
+                        this.songs = flowPlaylistRetry.songs;
+                        return; // Exit early, don't fall back to renewal
+                    }
+                }
+            }
+            
             // Fallback to renewal playlist if current playlist is empty
             const renewalPlaylistFallback = this.storage.getPlaylist(this.playlistsData, 'renewal');
             if (renewalPlaylistFallback && renewalPlaylistFallback.songs && renewalPlaylistFallback.songs.length > 0) {

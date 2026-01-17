@@ -15,10 +15,10 @@ class TodoStorage {
 
     getTodos() {
         const defaultTodoData = [
-            { text: 'build a home with the nice man i can call soulmate', completed: false },
-            { text: 'be in love like never before with the nice man i can call soulmate', completed: false },
-            { text: 'continue to have fun with work, just like all the decades before', completed: false },
-            { text: 'be happy && grateful every single day, just like all the decades before', completed: false },
+            { text: 'build a nice home', completed: false },
+            { text: 'be in love like never before', completed: false },
+            { text: 'love work, just like always', completed: false },
+            { text: 'be constantly happy && grateful, just like always', completed: false },
             { text: 'get ready for the best year ever yet', completed: true }
         ];
 
