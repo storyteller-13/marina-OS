@@ -44,7 +44,10 @@ class MusicPlayer {
             {
                 id: 'flow',
                 name: '2026 floater',
-                songs: [{ id: 'FoYdeEDdtK4', title: 'peaches in regalia' }],
+                songs: [
+                    { id: 'FoYdeEDdtK4', title: 'peaches in regalia' },
+                    { id: 'fhOAsDVg8pY', title: 'round && round' }
+                ],
                 position: 0
             },
             {
