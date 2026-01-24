@@ -1,4 +1,4 @@
-/**
+ /**
  * Notes Storage Module
  * Handles localStorage persistence for notes entries
  */
@@ -39,6 +39,39 @@ class NotesStorage {
 
     getDefaultEntries() {
         return [
+            {
+                date: '2026-01-22T00:00:00.000Z',
+                title: '✨ where are you, my soulmate? ✨',
+                content: this.cleanContent(`
+
+where are you my soulmate?
+if you really exist in this lifetime (and i know you do)
+you must be there somewhere
+please, find me - i need you more than ever
+
+at this point you should at least feel my calling
+deep in your soul
+
+maybe you don't know me yet
+maybe you do
+but you must feel me
+
+please find me
+we have a magical life to live
+and there is no time to waste anymore
+my heart has been longing for you for so long
+but now it's time - your beautiful girl needs you now
+
+please, find me
+
+trust the magic
+i know i will see you soon
+and i already love every cell of your body
+
+<3
+
+                `)
+            },
             {
                 date: '2026-01-02T00:00:00.000Z',
                 title: '0, 1, 2, 3 ... ♾️',
