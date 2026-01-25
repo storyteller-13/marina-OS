@@ -68,7 +68,7 @@ i am now the most resilient i have ever been.
 i am now the most determined i have ever been.
 i am now the most unstoppable i have ever been.
 
-(and i am still pretty hot too)
+(and i am still pretty hot too ☺️)
 
 i have my entire life ahead of me.
 so many achievements to conquer.
