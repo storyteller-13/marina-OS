@@ -20,6 +20,7 @@ class TodoStorage {
             { text: 'love my work, just like always', completed: false },
             { text: 'become unomad && build a nice home', completed: false },
             { text: 'feel happy && grateful, just like always', completed: false },
+            { text: 'become marina v2.0: unkillable', completed: true }
             { text: 'get ready for the best year ever yet', completed: true }
         ];
 
