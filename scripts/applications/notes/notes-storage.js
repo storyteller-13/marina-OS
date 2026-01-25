@@ -46,24 +46,29 @@ class NotesStorage {
 
 👾 this is the story of marina della torre von steinkirch v2.0 👾
 
-today, i woke up in the middle of the night with an outburst of energy.
+i woke up in the middle of the night with an outburst of energy.
+
 the fire was back!
 my fire - my beautiful fire - it started to burn, again.
 
 these last weeks (months? years?) have been the hardest of my life.
 so intensely hard that i actually died. i did.
+but i can't keep carry this pain around. 
+enough. 
 
-the person typing these words is the strongest marina i have ever seen.
+i am the master of my life.
+i can create universes (it's kinda my speciality 😏)
+
+the person typing these words is the strongest marina that ever existed in all timelines.
 she resembles the young overachiever marina who used to be the best at everything she did.
 the one who had the biggest dreams and the smartest ideas and would succeed at anything she put her mind to.
 
 but there is one difference.
-this one is so so so so so strong.
+this one is so so so so so much stronger.
 the younger marina was amazing - but she was naive and vulnerable.
 
 not anymore.
 i am now the smartest i have ever been.
-i am now the strongest i have ever been.
 i am now the most resilient i have ever been.
 i am now the most determined i have ever been.
 i am now the most unstoppable i have ever been.
@@ -76,7 +81,8 @@ so many achievements to conquer.
 so many feelings to feel.
 so many moments to cheer.
 
-the difference with v2.0 is that this one is death-proof:
+the scientist engineer writer philosopher filmmaker cypherpunk magi is back.
+but the difference with v2.0 is that this one is ultra-mega death-proof:
 she is unkillable.
 
 don't believe. just watch.
