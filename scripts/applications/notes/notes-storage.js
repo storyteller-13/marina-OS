@@ -55,7 +55,7 @@ so intensely hard that i actually died. i did.
 
 the person typing these words is the strongest marina i have ever seen.
 she resembles the young overachiever marina who used to be the best at everything she did.
-the one who had the biggest dreams and the ideas and would succeed at anything she put her mind to.
+the one who had the biggest dreams and the smartest ideas and would succeed at anything she put her mind to.
 
 but there is one difference.
 this one is so so so so so strong.
