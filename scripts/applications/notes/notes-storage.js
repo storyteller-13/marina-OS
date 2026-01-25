@@ -41,8 +41,14 @@ class NotesStorage {
         return [
             {
                 date: '2026-01-22T00:00:00.000Z',
-                title: '✨ where are you, my soulmate? ✨',
+                title: '✨ an ode to my soulmate ✨',
                 content: this.cleanContent(`
+
+                    (folks, i am getting very personal here because this is important =); please ignore if you feel it's too far from the usual marina-stoic-gal image you have in your head)
+
+here it goes...
+
+💕
 
 where are you my soulmate?
 if you really exist in this lifetime (and i know you do)
