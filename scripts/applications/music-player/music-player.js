@@ -42,24 +42,17 @@ class MusicPlayer {
         // Define required playlists with their songs
         const requiredPlaylists = [
             {
-                id: 'flow',
-                name: '2026 floater',
-                songs: [
-                    { id: 'FoYdeEDdtK4', title: 'peaches in regalia' },
-                    { id: 'fhOAsDVg8pY', title: 'round && round' }
-                ],
-                position: 0
-            },
-            {
                 id: 'renewal',
                 name: '2026 renewal',
                 songs: [
                     { id: 'X2959NkomEc', title: 'up all night' },
                     { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' },
                     { id: 'kryV3E4QKGk', title: 'secret smile' },
-                    { id: 'b9WKC5sT9Z4', title: 'gymnopedies' }
+                    { id: 'b9WKC5sT9Z4', title: 'gymnopedies' },
+                    { id: 'FoYdeEDdtK4', title: 'peaches in regalia' },
+                    { id: 'fhOAsDVg8pY', title: 'round && round' }
                 ],
-                position: 1
+                position: 0
             },
             {
                 id: 'dualities-playlist',
@@ -125,12 +118,7 @@ class MusicPlayer {
 
         // Set default playlist if none is set
         if (!this.playlistsData.currentPlaylistId) {
-            const flowPlaylist = this.storage.getPlaylist(this.playlistsData, 'flow');
-            if (flowPlaylist && flowPlaylist.songs && flowPlaylist.songs.length > 0) {
-                this.playlistsData.currentPlaylistId = 'flow';
-            } else {
-                this.playlistsData.currentPlaylistId = 'renewal';
-            }
+            this.playlistsData.currentPlaylistId = 'renewal';
         }
 
         // Migrate old playlist ID if needed
