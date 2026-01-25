@@ -42,6 +42,14 @@ class MusicPlayer {
         // Define required playlists with their songs
         const requiredPlaylists = [
             {
+                id: '2026-to-my-soulmate',
+                name: '2026 soulmating',
+                songs: [
+                    { id: 'HZnNt9nnEhw', title: 'honey' }
+                ],
+                position: 0
+            },
+            {
                 id: 'renewal',
                 name: '2026 renewal',
                 songs: [
@@ -52,7 +60,7 @@ class MusicPlayer {
                     { id: 'FoYdeEDdtK4', title: 'peaches in regalia' },
                     { id: 'fhOAsDVg8pY', title: 'round && round' }
                 ],
-                position: 0
+                position: 1
             },
             {
                 id: 'dualities-playlist',

@@ -58,6 +58,13 @@ class MusicPlayerStorage {
         return {
             playlists: [
                 {
+                    id: '2026-to-my-soulmate',
+                    name: '2026 soulmating',
+                    songs: [
+                        { id: 'HZnNt9nnEhw', title: 'honey' }
+                    ]
+                },
+                {
                     id: 'renewal',
                     name: '2026 renewal',
                     songs: [

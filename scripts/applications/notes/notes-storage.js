@@ -114,13 +114,14 @@ maybe you don't know me yet
 maybe you do
 but you must feel me
 
-please find me
+✨ please find me ✨
+
 we have a magical life to live
 and there is no time to waste anymore
 my heart has been longing for you for so long
 but now it's time - your beautiful girl needs you now
 
-please, find me
+✨ please, find me ✨
 
 trust the magic
 i know i will see you soon
