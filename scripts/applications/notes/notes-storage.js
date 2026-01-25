@@ -71,8 +71,8 @@ i am now the most unstoppable i have ever been.
 (and i am still pretty hot too ☺️)
 
 i have my entire life ahead of me.
+so many mountains to make my own.
 so many achievements to conquer.
-so many mountains to own.
 so many feelings to feel.
 so many moments to cheer.
 
