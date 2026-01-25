@@ -53,7 +53,7 @@ my fire - my beautiful fire - it started to burn, again.
 
 these last weeks (months? years?) have been the hardest of my life.
 so intensely hard that i actually died. i did.
-but i can't keep carry this pain around. 
+but i can't keep carrying this pain around. 
 enough. 
 
 i am the master of my life.
