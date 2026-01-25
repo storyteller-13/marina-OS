@@ -40,6 +40,50 @@ class NotesStorage {
     getDefaultEntries() {
         return [
             {
+                date: '2026-01-25T00:00:00.000Z',
+                title: 'phoenix',
+                content: this.cleanContent(`
+
+👾 this is the story of marina della torre von steinkirch v2.0 👾
+
+today, i woke up in the middle of the night with an outburst of energy.
+the fire was back!
+my fire - my beautiful fire - it started to burn, again.
+these last weeks (months? years?) have been the hardest of my life.
+so intensely hard that i actually died. i did.
+the person typing these words is the strongest marina i have ever seen.
+she resembles the young overachiever marina who used to be the best at everything she did.
+the one who had the biggest dreams and the ideas and would succeed at anything she put her mind to.
+
+but there is one difference.
+this one is so so so so so strong.
+the younger marina was amazing - but she was naive and vulnerable.
+
+not anymore.
+i am now the smartest i have ever been.
+i am now the strongest i have ever been.
+i am now the most resilient i have ever been.
+i am now the most determined i have ever been.
+i am now the most unstoppable i have ever been.
+
+(and i am still pretty hot too)
+
+i have my entire life ahead of me.
+so many achievements to conquer.
+so many mountains to own.
+so many feelings to feel.
+so many moments to cheer.
+
+the difference with v2.0 is that this one is death-proof:
+she is unkillable.
+
+don't believe. just watch.
+
+(LET'S GO!)
+
+                `)
+            },
+            {
                 date: '2026-01-22T00:00:00.000Z',
                 title: '✨ an ode to my soulmate ✨',
                 content: this.cleanContent(`
@@ -50,7 +94,7 @@ here it goes...
 
 💕
 
-where are you my soulmate?
+where are you, my beautiful soulmate?
 if you really exist in this lifetime (and i know you do)
 you must be there somewhere
 please, find me - i need you more than ever
