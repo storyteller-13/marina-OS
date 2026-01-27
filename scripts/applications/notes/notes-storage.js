@@ -93,7 +93,7 @@ don't believe. just watch.
             },
             {
                 date: '2026-01-22T00:00:00.000Z',
-                title: '✨ an ode to my soulmate ✨',
+                title: 'an ode to my soulmate',
                 content: this.cleanContent(`
 
                     (folks, i am getting very personal here because this is important =); please ignore if you feel it's too far from the usual marina-stoic-gal image you have in your head)
@@ -114,7 +114,7 @@ maybe you don't know me yet
 maybe you do
 but you must feel me
 
-✨ please find me ✨
+✨ please, find me ✨
 
 we have a magical life to live
 and there is no time to waste anymore

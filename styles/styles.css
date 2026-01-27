@@ -2920,7 +2920,7 @@ a.file-item {
 
 /* Notes Application */
 .notes-window {
-    width: 600px;
+    width: 650px;
     height: 800px;
     top: 60px;
     left: 150px;
@@ -3076,6 +3076,18 @@ a.file-item {
 .notes-date-text {
     text-shadow: 0 0 5px rgba(34, 197, 94, 0.4);
     font-weight: 500;
+}
+
+.notes-date-title {
+    margin-left: auto;
+    font-size: 14px;
+    color: #bbf7d0;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    text-shadow: 0 0 5px rgba(34, 197, 94, 0.4);
+    max-width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Notes Letter Window */

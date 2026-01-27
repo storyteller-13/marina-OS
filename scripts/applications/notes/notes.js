@@ -149,6 +149,7 @@ class NotesApp {
             const dateEntries = this.entriesByDate[dateKey];
             const firstEntry = dateEntries[0];
             const date = this.storage.formatDate(firstEntry.createdAt);
+            const title = firstEntry.title || '';
             const isRead = dateEntries.some(entry => entry.read === true);
             const isNewest = index === 0; // First entry is the newest (sorted newest first)
 
@@ -158,7 +159,8 @@ class NotesApp {
             return `
                 <div class="notes-date-item ${isRead ? 'read' : ''}" data-date-key="${dateKey}">
                     <div class="notes-read-indicator">${indicator}</div>
-                    <span class="notes-date-text">${this.escapeHtml(date)}</span>
+                    <span class="notes-date-text">${this.escapeHtml(date)}${title ? ';' : ''}</span>
+                    ${title ? `<span class="notes-date-title">${this.escapeHtml(title)}</span>` : ''}
                 </div>
             `;
         }).join('');

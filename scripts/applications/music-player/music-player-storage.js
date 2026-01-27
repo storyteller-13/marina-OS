@@ -91,7 +91,8 @@ class MusicPlayerStorage {
                     songs: [
                         { id: 'MO0LdXqwDP0', title: 'afterlife' },
                         { id: '8r-bTAvYkZw', title: 'ave maria' },
-                        { id: 'yB9_ImBoazY', title: 'leviticus' }
+                        { id: 'yB9_ImBoazY', title: 'leviticus' },
+                        { id: 'pf3KyEnacJ8', title: 'zombie' }
                     ]
                 }
             ],
