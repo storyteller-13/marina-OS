@@ -11,10 +11,9 @@ class BBotAPI {
             model: 'gpt-3.5-turbo',
             maxTokens: 500,
             temperature: 0.7,
-            // Ollama configuration
             ollamaUrl: window.OLLAMA_URL || 'http://localhost:11434',
             useOllama: true,
-            ollamaModel: 'llama2' // default Ollama model
+            ollamaModel: 'llama2'
         };
     }
 

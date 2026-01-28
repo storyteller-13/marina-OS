@@ -57,7 +57,7 @@ but i can't keep carrying this pain around.
 enough. 
 
 i am the master of my life.
-i can create universes (it's kinda my speciality 😏)
+i can create universes (it's kinda my speciality 😏).
 
 the person typing these words is the strongest marina that ever existed in all timelines.
 she resembles the young overachiever marina who used to be the best at everything she did.
