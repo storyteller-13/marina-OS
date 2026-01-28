@@ -1876,7 +1876,6 @@ a.desktop-icon {
 .b-bot-icon svg,
 .artwork-icon svg,
 .youtube-icon svg,
-.detective-icon svg,
 .folder-icon svg,
 .email-btn span svg {
     display: block;
@@ -1899,18 +1898,6 @@ a.desktop-icon {
 }
 
 .home-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-.fridays-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.fridays-container iframe {
     width: 100%;
     height: 100%;
     border: none;
@@ -1979,7 +1966,6 @@ a.desktop-icon {
 .terminal-output-container {
     margin-bottom: 8px;
 }
-
 
 /* File Manager */
 .file-manager {
@@ -2096,14 +2082,6 @@ a.file-item {
     z-index: 100;
 }
 
-.fridays-window {
-    width: 1100px;
-    height: 800px;
-    top: 50px;
-    left: 100px;
-    z-index: 10000;
-}
-
 .treasure-window {
     width: 1100px;
     height: 720px;
@@ -2111,7 +2089,6 @@ a.file-item {
     left: 100px;
     z-index: 100;
 }
-
 
 .b-bot-window {
     width: 800px;
@@ -2647,7 +2624,6 @@ a.file-item {
     background: rgba(10, 5, 15, 0.9);
     overflow-y: auto;
 }
-
 
 .notes-entries-list {
     flex: 1;
@@ -3347,25 +3323,6 @@ a.dock-item {
     }
 
     .apod-box-close {
-        width: 28px;
-        height: 28px;
-        font-size: 20px;
-        min-width: 28px;
-        flex-shrink: 0;
-    }
-
-    .form-box {
-        width: calc(100% - 40px);
-        max-width: 360px;
-        bottom: 90px; /* Above bottom dock */
-        right: 20px;
-    }
-
-    .form-box-form-container {
-        padding: 10px;
-    }
-
-    .form-box-close {
         width: 28px;
         height: 28px;
         font-size: 20px;

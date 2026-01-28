@@ -154,12 +154,12 @@ class NotesApp {
             const isNewest = index === 0; // First entry is the newest (sorted newest first)
 
             // Show '✓' if read, otherwise show '🆕' if newest
-            const indicator = isRead ? '✓' : (isNewest ? '🆕' : '');
+            const indicator = isRead ? '✓' : (isNewest ? '✨' : '');
 
             return `
                 <div class="notes-date-item ${isRead ? 'read' : ''}" data-date-key="${dateKey}">
                     <div class="notes-read-indicator">${indicator}</div>
-                    <span class="notes-date-text">${this.escapeHtml(date)}${title ? ';' : ''}</span>
+                    <span class="notes-date-text">${this.escapeHtml(date)}${title ? '' : ''}</span>
                     ${title ? `<span class="notes-date-title">${this.escapeHtml(title)}</span>` : ''}
                 </div>
             `;
