@@ -44,18 +44,43 @@ class NotesStorage {
                 title: 'home, home again',
                 content: this.cleanContent(`
 
-two months in malasya. 
-another story for the bags of wild adventures in my life.
+today is the last day of my two months living on a man-made-island-turned-to-technocrata-decentralized-society somewhere in the middle of nowhere in malasya. another story for my collection of wild adventures in this life.
 
-this one was intense, not gonna lie. the word in vogue bittersweet.
+not gonna lie, this one was intense. the word in vogue was bittersweet renewal.
 
-i made a very good friend, and i will carry her forever in my heart (and some of my stories 🙂‍↕️)
-i experienced a completely different life 
-🌶️
-for the first time in my adult life, i survived three weeks without any form of cash. this was scared and eye-opening.
-(but all the time i )
+---------------
+🍭 THE SWEET 🍭
+---------------
+
+→ i made a very good friend, and i will carry her forever in my heart (and some of my stories 🙂‍↕️)
+
+→ i experienced a completely different life 
+
+→ it was very confortable to have all the basics
 
 
+----------------
+🌶️ THE BITTER 🌶️
+----------------
+
+→ during my first week here i had the worst day of my entire life: when i found out something really really really cruel. i never felt so much pain in my entire life.
+
+→ for around a week after that, i went through serious thoughts of ending my life. i calculated every single possibility to do it in a way i would not have to deal with the consequences "failure" (e.g., how to do this safely). only folks who have had this experience understand i mean here. i did die. there was a part of myself who will never be the same, and it is what it is. i was able to pull myself together after a while and now i recognize that if there is one bright side of the whole situation is that i am completely definetly sure i will never go through this feeling of suicide anymore in my life. this is where "what does not kill you make you stronger" comes from.
+
+→ around a week or so, i found i was being hacked and many people were watching what i was doing on my computer. i had a plan to write my book and started a podcast, but after finding out this invasion, i decided to go within, heal, and keep my mega plans secret for the time.
+
+→ after exactly a month and 4 days in here, all my bank accounts were hacked and the criminals left $5.4 in each of them. for the first time in my adult life, i survived three weeks without any form of money. this was scared but help me understand what a good part of the population goes through in their life (something i would never experience in my upper class girl life).
+
+→ all these hackings were the validation that something very wicked has been happening in my life in the last years, which as an autistic scientist engineer i was not aware of. crimes i know i will have to deal with once i am back home.
+
+→ for a few days i felt like i completely lost my sanity. i never felt this way before. in a couple of occasions the level of anxiety was so high that i could not control my mind. i tried be in the shower for hours (which i usually do to calm down) and the trick didn't work. i worked it out by walking around the island, finding a desertic place and screaming very very loud for a few minutes.
+
+→ finally, in the last weeks i started to feel much better, and back to myself. i was able to proccess the fact that whatever is happening in my life - even staying in this island - was epheral and much smaller than all the many other things that i have done and achieve ed and will do and achieve.
+
+
+-----------
+❄️ OUTRO ❄️
+-----------
 
                 `)
             },
