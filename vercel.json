@@ -1,16 +1,5 @@
 {
-  "rewrites": [
-    {
-      "source": "/pages/soon",
-      "destination": "/pages/soon.html"
-    }
-  ],
   "redirects": [
-    {
-      "source": "/pages/soon.html",
-      "destination": "/pages/soon",
-      "permanent": true
-    },
     {
       "source": "/index.html",
       "destination": "/",

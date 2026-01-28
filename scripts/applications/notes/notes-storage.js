@@ -139,12 +139,12 @@ and i already love every cell of your body
 happy new year of 2026 AD, my anon friends!
 we did it - 2025 is now over - thanks g0ds.
 
-it's renewal time
+it's renewal time.
 
-time to go chase all our wildest dreams
-time to create the best year of our lives yet
-time to believe in ourselves like never before
-time to stop excuses and live the life we want
+time to go chase all our wildest dreams.
+time to create the best year of our lives yet.
+time to believe in ourselves like never before.
+time to stop excuses and live the life we want.
 
 here some dates for you to keep in mind:
 

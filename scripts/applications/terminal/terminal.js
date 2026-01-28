@@ -319,9 +319,6 @@
                 // Handle home directory files
                 if (dir === HOME_DIR && filename === '.secrets' && fileSystem[HOME_DIR] && fileSystem[HOME_DIR][filename]) {
                     let content = fileSystem[HOME_DIR][filename];
-                    if (typeof content === 'string' && content.includes('glitterblizzardy')) {
-                        content = content.replace(/glitterblizzardy/gi, '<span style="color:rgb(54, 38, 233);">glitterblizzardy</span>');
-                    }
                     return content;
                 }
 
@@ -330,9 +327,6 @@
                         return `cat: ${filename}: is a directory`;
                     }
                     let content = files[filename];
-                    if (typeof content === 'string' && content.includes('glitterblizzardy')) {
-                        content = content.replace(/glitterblizzardy/gi, '<span style="color: rgb(54, 38, 233)">glitterblizzardy</span>');
-                    }
                     return content;
                 }
 
