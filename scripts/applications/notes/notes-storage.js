@@ -52,35 +52,48 @@ not gonna lie, this one was intense. the word in vogue was bittersweet renewal.
 🍭 THE SWEET 🍭
 ---------------
 
-→ i made a very good friend, and i will carry her forever in my heart (and some of my stories 🙂‍↕️)
+→ routine. routine. routine. it was marvelous to have everything taken care of: my desk had a nice view to the balcony and the ocean so i could simply stare at it while working. health meals, a nice claening lad coming every day, a very confortbale bed, a very warm shower, many birds, and many flowers. it was the perfect place to process all the bitter things that i describe below.
 
-→ i experienced a completely different life 
+→ i experienced a completely different lifestyle, the asian way and cousine, and i will carry these cute learnings forever with me.
 
-→ it was very confortable to have all the basics
+→ everyone was nice and adventuous, the talks were good, the parties were fun. really good energy (and nobody recognized me!).
+
+→ i met an angel who i know i can call a friend for life. this was very precious and inexpected, and i am sure our paths will cross again in the future.
+
+→ i was pround of myself working out every day and for reading so many good books. 
+
+→ i cleaned up my goals, public profiles, and soul - and i took a few very cute pics. i am stronger than i ever been in my whole life and very ready for the next chapter.
 
 
 ----------------
 🌶️ THE BITTER 🌶️
 ----------------
 
-→ during my first week here i had the worst day of my entire life: when i found out something really really really cruel. i never felt so much pain in my entire life.
+→ during my first week here i had the worst day of my entire life: when i found out something really really really cruel that was done to me. i never felt so much pain in my entire life.
 
-→ for around a week after that, i went through serious thoughts of ending my life. i calculated every single possibility to do it in a way i would not have to deal with the consequences "failure" (e.g., how to do this safely). only folks who have had this experience understand i mean here. i did die. there was a part of myself who will never be the same, and it is what it is. i was able to pull myself together after a while and now i recognize that if there is one bright side of the whole situation is that i am completely definetly sure i will never go through this feeling of suicide anymore in my life. this is where "what does not kill you make you stronger" comes from.
+→ for around a week after that, i went through serious thoughts of ending my life. i calculated every single possibility to do it in a way i would not have to deal with the consequences of a "failure" (e.g., how to do it "safely"). only folks who have had this experience understand what i mean here. 
 
-→ around a week or so, i found i was being hacked and many people were watching what i was doing on my computer. i had a plan to write my book and started a podcast, but after finding out this invasion, i decided to go within, heal, and keep my mega plans secret for the time.
+→ i did die. there is a part of myself who will never be the same, and it is what it is. i was able to pull myself together after a while and now i recognize that if there is one bright side of the whole situation is that i am completely definetly sure i will never go through this feeling of suicide anymore in my life. this is where "what does not kill you make you stronger" comes from.
 
-→ after exactly a month and 4 days in here, all my bank accounts were hacked and the criminals left $5.4 in each of them. for the first time in my adult life, i survived three weeks without any form of money. this was scared but help me understand what a good part of the population goes through in their life (something i would never experience in my upper class girl life).
+→ around a week or so after that, i found i was being hacked and many people were watching what i was doing on my computer. i had a plan to write my book and started a podcast, but after finding out this abusive invasion, i decided to go within, heal, and keep my mega plans secret for the time.
 
-→ all these hackings were the validation that something very wicked has been happening in my life in the last years, which as an autistic scientist engineer i was not aware of. crimes i know i will have to deal with once i am back home.
+→ after exactly a month and 4 days in here, all my bank accounts were hacked and the criminals left $5.4 in each of them. for the first time in my adult life, i survived three weeks without any form of money. this was ultra-scary but it help me understand what a good part of humanity goes through in their life (something i would never experience during my past upper class girl life).
+
+→ all these hackings were the final proof that a very viscious crime has been happening in my life in the last years, which as an autistic scientist engineer i was not aware of. an abuse that we all, as a society, will have to face and pursue full justice.
 
 → for a few days i felt like i completely lost my sanity. i never felt this way before. in a couple of occasions the level of anxiety was so high that i could not control my mind. i tried be in the shower for hours (which i usually do to calm down) and the trick didn't work. i worked it out by walking around the island, finding a desertic place and screaming very very loud for a few minutes.
 
-→ finally, in the last weeks i started to feel much better, and back to myself. i was able to proccess the fact that whatever is happening in my life - even staying in this island - was epheral and much smaller than all the many other things that i have done and achieve ed and will do and achieve.
+→ finally, in the last weeks i started to feel much better, and back to myself. i was able to proccess the fact that whatever is happening in my life - even staying in this island - was epheral and much smaller than all the many other things that i have done and achieved and will do and achieve.
 
 
------------
-❄️ OUTRO ❄️
------------
+-------------------
+🦋 FINAL THOUGHT 🦋
+-------------------
+
+another surreal time. i came here one person, and left as someone completely different. i believe i can claim that i died and resurrected in malaysia.
+
+now, how many people have a story like that?
+
 
                 `)
             },
