@@ -68,35 +68,35 @@ class MusicPlayerStorage {
                     id: 'renewal',
                     name: '2026 renewal',
                     songs: [
-                        { id: 'X2959NkomEc', title: 'up all night' },
-                        { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright' },
-                        { id: 'kryV3E4QKGk', title: 'secret smile' },
-                        { id: 'b9WKC5sT9Z4', title: 'gymnopedies' }
+                        { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright (god is an astronaut)' },
+                        { id: 'X2959NkomEc', title: 'up all night ()' },
+                        { id: 'kryV3E4QKGk', title: 'secret smile (semisonic)' },
+                        { id: 'b9WKC5sT9Z4', title: 'gymnopedies ()' }
                     ]
                 },
                 {
                     id: 'dualities-playlist',
                     name: '2025 dualities',
                     songs: [
-                        { id: 'IXdNnw99-Ic', title: 'wish you were here' },
-                        { id: 'ujNeHIo7oTE', title: 'with or without you' },
-                        { id: '1lyu1KKwC74', title: 'bitter sweet symphony' },
-                        { id: '7jMlFXouPk8', title: 'high hopes' },
-                        { id: 'TFjmvfRvjTc', title: 'hey you' }
+                        { id: 'IXdNnw99-Ic', title: 'wish you were here (pink floyd)' },
+                        { id: 'ujNeHIo7oTE', title: 'with or without you (u2)' },
+                        { id: '1lyu1KKwC74', title: 'bitter sweet symphony ()' },
+                        { id: '7jMlFXouPk8', title: 'high hopes (pink floyd)' },
+                        { id: 'TFjmvfRvjTc', title: 'hey you (pink floyd)' }
                     ]
                 },
                 {
                     id: 'afterlife 2025',
                     name: '2025 afterlife',
                     songs: [
-                        { id: 'MO0LdXqwDP0', title: 'afterlife' },
-                        { id: '8r-bTAvYkZw', title: 'ave maria' },
-                        { id: 'yB9_ImBoazY', title: 'leviticus' },
-                        { id: 'pf3KyEnacJ8', title: 'zombie' }
+                        { id: 'MO0LdXqwDP0', title: 'afterlife ()' },
+                        { id: '8r-bTAvYkZw', title: 'ave maria ()' },
+                        { id: 'yB9_ImBoazY', title: 'leviticus ()' },
+                        { id: 'pf3KyEnacJ8', title: 'zombie ()' }
                     ]
                 }
             ],
-            currentPlaylistId: 'renewal'
+            currentPlaylistId: '2026-to-my-soulmate'
         };
     }
 

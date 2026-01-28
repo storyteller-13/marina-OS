@@ -40,6 +40,26 @@ class NotesStorage {
     getDefaultEntries() {
         return [
             {
+                date: '2026-01-31T00:00:00.000Z',
+                title: 'home, home again',
+                content: this.cleanContent(`
+
+two months in malasya. 
+another story for the bags of wild adventures in my life.
+
+this one was intense, not gonna lie. the word in vogue bittersweet.
+
+i made a very good friend, and i will carry her forever in my heart (and some of my stories 🙂‍↕️)
+i experienced a completely different life 
+🌶️
+for the first time in my adult life, i survived three weeks without any form of cash. this was scared and eye-opening.
+(but all the time i )
+
+
+
+                `)
+            },
+            {
                 date: '2026-01-25T00:00:00.000Z',
                 title: 'phoenix',
                 content: this.cleanContent(`
