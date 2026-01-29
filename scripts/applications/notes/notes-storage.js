@@ -72,7 +72,7 @@ not gonna lie, this one was intense. the theme in vogue was "bittersweet renewal
 
 → around a week or so after that, i found out that my devices were still being hacked and many people were watching what i was doing. i had a goal to write my book and start a podcast, but after finding out about another abuse of my human rights, i decided to halt all plans for january and focus on healing.
 
-→ after exactly a month and four days in here, all my bank accounts were hacked and the criminals left $5.4 in each of them. for the first time in my adult life, i survived three weeks without any form of money. this was ultra-scary and ultra-weird. [note to self: as a storyteller, this gave me perspectives of what some part of humanity goes through during their lives - something i would never have experienced if i had never left my past hard-worker-upper-class-professional-girl life for the hero journey].
+→ after exactly a month and four days in here, all my bank accounts were hacked and the criminals left $5.4 in each of them. for the first time in my adult life, i survived three weeks without any form of cash. this was ultra-scary and ultra-weird. [note to self: as a storyteller, this gave me perspectives of what some part of humanity goes through during their lives - something i would never have experienced if i had never left my past hard-worker-upper-class-professional-girl life for the hero journey].
 
 → all these hackings were the final proof that a very vicious crime has been happening in my life in the last years, which, as the autistic scientist engineer i am, i suspected but could never put my finger on it. an abuse that many, many people are very aware of, and that we all, as a society, will have to face and pursue full justice.
 
