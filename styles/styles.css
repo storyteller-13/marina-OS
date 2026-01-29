@@ -3642,6 +3642,33 @@ a.dock-item {
         padding: 12px;
     }
 
+    .notes-entries-list {
+        padding: 12px;
+    }
+
+    .notes-date-item {
+        padding: 14px 14px;
+        gap: 12px;
+        font-size: 16px;
+        align-items: flex-start;
+        min-height: 44px; /* easy tap target */
+    }
+
+    .notes-date-text {
+        flex: 1;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .notes-date-title {
+        margin-left: 0;
+        max-width: none;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+        opacity: 0.9;
+    }
+
     .notes-title-input,
     .notes-content-input {
         font-size: 12px;
@@ -3731,7 +3758,7 @@ a.dock-item {
     }
 
     .letter-text {
-        font-size: 12px;
+        font-size: 13px;
     }
 }
 
@@ -3942,6 +3969,21 @@ a.dock-item {
         padding: 10px;
     }
 
+    .notes-entries-list {
+        padding: 10px;
+    }
+
+    .notes-date-item {
+        padding: 12px 12px;
+        gap: 10px;
+        font-size: 15px;
+    }
+
+    .notes-read-indicator {
+        font-size: 18px;
+        min-width: 22px;
+    }
+
     .b-bot-input-container {
         padding: 10px;
     }
@@ -4073,6 +4115,7 @@ a.dock-item {
     .notes-new-btn,
     .notes-edit-btn,
     .notes-delete-btn,
+    .notes-date-item,
     .b-bot-send-btn,
     .back-btn {
         min-width: 44px;
