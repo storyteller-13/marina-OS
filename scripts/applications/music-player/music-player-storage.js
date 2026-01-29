@@ -72,7 +72,9 @@ class MusicPlayerStorage {
                         { id: 'X2959NkomEc', title: 'up all night (meltt)' },
                         { id: 'kryV3E4QKGk', title: 'secret smile (semisonic)' },
                         { id: 'flPvsybvwQo', title: 'last dance (the cure)' },
-                        { id: 'b9WKC5sT9Z4', title: 'gymnopedies (erik satie)' }
+                        { id: 'b9WKC5sT9Z4', title: 'gymnopedies (erik satie)' },
+                        { id: 'FoYdeEDdtK4', title: 'peaches in regalia (frank zappa)' },
+                        { id: 'fhOAsDVg8pY', title: 'round && round (bob moses)' }
                     ]
                 },
                 {
