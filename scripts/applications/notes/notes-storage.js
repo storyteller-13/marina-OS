@@ -41,7 +41,7 @@ class NotesStorage {
                 title: 'home, home again',
                 content: this.cleanContent(`
 
-my two-month trip to a man-made-island-turned-into-a-technocratic-decentralized-society-somewhere-in-the-middle-of-nowhere-in-malaysia has now come to an end. another story for my collection of wild adventures in this life.
+my two-months trip to a man-made-island-turned-into-a-technocratic-decentralized-society-somewhere-in-the-middle-of-nowhere-in-malaysia has now come to an end. another story for the collection of wild adventures in my life.
 
 not gonna lie, this one was intense. the theme in vogue was "bittersweet renewal".
 
