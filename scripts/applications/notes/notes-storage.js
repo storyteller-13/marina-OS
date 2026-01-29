@@ -49,9 +49,9 @@ not gonna lie, this one was intense. the theme in vogue was "bittersweet renewal
 🍭 THE SWEET 🍭
 ---------------
 
-→ routine. routine. routine. it was marvelous to have everything taken care of. my desk had a nice view to the balcony and to the ocean so i could simply stare at it while working. health meals, a nice cleaning lad coming every day, a very confortbale bed, a good gym, a very warm shower, many different (and loud!) birds, and many colorful flowers. it was the perfect place to digest all the bitter things that i describe below.
-
 → i experienced a completely different lifestyle: the asian way (and cousine!). i will carry these cute memories forever with me.
+
+→ routine. routine. routine. it was marvelous to have everything taken care of. my desk had a nice view to the balcony and to the ocean so i could simply stare at it while working. health meals, a nice cleaning lad coming every day, a very confortbale bed, a good gym, a very warm shower, many different (and loud!) birds, and many colorful flowers. it was the perfect place to digest all the bitter things that i describe below.
 
 → i met an angel who i know i can call a friend for life. this was very precious and inexpected, and i am sure our paths will cross again in the future. (kay-kay, i will miss our morning walkings and our philosophical discussions at tom & danny).
 
@@ -76,7 +76,7 @@ not gonna lie, this one was intense. the theme in vogue was "bittersweet renewal
 
 → all these hackings were the final proof that a very vicious crime has been happening in my life in the last years, which as the autistic scientist engineer i am, i suspected but couldn't never put my finger on it. an abuse that many many people are very aware of, and that we all, as a society, will have to face and pursue full justice.
 
-→ for a few days i felt like i completely lost my sanity. i never felt this way before. in a couple of occasions the level of anxiety was so high that i could not control my mind. i tried be in the shower for hours (which i usually do to calm down) and the trick didn't work. i worked it out by walking around the island, finding a desertic place and screaming very very loud for a few minutes.
+→ for a few days i felt like i completely lost my sanity. i never felt this way before. in a couple of occasions the level of anxiety was so high that i could not control my mind. i tried to be in the shower for hours (which i usually do to calm down) and the trick didn't work. i worked it out by walking around the island, finding a desertic place and screaming very very loud for a few minutes.
 
 → finally, in the last weeks i started to feel much better, and back to myself. i met someone special who helped me to figure out how to get back home. i was able to proccess the fact that whatever cruel hardship is happening in my life - or even the interesting opportunity of staying in this island - is ephemeral and will become just another figment of memory together with all the many other things i have done, as i do all the many other things i will be doing in the future.
 
