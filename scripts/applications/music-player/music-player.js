@@ -64,6 +64,17 @@ class MusicPlayer {
                 position: 1
             },
             {
+                id: 'afterlife 2025',
+                name: '2025 afterlife',
+                songs: [
+                    { id: 'MO0LdXqwDP0', title: 'afterlife (evanescence)' },
+                    { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
+                    { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
+                    { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' }
+                ],
+                position: -1 // Append to end
+            },
+            {
                 id: 'dualities-playlist',
                 name: '2025 dualities',
                 songs: [
@@ -72,17 +83,6 @@ class MusicPlayer {
                     { id: '1lyu1KKwC74', title: 'bitter sweet symphony (the verve)' },
                     { id: '7jMlFXouPk8', title: 'high hopes (pink floyd)' },
                     { id: 'TFjmvfRvjTc', title: 'hey you (pink floyd)' }
-                ],
-                position: -1 // Append to end
-            },
-            {
-                id: 'afterlife 2025',
-                name: '2025 afterlife',
-                songs: [
-                    { id: 'MO0LdXqwDP0', title: 'afterlife (evanescence)' },
-                    { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
-                    { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
-                    { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' }
                 ],
                 position: -1 // Append to end
             }
