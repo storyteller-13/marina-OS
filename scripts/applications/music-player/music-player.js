@@ -45,7 +45,7 @@ class MusicPlayer {
                 id: '2026-to-my-soulmate',
                 name: '2026 soulmating',
                 songs: [
-                    { id: 'HZnNt9nnEhw', title: 'honey' }
+                    { id: 'HZnNt9nnEhw', title: 'honey (maneskin)' }
                 ],
                 position: 0
             },

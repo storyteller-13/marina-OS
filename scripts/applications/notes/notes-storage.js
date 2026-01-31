@@ -35,17 +35,6 @@ class NotesStorage {
  *****************************************/
     getDefaultEntries() {
         return [
-            
-            {
-                date: '2026-02-02T00:00:00.000Z',
-                title: 'catch me if you can',
-                content: this.cleanContent(`
-
-
-lalala
-
-                `)
-            },
 
             {
                 date: '2026-01-29T00:00:00.000Z',
@@ -64,7 +53,7 @@ not gonna lie, this one was intense. the theme in vogue was "bittersweet renewal
 
 → routine. routine. routine. it was marvelous to have everything taken care of. my desk had a nice view to the ocean so i could simply stare at it while working. healthy meals, a nice cleaning lad every day, a very comfortable bed, a good gym, a very warm shower, many different (and loud!) birds, and many colorful flowers. it was the perfect place to digest all the bitter things that i will describe below.
 
-→ i met an angel who i know i can call a friend for life. this was very precious and unexpected, and i am sure our paths will cross again in the future. [note to k: i will miss our morning walks and philosophical discussions at tom & danny - and i can't wait to have you down to 'merica as my bridesmaid someday <3].
+→ i met an angel who i know i can call a friend for life. this was very precious and unexpected, and i am sure our paths will cross again in the future. [note to k: i will miss our morning walks and philosophical discussions at tom & danny <3].
 
 → i cleaned up my mind, my goals, my public profiles, and my soul - and i took a few very cute pics. i am stronger than i have ever been in my entire life and very ready for the next chapters.
 
@@ -77,7 +66,7 @@ not gonna lie, this one was intense. the theme in vogue was "bittersweet renewal
 
 → during my first week here, i lived the worst day of my entire life: when i found out about something really, really, really cruel that was done to me. i never felt so much pain before. i will leave it like this.
 
-→ for around a week after that, i went through the most serious thoughts of ending my life in my entire life. i calculated every single possibility to do it in a way i would not have to deal with the consequences of a "failure" (e.g., how to do it "safely"). only folks who have had a similar experience would understand what i mean here.
+→ for around a week after that, i went through the most serious thoughts of ending my life in my entire life. i calculated every single possibility to do it in a way i would not have to deal with the consequences of a "failure" (i.e., how to do it "safely"). only folks who have had a similar experience would understand what i mean here.
 
 → i did die. there is a part of myself that will never be the same, and it is what it is. i was able to pull myself together after a while and now i recognize that if there is one bright side of the whole situation, it is that i am completely, definitely sure i will never go through this feeling of suicide anymore in my life. this is what "what does not kill you makes you stronger" means for me.
 
