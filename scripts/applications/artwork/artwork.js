@@ -2,7 +2,6 @@
  * Artwork Window Application Module
  * Simple file manager window for artwork
  */
-
 class ArtworkApp {
     constructor() {
         this.windowId = 'artwork-window';
