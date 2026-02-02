@@ -2,6 +2,7 @@
  * Artwork Window Application Module
  * Simple file manager window for artwork
  */
+
 class ArtworkApp {
     constructor() {
         this.windowId = 'artwork-window';
@@ -15,7 +16,7 @@ class ArtworkApp {
             'you_met_me_at_a_very_strange_time_in_my_life.png',
             'cypherpunk.png',
             'princelessprincess.png',
-            'reaper.png'
+            'rubedo.png'
         ];
 
         this.init();

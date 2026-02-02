@@ -43,7 +43,8 @@
             '/artwork': {
                 'you_met_me_at_a_very_strange_time_in_my_life.png': 'file',
                 'cypherpunk.png': 'file',
-                'princelessprincess.png': 'file'
+                'princelessprincess.png': 'file',
+                'rubedo.png': 'file'
             }
         };
 
