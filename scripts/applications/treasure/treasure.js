@@ -11,7 +11,7 @@ class TreasureApp {
         this.dockItem = null;
         this.desktopIcon = null;
         this.iframe = null;
-        this.originalSrc = 'https://www.youtube.com/embed/wpWOQSgsetk';
+        this.originalSrc = 'https://www.youtube.com/watch?v=EV7WhVT270Q';
 
         this.init();
     }
