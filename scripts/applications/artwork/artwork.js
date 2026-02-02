@@ -14,8 +14,7 @@ class ArtworkApp {
         this.images = [
             'you_met_me_at_a_very_strange_time_in_my_life.png',
             'cypherpunk.png',
-            'princelessprincess.png',
-            'rubedo.png'
+            'princelessprincess.png'
         ];
 
         this.init();
