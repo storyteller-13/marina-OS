@@ -15,11 +15,11 @@ class TodoStorage {
 
     getTodos() {
         const defaultTodoData = [
-            { text: 'snowboard the hell of the monster winter storm of 2026', completed: false },
             { text: 'meet my soulmate and be in love like never before', completed: false },
+            { text: 'snowboard the hell of the monster winter storm of 2026', completed: false },
             { text: 'love my work, like i always have, but even more', completed: false },
             { text: 'become unomad and build a nice and perfect home', completed: false },
-            { text: 'feel happy && grateful every single day of my life', completed: false },
+            { text: 'feel happy && grateful every single day of my life', completed: true },
             { text: 'become marina v2.0: perfectly unkillable (after dying in malaysia)', completed: true },
             { text: 'get ready for the best year ever yet', completed: true }
         ];
