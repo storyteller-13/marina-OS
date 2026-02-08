@@ -54,7 +54,7 @@ class MusicPlayer {
                     { id: 'FoYdeEDdtK4', title: 'peaches in regalia (frank zappa)' },
                     { id: 'fhOAsDVg8pY', title: 'round && round (bob moses)' }
                 ],
-                position: 1
+                position: 0
             },
             {
                 id: 'afterlife 2025',
@@ -65,7 +65,7 @@ class MusicPlayer {
                     { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
                     { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' }
                 ],
-                position: -1 // Append to end
+                position: 1
             },
             {
                 id: 'dualities-playlist',
@@ -77,7 +77,7 @@ class MusicPlayer {
                     { id: '7jMlFXouPk8', title: 'high hopes (pink floyd)' },
                     { id: 'TFjmvfRvjTc', title: 'hey you (pink floyd)' }
                 ],
-                position: -1 // Append to end
+                position: 2
             }
         ];
 
