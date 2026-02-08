@@ -37,6 +37,35 @@ class NotesStorage {
         return [
 
             {
+                date: '2026-02-08T00:00:00.000Z',
+                title: 'an ode to san francisco',
+                content: this.cleanContent(`
+
+"if you're going to san francisco
+be sure to wear some flowers in your hair
+if you're going to san francisco
+you're gonna meet some gentle people there" 
+
+exactly 11 years ago, i was sitting at the twin peaks, looking at one of the most beautiful cities in the world, playing pixies on a loop, and realizing that this was the best day of my life so far: i got the job offer for my first real job, my first job after my PhD, as a software engineer at the cute yelp's office at market street, making $130k/year. 
+
+that day is still on the top 10 best days of my life.
+
+fast forwarding, i got myself a cute one-bedroom at the 7th avenue in inner sunset, a couple of blocks to the golden gate park, and a walking distance to my favorite bookstores. i owned a couple of guitars, a couple of videogame consoles, a couple of real art on the wall, a huge bookcase filled with unread books, and a comfortable chair in my balcony - where i could see the stars some nights. 
+                    
+i would bike every morning to work, have my coffee, and work 10, 12, 14 hours if needed on several projects on security, machine learning, infrastructure. i would come to the office a few weekends just because it was fun to work when nobody was there. i was so happy.
+
+then life took a fork. i was poached by apple making twice as much money. the commute was too harsh so i moved to cupertino. life was too empty, so i left the most desired job ever to explore the world.
+
+a decade has passed. i have been in every corner of earth. i have worked on hundreds of different projects. i have read hundreds of books. i have fought a hundred monsters. i have loved hundreds of people. i have dreamed hundreds of dreams. i have broken a hundred rules (and a hundred hearts - mine included). i have tried every experience possible for this lifetime. i have experienced every feeling in the spectrum of the human condition. 
+
+the girl now is a woman.
+i feel complete and satisfied with my life.
+                    
+and there is nothing i want more than go back to the only city that ever felt like home, working on the only subject that has been constantly somehow part of my life since high school.
+
+                    `)
+                },
+            {
                 date: '2026-01-29T00:00:00.000Z',
                 title: 'home, home again',
                 content: this.cleanContent(`
