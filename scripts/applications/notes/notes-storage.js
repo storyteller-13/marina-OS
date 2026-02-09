@@ -56,7 +56,7 @@ i would bike every morning to work, have my coffee, and work 10, 12, 14 hours if
 
 then life took a fork. i was poached by apple making twice as much money. the commute was too harsh so i moved to cupertino. life was too empty, so i left the most desired job ever to explore the world. for the hero's journey. for the soul-searching.
 
-a decade has passed. i have been in every corner of earth. i have worked on hundreds of different projects. i have read hundreds of books. i have fought hundreds of monsters. i have loved hundreds of people. i have dreamed hundreds of dreams. i have broken hundreds of rules (and hundreds of hearts - mine included). i have tried every experience possible for this lifetime. i have experienced every feeling in the spectrum of the human condition. 
+a decade has passed. i have been in every corner of earth. i have worked on a hundred of different projects. i have read a hundred of books. i have fought a hundred of monsters. i have loved a hundred of people. i have dreamed a hundred of dreams. i have broken a hundred of rules (and a hundred of hearts - mine included). i have tried every experience possible for this lifetime. i have experienced every feeling in the spectrum of the human condition. 
 
 the girl now is a woman.
 i feel complete and satisfied with my life.
