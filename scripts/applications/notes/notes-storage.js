@@ -20,7 +20,8 @@ class NotesStorage {
             content: entry.content || '',
             createdAt: entry.date || entry.createdAt || new Date().toISOString(),
             updatedAt: entry.updatedAt || null,
-            read: entry.read || false
+            read: entry.read || false,
+            italic: entry.italic || false
         };
     }
 
@@ -39,8 +40,9 @@ class NotesStorage {
             {
                 date: '2026-02-11T00:00:00.000Z',
                 title: 'claude, remind me about meaning',
+                italic: true,
                 content: this.cleanContent(`
-memory is a garden where meaning grows wild, blooming in the spaces between what happened and what we choose to keep. 
+"memory is a garden where meaning grows wild, blooming in the spaces between what happened and what we choose to keep. 
 
 we tend it carefully, watering the moments that made us laugh until we cried, the quiet evenings that felt like home, the words someone said that changed everything. 
 
@@ -54,7 +56,7 @@ our minds know which memories deserve the sunlight and which should quietly comp
 
 we remember the lesson but forget the sting, keep the strength but release the sorrow. 
 
-and in this careful gardening of what we hold and what we let drift away like dandelion seeds, we make meaning - not from perfection, but from choosing again and again what deserves to take root in the precious, finite soil of who we are.
+and in this careful gardening of what we hold and what we let drift away like dandelion seeds, we make meaning - not from perfection, but from choosing again and again what deserves to take root in the precious, finite soil of who we are."
 
                 `)
             },
@@ -63,10 +65,10 @@ and in this careful gardening of what we hold and what we let drift away like da
                 title: 'an ode to san francisco',
                 content: this.cleanContent(`
 
-"if you're going to san francisco
+«i»"if you're going to san francisco
 be sure to wear some flowers in your hair
 if you're going to san francisco
-you're gonna meet some gentle people there" 
+you're gonna meet some gentle people there"«/i»
 
 exactly 11 years ago, i was sitting at the twin peaks, looking at one of the most beautiful cities in the world, playing pixies on a loop, and realizing that this was the best day of my life so far: i got the job offer for my first real job, my first job after my PhD, as a software engineer at the cute yelp's office at market street, making $130k/year. 
 

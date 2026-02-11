@@ -3039,6 +3039,10 @@ a.file-item {
     max-width: 100%;
 }
 
+.letter-content--italic {
+    font-style: italic;
+}
+
 .letter-text {
     font-size: 13px;
     white-space: pre-wrap;

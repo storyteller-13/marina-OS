@@ -212,7 +212,10 @@ class NotesApp {
 
         if (dateEl) dateEl.textContent = date;
         if (titleEl) titleEl.textContent = entry.title || '';
-        if (contentEl) contentEl.innerHTML = this.formatContent(entry.content || '');
+        if (contentEl) {
+            contentEl.innerHTML = this.formatContent(entry.content || '');
+            contentEl.classList.toggle('letter-content--italic', entry.italic === true);
+        }
     }
 
     openLetterWindowWithManager(letterWindow) {
@@ -256,8 +259,25 @@ class NotesApp {
     }
 
     formatContent(content) {
-        // Convert newlines to <br> tags
-        return this.escapeHtml(content).replace(/\n/g, '<br>');
+        // Support «i»...«/i» for inline italic (multiline allowed)
+        const italicRegex = /«i»([\s\S]*?)«\/i»/g;
+        const segments = [];
+        let lastIndex = 0;
+        let match;
+        while ((match = italicRegex.exec(content)) !== null) {
+            if (match.index > lastIndex) {
+                segments.push({ type: 'normal', text: content.slice(lastIndex, match.index) });
+            }
+            segments.push({ type: 'italic', text: match[1] });
+            lastIndex = match.index + match[0].length;
+        }
+        if (lastIndex < content.length) {
+            segments.push({ type: 'normal', text: content.slice(lastIndex) });
+        }
+        const processed = segments.length
+            ? segments.map(s => s.type === 'italic' ? '<em>' + this.escapeHtml(s.text) + '</em>' : this.escapeHtml(s.text)).join('')
+            : this.escapeHtml(content);
+        return processed.replace(/\n/g, '<br>');
     }
 
     escapeHtml(text) {
