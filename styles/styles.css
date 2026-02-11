@@ -1890,7 +1890,7 @@ a.menu-button {
 /* Desktop Icons */
 .desktop-icons {
     position: absolute;
-    top: 56px;
+    top: 72px;
     left: 20px;
     display: flex;
     flex-direction: column;

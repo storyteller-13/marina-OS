@@ -31,17 +31,33 @@
             <div class="panel-left">
                 <div class="menu-container">
                     <a href="javascript:void(0)" class="menu-button cherry-icon" id="applications-menu-button" style="text-decoration: none;">
-                        <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Saturn rings -->
-                            <ellipse cx="16" cy="16" rx="11" ry="4" fill="none" stroke="#39ff14" stroke-width="2.4" opacity="0.8"/>
-                            <ellipse cx="16" cy="16" rx="9" ry="3" fill="none" stroke="#39ff14" stroke-width="2" opacity="0.6"/>
-                            <ellipse cx="16" cy="16" rx="7" ry="2.2" fill="none" stroke="#39ff14" stroke-width="1.6" opacity="0.5"/>
-                            <!-- Saturn planet -->
-                            <circle cx="16" cy="16" r="6" fill="rgba(57, 255, 20, 0.15)" stroke="#39ff14" stroke-width="2.8"/>
-                            <circle cx="16" cy="16" r="6" fill="none" stroke="#39ff14" stroke-width="2.8"/>
-                            <!-- Planet details -->
-                            <ellipse cx="14" cy="15" rx="1.6" ry="1" fill="#39ff14" opacity="0.4"/>
-                            <ellipse cx="18" cy="17" rx="1.2" ry="0.8" fill="#39ff14" opacity="0.3"/>
+                        <svg width="38" height="38" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="saturn-globe" cx="35%" cy="35%" r="65%">
+                                    <stop offset="0%" stop-color="rgba(57, 255, 20, 0.85)"/>
+                                    <stop offset="70%" stop-color="rgba(57, 255, 20, 0.55)"/>
+                                    <stop offset="100%" stop-color="rgba(57, 255, 20, 0.35)"/>
+                                </radialGradient>
+                                <linearGradient id="saturn-belt" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#39ff14" stop-opacity="0.2"/>
+                                    <stop offset="50%" stop-color="#39ff14" stop-opacity="0.4"/>
+                                    <stop offset="100%" stop-color="#39ff14" stop-opacity="0.2"/>
+                                </linearGradient>
+                            </defs>
+                            <g transform="translate(16, 16)">
+                                <!-- Saturn rings (tilted, soft ends) -->
+                                <g transform="rotate(-25)" stroke="#39ff14" stroke-linecap="round" fill="none">
+                                    <ellipse cx="0" cy="0" rx="12" ry="4.5" stroke-width="1.1" opacity="0.92"/>
+                                    <ellipse cx="0" cy="0" rx="10" ry="3.8" stroke-width="0.95" opacity="0.78"/>
+                                    <ellipse cx="0" cy="0" rx="8" ry="3" stroke-width="0.75" opacity="0.64"/>
+                                    <ellipse cx="0" cy="0" rx="6.5" ry="2.4" stroke-width="0.6" opacity="0.5"/>
+                                </g>
+                                <!-- Saturn globe -->
+                                <ellipse cx="0" cy="0" rx="5.5" ry="6" fill="url(#saturn-globe)" stroke="#39ff14" stroke-width="1.8" stroke-opacity="0.9"/>
+                                <ellipse cx="0" cy="0" rx="5.5" ry="6" fill="none" stroke="#39ff14" stroke-width="1.8" opacity="0.85"/>
+                                <!-- Belt -->
+                                <ellipse cx="0" cy="0.3" rx="4" ry="0.6" fill="url(#saturn-belt)"/>
+                            </g>
                         </svg>
                     </a>
                     <div class="menu-dropdown" id="applications-dropdown">
