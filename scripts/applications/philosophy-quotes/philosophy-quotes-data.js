@@ -15,7 +15,6 @@ window.PHILOSOPHY_QUOTES = [
     { text: 'knowing others is intelligence; knowing yourself is true wisdom.', author: 'lao tzu' },
     { text: 'the function of freedom is to free someone else.', author: 'toni morrison' },
     { text: 'even a happy life cannot be without a measure of darkness.', author: 'carl jung' },
-    { text: 'the only way to do great work is to love what you do.', author: 'often attributed' },
     { text: 'what we think, we become.', author: 'often attributed to buddha' },
     { text: 'the cave you fear to enter holds the treasure you seek.', author: 'joseph campbell' },
     { text: 'man is condemned to be free.', author: 'jean-paul sartre' },
