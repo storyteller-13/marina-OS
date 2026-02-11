@@ -3483,12 +3483,17 @@ a.dock-item {
         width: calc(100% - 40px);
         max-width: 360px;
         max-height: 75vh;
-        bottom: 383px; /* Above XKCD */
+        bottom: auto;
         left: 50%;
-        transform: translateX(-50%);
-        display: flex;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: none; /* Hidden by default on mobile; shown when icon is clicked */
         flex-direction: column;
         overflow: hidden;
+    }
+
+    .philosophy-box[style*="display: block"] {
+        display: flex !important;
     }
 
     .philosophy-box-content {
@@ -3499,7 +3504,7 @@ a.dock-item {
     }
 
     .philosophy-box:hover {
-        transform: translateX(-50%) translateY(-4px) scale(1.02);
+        transform: translate(-50%, -50%) translateY(-4px) scale(1.02);
     }
 
     .philosophy-quote-container {
@@ -4053,12 +4058,17 @@ a.dock-item {
         width: calc(100% - 24px);
         max-width: 360px;
         max-height: 75vh;
-        bottom: 383px;
+        bottom: auto;
         left: 50%;
-        transform: translateX(-50%);
-        display: flex;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
         flex-direction: column;
         overflow: hidden;
+    }
+
+    .philosophy-box[style*="display: block"] {
+        display: flex !important;
     }
 
     .philosophy-box-content {
@@ -4105,7 +4115,7 @@ a.dock-item {
     }
 
     .philosophy-box:hover {
-        transform: translateX(-50%) translateY(-4px) scale(1.02);
+        transform: translate(-50%, -50%) translateY(-4px) scale(1.02);
     }
 
     .xkcd-box {
@@ -4333,13 +4343,19 @@ a.dock-item {
     }
 
     .philosophy-box {
-        bottom: 320px;
-        left: 8px;
+        bottom: auto;
+        left: 50%;
+        top: 50%;
         width: 220px;
         max-height: 70vh;
-        display: flex;
+        transform: translate(-50%, -50%);
+        display: none;
         flex-direction: column;
         overflow: hidden;
+    }
+
+    .philosophy-box[style*="display: block"] {
+        display: flex !important;
     }
 
     .philosophy-box-content {
@@ -4347,6 +4363,10 @@ a.dock-item {
         flex-direction: column;
         min-height: 0;
         flex: 1;
+    }
+
+    .philosophy-box:hover {
+        transform: translate(-50%, -50%) translateY(-4px) scale(1.02);
     }
 
     .philosophy-quote-container {

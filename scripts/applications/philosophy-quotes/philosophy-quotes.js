@@ -10,7 +10,9 @@ class PhilosophyQuotesPanel {
 
     init() {
         this.setupEventListeners();
-        this.showBox();
+        if (!this.isMobile()) {
+            this.showBox();
+        }
     }
 
     setupEventListeners() {
@@ -59,19 +61,24 @@ class PhilosophyQuotesPanel {
         }
     }
 
+    isMobile() {
+        return window.matchMedia('(max-width: 768px)').matches;
+    }
+
     showBox() {
         const box = document.getElementById('philosophy-box');
         if (!box) return;
 
+        const center = this.isMobile() ? 'translate(-50%, -50%) ' : '';
         this.displayQuote();
         box.style.display = 'block';
         box.style.opacity = '0';
-        box.style.transform = 'translateY(-10px) scale(0.95)';
+        box.style.transform = center + 'translateY(-10px) scale(0.95)';
         void box.offsetHeight;
         requestAnimationFrame(() => {
             box.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
             box.style.opacity = '1';
-            box.style.transform = 'translateY(0) scale(1)';
+            box.style.transform = center + 'translateY(0) scale(1)';
         });
     }
 
@@ -79,8 +86,9 @@ class PhilosophyQuotesPanel {
         const box = document.getElementById('philosophy-box');
         if (!box) return;
 
+        const center = this.isMobile() ? 'translate(-50%, -50%) ' : '';
         box.style.opacity = '0';
-        box.style.transform = 'translateY(-10px) scale(0.95)';
+        box.style.transform = center + 'translateY(-10px) scale(0.95)';
         setTimeout(() => {
             box.style.display = 'none';
         }, 400);
