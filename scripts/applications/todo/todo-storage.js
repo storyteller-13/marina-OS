@@ -15,8 +15,10 @@ class TodoStorage {
 
     getTodos() {
         const defaultTodoData = [
-            { text: 'laser focus on the only thing that always mattered the most and continues to be the only meaning afterall: my career', completed: false },
-            { text: 'become unomad and build a nice and perfect home', completed: false },
+            { text: 'laser focus on what has always mattered the most and continues to be one of my greatest sources of happiness: my work', completed: false },
+            { text: 'be in the present, and find gratitude and fullfiment every single day', completed: false },
+            { text: 'trust that G\'d is bringing the perfect person to me, at the right time', completed: false },
+            { text: 'become unomad and build a nice, safe, and perfect home', completed: false },
             { text: 'become marina v2.0: perfectly unkillable (after dying in malaysia)', completed: true },
             { text: 'get ready for the best year ever yet', completed: true }
         ];

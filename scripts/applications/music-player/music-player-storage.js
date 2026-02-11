@@ -58,6 +58,13 @@ class MusicPlayerStorage {
         return {
             playlists: [
                 {
+                    id: '2026-reward',
+                    name: '2026 reward',
+                    songs: [
+                        { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' }
+                    ]
+                },
+                {
                     id: 'renewal',
                     name: '2026 renewal',
                     songs: [

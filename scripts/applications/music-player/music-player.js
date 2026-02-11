@@ -41,7 +41,14 @@ class MusicPlayer {
 
         // Define required playlists with their songs
         const requiredPlaylists = [
-
+            {
+                id: '2026-reward',
+                name: '2026 reward',
+                songs: [
+                    { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' }
+                ],
+                position: 0
+            },
             {
                 id: 'renewal',
                 name: '2026 renewal',
@@ -54,7 +61,7 @@ class MusicPlayer {
                     { id: 'FoYdeEDdtK4', title: 'peaches in regalia (frank zappa)' },
                     { id: 'fhOAsDVg8pY', title: 'round && round (bob moses)' }
                 ],
-                position: 0
+                position: 1
             },
             {
                 id: 'afterlife 2025',
@@ -65,7 +72,7 @@ class MusicPlayer {
                     { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
                     { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' }
                 ],
-                position: 1
+                position: 2
             },
             {
                 id: 'dualities-playlist',
@@ -77,7 +84,7 @@ class MusicPlayer {
                     { id: '7jMlFXouPk8', title: 'high hopes (pink floyd)' },
                     { id: 'TFjmvfRvjTc', title: 'hey you (pink floyd)' }
                 ],
-                position: 2
+                position: 3
             }
         ];
 
