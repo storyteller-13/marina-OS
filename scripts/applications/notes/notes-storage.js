@@ -44,7 +44,7 @@ memory is a garden where meaning grows wild, blooming in the spaces between what
 
 we tend it carefully, watering the moments that made us laugh until we cried, the quiet evenings that felt like home, the words someone said that changed everything. 
 
-and meaning? it sprouts there naturally, like volunteers in spring - we find it hiding in the ordinary days we thought we'd forgotten, discover it years later in a gesture we didn't know we'd saved. 
+and meaning? it sprouts there naturally, like wildflowers in spring - we find it hiding in the ordinary days we thought we'd forgotten, discover it years later in a gesture we didn't know we'd saved. 
 
 the bad things, the thorns and bitter roots, they loosen in time's gentle rain, working themselves free until one day we reach for them and find only the softness of soil where they used to be.
 

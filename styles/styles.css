@@ -3482,13 +3482,38 @@ a.dock-item {
     .philosophy-box {
         width: calc(100% - 40px);
         max-width: 360px;
+        max-height: 75vh;
         bottom: 383px; /* Above XKCD */
-        left: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .philosophy-box-content {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        flex: 1;
+    }
+
+    .philosophy-box:hover {
+        transform: translateX(-50%) translateY(-4px) scale(1.02);
     }
 
     .philosophy-quote-container {
-        height: 195px;
-        min-height: 195px;
+        flex: 1;
+        min-height: 180px;
+        max-height: 55vh;
+        height: auto;
+        font-size: 14px;
+        padding: 14px 14px 14px 24px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 
     .xkcd-box {
@@ -3834,6 +3859,7 @@ a.dock-item {
 
     .notes-entries-list {
         padding: 12px;
+        -webkit-overflow-scrolling: touch;
     }
 
     .notes-date-item {
@@ -4024,19 +4050,62 @@ a.dock-item {
     }
 
     .philosophy-box {
-        width: calc(100% - 12px);
-        max-width: 240px;
+        width: calc(100% - 24px);
+        max-width: 360px;
+        max-height: 75vh;
         bottom: 383px;
-        left: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
     }
 
     .philosophy-box-content {
         padding: 10px;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        flex: 1;
     }
 
     .philosophy-quote-container {
-        height: 160px;
+        flex: 1;
         min-height: 160px;
+        max-height: 50vh;
+        height: auto;
+        font-size: 14px;
+        line-height: 1.6;
+        padding: 12px 12px 12px 20px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .philosophy-quote-container::before,
+    .philosophy-quote-container::after {
+        font-size: 32px;
+    }
+
+    .philosophy-quote-container::before {
+        left: 8px;
+        top: 4px;
+    }
+
+    .philosophy-quote-container::after {
+        right: 8px;
+        bottom: 4px;
+    }
+
+    .philosophy-quote-author {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+
+    .philosophy-box:hover {
+        transform: translateX(-50%) translateY(-4px) scale(1.02);
     }
 
     .xkcd-box {
@@ -4101,8 +4170,7 @@ a.dock-item {
     .notes-window,
     .home-window,
     .b-bot-window,
-    .artwork-window,
-    .notes-letter-window {
+    .artwork-window {
         width: 100%;
         height: calc(100vh - 52px - 80px);
         top: 52px;
@@ -4110,6 +4178,33 @@ a.dock-item {
         transform: none;
         border-radius: 0;
         max-height: calc(100vh - 52px - 80px);
+    }
+
+    .notes-letter-window {
+        width: 100% !important;
+        height: calc(100vh - 52px - 80px) !important;
+        max-height: calc(100vh - 52px - 80px) !important;
+        top: 52px !important;
+        left: 0 !important;
+        transform: none !important;
+        border-radius: 0;
+    }
+
+    .letter-container {
+        padding: 10px;
+    }
+
+    .letter-paper {
+        padding: 12px 16px;
+    }
+
+    .letter-title {
+        font-size: 15px;
+        margin-bottom: 14px;
+    }
+
+    .letter-text {
+        font-size: 12px;
     }
 
     .window-header {
@@ -4177,6 +4272,7 @@ a.dock-item {
 
     .notes-entries-list {
         padding: 10px;
+        -webkit-overflow-scrolling: touch;
     }
 
     .notes-date-item {
@@ -4240,11 +4336,29 @@ a.dock-item {
         bottom: 320px;
         left: 8px;
         width: 220px;
+        max-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .philosophy-box-content {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        flex: 1;
     }
 
     .philosophy-quote-container {
-        height: 120px;
-        min-height: 120px;
+        flex: 1;
+        min-height: 140px;
+        max-height: 45vh;
+        height: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 
     .xkcd-box {
@@ -4286,7 +4400,6 @@ a.dock-item {
     .home-window,
     .b-bot-window,
     .artwork-window,
-
     .notes-letter-window {
         width: 95%;
         height: calc(100vh - 44px - 70px);
