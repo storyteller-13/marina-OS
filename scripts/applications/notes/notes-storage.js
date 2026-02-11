@@ -40,7 +40,6 @@ class NotesStorage {
                 date: '2026-02-11T00:00:00.000Z',
                 title: 'claude, remind me about meaning',
                 content: this.cleanContent(`
-~~~
 memory is a garden where meaning grows wild, blooming in the spaces between what happened and what we choose to keep. 
 
 we tend it carefully, watering the moments that made us laugh until we cried, the quiet evenings that felt like home, the words someone said that changed everything. 
@@ -56,7 +55,6 @@ our minds know which memories deserve the sunlight and which should quietly comp
 we remember the lesson but forget the sting, keep the strength but release the sorrow. 
 
 and in this careful gardening of what we hold and what we let drift away like dandelion seeds, we make meaning - not from perfection, but from choosing again and again what deserves to take root in the precious, finite soil of who we are.
-~~~
 
                 `)
             },

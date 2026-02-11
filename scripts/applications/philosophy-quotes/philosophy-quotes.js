@@ -10,10 +10,7 @@ class PhilosophyQuotesPanel {
 
     init() {
         this.setupEventListeners();
-        const box = document.getElementById('philosophy-box');
-        if (box) {
-            box.style.display = 'none';
-        }
+        this.showBox();
     }
 
     setupEventListeners() {
