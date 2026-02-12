@@ -70,17 +70,17 @@ be sure to wear some flowers in your hair
 if you're going to san francisco
 you're gonna meet some gentle people there"«/i»
 
-exactly 11 years ago, i was sitting at the twin peaks, looking at one of the most beautiful cities in the world, playing pixies on a loop, and realizing that this was the best day of my life so far: i got the job offer for my first real job, my first job after my PhD, as a software engineer at the cute yelp's office at market street, making $130k/year. 
+exactly 11 years ago, i was sitting at the twin peaks, looking at one of the most beautiful cities in the world, playing pixies on a loop, and realizing that this was the best day of my life so far: i got the job offer for my first real job, my first job after my PhD, as a software engineer at yelp's cute office at market street, making $130k/year. 
 
-that day is still on the top 10 best days of my life.
+that day is still in the top 10 best days of my life.
 
-fast forwarding, i got myself a cute one-bedroom at the 7th avenue in inner sunset, a couple of blocks to the golden gate park, and a walking distance to my favorite bookstores. i owned a couple of guitars, a couple of videogame consoles, a couple of real art on the wall, a huge bookcase filled with unread books, and a comfortable chair in my balcony - where i could see the stars some nights. 
+fast-forwarding, i got myself a cute one-bedroom on the 7th avenue in inner sunset, a couple of blocks to the golden gate park, and walking distance to my favorite bookstores. i owned a couple of guitars, a couple of videogame consoles, a couple of real artworks on the wall, a huge bookcase filled with unread books, and a comfortable chair on my balcony - where i could see the stars some nights. 
                     
 i would bike every morning to work, have my coffee, and work 10, 12, 14 hours if needed on several projects on security, machine learning, infrastructure. i would come to the office a few weekends just because it was fun to work when nobody was there. i was so happy.
 
 then life took a fork. i was poached by apple making twice as much money. the commute was too harsh so i moved to cupertino. life was too empty, so i left the most desired job ever to explore the world. for the hero's journey. for the soul-searching.
 
-a decade has passed. i have been in every corner of earth. i have worked on a hundred of different projects. i have read a hundred of books. i have fought a hundred of monsters. i have loved a hundred of people. i have dreamed a hundred of dreams. i have broken a hundred of rules (and a hundred of hearts - mine included). i have tried every experience possible for this lifetime. i have experienced every feeling in the spectrum of the human condition. 
+a decade has passed. i have been in every corner of the earth. i have worked on a hundred different projects. i have read a hundred books. i have fought a hundred monsters. i have loved a hundred people. i have dreamed a hundred dreams. i have broken a hundred rules (and a hundred hearts - mine included). i have tried every experience possible for this lifetime. i have experienced every feeling in the spectrum of the human condition. 
 
 the girl now is a woman.
 i feel complete and satisfied with my life.
