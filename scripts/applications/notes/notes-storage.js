@@ -38,6 +38,38 @@ class NotesStorage {
         return [
 
             {
+                date: '2026-02-15T00:00:00.000Z',
+                title: 'an ode to myself',
+                content: this.cleanContent(`
+I love you, Marina
+
+1. I love how kind you are
+2. I love how strong you are
+3. I love how honest you are
+4. I love how special you are
+5. I love how magical you are
+6. I love how beautiful you are
+7. I love how intelligent you are
+8. I love how committed you are
+9. I love how disciplined you are
+10. I love how hardworking you are 
+
+After everything you have been through in your life, 
+you are nothing less than wonderful in my eyes
+
+I love all the stories you lived
+and all the beautiful things that are ahead 
+
+Of all the possible humans I could be,
+I am glad I am you
+
+I love you, I love you, I love you, I love you 
+
+🌹 Happy valentines day, perfect babe 🌹
+
+                `)
+            },
+            {
                 date: '2026-02-11T00:00:00.000Z',
                 title: 'claude, remind me about meaning',
                 italic: true,
