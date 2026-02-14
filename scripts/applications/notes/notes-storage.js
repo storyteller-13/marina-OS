@@ -55,18 +55,18 @@ I love you, Marina
 10. I love how hardworking you are 
 
 
-After everything you have been through in your life, 
-you are nothing less than wonderful in my eyes
+After everything you've been through in this lifetime, 
+you're nothing less than completelywonderful in my eyes
 
 I love all the exciting stories you lived
 and all the beautiful ones that are ahead 
 
 Of all the possible humans I could be,
-I am glad I am you
+I'm glad I'm you; I'm honored to be you
 
 I love you, I love you, I love you, I love you 
 
-🌹 Happy valentine's day, perfect babe 🌹
+🌹 Happy valentine's day, perfect pretty babe 🌹
 
                 `)
             },
