@@ -49,16 +49,17 @@ I love you, Marina
 4. I love how special you are
 5. I love how magical you are
 6. I love how beautiful you are
-7. I love how intelligent you are
-8. I love how committed you are
+7. I love how committed you are
+8. I love how intelligent you are
 9. I love how disciplined you are
 10. I love how hardworking you are 
+
 
 After everything you have been through in your life, 
 you are nothing less than wonderful in my eyes
 
-I love all the stories you lived
-and all the beautiful things that are ahead 
+I love all the exciting stories you lived
+and all the beautiful ones that are ahead 
 
 Of all the possible humans I could be,
 I am glad I am you
