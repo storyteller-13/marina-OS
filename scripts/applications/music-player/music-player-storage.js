@@ -61,7 +61,8 @@ class MusicPlayerStorage {
                     id: '2026-reward',
                     name: '2026 reward',
                     songs: [
-                        { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' }
+                        { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
+                        { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' }
                     ]
                 },
                 {
