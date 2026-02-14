@@ -27,7 +27,7 @@
 
         const fileSystem = {
             '~': {
-                '.secrets': "i think i am falling...",
+                '.secrets': "i think i am ascending...",
                 'artwork': 'directory'
             },
             '/': {
@@ -43,6 +43,7 @@
             '/artwork': {
                 'you_met_me_at_a_very_strange_time_in_my_life.png': 'file',
                 'cypherpunk.png': 'file',
+                'perfect.png': 'file',
                 'princess.png': 'file'
             }
         };
