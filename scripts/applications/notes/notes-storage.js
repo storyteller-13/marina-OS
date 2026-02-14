@@ -48,15 +48,15 @@ I love you, Marina
 3. I love how honest you are
 4. I love how special you are
 5. I love how magical you are
-6. I love how beautiful you are
-7. I love how committed you are
-8. I love how intelligent you are
-9. I love how disciplined you are
-10. I love how hardworking you are 
+6. I love how authentic you are
+7. I love how beautiful you are
+8. I love how hardworking you are
+9. I love how intelligent you are
+10. I love how committed you are 
 
 
-After everything you've been through in this lifetime, 
-you're nothing less than completelywonderful in my eyes
+After everything you have been through in this lifetime, 
+you're nothing less than completely wonderful in my eyes
 
 I love all the exciting stories you lived
 and all the beautiful ones that are ahead 
@@ -65,7 +65,6 @@ Of all the possible humans I could be,
 I'm glad I'm you; I'm honored to be you
 
 I love you, I love you, I love you, I love you 
-
 🌹 Happy valentine's day, perfect pretty babe 🌹
 
                 `)
