@@ -44,21 +44,21 @@ class NotesStorage {
 
 1. being alive - it's a blessing to be able to wake up every morning and have infinite possibilities to make my day great.
 
-2. my health - thank you, thank you, G'd, for my health, for my body, for everything working well, for the fact that i rarely get sick.
+2. my health - thank you, thank you, G'd, for my health, for my body, for everything working well, and for the fact that i rarely get sick.
 
 3. my intelligence - my biggest source of happiness is to learn new things, and i'm grateful for my ability to do it fastly, and in a very fun way.
 
-4. my life story - i have been through so many things, some very amazing, some painful but a source of wisdom and growing. i am grateful i had the chance to live all these stories, and had a fulfilled life.
+4. my life story - i have been through so many things, some very amazing, some painful but a source of wisdom and growth. i am grateful i had the chance to live all these stories, and had a fulfilled life.
 
-5. good people and all the friends - kindness is one of the most beautiful things in the human condition, and i am so glad for the so much love i had the chance to receive and give through my life.
+5. good people and all the friends - kindness is one of the most beautiful things in the human condition, and i am so glad for all the love i've had the chance to receive and give throughout my life.
 
-6. justice and karma - the feeling of not having to worry about it when something cruel is done to you, because time is a wise teacher, and justice and karma are always served, one way or another.
+6. justice and karma - the feeling of peace knowing that when something cruel is done to you; time is a wise teacher, and justice and karma are always served, one way or another.
 
 7. my work - i just love to work and build new things and be useful, and i am so grateful this is a great source of fulfillment to me.
 
-8. mother nature - what a beautiful feeling is the fact that we can just step outside and see miracles everywhere: in the animals, in the flowers, in the sky, in the land, etc.
+8. mother nature - what a beautiful feeling it is that we can just step outside and see miracles everywhere: in the animals, in the flowers, in the sky, in the land, etc.
 
-9. the future - there are still so many things to be lived! i still haven't found the partner i will build a life with, i still haven't had the chance to be a mom, i still haven't bought my own house - simple things that i postponed while i was traveling the world and focusing on my career and studies, but now, in the next years, they are all mine and they will feel so so so good.
+9. the future - there are still so many things to be lived! i still haven't found the partner i will build a life with, i still haven't had the chance to be a mom, i still haven't bought my own house - simple things that i postponed while i was traveling the world and focusing on my career and studies, but now, in the next years, they are all mine and they will feel so incredibly good.
 
 10. you - yeah, you, random anon reading my things. thank you for being there, whoever you are. you matter. you are beautiful. you can be whoever you want. you can do whatever you want. believe in yourself - i already do <3
                 `)
