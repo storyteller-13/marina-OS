@@ -61,9 +61,11 @@ class MusicPlayerStorage {
                     id: '2026-reward',
                     name: '2026 reward',
                     songs: [
+                        { id: 'CevxZvSJLk8', title: 'roar (kate perry)' },
                         { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
                         { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
-                        { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' }
+                        { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
+                        { id: 'ru0K8uYEZWw', title: "can't stop the feeling (justin timberlake)" }
                     ]
                 },
                 {
