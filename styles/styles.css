@@ -1047,6 +1047,226 @@ a.menu-button {
     text-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
 }
 
+/* Chess.com Daily Box (centered above dock) */
+.chess-box {
+    position: fixed;
+    bottom: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 420px;
+    max-width: calc(100vw - 40px);
+    background: rgba(20, 10, 30, 0.95);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(34, 197, 94, 0.6);
+    border-radius: 12px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(34, 197, 94, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    z-index: 1001;
+    padding: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.chess-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+    animation: rotate-glow 8s linear infinite;
+    pointer-events: none;
+}
+
+.chess-box-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(21, 128, 61, 0.1) 100%);
+    opacity: 0.5;
+    pointer-events: none;
+    border-radius: 12px;
+}
+
+.chess-box:hover {
+    transform: translateX(-50%) translateY(-4px) scale(1.02);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.9),
+        0 0 60px rgba(34, 197, 94, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-color: rgba(34, 197, 94, 0.8);
+}
+
+.chess-box-content {
+    position: relative;
+    z-index: 1;
+    padding: 12px;
+}
+
+.chess-box-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #bbf7d0;
+    font-size: 11px;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+    margin-bottom: 8px;
+}
+
+.chess-box-title {
+    flex: 1;
+    min-width: 0;
+    font-weight: 700;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.chess-icon-wrapper {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.chess-icon {
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.8));
+}
+
+.chess-box-close {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.4) 0%, rgba(21, 128, 61, 0.4) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.6);
+    color: #bbf7d0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+    padding: 0;
+    line-height: 1;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.chess-box-close::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.chess-box-close:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.chess-box-close:hover {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.6) 0%, rgba(21, 128, 61, 0.6) 100%);
+    box-shadow: 0 0 25px rgba(34, 197, 94, 1), 0 0 40px rgba(21, 128, 61, 0.6);
+    transform: scale(1.15) rotate(5deg);
+    border-color: rgba(34, 197, 94, 0.9);
+}
+
+.chess-box-close:active {
+    transform: scale(1.05) rotate(-5deg);
+}
+
+.chess-box-puzzle-container {
+    width: 100%;
+    min-height: 280px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+
+.chess-loading,
+.chess-error {
+    color: #86efac;
+    font-size: 14px;
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+}
+
+.chess-puzzle-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.chess-board-wrap {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    aspect-ratio: 1;
+    width: 100%;
+    max-width: 240px;
+    border: 2px solid rgba(34, 197, 94, 0.5);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.chess-board-wrap .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(18px, 4.5vw, 28px);
+    line-height: 1;
+}
+
+.chess-board-wrap .cell.light {
+    background: rgba(234, 233, 210, 0.95);
+    color: #1a1a1a;
+}
+
+.chess-board-wrap .cell.dark {
+    background: rgba(118, 150, 86, 0.95);
+    color: #1a1a1a;
+}
+
+.chess-play-link {
+    color: #86efac;
+    font-size: 13px;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+    transition: opacity 0.2s;
+}
+
+.chess-play-link:hover {
+    opacity: 0.9;
+    text-decoration: underline;
+}
+
 .apod-popup {
     position: fixed;
     top: 0;
@@ -3579,6 +3799,24 @@ a.dock-item {
         flex-shrink: 0;
     }
 
+    .chess-box {
+        width: calc(100% - 40px);
+        max-width: 420px;
+        bottom: 130px;
+    }
+
+    .chess-box-puzzle-container {
+        height: 320px;
+    }
+
+    .chess-box-close {
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+        min-width: 28px;
+        flex-shrink: 0;
+    }
+
     .xkcd-popup-content {
         max-width: 95%;
         max-height: 85vh;
@@ -4181,6 +4419,26 @@ a.dock-item {
         font-size: 20px;
     }
 
+    .chess-box {
+        width: calc(100% - 12px);
+        max-width: 360px;
+        bottom: 130px;
+    }
+
+    .chess-box-content {
+        padding: 10px;
+    }
+
+    .chess-box-puzzle-container {
+        height: 260px;
+    }
+
+    .chess-box-close {
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+    }
+
     .music-player-content {
         padding: 10px;
     }
@@ -4429,6 +4687,22 @@ a.dock-item {
     }
 
     .apod-box-close {
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+    }
+
+    .chess-box {
+        bottom: 100px;
+        width: calc(100% - 16px);
+        max-width: 280px;
+    }
+
+    .chess-box-puzzle-container {
+        height: 220px;
+    }
+
+    .chess-box-close {
         width: 28px;
         height: 28px;
         font-size: 20px;
