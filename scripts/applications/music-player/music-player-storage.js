@@ -65,6 +65,7 @@ class MusicPlayerStorage {
                         { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
                         { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
                         { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
+                        { id: 'Z4A9ZZo_rAE', title: 'shake it off (taylor swift)' },
                         { id: 'hT_nvWreIhg', title: 'counting stars (onerepublic)' },
                         { id: 'ru0K8uYEZWw', title: "can't stop the feeling (justin timberlake)" }
                         
