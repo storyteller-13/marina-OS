@@ -44,10 +44,12 @@ class NotesStorage {
 
 dear anon friend,
 
-i am looking for a new opportunity to build something new and meaningful
-either as an engineer or researcher working on something AI-related, or as an amateur filmmaker
+i am looking for a new long-term opportunity with great people 
+to build something new and meaningful -
+either as an engineer or researcher working on AI-related projects,
+or as an amateur filmmaker
 
-if you would like to have me on your team,
+if you'd like to have me on your team,
 let’s chat: contact@vonsteinkirch.com
 
 <3
