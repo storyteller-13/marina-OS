@@ -38,6 +38,23 @@ class NotesStorage {
         return [
 
             {
+                date: '2026-02-18T00:00:00.000Z',
+                title: 'looking for a new chapter',
+                content: this.cleanContent(`
+
+dear anon friend,
+
+i am looking for a new opportunity to build something new and meaningful
+either as an engineer or researcher working on something AI-related, or as an amateur filmmaker
+
+if you would like to have me on your team,
+let’s chat: contact@vonsteinkirch.com
+
+<3
+
+                                    `)
+            },
+            {
                 date: '2026-02-16T00:00:00.000Z',
                 title: 'grateful, always grateful',
                 content: this.cleanContent(`
