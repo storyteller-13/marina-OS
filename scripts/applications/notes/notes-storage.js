@@ -39,7 +39,7 @@ class NotesStorage {
 
             {
                 date: '2026-02-21T00:00:00.000Z',
-                title: '2AM friday night synthwave epiphany ',
+                title: '2AM friday synthwave epiphany ',
                 content: this.cleanContent(`
 
 I never had any problem with having lots of good things happening for me. I have always been lucky enough — or very smart, or very qualified, or very hardworking — to get great jobs, scholarships, opportunities.
@@ -379,7 +379,7 @@ time to believe in ourselves like never before.
 time to stop excuses and live the life we want.
 
 by the way, february is when the eclipse season in aqua starts
-plus the big neptune+saturn conjuction (on valentine's day!) 
+plus the big neptune+saturn conjuction in 0° aries
 things are going to get whimsical <3
 
                 `)
