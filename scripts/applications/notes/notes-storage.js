@@ -37,46 +37,66 @@ class NotesStorage {
     getDefaultEntries() {
         return [
 
+
+            {
+                date: '2026-02-23T00:00:00.000Z',
+                title: 'an ode to my first child',
+                content: this.cleanContent(`
+my dear first child,
+
+i can't convey how much i have longed for you, my little baby.
+i've spent my entire life building myself into the best mother i could be.
+
+every fun story i have lived, i imagine telling you — sharing the lessons i learned so that you may grow with wisdom and character.
+every skill i have acquired, i plan to pass on to you — so that you may grow with strengths and advantages i did not have as a child.
+
+you will be a true citizen of the world.
+you will be one of the leaders of the future.
+you will be my greatest project and my proudest achievement.
+
+<3
+                `)
+            },
+
             {
                 date: '2026-02-21T00:00:00.000Z',
-                title: '2AM friday synthwave epiphany ',
+                title: '2AM friday synthwave epiphany',
                 content: this.cleanContent(`
 
-I never had any problem with having lots of good things happening for me. I have always been lucky enough — or very smart, or very qualified, or very hardworking — to get great jobs, scholarships, opportunities.
+i never had any problem with having lots of good things happening for me. i have always been lucky enough — or very intelligent, or very qualified, or very hardworking — to get great jobs, scholarships, opportunities.
 
-Until The Crime happened.
-Then, somehow, I became an outcast. 
+until The Crime happened.
+then, somehow, i became an outcast. 
 
-Nobody believed me, nobody wanted to talk to me, nobody wanted to hire me. Before, people would be super excited to have me on their team. I was treated well. I was valued. Then, in these last 2-3 years, suddenly I was not seen anymore for who I am. People only saw a label, a narrative created by heartless criminals.
+nobody believed me, nobody wanted to talk to me, nobody wanted to hire me. before, people would be super excited to have me on their teams. i was treated well. i was valued. then, in these last 2-3 years, suddenly i was not seen anymore for who i am. people only saw a label, a narrative created by heartless criminals.
 
-But enough now.
+but enough now.
 
-I now erase the abuse from my life and I will only remember the good. I am not going to let The Crime and its atrocity affect my existence any further. And I am going to rise so, so, so much better and so much higher.
+i now erase the abuse from my life and i will only remember the good. i am not going to let The Crime and its atrocity affect my existence any further. and i am going to rise so, so, so much better and so much higher.
 
-I am still pretty young. My brain is still super fast and sharp. I look like I'm in my early 30s — everyone says that.
+i am still pretty young. my brain is still super fast and sharp. i look like i'm in my early 30s — everyone says that.
 
-I can still make it big. I can still rebuild my career and be very successful. I can still find a good partner and be a good wife and mother. I can still have real friends who last my whole life. I can still do all the things I want to do, and be as happy as I used to be — or much more.
+i can still make it big. i can still rebuild my career and be very successful. i can still find a good partner and be a good wife and mother. i can still have real friends who last my whole life. i can still do all the things i want to do, and be as happy as i used to be — or much more.
 
-But the first step is: I cannot let the drama, the negativity, and the bullies affect my life any further. Period.
+but the first step is: i cannot let the drama, the negativity, and the bullies affect my life any further. period.
 
-The Crime is not going to rob my light, or my life story. If I stop thinking about it and simply focus on the present and the future, and keep only good people around me, and see all the beauty that still exists in the world — one day after another — things will get awesome.
+The Crime is not going to rob my light, or my life story. if i stop thinking about it and simply focus on the present and the future, and keep only good people around me, and see all the beauty that still exists in the world — one day after another — things will get awesome.
 
-So no more.
+so no more.
 
-Starting tomorrow, I will wake up every day happy and grateful. Follow my routines and chase my goals with care. Put one brick on top of another. Every day better. Every day stronger. With infinite faith and hope.
+starting tomorrow, i will wake up every day happy and grateful. follow my routines and chase my goals with care. put one brick on top of another. every day better. every day stronger. with infinite faith and hope.
 
+i am super smart. i am kind. i am hardworking. i care. i am honest. i am desirable. i am worthy. things will start happening and be awesome — like they always were. people who matter will see me. opportunities will knock on my door.
 
-I am super smart. I am kind. I am hardworking. I care. I am honest. I am desirable. I am worthy. Things will start happening and be awesome — like they always were. People who matter will see me. Opportunities will knock on my door.
+the best is still to come.
 
-The best is still to come.
+whatever i do now is going to be my best work ever. and whoever i make my family now will be the most loved people ever.
 
-Whatever I do now is going to be my best work ever. And whoever I make my family now will be the most loved people ever.
+and soon i will be sitting in my chair, in my nice house, with a nice cup of tea, looking at everything i have and how i overcame so much.
 
-And soon I will be sitting in my chair, in my nice house, with a nice cup of tea, looking at everything I have and how I overcame so much.
+and i will feel this immense happiness inside my veins — something so strong and so intense. total. complete. bliss.
 
-And I will feel this immense happiness inside my veins — something so strong and so intense. Total. Complete. Bliss.
-
-And no one will ever ever ever ever take this well-earned destiny from me anymore.
+and no one will ever ever ever take this well-earned destiny from me.
                 `)
             },
             {
@@ -97,7 +117,7 @@ if you'd like to have me on your team,
 let’s chat: contact@vonsteinkirch.com
 
 <3
--mvs
+mvs
 
                                     `)
             },
@@ -124,38 +144,40 @@ let’s chat: contact@vonsteinkirch.com
 
 9. the future - there are still so many things to be lived! i still haven't found the partner i will build a life with, i still haven't had the chance to be a mom, i still haven't bought my own house - simple things that i postponed while i was traveling the world and focusing on my career and studies, but now, in the next years, they are all mine and they will feel so incredibly good.
 
-10. you - yeah, you, random anon reading my things. thank you for being there, whoever you are. you matter. you are beautiful. you can be whoever you want. you can do whatever you want. believe in yourself - i already do <3
+10. you - yeah, you, random anon reading my things. thank you for being here, whoever you are. you matter. you are beautiful. you can be whoever you want. you can do whatever you want. believe in yourself - i already do. 
+
+<3
                 `)
             },
             {
                 date: '2026-02-15T00:00:00.000Z',
                 title: 'an ode to myself',
                 content: this.cleanContent(`
-I love you, Marina
+i love you, marina
 
-1. I love how kind you are
-2. I love how strong you are
-3. I love how honest you are
-4. I love how special you are
-5. I love how magical you are
-6. I love how authentic you are
-7. I love how beautiful you are
-8. I love how hardworking you are
-9. I love how intelligent you are
-10. I love how committed you are 
+1. i love how kind you are
+2. i love how strong you are
+3. i love how honest you are
+4. i love how special you are
+5. i love how magical you are
+6. i love how authentic you are
+7. i love how beautiful you are
+8. i love how hardworking you are
+9. i love how intelligent you are
+10. i love how committed you are 
 
 
-After everything you have been through in this lifetime, 
+after everything you have been through in this lifetime, 
 you're nothing less than completely wonderful in my eyes
 
-I love all the exciting stories you lived
+i love all the exciting stories you lived
 and all the beautiful ones that are ahead 
 
-Of all the possible humans I could be,
-I'm glad I'm you; I'm honored to be you
+of all the possible humans i could be,
+i'm glad i'm you; i'm honored to be you
 
-I love you, I love you, I love you, I love you 
-🌹 Happy valentine's day, perfect pretty babe 🌹
+i love you, i love you, i love you, i love you 
+🌹 happy valentine's day, perfect pretty babe 🌹
 
                 `)
             },
@@ -208,7 +230,7 @@ the girl now is a woman.
 i feel complete and satisfied with my life.
 i know exactly what i am and exactly what i am not.
                     
-and there is nothing i want more than go back to the only city that ever felt like home, working on the only subject that has been constantly somehow part of my life since high school.
+and there is nothing i want more than go back to the only place that ever felt like home, working on the subject that has been constantly somehow part of my life since high school.
 
                     `)
                 },
@@ -272,11 +294,11 @@ stay tuned; the sky is not even the limit.
             },
             
             {
-                date: '2026-01-25T00:00:00.000Z',
+                date: '2026-01-26T00:00:00.000Z',
                 title: 'phoenix',
                 content: this.cleanContent(`
 
-👾 this is the story of marina della torre von steinkirch v2.0 👾
+this is the story of marina della torre von steinkirch v2.0
 
 i woke up in the middle of the night with an outburst of energy.
 
@@ -323,17 +345,12 @@ don't believe. just watch.
             },
             
             {
-                date: '2026-01-22T00:00:00.000Z',
+                date: '2026-01-23T00:00:00.000Z',
                 title: 'an ode to my soulmate',
                 content: this.cleanContent(`
 
-                    (folks, i am getting very personal here because this is important =); please ignore if you feel it's too far from the usual marina-stoic-gal image you have in your head)
-
-here it goes...
-
-💕
-
 where are you, my beautiful soulmate?
+
 if you really exist in this lifetime (and i know you do)
 you must be there somewhere
 please, find me - i need you more than ever
@@ -380,7 +397,9 @@ time to stop excuses and live the life we want.
 
 by the way, february is when the eclipse season in aqua starts
 plus the big neptune+saturn conjuction in 0° aries
-things are going to get whimsical <3
+things are going to get whimsical 
+
+<3
 
                 `)
             }
