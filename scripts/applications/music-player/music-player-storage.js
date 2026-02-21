@@ -61,13 +61,18 @@ class MusicPlayerStorage {
                     id: '2026-reward',
                     name: '2026 reward',
                     songs: [
+                        { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' }
+                    ]
+                },
+                {
+                    id: '2026-epiphany',
+                    name: '2026 epiphany',
+                    songs: [
                         { id: 'CevxZvSJLk8', title: 'roar (kate perry)' },
                         { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
                         { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
-                        { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
                         { id: 'Z4A9ZZo_rAE', title: 'shake it off (taylor swift)' },
                         { id: 'hT_nvWreIhg', title: 'counting stars (onerepublic)' }
-                        
                     ]
                 },
                 {

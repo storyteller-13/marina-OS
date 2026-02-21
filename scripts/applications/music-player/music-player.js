@@ -45,14 +45,21 @@ class MusicPlayer {
                 id: '2026-reward',
                 name: '2026 reward',
                 songs: [
+                    { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' }
+                ],
+                position: 0
+            },
+            {
+                id: '2026-epiphany',
+                name: '2026 epiphany',
+                songs: [
                     { id: 'CevxZvSJLk8', title: 'roar (kate perry)' },
                     { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
                     { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
-                    { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
                     { id: 'Z4A9ZZo_rAE', title: 'shake it off (taylor swift)' },
                     { id: 'hT_nvWreIhg', title: 'counting stars (onerepublic)' }
                 ],
-                position: 0
+                position: 1
             },
             {
                 id: 'renewal',
@@ -66,7 +73,7 @@ class MusicPlayer {
                     { id: 'FoYdeEDdtK4', title: 'peaches in regalia (frank zappa)' },
                     { id: 'fhOAsDVg8pY', title: 'round && round (bob moses)' }
                 ],
-                position: 1
+                position: 2
             },
             {
                 id: 'afterlife 2025',
@@ -77,7 +84,7 @@ class MusicPlayer {
                     { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
                     { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' }
                 ],
-                position: 2
+                position: 3
             },
             {
                 id: 'dualities-playlist',
@@ -89,7 +96,7 @@ class MusicPlayer {
                     { id: '7jMlFXouPk8', title: 'high hopes (pink floyd)' },
                     { id: 'TFjmvfRvjTc', title: 'hey you (pink floyd)' }
                 ],
-                position: 3
+                position: 4
             }
         ];
 
