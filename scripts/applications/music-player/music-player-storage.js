@@ -72,7 +72,8 @@ class MusicPlayerStorage {
                         { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
                         { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
                         { id: 'Z4A9ZZo_rAE', title: 'shake it off (taylor swift)' },
-                        { id: 'hT_nvWreIhg', title: 'counting stars (onerepublic)' }
+                        { id: 'hT_nvWreIhg', title: 'counting stars (onerepublic)' },
+                        { id: '94UmYrW5oto', title: 'what up gangsta (50 cent)' }
                     ]
                 },
                 {
@@ -93,8 +94,8 @@ class MusicPlayerStorage {
                     name: '2025 afterlife',
                     songs: [
                         { id: 'MO0LdXqwDP0', title: 'afterlife (evanescence)' },
-                        { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
                         { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
+                        { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
                         { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' }
                     ]
                 },
@@ -105,6 +106,7 @@ class MusicPlayerStorage {
                         { id: 'IXdNnw99-Ic', title: 'wish you were here (pink floyd)' },
                         { id: 'ujNeHIo7oTE', title: 'with or without you (u2)' },
                         { id: '1lyu1KKwC74', title: 'bitter sweet symphony (the verve)' },
+                        { id: 'ln7Vn_WKkWU', title: 'stuck in the middle (stealers wheel)' },
                         { id: '7jMlFXouPk8', title: 'high hopes (pink floyd)' },
                         { id: 'TFjmvfRvjTc', title: 'hey you (pink floyd)' }
                     ]

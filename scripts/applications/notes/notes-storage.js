@@ -52,7 +52,7 @@ every skill i have acquired, i plan to pass on to you — so that you may grow w
 
 you will be a true citizen of the world.
 you will be one of the leaders of the future.
-you will be my greatest project and my proudest achievement.
+you will be my greatest project and proudest achievement.
 
 <3
                 `)
