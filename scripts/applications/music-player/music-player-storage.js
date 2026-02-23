@@ -61,7 +61,8 @@ class MusicPlayerStorage {
                     id: '2026-reward',
                     name: '2026 reward',
                     songs: [
-                        { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' }
+                        { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
+                        { id: 'ikabFnO0qpc', title: 'slow mornings (essential classics)' }
                     ]
                 },
                 {
