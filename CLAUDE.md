@@ -9,7 +9,6 @@ vonsteinkirch.com — a personal website styled as a desktop operating system. V
 ## Commands
 
 - `make server` — local dev server at http://localhost:8088 (python3 http.server)
-- `npm test` — run vitest (jsdom environment, globals enabled)
 - `npm run test:watch` — vitest in watch mode
 - `npm run test:coverage` — vitest with coverage
 

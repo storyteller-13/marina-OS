@@ -88,4 +88,10 @@ window.PHILOSOPHY_QUOTES = [
     { text: 'do not be conformed to this world, but be transformed by the renewal of your mind.', author: 'st. paul' },
     { text: 'for we are his workmanship, created in christ jesus for good works.', author: 'st. paul' },
     { text: 'whatever is true, whatever is honorable, whatever is just, whatever is pure, whatever is lovely, whatever is commendable—if there is any excellence, if there is anything worthy of praise, think about these things.', author: 'st. paul' },
+    // dr. steinkirch
+    { text: 'impossible is a state of mind.', author: 'dr. steinkirch' },
+    { text: 'you are supposed to be free.', author: 'dr. steinkirch' },
+    { text: 'whatever i do now is going to be my best work ever. and whoever i make my family now will be the most loved people ever.', author: 'dr. steinkirch' },
+    { text: 'i\'ve spent my entire life building myself into the best mother i could be.', author: 'dr. steinkirch' },
+    { text: 'soon i will be sitting in my nice chair, in my nice house, with a nice cup of tea, looking at everything i have and how i overcame so much. and i will feel this immense happiness inside my veins — something so strong and so intense. total. complete. bliss', author: 'dr. steinkirch' },
 ];

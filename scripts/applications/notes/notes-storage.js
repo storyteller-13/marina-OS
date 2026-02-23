@@ -80,7 +80,7 @@ i can still make it big. i can still rebuild my career and be very successful. i
 
 but the first step is: i cannot let the drama, the negativity, and the bullies affect my life any further. period.
 
-The Crime is not going to rob my light, or my life story. if i stop thinking about it and simply focus on the present and the future, and keep only good people around me, and see all the beauty that still exists in the world — one day after another — things will get awesome.
+The Crime is not going to rob my light, or my life story. if i stop thinking about it, and simply focus on the present and the future, and keep only good people around me, and see all the beauty that still exists in the world — one day after another — things will get awesome.
 
 so no more.
 
@@ -92,7 +92,7 @@ the best is still to come.
 
 whatever i do now is going to be my best work ever. and whoever i make my family now will be the most loved people ever.
 
-and soon i will be sitting in my chair, in my nice house, with a nice cup of tea, looking at everything i have and how i overcame so much.
+and soon i will be sitting in my nice chair, in my nice house, with a nice cup of tea, looking at everything i have and how i overcame so much.
 
 and i will feel this immense happiness inside my veins — something so strong and so intense. total. complete. bliss.
 
@@ -142,7 +142,7 @@ mvs
 
 8. mother nature - what a beautiful feeling it is that we can just step outside and see miracles everywhere: in the animals, in the flowers, in the sky, in the land, etc.
 
-9. the future - there are still so many things to be lived! i still haven't found the partner i will build a life with, i still haven't had the chance to be a mom, i still haven't bought my own house - simple things that i postponed while i was traveling the world and focusing on my career and studies, but now, in the next years, they are all mine and they will feel so incredibly good.
+9. the future - there are still so many things to be lived! i have so many ideas for projects and work, so much more to learn! and i still haven't found the partner i will build a life with, i still haven't had the chance to be a mom, i still haven't bought my own house - simple things that i postponed while i was traveling the world and focusing on my career and studies, but now, in the next years, they are all mine and they will feel so incredibly good.
 
 10. you - yeah, you, random anon reading my things. thank you for being here, whoever you are. you matter. you are beautiful. you can be whoever you want. you can do whatever you want. believe in yourself - i already do. 
 

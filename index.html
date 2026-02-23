@@ -73,18 +73,6 @@
                                 </span>
                                 <span class="menu-item-text">home</span>
                             </a>
-                            <a href="javascript:void(0)" class="menu-item" onclick="window.openTerminalWindow(); return false;">
-                                <span class="menu-item-icon">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="1" y="1" width="14" height="14" rx="1" fill="#1a1a2e" stroke="#a855f7" stroke-width="1.5"/>
-                                        <rect x="2" y="2.5" width="12" height="1.5" fill="#a855f7" opacity="0.3"/>
-                                        <text x="2.5" y="6" font-family="monospace" font-size="3" fill="#00ff00">$</text>
-                                        <rect x="4.5" y="5.2" width="1" height="1.5" fill="#00ff00" opacity="0.8"/>
-                                        <text x="2.5" y="9" font-family="monospace" font-size="2.5" fill="#888" opacity="0.7">~</text>
-                                    </svg>
-                                </span>
-                                <span class="menu-item-text">term</span>
-                            </a>
                             <a href="javascript:void(0)" class="menu-item" onclick="window.openEmailWindow(); return false;">
                                 <span class="menu-item-icon">
                                     <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +84,19 @@
                                         <circle cx="3.5" cy="6.5" r="0.4" fill="#a855f7" opacity="0.6"/>
                                     </svg>
                                 </span>
-                                <span class="menu-item-text">mail</span>
+                                <span class="menu-item-text">e-mails</span>
+                            </a>
+                            <a href="javascript:void(0)" class="menu-item" onclick="window.openTerminalWindow(); return false;">
+                                <span class="menu-item-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="14" height="14" rx="1" fill="#1a1a2e" stroke="#a855f7" stroke-width="1.5"/>
+                                        <rect x="2" y="2.5" width="12" height="1.5" fill="#a855f7" opacity="0.3"/>
+                                        <text x="2.5" y="6" font-family="monospace" font-size="3" fill="#00ff00">$</text>
+                                        <rect x="4.5" y="5.2" width="1" height="1.5" fill="#00ff00" opacity="0.8"/>
+                                        <text x="2.5" y="9" font-family="monospace" font-size="2.5" fill="#888" opacity="0.7">~</text>
+                                    </svg>
+                                </span>
+                                <span class="menu-item-text">terminal</span>
                             </a>
                             <a href="javascript:void(0)" class="menu-item" onclick="window.openBBotWindow(); return false;">
                                 <span class="menu-item-icon">
@@ -109,12 +109,25 @@
                                         <rect x="5" y="10" width="6" height="1" fill="#a855f7" opacity="0.6"/>
                                     </svg>
                                 </span>
-                                <span class="menu-item-text">bot</span>
+                                <span class="menu-item-text">steinbot</span>
                             </a>
                         </div>
                         <div class="menu-separator"></div>
                         <div class="menu-group">
                             <div class="menu-group-label">operator</div>
+                            <a href="javascript:void(0)" class="menu-item" onclick="window.openArtworkWindow(); return false;">
+                                <span class="menu-item-icon">
+                                    <svg width="20" height="20" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="3" y="5" width="10" height="8" rx="1" fill="#1a1a2e" stroke="#a855f7" stroke-width="1.2"/>
+                                        <rect x="5" y="3" width="6" height="2" rx="0.5" fill="#1a1a2e" stroke="#a855f7" stroke-width="1.2"/>
+                                        <circle cx="8" cy="9" r="2.5" fill="#0a0a0f" stroke="#a855f7" stroke-width="1.2"/>
+                                        <circle cx="8" cy="9" r="1.5" fill="#1a1a2e" stroke="#a855f7" stroke-width="0.8"/>
+                                        <circle cx="8" cy="9" r="0.8" fill="#a855f7" opacity="0.3"/>
+                                        <rect x="6" y="11.5" width="4" height="1" rx="0.3" fill="#1a1a2e" stroke="#a855f7" stroke-width="0.8"/>
+                                    </svg>
+                                </span>
+                                <span class="menu-item-text">artwork</span>
+                            </a>
                             <a href="javascript:void(0)" class="menu-item" onclick="window.openTodoWindow(); return false;">
                                 <span class="menu-item-icon">
                                     <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -131,7 +144,7 @@
                                         <path d="M8 11.5 L10.5 11.5" stroke="#a855f7" stroke-width="0.6" stroke-linecap="round" opacity="0.5"/>
                                     </svg>
                                 </span>
-                                <span class="menu-item-text">todo</span>
+                                <span class="menu-item-text">todo list</span>
                             </a>
                             <a href="javascript:void(0)" class="menu-item" onclick="window.openNotesWindow(); return false;">
                                 <span class="menu-item-icon">
@@ -143,20 +156,7 @@
                                         <circle cx="8" cy="12" r="0.8" fill="#a855f7" opacity="0.6"/>
                                     </svg>
                                 </span>
-                                <span class="menu-item-text">notes</span>
-                            </a>
-                            <a href="javascript:void(0)" class="menu-item" onclick="window.openArtworkWindow(); return false;">
-                                <span class="menu-item-icon">
-                                    <svg width="20" height="20" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="3" y="5" width="10" height="8" rx="1" fill="#1a1a2e" stroke="#a855f7" stroke-width="1.2"/>
-                                        <rect x="5" y="3" width="6" height="2" rx="0.5" fill="#1a1a2e" stroke="#a855f7" stroke-width="1.2"/>
-                                        <circle cx="8" cy="9" r="2.5" fill="#0a0a0f" stroke="#a855f7" stroke-width="1.2"/>
-                                        <circle cx="8" cy="9" r="1.5" fill="#1a1a2e" stroke="#a855f7" stroke-width="0.8"/>
-                                        <circle cx="8" cy="9" r="0.8" fill="#a855f7" opacity="0.3"/>
-                                        <rect x="6" y="11.5" width="4" height="1" rx="0.3" fill="#1a1a2e" stroke="#a855f7" stroke-width="0.8"/>
-                                    </svg>
-                                </span>
-                                <span class="menu-item-text">artwork</span>
+                                <span class="menu-item-text">personal notes</span>
                             </a>
                         </div>
 
@@ -585,7 +585,7 @@
                             <circle cx="8" cy="12" r="0.8" fill="#a855f7" opacity="0.6"/>
                         </svg>
                     </span>
-                    notes
+                    personal notes
                 </div>
             </div>
             <div class="window-content">
@@ -678,7 +678,7 @@
                             <rect x="5" y="10" width="6" height="1" fill="#a855f7" opacity="0.6"/>
                         </svg>
                     </span>
-                    bot
+                    steinbot
                 </div>
                 <button class="b-bot-settings-btn" id="b-bot-settings-btn" style="background: none; border: none; cursor: pointer; padding: 4px 8px; margin-left: auto; opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
                     <svg width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#a855f7">
