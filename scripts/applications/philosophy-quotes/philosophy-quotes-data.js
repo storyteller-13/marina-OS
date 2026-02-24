@@ -63,7 +63,6 @@ window.PHILOSOPHY_QUOTES = [
     { text: 'confine yourself to the present.', author: 'marcus aurelius' },
     { text: 'remember that very little is needed to make a happy life.', author: 'marcus aurelius' },
     // Psalms
-    { text: 'the lord is my shepherd; i shall not want.', author: 'psalm 23' },
     { text: 'he makes me lie down in green pastures. he leads me beside still waters.', author: 'psalm 23' },
     { text: 'even though i walk through the valley of the shadow of death, i will fear no evil, for you are with me.', author: 'psalm 23' },
     { text: 'the lord is my light and my salvation; whom shall i fear?', author: 'psalm 27' },
@@ -93,5 +92,18 @@ window.PHILOSOPHY_QUOTES = [
     { text: 'you are supposed to be free.', author: 'dr. steinkirch' },
     { text: 'whatever i do now is going to be my best work ever. and whoever i make my family now will be the most loved people ever.', author: 'dr. steinkirch' },
     { text: 'i\'ve spent my entire life building myself into the best mother i could be.', author: 'dr. steinkirch' },
-    { text: 'soon i will be sitting in my nice chair, in my nice house, with a nice cup of tea, looking at everything i have and how i overcame so much. and i will feel this immense happiness inside my veins — something so strong and so intense. total. complete. bliss', author: 'dr. steinkirch' },
+    { text: 'soon i will be sitting in my nice chair, in my nice house, with a nice cup of tea, looking at everything i have and how i overcame so much. and i will feel this immense happiness inside my veins — something so strong and so intense. total. complete. bliss.', author: 'dr. steinkirch' },
+    // science
+    { text: 'silence is deep as eternity, speech is shallow as time.', author: 'thomas carlyle' },
+    { text: 'if our brains were simple, we would be too simple to understand them.', author: 'mario puzo' },
+    { text: 'we all agree that your theory is crazy. The question which divides us is whether it is crazy enough.', author: 'niels bohr' },
+    { text: 'nothing is great and little otherwise than by comparison.', author: 'jonathan swift' },
+    { text: 'when an idea is wanting, a word can always be found to take its place.', author: 'goethe' },
+    { text: 'nothing that is worth knowing can be taught.', author: 'oscar wilde' },
+    { text: 'the paradox is the source of the thinker\'s passion, and the thinker without a paradox is like a lover without feeling: a paltry mediocrity.', author: 'soren kierkergaard' },
+    { text: 'the human understanding is greatly indebted to the passions.', author: 'jean jacques rousseau' },
+    { text: 'the real danger is not that computers will begin to think like men, but that men will begin to think like computers.', author: 'sydney j. harris' },
+    { text: 'thirty spokes share the wheel\'s hub, but it is the hole in the center that provides its usefulness.', author: 'lao tsu' },
+    { text: 'the human race took centuries or millennia to see through the mist of difficulties and paradoxes which instructors now invite us to solve in a few minutes..', author: 'lancelot hogben' },
 ];
+
