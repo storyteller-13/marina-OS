@@ -37,6 +37,68 @@ class NotesStorage {
     getDefaultEntries() {
         return [
 
+            {
+                date: '2026-02-26T00:00:00.000Z',
+                title: 'those little things',
+                content: this.cleanContent(`
+«i»"if there is one lesson i learned from The Crime, it is
+that there will be moments in life when your floor is taken 
+away and things will happen slower and weirder than you expect
+but just as all the very good moments in life are ephemeral,
+so is the pain and suffering: after a while, they end."«/i»
+
+
+🪻 ten simple mundane things that make me feel alive 🪻:
+
+1. consume a really good book or movie that changes my life forever
+2. find an elegant solution to a logical problem and feel my brain working
+3. a random and unexpected act of kindness from a stranger
+4. music that travels inside my veins, waking up every organ of my body
+5. travel to a new city and experience that first cultural shock
+6. snowboard on a beautiful mountain on very fresh and soft snow
+7. find the one guy who loves me for who i am and have that first kiss
+8. clean and organize my house the way i like, so it looks perfect
+9. encounter and interact with cute little animals and watch them just be
+10. know that i'm free and that there's infinite possibilities to live the good life
+
+<3
+
+ps: bonus for serendipitous poetry...
+
+🪻 the tiger, by william blake 🪻
+
+tiger, tiger, burning bright
+in the forests of the night,
+what immortal hand or eye
+could frame thy fearful symmetry?
+
+in what distant deeps or skies
+burnt the fire of thine eyes?
+on what wings dare he aspire?
+what the hand dare seize the fire?
+
+and what shoulder and what art
+could twist the sinews of thy heart?
+and when thy heart began to beat,
+what dread hand and what dread feet?
+
+what the hammer? what the chain?
+in what furnace was thy brain?
+what the anvil? what dread grasp
+dare its deadly terrors clasp?
+
+when the stars threw down their spears,
+and water'd heaven with their tears,
+did he smile his work to see?
+did he who made the lamb make thee?
+
+tiger, tiger, burning bright
+in the forests of the night,
+what immortal hand or eye
+dare frame thy fearful symmetry?
+
+                `)
+            },
 
             {
                 date: '2026-02-23T00:00:00.000Z',

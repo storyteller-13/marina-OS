@@ -104,6 +104,10 @@ window.PHILOSOPHY_QUOTES = [
     { text: 'the human understanding is greatly indebted to the passions.', author: 'jean jacques rousseau' },
     { text: 'the real danger is not that computers will begin to think like men, but that men will begin to think like computers.', author: 'sydney j. harris' },
     { text: 'thirty spokes share the wheel\'s hub, but it is the hole in the center that provides its usefulness.', author: 'lao tsu' },
-    { text: 'the human race took centuries or millennia to see through the mist of difficulties and paradoxes which instructors now invite us to solve in a few minutes..', author: 'lancelot hogben' },
+    { text: 'the human race took centuries or millennia to see through the mist of difficulties and paradoxes which instructors now invite us to solve in a few minutes.', author: 'lancelot hogben' },
+    { text: 'the attraction of discovering the most elegant way of dividing up the mind into two major complementary cognitive systems is almost irresistible.', author: 'terrence w. deacon' },
+    { text: 'learning is, at its base, a function of the probability of correlations between things, from the synaptic level to the behavioral level. past correlations tend to be predictive of future correlations.', author: 'terrence w. deacon' },
+    { text: 'a competence is an available skill, normally one learned or acquired previously. So by analogy an innate language competence is an ability to perform certain language tasks as though they had previously been learned.', author: 'terrence w. deacon' },
+    { text: 'languages are abstractions. they are fuzzy collections of behaviors that happen to be reasonably well described by logical rule systems.', author: 'terrence w. deacon' },
 ];
 
