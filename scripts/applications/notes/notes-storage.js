@@ -37,6 +37,36 @@ class NotesStorage {
     getDefaultEntries() {
         return [
 
+
+            {
+                date: '2026-02-28T00:00:00.000Z',
+                title: 'david lynch is my only friend',
+                content: this.cleanContent(`
+
+«i»dark
+deep darkness
+and 
+splendor
+all around it
+was in the roots
+and
+under
+and a tree came out
+and then a house
+with stars above -
+inside the house a girl
+with eyes to see and
+long arms reaching
+she saw the splendor
+all around
+and reaching out into
+the deep darkness
+she saw herself
+«/i»
+
+                `)
+            },
+
             {
                 date: '2026-02-26T00:00:00.000Z',
                 title: 'those little things',
@@ -45,7 +75,7 @@ class NotesStorage {
 that there will be moments in life when your floor is taken 
 away and things will happen slower and weirder than you expect
 but just as all the very good moments in life are ephemeral,
-so is the pain and suffering: after a while, they end."«/i»
+so are the pain and suffering: after a while, they end."«/i»
 
 
 🪻 ten simple mundane things that make me feel alive 🪻:
@@ -334,7 +364,7 @@ not gonna lie, this one was intense. the theme in vogue was "bittersweet renewal
 
 → after exactly a month and four days in here, all my bank accounts were hacked and the criminals left $5.4 in each of them. for the first time in my adult life, i survived three weeks without any form of cash. this was ultra-scary and ultra-weird. [note to self: as a storyteller, this gave me perspectives of what some part of humanity goes through during their lives - something i would never have experienced if i had never left my past hard-worker-upper-class-professional-girl life for the hero's journey].
 
-→ all these hackings were the final proof that a very vicious crime has been happening in my life in the last years, which, as the autistic scientist engineer i am, i suspected but could never put my finger on it. an abuse that many, many people are very aware of, and that we all, as a society, will have to face and pursue full justice.
+→ all these hackings were the final proof that a very vicious Crime has been happening in my life in the last years, which, as the autistic scientist engineer i am, i suspected but could never put my finger on it. an abuse that many, many people are very aware of, and that we all, as a society, will have to face and pursue full justice.
 
 → for a few days i felt like i completely lost my sanity. i never felt this way before. on a couple of occasions, the level of anxiety was so high that i could not control my mind. i tried to be in the shower for hours (which i usually do to calm down) and the trick didn't work. i worked it out by walking around the island, finding a desertic place, and screaming very, very loud for a few minutes. [note to self: because i tend to always keep my feelings in check and be more stoic than most people - in such an extreme situation of abuse, i allowed others to watch when i was losing my mind. it just shows authenticity].
 

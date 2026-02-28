@@ -15,7 +15,7 @@ class TodoStorage {
 
     getTodos() {
         const defaultTodoData = [
-            { text: 'laser focus on what has always mattered the most and continues to be one of my greatest sources of happiness: my work', completed: false },
+            { text: 'laser focus on what has always mattered the most and continues to be one of my greatest source of happiness: my work', completed: false },
             { text: 'become unomad and build a nice, safe, and perfect home', completed: false },
             { text: 'be in the present, and find gratitude and fullfiment every single day', completed: true },
             { text: 'trust that G\'d is bringing the perfect partner to me, at the right time', completed: true },
