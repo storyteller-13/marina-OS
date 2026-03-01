@@ -37,6 +37,79 @@ class NotesStorage {
     getDefaultEntries() {
         return [
 
+            {
+                date: '2026-03-02T00:00:00.000Z',
+                title: 'denver\'s love && hate',
+                content: this.cleanContent(`
+
+in astrology, there is something called astrocartography, where you can see how your birth chart overlays with the earth’s ecliptic, with each planet represented as a line crossing specific cities. in theory, when you visit these places, you feel “the influence” of that planet’s energy.
+
+my uranus line crosses denver, so i should expect many unexpected events, disturbances, and things not going as planned. i must admit, from my experience so far, this seems correct.
+
+
+----------
+STRIKE #1
+----------
+                    
+the first time i went to denver was back on thanksgiving 2021. i had just quit my job at shopify because my team and i were promised a $2m pre-seed investment from polygon to make the first FilmmakerDAO movie: "humans of web3". we already had a solid plan with two hollywood directors, and we were overly excited to get that money wired to our account.
+
+i went to denver with my then-boyfriend and his family, and we met a couple of friends to hang out at a very cool arcade. that was the first time i learned how much money searchers were making with MEV, and my mind was blown.
+
+in a surprising turn of fate, a few days later, the polygon CEO backed off, saying something like our project was "too silly", and our morale dropped to the floor.
+
+three things became clear during that first visit:
+
+1. never trust vcs
+2. there was a huge black market operating on blockchains that nobody was talking about
+3. our DAO was probably going to die, and it was probably time for me to go back to being an engineer
+                    
+----------
+STRIKE #2
+----------
+                    
+the second time i went to denver was almost a year later, in 2022, to attend a blockchain conference called MCON. the event was full of snobbish, spoiled kids, and once more i felt i was wasting my time.
+
+but mostly, that was clearly one of those moments when you make one small decision that screws up your entire life with no way back. that was when i met the psychopath who initiated and was mainly responsible for The Crime.
+
+we were colleagues at KeeperDAO, a group working on MEV mitigation. i had just left that position because the leaders were clearly scammers, and i would rather work at a job that had meaning. but i made the mistake of agreeing to share my airbnb with this random guy from seattle who, judging from the few months i had worked there, his github, and his take-home assignment, didn’t even know how to code.
+
+there are very few decisions i regret in my life, and this one is probably the only one that still gives me a pain in my stomach when i think about it. because this was the very moment when i started losing everything.
+                    
+                    
+----------
+STRIKE #3
+----------
+                    
+the third time i went to denver was for ETH denver 2025, the year i spent running from criminals while trying to uncover The Crime. i was coming straight from egypt, and my main goal was to find someone who could tell me what happened on november 22nd, 2024. i thought vitalik would meet me there, as he clearly knew about The Crime. none of that happened.
+
+it was almost a waste of time again, with the exception of one serendipitous event: i met a new friend, shawn.
+                    
+----------
+STRIKE #4
+----------
+                    
+the fourth time i went to denver was in 2026, coming back from malaysia. i had recently discovered that there was much more to The Crime than just november 22nd, 2024, and that my devices were being hacked and streamed to the entire world (although i still didn’t know the full story, why i was still being targeted, or why nobody spoke directly to me to finally free me from the painful uncertainty of not knowing).
+
+i was not doing well — definitely the worst months of my entire life. i felt like i had lost everything. i was putting all my energy into not breaking down, continuing my life, moving forward with my career, and not killing myself. i had been ostracized for over a year, and although i had a huge legion of fans online, i had almost no friends still talking to me in real life.
+
+shawn was again the one exception.
+
+i told him i had been running from an atrocious abuse. i said i was trying to find a job, but The Crime had destroyed my career, and i asked whether i could crash at his place while i got back on my feet.
+
+he didn’t hesitate to tell me i was welcome. he and rose, the sweet 79-year-old woman who lives with him, took me in like family. shawn built a little room for me, and rose told me they loved me, that the room would always be there for me, that i had a home in colorado, and that i could come back anytime to visit them.
+                    
+                    
+-----
+OUTRO
+-----
+                    
+what’s the most evident difference between people who live on food stamps and those who belong to the billionaire list (and all their friends)?
+
+humanity.
+                    
+
+                `)
+            },
 
             {
                 date: '2026-02-28T00:00:00.000Z',
@@ -93,7 +166,7 @@ so are the pain and suffering: after a while, they end."«/i»
 
 <3
 
-ps: bonus for serendipitous poetry...
+ps: bonus points for serendipitous poetry...
 
 🪻 the tiger, by william blake 🪻
 
@@ -164,7 +237,7 @@ nobody believed me, nobody wanted to talk to me, nobody wanted to hire me. befor
 
 but enough now.
 
-i now erase the abuse from my life and i will only remember the good. i am not going to let The Crime and its atrocity affect my existence any further. and i am going to rise so, so, so much better and so much higher.
+i now erase the damages of the abuse from my life and i will only remember the good. i am not going to let The Crime and its atrocity affect my existence any further. and i am going to rise so, so, so much better and so much higher.
 
 i am still pretty young. my brain is still super fast and sharp. i look like i'm in my early 30s — everyone says that.
 
