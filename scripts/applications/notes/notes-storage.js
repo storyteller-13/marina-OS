@@ -93,7 +93,7 @@ so is the pain and suffering: after a while, they end."«/i»
 
 <3
 
-ps: bonus for serendipitous poetry...
+ps: bonus points for serendipitous poetry...
 
 🪻 the tiger, by william blake 🪻
 
@@ -164,7 +164,7 @@ nobody believed me, nobody wanted to talk to me, nobody wanted to hire me. befor
 
 but enough now.
 
-i now erase the abuse from my life and i will only remember the good. i am not going to let The Crime and its atrocity affect my existence any further. and i am going to rise so, so, so much better and so much higher.
+i now erase the damages of the abuse from my life and i will only remember the good. i am not going to let The Crime and its atrocity affect my existence any further. and i am going to rise so, so, so much better and so much higher.
 
 i am still pretty young. my brain is still super fast and sharp. i look like i'm in my early 30s — everyone says that.
 
