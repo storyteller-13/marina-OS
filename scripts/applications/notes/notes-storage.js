@@ -112,7 +112,7 @@ STRIKE #3
                     
 the third time i went to denver was for ETH denver 2025, the year i spent running from criminals while trying to uncover The Crime. i was coming straight from egypt, and my main goal was to find someone who could tell me what happened on november 22nd, 2024. i thought vitalik would meet me there, as he clearly knew about The Crime. none of that happened.
 
-it was almost a waste of time again, with the exception of one serendipitous event: i met another angel, s.
+it was almost a waste of time again, with the exception of one serendipitous event. i met another angel: s.
                     
 ----------
 STRIKE #4
