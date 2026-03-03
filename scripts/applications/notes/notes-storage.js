@@ -41,57 +41,47 @@ class NotesStorage {
                 title: 'bloody moon',
                 content: this.cleanContent(`
                             
-                     
-░██                                                   
-░██                                                   
-░████████   ░███████                                  
-░██    ░██ ░██    ░██                                 
-░██    ░██ ░█████████                                 
-░██    ░██ ░██                                        
-░██    ░██  ░███████                                  
-                                                      
-                                                      
-                                                      
-░██                       ░██                         
-░██                       ░██                         
-░██  ░███████   ░███████  ░██    ░██ ░███████         
-░██ ░██    ░██ ░██    ░██ ░██   ░██ ░██               
-░██ ░██    ░██ ░██    ░██ ░███████   ░███████         
-░██ ░██    ░██ ░██    ░██ ░██   ░██        ░██        
-░██  ░███████   ░███████  ░██    ░██ ░███████         
-                                                      
-                                                      
-                                                      
-░██ ░██░██                                            
-░██    ░██                                            
-░██ ░██░██    ░██ ░███████                            
-░██ ░██░██   ░██ ░██    ░██                           
-░██ ░██░███████  ░█████████                           
-░██ ░██░██   ░██ ░██                                  
-░██ ░██░██    ░██ ░███████                            
-                                                      
-                                                      
-                                                      
-                                                      
-                                                      
- ░██████                                              
-      ░██                                             
- ░███████                                             
-░██   ░██                                             
- ░█████░██                                            
-                                                      
-                                                      
-                                                      
-                                            ░██       
-                                            ░██       
- ░███████  ░████████   ░██████    ░███████  ░██    ░██
-░██        ░██    ░██       ░██  ░██    ░██ ░██   ░██ 
- ░███████  ░██    ░██  ░███████  ░██        ░███████  
-       ░██ ░██    ░██ ░██   ░██  ░██    ░██ ░██   ░██ 
- ░███████  ░██    ░██  ░█████░██  ░███████  ░██    ░██
-                                                      
-                                                      
-                                                      
+                                                            
+ ▄▄                                                         
+ ██                                                         
+ ██▄████▄   ▄████▄                                          
+ ██▀   ██  ██▄▄▄▄██                                         
+ ██    ██  ██▀▀▀▀▀▀                                         
+ ██    ██  ▀██▄▄▄▄█                                         
+ ▀▀    ▀▀    ▀▀▀▀▀                                          
+                                                                                                                                                                            
+ ▄▄▄▄                          ▄▄                           
+ ▀▀██                          ██                           
+   ██       ▄████▄    ▄████▄   ██ ▄██▀   ▄▄█████▄           
+   ██      ██▀  ▀██  ██▀  ▀██  ██▄██     ██▄▄▄▄ ▀           
+   ██      ██    ██  ██    ██  ██▀██▄     ▀▀▀▀██▄           
+   ██▄▄▄   ▀██▄▄██▀  ▀██▄▄██▀  ██  ▀█▄   █▄▄▄▄▄██           
+    ▀▀▀▀     ▀▀▀▀      ▀▀▀▀    ▀▀   ▀▀▀   ▀▀▀▀▀▀            
+                                                            
+                                                             
+ ▄▄▄▄         ██     ▄▄                                     
+ ▀▀██         ▀▀     ██                                     
+   ██       ████     ██ ▄██▀    ▄████▄                      
+   ██         ██     ██▄██     ██▄▄▄▄██                     
+   ██         ██     ██▀██▄    ██▀▀▀▀▀▀                     
+   ██▄▄▄   ▄▄▄██▄▄▄  ██  ▀█▄   ▀██▄▄▄▄█                     
+    ▀▀▀▀   ▀▀▀▀▀▀▀▀  ▀▀   ▀▀▀    ▀▀▀▀▀                      
+                                                                                                          
+                                                            
+  ▄█████▄                                                   
+  ▀ ▄▄▄██                                                   
+ ▄██▀▀▀██                                                   
+ ██▄▄▄███                                                   
+  ▀▀▀▀ ▀▀                                                                                                       
+                 
+                                         ██                 
+ ▄▄█████▄  ██▄████▄   ▄█████▄   ▄█████▄  ██ ▄██▀            
+ ██▄▄▄▄ ▀  ██▀   ██   ▀ ▄▄▄██  ██▀    ▀  ██▄██              
+  ▀▀▀▀██▄  ██    ██  ▄██▀▀▀██  ██        ██▀██▄             
+ █▄▄▄▄▄██  ██    ██  ██▄▄▄███  ▀██▄▄▄▄█  ██  ▀█▄            
+  ▀▀▀▀▀▀   ▀▀    ▀▀   ▀▀▀▀ ▀▀    ▀▀▀▀▀   ▀▀   ▀▀▀           
+                                                            
+                                                                                           
                 `)
             },
             {
@@ -128,7 +118,7 @@ she saw herself
                 title: 'denver\'s love && hate',
                 content: this.cleanContent(`
 
-in astrology, there is something called astrocartography, which allows you to see how your birth chart overlays with the earth’s ecliptic - with each planet represented as a line crossing specific cities. in theory, when you visit these places, you feel “the influence” of that planet’s energy.
+in astrology, there is something called astrocartography, which allows you to see how your birth chart overlays the earth’s ecliptic - with each planet represented as a line crossing specific cities. in theory, when you visit these places, you feel “the influence” of that planet’s energy.
 
 my uranus line crosses denver, so i should expect many unexpected events, disturbances, and things not going as planned. i must admit, from my experience so far, this seems accurate.
 
@@ -182,14 +172,14 @@ s was an exception.
 
 i told him i had been running from an atrocious abuse. i said i was trying to find a job, but The Crime had destroyed my career, and i asked whether i could crash at his place while i got back on my feet.
 
-he didn’t hesitate to tell me i was welcome. he and r, the sweet ~80-years-old woman who lives with him, took me in like family. s built a little room for me, and r told me they loved me, that the room would always be there for me, that i had a home in colorado, and that i could come back anytime to visit them.
+he didn’t hesitate to tell me i was welcome. he and r, the sweet ~80-year-old woman who lives with him, took me in like family. s built a little room for me, and r told me they loved me, that the room would always be there for me, that i had a home in colorado, and that i could come back anytime to visit them.
                     
                     
 -----
 OUTRO
 -----
                     
-what’s the most evident difference between people who live on food stamps and those who belong to the billionaires list (and all their friends)?
+what’s the most evident difference between people who live on food stamps and those who belong to the billionaire list (and all their friends)?
 
 humanity.
                     
@@ -248,7 +238,7 @@ so are the pain and suffering: after a while, they end."«/i»
 7. find the one guy who loves me for who i am and have that first kiss
 8. clean and organize my house the way i like, so it looks perfect
 9. encounter and interact with cute little animals and watch them just be
-10. know that i'm free and that there's infinite possibilities to live the good life
+10. know that i'm free and that there are infinite possibilities to live the good life
 
 <3
 
