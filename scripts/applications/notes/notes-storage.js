@@ -122,11 +122,11 @@ the fourth time i went to denver was in 2026, coming back from malaysia. i had r
 
 i was not doing well — definitely the worst months of my entire life. i felt like i had lost everything. i was putting all my energy into not breaking down, continuing my life, and moving forward with my career. i had been ostracized for over a year, and although i had a huge legion of fans online, i had almost no friends still talking to me in real life.
 
-s. was again the one exception.
+s was again the one exception.
 
 i told him i had been running from an atrocious abuse. i said i was trying to find a job, but The Crime had destroyed my career, and i asked whether i could crash at his place while i got back on my feet.
 
-he didn’t hesitate to tell me i was welcome. he and r., the sweet ~80-years-old woman who lives with him, took me in like family. s. built a little room for me, and r. told me they loved me, that the room would always be there for me, that i had a home in colorado, and that i could come back anytime to visit them.
+he didn’t hesitate to tell me i was welcome. he and r, the sweet ~80-years-old woman who lives with him, took me in like family. s built a little room for me, and r told me they loved me, that the room would always be there for me, that i had a home in colorado, and that i could come back anytime to visit them.
                     
                     
 -----
