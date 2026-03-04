@@ -294,6 +294,7 @@ class WindowManager {
 }
 
 // Expose class constructor for testing
+// Expose class constructor for testing
 window.WindowManagerClass = WindowManager;
 
 // Initialize window manager
@@ -305,7 +306,6 @@ if (document.readyState === 'loading') {
     window.WindowManager = new WindowManager();
 }
 
-// Expose bringToFront globally for backward compatibility
 window.bringToFront = function(windowElement) {
     if (window.WindowManager) {
         window.WindowManager.bringToFront(windowElement);

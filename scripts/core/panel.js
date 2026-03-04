@@ -98,7 +98,6 @@ class Panel {
 // Expose class constructor for testing
 window.PanelClass = Panel;
 
-// Initialize when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         window.Panel = new Panel();

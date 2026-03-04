@@ -2,27 +2,18 @@
  * Todo Application Module
  * Self-contained todo list application
  */
-class TodoApp {
+class TodoApp extends BaseApp {
     constructor() {
-        this.windowId = 'todo-window';
-        this.dockItemId = 'todo-dock-item';
+        super({ windowId: 'todo-window', dockItemId: 'todo-dock-item' });
         this.storage = new TodoStorage();
         this.todos = [];
-        this.window = null;
-        this.dockItem = null;
         this.elements = {};
-
         this.init();
     }
 
     init() {
-        this.window = document.getElementById(this.windowId);
-        this.dockItem = document.getElementById(this.dockItemId);
-
-        if (!this.window) {
-            return;
-        }
-
+        super.init();
+        if (!this.window) return;
         this.cacheElements();
         this.loadTodos();
         this.setupEventListeners();
@@ -55,15 +46,7 @@ class TodoApp {
     }
 
     setupEventListeners() {
-        // Setup dock item click handler
-        if (this.dockItem) {
-            this.dockItem.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.open();
-                return false;
-            });
-        }
+        super.setupEventListeners();
 
         // Use event delegation for todo interactions
         if (this.elements.todoList) {
@@ -92,45 +75,9 @@ class TodoApp {
     }
 
     open() {
-        if (!this.window) return;
-
-        // Use window manager if available, otherwise fallback
-        if (window.WindowManager) {
-            window.WindowManager.open(this.window, this.dockItem);
-        } else {
-            // Fallback to direct manipulation
-            document.querySelectorAll('.dock-item').forEach(di => di.classList.remove('active'));
-            if (this.dockItem) {
-                this.dockItem.classList.add('active');
-            }
-
-            this.window.style.display = 'block';
-            this.window.style.opacity = '0';
-            this.window.style.transform = 'translate(0, 0) scale(0.9)';
-
-            void this.window.offsetHeight;
-
-            requestAnimationFrame(() => {
-                this.window.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                this.window.style.opacity = '1';
-                this.window.style.transform = 'translate(0, 0) scale(1)';
-            });
-
-            if (window.bringToFront) {
-                window.bringToFront(this.window);
-            }
-        }
-
-        // Don't refresh - just render current state
-        // This prevents resetting todos when window is opened
+        super.open();
         this.render();
         this.updateBadge();
-    }
-
-    close() {
-        if (this.dockItem) {
-            this.dockItem.classList.remove('active');
-        }
     }
 
     addTodo(text) {

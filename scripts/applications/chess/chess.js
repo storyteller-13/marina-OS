@@ -9,7 +9,7 @@ const PIECE_SYMBOLS = {
 class ChessPanel {
   constructor() {
     this.boxId = 'chess-box';
-    this.apiUrl = (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname === ''))
+    this.apiUrl = (typeof window !== 'undefined' && window.Env && window.Env.isLocalhost())
       ? 'https://api.chess.com/pub/puzzle'
       : '/api/chess';
     this.init();

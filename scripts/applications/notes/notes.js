@@ -2,28 +2,19 @@
  * Notes Application Module
  * Self-contained notes application for creating and managing notes
  */
-class NotesApp {
+class NotesApp extends BaseApp {
     constructor() {
-        this.windowId = 'notes-window';
-        this.dockItemId = 'notes-dock-item';
+        super({ windowId: 'notes-window', dockItemId: 'notes-dock-item' });
         this.storage = new NotesStorage();
         this.entries = [];
         this.entriesByDate = {};
-        this.window = null;
-        this.dockItem = null;
         this.elements = {};
-
         this.init();
     }
 
     init() {
-        this.window = document.getElementById(this.windowId);
-        this.dockItem = document.getElementById(this.dockItemId);
-
-        if (!this.window) {
-            return;
-        }
-
+        super.init();
+        if (!this.window) return;
         this.cacheElements();
         this.loadEntries();
         this.setupEventListeners();
@@ -55,61 +46,12 @@ class NotesApp {
     }
 
     setupEventListeners() {
-        // Setup dock item click handler
-        if (this.dockItem) {
-            this.dockItem.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.open();
-                return false;
-            });
-        }
+        super.setupEventListeners();
     }
 
     open() {
-        if (!this.window) return;
-
-        // Use window manager if available, otherwise fallback
-        if (window.WindowManager) {
-            window.WindowManager.open(this.window, this.dockItem);
-        } else {
-            this.openFallback();
-        }
-
-        // Don't reload entries - they should only load once during initialization
-        // This prevents resetting entries when window is opened
+        super.open();
         this.render();
-    }
-
-    openFallback() {
-        // Fallback to direct manipulation
-        const dockItems = document.querySelectorAll('.dock-item');
-        dockItems.forEach(di => di.classList.remove('active'));
-        if (this.dockItem) {
-            this.dockItem.classList.add('active');
-        }
-
-        this.window.style.display = 'block';
-        this.window.style.opacity = '0';
-        this.window.style.transform = 'translate(0, 0) scale(0.9)';
-
-        void this.window.offsetHeight;
-
-        requestAnimationFrame(() => {
-            this.window.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-            this.window.style.opacity = '1';
-            this.window.style.transform = 'translate(0, 0) scale(1)';
-        });
-
-        if (window.bringToFront) {
-            window.bringToFront(this.window);
-        }
-    }
-
-    close() {
-        if (this.dockItem) {
-            this.dockItem.classList.remove('active');
-        }
     }
 
 

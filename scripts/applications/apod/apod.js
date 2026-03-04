@@ -4,12 +4,8 @@
  */
 class APODPanel {
     constructor() {
-        // Use API proxy to avoid CORS and rate limiting issues
-        // Check if we're on localhost (local dev) or production
-        const isLocalhost = window.location.hostname === 'localhost' || 
-                           window.location.hostname === '127.0.0.1' ||
-                           window.location.hostname === '';
-        
+        // Use API proxy to avoid CORS and rate limiting issues (Env.isLocalhost from env.js)
+        const isLocalhost = window.Env && window.Env.isLocalhost();
         if (isLocalhost) {
             // For local development, use NASA API directly with DEMO_KEY
             this.apiUrl = 'https://api.nasa.gov/planetary/apod';

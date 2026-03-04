@@ -9,10 +9,11 @@ vonsteinkirch.com — a personal website styled as a desktop operating system. V
 ## Commands
 
 - `make server` — local dev server at http://localhost:8088 (python3 http.server)
-- `npm run test:watch` — vitest in watch mode
-- `npm run test:coverage` — vitest with coverage
+- `make test` — run tests once (vitest)
+- `make test-watch` — vitest in watch mode
+- `make test-coverage` — vitest with coverage
 
-Tests reference `tests/setup.js` but no test files exist yet. Vitest config is at `vitest.config.js`.
+Tests: `tests/` (e.g. `window-manager.test.js`, `notes-storage.test.js`). Setup: `tests/setup.js`. Config: `vitest.config.js`.
 
 ## Architecture
 
@@ -22,7 +23,9 @@ Everything runs inside a single `index.html` (60KB). The page renders a desktop 
 
 ### Core System (`scripts/core/`)
 
-- **window-manager.js** — `WindowManager` class: window lifecycle (open/close/minimize), z-index stacking, drag-by-header. Exposes `window.WindowManager` globally. All apps check for this and fall back to direct DOM manipulation.
+- **env.js** — `window.Env`: `isLocalhost()`, `getApiBase(path)`. Central place for local vs production API choice. Load before apps.
+- **base-app.js** — `BaseApp` class: shared window/dock open, close, fallback. Dock apps (home, notes, todo, email, artwork, b-bot) extend it; tray/terminal do not.
+- **window-manager.js** — `WindowManager` class: window lifecycle (open/close/minimize), z-index stacking, drag-by-header. Exposes `window.WindowManager` and `window.bringToFront`.
 - **panel.js** — `Panel` class: top bar clock (HH:MM:SS), applications dropdown menu.
 - **protection.js** — IIFE that blocks right-click, dev-tool shortcuts, and image dragging (client-side only).
 
@@ -47,12 +50,22 @@ Vercel serverless functions — all are CORS-enabled GET proxies with 1-hour cac
 
 ### Key Patterns
 
-- **Environment-aware fetching**: localhost hits APIs directly, production uses `/api/` proxies to avoid CORS.
+- **Environment-aware fetching**: Use `window.Env.isLocalhost()` (from env.js); localhost hits APIs directly, production uses `/api/` proxies to avoid CORS.
 - **Resilient fetching**: XKCD tries 3 fallback CORS proxies; APOD serves stale cache on failure with background refresh.
 - **24-hour localStorage caching** with timestamp validation (APOD, XKCD).
 - **No build step**: all JS loads via `<script>` tags directly. No bundler, no transpiler.
-- **Single CSS file**: `styles/styles.css` (99KB) covers everything.
+- **Split CSS**: `styles/` has `base.css`, `panel.css`, `tray-boxes.css`, `music.css`, `desktop-icons.css`, `windows.css`, `dock.css`, `responsive.css`. Original single file kept as `styles.css` for reference.
+- **Script load order** (in `index.html`): `protection.js` → `env.js` → `base-app.js` → `window-manager.js` → `panel.js` → storage/app scripts (music-player, todo, notes, email, b-bot, philosophy-quotes, xkcd, apod, chess, home, artwork, terminal-app, terminal). Env and BaseApp must load before any app that uses them.
 
 ## Styles
 
-All styling is in `styles/styles.css`. The visual theme is a dark desktop OS with neon green accents (#39ff14). Windows have macOS-style traffic light controls (close/minimize/maximize circles).
+Styling is split under `styles/`. The visual theme is a dark desktop OS with neon green accents (#39ff14). Windows have macOS-style traffic light controls (close/minimize/maximize circles).
+
+## File layout
+
+- `index.html` — single page; links split CSS and loads all scripts in order.
+- `scripts/core/` — env, base-app, window-manager, panel, protection.
+- `scripts/applications/` — one folder per app (e.g. `notes/notes.js`, `notes/notes-storage.js`).
+- `styles/` — split CSS files; `styles.css` is the legacy single file.
+- `api/` — Vercel serverless proxies (apod, chess, xkcd, ollama).
+- `tests/` — Vitest tests; run with `make test` or `npm run test:coverage`.

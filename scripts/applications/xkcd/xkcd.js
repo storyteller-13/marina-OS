@@ -4,12 +4,7 @@
  */
 class XKCDPanel {
     constructor() {
-        // Use API proxy in production, or CORS proxy for local development
-        // Check if we're on localhost (local dev) or production
-        const isLocalhost = window.location.hostname === 'localhost' || 
-                           window.location.hostname === '127.0.0.1' ||
-                           window.location.hostname === '';
-        
+        const isLocalhost = window.Env && window.Env.isLocalhost();
         if (isLocalhost) {
             // For local development, use a CORS proxy
             // Using allorigins.win as a free CORS proxy service
@@ -124,11 +119,7 @@ class XKCDPanel {
             'https://api.codetabs.com/v1/proxy?quest='
         ];
         
-        // Try primary API endpoint first
-        const isLocalhost = window.location.hostname === 'localhost' || 
-                           window.location.hostname === '127.0.0.1' ||
-                           window.location.hostname === '';
-        
+        const isLocalhost = window.Env && window.Env.isLocalhost();
         if (!isLocalhost && this.apiUrl === '/api/xkcd') {
             try {
                 const response = await this.fetchWithTimeout(this.apiUrl, 10000);

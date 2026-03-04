@@ -2,12 +2,9 @@
  * Artwork Window Application Module
  * Simple file manager window for artwork
  */
-class ArtworkApp {
+class ArtworkApp extends BaseApp {
     constructor() {
-        this.windowId = 'artwork-window';
-        this.dockItemId = 'artwork-dock-item';
-        this.window = null;
-        this.dockItem = null;
+        super({ windowId: 'artwork-window', dockItemId: 'artwork-dock-item' });
         this.elements = {};
         this.imagesLoaded = false;
 
@@ -24,13 +21,8 @@ class ArtworkApp {
     }
 
     init() {
-        this.window = document.getElementById(this.windowId);
-        this.dockItem = document.getElementById(this.dockItemId);
-
-        if (!this.window) {
-            return;
-        }
-
+        super.init();
+        if (!this.window) return;
         this.cacheElements();
         this.setupEventListeners();
         this.updateBadge();
@@ -65,15 +57,7 @@ class ArtworkApp {
     }
 
     setupEventListeners() {
-        // Setup dock item click handler
-        if (this.dockItem) {
-            this.dockItem.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.open();
-                return false;
-            });
-        }
+        super.setupEventListeners();
     }
 
     loadImages() {
@@ -188,44 +172,8 @@ class ArtworkApp {
     }
 
     open() {
-        if (!this.window) return;
-
-        // Load images when opening
         this.loadImages();
-
-        // Use window manager if available
-        if (window.WindowManager) {
-            window.WindowManager.open(this.window, this.dockItem);
-        } else {
-            // Fallback
-            const dockItems = document.querySelectorAll('.dock-item');
-            dockItems.forEach(di => di.classList.remove('active'));
-            if (this.dockItem) {
-                this.dockItem.classList.add('active');
-            }
-
-            this.window.style.display = 'block';
-            this.window.style.opacity = '0';
-            this.window.style.transform = 'translate(-50%, -50%) scale(0.9)';
-
-            void this.window.offsetHeight;
-
-            requestAnimationFrame(() => {
-                this.window.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                this.window.style.opacity = '1';
-                this.window.style.transform = 'translate(-50%, -50%) scale(1)';
-            });
-
-            if (window.bringToFront) {
-                window.bringToFront(this.window);
-            }
-        }
-    }
-
-    close() {
-        if (this.dockItem) {
-            this.dockItem.classList.remove('active');
-        }
+        super.open();
     }
 }
 

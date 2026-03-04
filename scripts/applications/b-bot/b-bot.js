@@ -2,13 +2,10 @@
  * B-Bot Application Module
  * Self-contained chatbot application
  */
-class BBotApp {
+class BBotApp extends BaseApp {
     constructor() {
-        this.windowId = 'b-bot-window';
-        this.dockItemId = 'b-bot-dock-item';
+        super({ windowId: 'b-bot-window', dockItemId: 'b-bot-dock-item' });
         this.api = new BBotAPI();
-        this.window = null;
-        this.dockItem = null;
         this.input = null;
         this.sendBtn = null;
         this.messages = null;
@@ -24,8 +21,8 @@ class BBotApp {
     }
 
     init() {
-        this.window = document.getElementById(this.windowId);
-        this.dockItem = document.getElementById(this.dockItemId);
+        super.init();
+        if (!this.window) return;
         this.input = document.getElementById('b-bot-input');
         this.sendBtn = document.getElementById('b-bot-send-btn');
         this.messages = document.getElementById('b-bot-messages');
@@ -53,15 +50,7 @@ class BBotApp {
     }
 
     setupEventListeners() {
-        // Setup dock item click handler
-        if (this.dockItem) {
-            this.dockItem.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.open();
-                return false;
-            });
-        }
+        super.setupEventListeners();
 
         // Setup message sending
         if (this.sendBtn) {
@@ -117,45 +106,9 @@ class BBotApp {
     }
 
     open() {
-        if (!this.window) return;
-
-        // Use window manager if available
-        if (window.WindowManager) {
-            window.WindowManager.open(this.window, this.dockItem);
-        } else {
-            // Fallback
-            const dockItems = document.querySelectorAll('.dock-item');
-            dockItems.forEach(di => di.classList.remove('active'));
-            if (this.dockItem) {
-                this.dockItem.classList.add('active');
-            }
-
-            this.window.style.display = 'block';
-            this.window.style.opacity = '0';
-            this.window.style.transform = 'translate(0, 0) scale(0.9)';
-
-            void this.window.offsetHeight;
-
-            requestAnimationFrame(() => {
-                this.window.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                this.window.style.opacity = '1';
-                this.window.style.transform = 'translate(0, 0) scale(1)';
-            });
-
-            if (window.bringToFront) {
-                window.bringToFront(this.window);
-            }
-        }
-
-        // Focus input
+        super.open();
         if (this.input) {
             setTimeout(() => this.input.focus(), 300);
-        }
-    }
-
-    close() {
-        if (this.dockItem) {
-            this.dockItem.classList.remove('active');
         }
     }
 

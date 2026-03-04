@@ -2,15 +2,11 @@
  * Email Application Module
  * Self-contained email application
  */
-class EmailApp {
+class EmailApp extends BaseApp {
     constructor() {
-        this.windowId = 'email-window';
-        this.dockItemId = 'email-dock-item';
+        super({ windowId: 'email-window', dockItemId: 'email-dock-item' });
         this.data = new EmailData();
         this.currentFolder = 'inbox';
-        this.window = null;
-        this.dockItem = null;
-
         this.init();
     }
 
@@ -38,27 +34,14 @@ class EmailApp {
     }
 
     init() {
-        this.window = document.getElementById(this.windowId);
-        this.dockItem = document.getElementById(this.dockItemId);
-
-        if (!this.window) {
-            return;
-        }
-
+        super.init();
+        if (!this.window) return;
         this.setupEventListeners();
         this.updateFolderCounts();
     }
 
     setupEventListeners() {
-        // Setup dock item click handler
-        if (this.dockItem) {
-            this.dockItem.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.open();
-                return false;
-            });
-        }
+        super.setupEventListeners();
 
         // Setup folder switching
         const emailFolders = this.window.querySelectorAll('.email-folder[data-folder]');
@@ -86,44 +69,8 @@ class EmailApp {
     }
 
     open() {
-        if (!this.window) return;
-
-        // Use window manager if available
-        if (window.WindowManager) {
-            window.WindowManager.open(this.window, this.dockItem);
-        } else {
-            // Fallback
-            const dockItems = document.querySelectorAll('.dock-item');
-            dockItems.forEach(di => di.classList.remove('active'));
-            if (this.dockItem) {
-                this.dockItem.classList.add('active');
-            }
-
-            this.window.style.display = 'block';
-            this.window.style.opacity = '0';
-            this.window.style.transform = 'translate(0, 0) scale(0.9)';
-
-            void this.window.offsetHeight;
-
-            requestAnimationFrame(() => {
-                this.window.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                this.window.style.opacity = '1';
-                this.window.style.transform = 'translate(0, 0) scale(1)';
-            });
-
-            if (window.bringToFront) {
-                window.bringToFront(this.window);
-            }
-        }
-
-        // Ensure active states are set for current folder
+        super.open();
         this.switchFolder(this.currentFolder);
-    }
-
-    close() {
-        if (this.dockItem) {
-            this.dockItem.classList.remove('active');
-        }
     }
 
     switchFolder(folderName) {
