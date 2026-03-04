@@ -1509,12 +1509,6 @@ a.menu-button {
     margin-bottom: 12px;
 }
 
-.music-title {
-    flex: 1;
-    min-width: 0;
-    text-align: center;
-}
-
 .music-nav {
     background: linear-gradient(135deg, rgba(34, 197, 94, 0.4) 0%, rgba(21, 128, 61, 0.4) 100%);
     border: 1px solid rgba(34, 197, 94, 0.6);
@@ -1728,6 +1722,8 @@ a.menu-button {
 
 .music-title {
     flex: 1;
+    min-width: 0;
+    text-align: center;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     font-weight: 900;
     letter-spacing: 0.5px;
