@@ -85,7 +85,7 @@ class MusicPlayerStorage {
                         { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright (god is an astronaut)' },
                         { id: 'X2959NkomEc', title: 'up all night (meltt)' },
                         { id: 'wpWOQSgsetk', title: 'butterfly (anees)' },
-                        { id: 'flPvsybvwQo', title: 'last dance (the cure)' },
+                        { id: '3CygXxv1f2k', title: 'secret smile (semisonic)' },
                         { id: 'b9WKC5sT9Z4', title: 'gymnopedies (erik satie)' },
                         { id: 'FoYdeEDdtK4', title: 'peaches in regalia (frank zappa)' },
                         { id: 'fhOAsDVg8pY', title: 'round && round (bob moses)' }
