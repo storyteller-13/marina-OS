@@ -100,7 +100,9 @@ class MusicPlayerStorage {
                         { id: 'MO0LdXqwDP0', title: 'afterlife (evanescence)' },
                         { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
                         { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
+                        { id: 'cfjDrutsfRQ', title: 'sympathy magic (florence + the machine)' },
                         { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' }
+                       
                     ]
                 },
                 {
@@ -116,7 +118,7 @@ class MusicPlayerStorage {
                     ]
                 }
             ],
-            currentPlaylistId: 'renewal'
+            currentPlaylistId: '2026-reward'
         };
     }
 

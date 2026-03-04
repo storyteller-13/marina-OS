@@ -105,7 +105,7 @@ class APODPanel {
                 this.cacheAPOD(data);
                 this.displayAPOD(data);
             } else {
-                this.showError('Unable to load APOD. Rate limit may be active.');
+                this.showError('unable to load APOD; rate limit may be active.');
             }
         } catch (error) {
             // Check if we have any cached data to show (even if expired)
@@ -113,7 +113,7 @@ class APODPanel {
             if (cachedData) {
                 this.displayAPOD(cachedData);
             } else {
-                this.showError('Unable to load APOD. Please try again later.');
+                this.showError('unable to load APOD; please try again later.');
             }
         }
     }
@@ -143,7 +143,7 @@ class APODPanel {
                 if (cached) {
                     return cached;
                 }
-                throw new Error('Rate limited and no cached data available');
+                throw new Error('rate limited and no cached data available');
             }
             
             if (!response.ok) {
@@ -175,7 +175,7 @@ class APODPanel {
             return data;
         } catch (error) {
             // Try a random date from the past week as fallback (only if not rate limited)
-            if (!error.message.includes('Rate limited')) {
+            if (!error.message.includes('rate limited')) {
                 return this.fetchRandomAPOD();
             }
             return null;
@@ -237,7 +237,7 @@ class APODPanel {
         // Create image
         const img = document.createElement('img');
         img.src = data.url;
-        img.alt = data.title || 'Astronomical Picture of the Day';
+        img.alt = data.title || 'astronomical picture of the day';
         img.className = 'apod-box-image';
         img.onerror = () => this.showError();
 
@@ -246,12 +246,12 @@ class APODPanel {
         // Keep title as "APOD"
         if (titleElement) {
             titleElement.textContent = 'APOD';
-            titleElement.title = data.title || 'Astronomical Picture of the Day';
+            titleElement.title = data.title || 'astronomical picture of the day';
         }
 
         // Update popup content
         if (popupImage) popupImage.src = data.url;
-        if (popupTitle) popupTitle.textContent = data.title || 'Astronomical Picture of the Day';
+        if (popupTitle) popupTitle.textContent = data.title || 'astronomical picture of the day';
         if (popupExplanation) popupExplanation.textContent = data.explanation || '';
         if (popupDate) {
             const date = new Date(data.date);

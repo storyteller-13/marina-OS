@@ -86,6 +86,7 @@ class MusicPlayer {
                     { id: 'MO0LdXqwDP0', title: 'afterlife (evanescence)' },
                     { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
                     { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
+                    { id: 'cfjDrutsfRQ', title: 'sympathy magic (florence + the machine)' },
                     { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' }
                 ],
                 position: 3
@@ -145,12 +146,12 @@ class MusicPlayer {
 
         // Set default playlist if none is set
         if (!this.playlistsData.currentPlaylistId) {
-            this.playlistsData.currentPlaylistId = 'renewal';
+            this.playlistsData.currentPlaylistId = '2026-reward';
         }
 
         // Migrate old playlist ID if needed
         if (this.playlistsData.currentPlaylistId === 'dualities-playlist') {
-            this.playlistsData.currentPlaylistId = 'renewal';
+            this.playlistsData.currentPlaylistId = '2026-reward';
         }
 
         // Save any changes
@@ -162,11 +163,11 @@ class MusicPlayer {
             this.songs = [...currentPlaylist.songs]; // Create a copy
             this.currentSongIndex = Math.max(0, Math.min(this.currentSongIndex, this.songs.length - 1));
         } else {
-            // Fallback to renewal playlist
-            const renewalPlaylist = this.storage.getPlaylist(this.playlistsData, 'renewal');
-            if (renewalPlaylist && renewalPlaylist.songs && renewalPlaylist.songs.length > 0) {
-                this.songs = [...renewalPlaylist.songs];
-                this.playlistsData.currentPlaylistId = 'renewal';
+            // Fallback to 2026 reward playlist (Nothing Else Matters)
+            const fallbackPlaylist = this.storage.getPlaylist(this.playlistsData, '2026-reward');
+            if (fallbackPlaylist && fallbackPlaylist.songs && fallbackPlaylist.songs.length > 0) {
+                this.songs = [...fallbackPlaylist.songs];
+                this.playlistsData.currentPlaylistId = '2026-reward';
                 this.storage.save(this.playlistsData);
             } else {
                 // Last resort: use default data

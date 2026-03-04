@@ -172,7 +172,7 @@ s was an exception.
 
 i told him i had been running from an atrocious abuse. i said i was trying to find a job, but The Crime had destroyed my career, and i asked whether i could crash at his place while i got back on my feet.
 
-he didn’t hesitate to tell me i was welcome. he and r, the sweet ~80-year-old woman who lives with him, took me in like family. s built a little room for me, and r told me they loved me, that the room would always be there for me, that i had a home in colorado, and that i could come back anytime to visit them.
+he didn’t hesitate to tell me i was welcome. he and r, the sweet ~80-year-old woman who lives with him, took me in like family. s built a little room for me, and r told me they love me, that the room would always be there for me, that i had a home in colorado, and that i could come back anytime to visit them.
                     
                     
 -----
@@ -221,10 +221,10 @@ she saw herself
                 title: 'those little things',
                 content: this.cleanContent(`
 «i»"if there is one lesson i learned from The Crime, it is
-that there will be moments in life when your floor is taken 
+that there will be moments in life when your floor is pulled out
 away and things will happen slower and weirder than you expect
 but just as all the very good moments in life are ephemeral,
-so are the pain and suffering: after a while, they end."«/i»
+so are all the pain and suffering: after a while, they end."«/i»
 
 
 🪻 ten simple mundane things that make me feel alive 🪻:
