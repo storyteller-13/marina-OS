@@ -6,19 +6,15 @@
 (function() {
     'use strict';
 
-    // Constants
-    const DEVTOOLS_THRESHOLD = 160;
-    const DEVTOOLS_CHECK_INTERVAL = 500;
-
-    // Keyboard shortcuts to block
-    const BLOCKED_KEYS = {
-        F12: true,
-        'Ctrl+Shift+I': (e) => e.ctrlKey && e.shiftKey && e.key === 'I',
-        'Ctrl+Shift+J': (e) => e.ctrlKey && e.shiftKey && e.key === 'J',
-        'Ctrl+Shift+C': (e) => e.ctrlKey && e.shiftKey && e.key === 'C',
-        'Ctrl+U': (e) => e.ctrlKey && e.key === 'u',
-        'Ctrl+S': (e) => e.ctrlKey && e.key === 's'
-    };
+    // Keyboard shortcuts to block (each returns true when the shortcut is pressed)
+    const BLOCKED_SHORTCUTS = [
+        (e) => e.key === 'F12',
+        (e) => e.ctrlKey && e.shiftKey && e.key === 'I',   // DevTools
+        (e) => e.ctrlKey && e.shiftKey && e.key === 'J',   // Console
+        (e) => e.ctrlKey && e.shiftKey && e.key === 'C',   // Element Inspector
+        (e) => e.ctrlKey && e.key === 'u',                  // View Source
+        (e) => e.ctrlKey && e.key === 's'                  // Save Page
+    ];
 
     /**
      * Prevents right-click context menu
@@ -34,61 +30,10 @@
      */
     function preventKeyboardShortcuts() {
         document.addEventListener('keydown', function(e) {
-            // Block F12
-            if (e.key === 'F12') {
+            if (BLOCKED_SHORTCUTS.some(function(check) { return check(e); })) {
                 e.preventDefault();
-                return;
-            }
-
-            // Block Ctrl+Shift+I (DevTools)
-            if (BLOCKED_KEYS['Ctrl+Shift+I'](e)) {
-                e.preventDefault();
-                return;
-            }
-
-            // Block Ctrl+Shift+J (Console)
-            if (BLOCKED_KEYS['Ctrl+Shift+J'](e)) {
-                e.preventDefault();
-                return;
-            }
-
-            // Block Ctrl+Shift+C (Element Inspector)
-            if (BLOCKED_KEYS['Ctrl+Shift+C'](e)) {
-                e.preventDefault();
-                return;
-            }
-
-            // Block Ctrl+U (View Source)
-            if (BLOCKED_KEYS['Ctrl+U'](e)) {
-                e.preventDefault();
-                return;
-            }
-
-            // Block Ctrl+S (Save Page)
-            if (BLOCKED_KEYS['Ctrl+S'](e)) {
-                e.preventDefault();
-                return;
             }
         });
-    }
-
-    /**
-     * Monitors for DevTools opening (basic detection)
-     */
-    function monitorDevTools() {
-        let devtoolsOpen = false;
-
-        setInterval(function() {
-            const heightDiff = window.outerHeight - window.innerHeight;
-            const widthDiff = window.outerWidth - window.innerWidth;
-            const isOpen = heightDiff > DEVTOOLS_THRESHOLD || widthDiff > DEVTOOLS_THRESHOLD;
-
-            if (isOpen && !devtoolsOpen) {
-                devtoolsOpen = true;
-            } else if (!isOpen) {
-                devtoolsOpen = false;
-            }
-        }, DEVTOOLS_CHECK_INTERVAL);
     }
 
     /**
@@ -105,6 +50,5 @@
     // Initialize all protection features
     preventContextMenu();
     preventKeyboardShortcuts();
-    monitorDevTools();
     preventImageDragging();
 })();
