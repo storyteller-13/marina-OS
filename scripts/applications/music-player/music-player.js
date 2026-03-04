@@ -87,7 +87,8 @@ class MusicPlayer {
                     { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
                     { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
                     { id: 'cfjDrutsfRQ', title: 'sympathy magic (florence + the machine)' },
-                    { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' }
+                    { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' },
+                    { id: 'pe3jFvJ0qjs', title: "don't feel the reaper (blue oyster cult)" }
                 ],
                 position: 3
             },
