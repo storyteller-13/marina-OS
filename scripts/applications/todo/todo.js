@@ -36,6 +36,7 @@ class TodoApp {
         this.elements.todoFooter = document.getElementById('todo-footer');
         this.elements.todoCount = document.getElementById('todo-count');
         this.elements.badge = document.getElementById('todo-count-badge');
+        this.elements.menuCount = document.getElementById('todo-menu-count');
     }
 
     loadTodos() {
@@ -206,16 +207,25 @@ class TodoApp {
     }
 
     updateBadge() {
-        const { badge } = this.elements;
-        if (!badge) return;
-
+        const { badge, menuCount } = this.elements;
         const activeCount = this.getActiveCount();
+        const text = activeCount > 99 ? '99+' : activeCount.toString();
 
-        if (activeCount > 0) {
-            badge.textContent = activeCount > 99 ? '99+' : activeCount.toString();
-            badge.style.display = 'flex';
-        } else {
-            badge.style.display = 'none';
+        if (badge) {
+            if (activeCount > 0) {
+                badge.textContent = text;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+        if (menuCount) {
+            if (activeCount > 0) {
+                menuCount.textContent = text;
+                menuCount.style.display = 'flex';
+            } else {
+                menuCount.style.display = 'none';
+            }
         }
     }
 

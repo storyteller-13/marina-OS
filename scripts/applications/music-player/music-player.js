@@ -46,7 +46,6 @@ class MusicPlayer {
                 name: '2026 reward',
                 songs: [ 
                     { id: 'ozXZnwYTMbs', title: 'nothing else matthers (metallica)' },
-                    { id: 'ikabFnO0qpc', title: 'slow mornings (essential classics)' },
                     { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
                     { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' },
                     { id: 'co6WMzDOh1o', title: 'beautiful day (u2)' }

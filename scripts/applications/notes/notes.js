@@ -11,6 +11,7 @@ class NotesApp {
         this.entriesByDate = {};
         this.window = null;
         this.dockItem = null;
+        this.elements = {};
 
         this.init();
     }
@@ -23,9 +24,18 @@ class NotesApp {
             return;
         }
 
+        this.cacheElements();
         this.loadEntries();
         this.setupEventListeners();
         this.render();
+        this.updateBadge();
+    }
+
+    cacheElements() {
+        this.elements.notesFooter = document.getElementById('notes-footer');
+        this.elements.notesCount = document.getElementById('notes-count');
+        this.elements.badge = document.getElementById('notes-count-badge');
+        this.elements.menuCount = document.getElementById('notes-menu-count');
     }
 
     loadEntries() {
@@ -107,8 +117,19 @@ class NotesApp {
         const entriesList = document.getElementById('notes-entries-list');
         if (!entriesList) return;
 
+        const count = this.entries.length;
+        const { notesFooter, notesCount } = this.elements;
+
+        if (notesCount) {
+            notesCount.textContent = `${count} ${count === 1 ? 'entry' : 'entries'}`;
+        }
+        if (notesFooter) {
+            notesFooter.style.display = count > 0 ? 'flex' : 'none';
+        }
+
         if (this.entries.length === 0) {
             this.renderEmptyState(entriesList);
+            this.updateBadge();
             return;
         }
 
@@ -116,6 +137,7 @@ class NotesApp {
         const sortedDates = this.getSortedDates();
         entriesList.innerHTML = this.renderDateItems(sortedDates);
         this.attachDateItemListeners(entriesList);
+        this.updateBadge();
     }
 
     renderEmptyState(container) {
@@ -331,6 +353,29 @@ class NotesApp {
             const entryDate = new Date(entry.createdAt).toDateString();
             return entryDate === today;
         });
+    }
+
+    updateBadge() {
+        const { badge, menuCount } = this.elements;
+        const count = this.entries.length;
+        const text = count > 99 ? '99+' : count.toString();
+
+        if (badge) {
+            if (count > 0) {
+                badge.textContent = text;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+        if (menuCount) {
+            if (count > 0) {
+                menuCount.textContent = text;
+                menuCount.style.display = 'flex';
+            } else {
+                menuCount.style.display = 'none';
+            }
+        }
     }
 }
 
