@@ -5,8 +5,13 @@
 class WindowManager {
     constructor() {
         this.highestZIndex = 100;
-        this.windows = new Map();
         this.init();
+    }
+
+    isCenteredWindow(el) {
+        return el && (el.classList.contains('terminal-window') ||
+            el.classList.contains('artwork-window') ||
+            el.classList.contains('notes-letter-window'));
     }
 
     init() {
@@ -31,14 +36,6 @@ class WindowManager {
 
     registerWindow(windowElement) {
         if (!windowElement) return;
-
-        const windowId = windowElement.id;
-        this.windows.set(windowId, {
-            element: windowElement,
-            zIndex: this.highestZIndex++,
-            isDraggable: true
-        });
-
         this.makeDraggable(windowElement);
     }
 
@@ -61,9 +58,7 @@ class WindowManager {
         windowElement.style.display = 'block';
         windowElement.style.opacity = '0';
 
-        const isCentered = windowElement.classList.contains('terminal-window') ||
-                          windowElement.classList.contains('artwork-window') ||
-                          windowElement.classList.contains('notes-letter-window');
+        const isCentered = this.isCenteredWindow(windowElement);
 
         if (isCentered) {
             // Reset offsets to ensure window opens in center
@@ -97,9 +92,7 @@ class WindowManager {
     close(windowElement, dockItem = null) {
         if (!windowElement) return;
 
-        const isCentered = windowElement.classList.contains('terminal-window') ||
-                          windowElement.classList.contains('artwork-window') ||
-                          windowElement.classList.contains('notes-letter-window');
+        const isCentered = this.isCenteredWindow(windowElement);
 
         windowElement.style.opacity = '0';
         if (isCentered) {
@@ -142,9 +135,7 @@ class WindowManager {
         let initialX;
         let initialY;
 
-        const isCentered = element.classList.contains('terminal-window') ||
-                          element.classList.contains('artwork-window') ||
-                          element.classList.contains('notes-letter-window');
+        const isCentered = this.isCenteredWindow(element);
         let xOffset = element._xOffset || 0;
         let yOffset = element._yOffset || 0;
 
@@ -227,10 +218,8 @@ class WindowManager {
             }
         }
 
-        function dragEnd(e) {
+        function dragEnd() {
             if (isDragging) {
-                initialX = currentX;
-                initialY = currentY;
                 isDragging = false;
             }
         }
@@ -259,7 +248,8 @@ class WindowManager {
                         'home-window': 'home-dock-item',
                         'b-bot-window': 'b-bot-dock-item',
                         'terminal-window': 'terminal-dock-item',
-                        'artwork-window': 'artwork-dock-item'
+                        'artwork-window': 'artwork-dock-item',
+                        'notes-window': 'notes-dock-item'
                     };
 
                     const dockItemId = dockItemMap[windowId];
