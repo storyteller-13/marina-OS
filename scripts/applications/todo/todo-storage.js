@@ -8,22 +8,48 @@ class TodoStorage {
     }
 
     load() {
-        // Always clear cache and return default todos
-        localStorage.removeItem(this.storageKey);
-        return this.getTodos();
+        try {
+            const raw = localStorage.getItem(this.storageKey);
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    return parsed.map(t => this.normalizeTodo(t));
+                }
+            }
+        } catch (_) {
+            // invalid or missing: use defaults
+        }
+        return this.getDefaultTodos();
     }
 
-    getTodos() {
+    save(todos) {
+        if (!Array.isArray(todos)) return;
+        try {
+            localStorage.setItem(this.storageKey, JSON.stringify(todos));
+        } catch (_) {
+            // quota or disabled
+        }
+    }
+
+    normalizeTodo(t) {
+        return {
+            id: t.id || this.generateId(),
+            text: t.text || '',
+            completed: Boolean(t.completed),
+            createdAt: t.createdAt || new Date().toISOString()
+        };
+    }
+
+    getDefaultTodos() {
         const defaultTodoData = [
-            { text: 'laser focus on what has always mattered the most and continues to be one of my greatest source of happiness: my work', completed: false },
+            { text: 'memento mori', completed: false },
+            { text: 'get my snack ready', completed: false },
             { text: 'become unomad and build a nice, safe, and perfect home', completed: false },
+            { text: 'focus on what is one of my greatest source of happiness: my work', completed: false },
             { text: 'be in the present, and find gratitude and fullfiment every single day', completed: true },
-            { text: 'trust that G\'d is bringing the perfect partner to me, at the right time', completed: true },
             { text: 'become marina v2.0: perfectly unkillable', completed: true },
-            { text: 'get ready for the best year ever yet', completed: true },
             { text: 'know that i\'m safe and justice will always be served (do not waste time worrying about things i cannot control)', completed: true }
         ];
-
         return defaultTodoData.map(data => this.createTodo(data.text, data.completed));
     }
 
