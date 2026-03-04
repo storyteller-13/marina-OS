@@ -9,7 +9,6 @@ class Panel {
 
     constructor() {
         this.clockIntervalId = null;
-        this.eventListeners = [];
         this.init();
     }
 
@@ -30,16 +29,6 @@ class Panel {
             clearInterval(this.clockIntervalId);
         }
         this.clockIntervalId = setInterval(() => this.updateClock(), Panel.CLOCK_UPDATE_INTERVAL);
-    }
-
-    /**
-     * Stops the clock update interval
-     */
-    stopClock() {
-        if (this.clockIntervalId !== null) {
-            clearInterval(this.clockIntervalId);
-            this.clockIntervalId = null;
-        }
     }
 
     /**
@@ -70,57 +59,29 @@ class Panel {
         }
 
         // Handle button click to toggle dropdown
-        const buttonClickHandler = (e) => {
+        applicationsMenuButton.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
             const isShowing = applicationsDropdown.classList.contains('show');
-
-            // Close all other dropdowns
             this.closeAllDropdowns();
-
-            // Toggle this dropdown
             if (!isShowing) {
                 applicationsDropdown.classList.add('show');
             }
-        };
-
-        applicationsMenuButton.addEventListener('click', buttonClickHandler);
-        this.eventListeners.push({
-            element: applicationsMenuButton,
-            event: 'click',
-            handler: buttonClickHandler
         });
 
         // Close dropdown when clicking outside
-        const documentClickHandler = (e) => {
+        document.addEventListener('click', (e) => {
             if (!applicationsMenuButton.contains(e.target) &&
                 !applicationsDropdown.contains(e.target)) {
                 applicationsDropdown.classList.remove('show');
             }
-        };
-
-        document.addEventListener('click', documentClickHandler);
-        this.eventListeners.push({
-            element: document,
-            event: 'click',
-            handler: documentClickHandler
         });
 
-        // Close dropdown when clicking on a menu item
-        const menuItems = applicationsDropdown.querySelectorAll('.menu-item');
-        menuItems.forEach(item => {
-            const itemClickHandler = () => {
-                setTimeout(() => {
-                    applicationsDropdown.classList.remove('show');
-                }, Panel.MENU_CLOSE_DELAY);
-            };
-
-            item.addEventListener('click', itemClickHandler);
-            this.eventListeners.push({
-                element: item,
-                event: 'click',
-                handler: itemClickHandler
-            });
+        // Close dropdown when clicking a menu item (event delegation)
+        applicationsDropdown.addEventListener('click', (e) => {
+            if (e.target.closest('.menu-item')) {
+                setTimeout(() => applicationsDropdown.classList.remove('show'), Panel.MENU_CLOSE_DELAY);
+            }
         });
     }
 
@@ -131,20 +92,6 @@ class Panel {
         document.querySelectorAll('.menu-dropdown').forEach(dropdown => {
             dropdown.classList.remove('show');
         });
-    }
-
-    /**
-     * Cleans up event listeners and intervals
-     */
-    destroy() {
-        // Stop clock interval
-        this.stopClock();
-
-        // Remove all event listeners
-        this.eventListeners.forEach(({ element, event, handler }) => {
-            element.removeEventListener(event, handler);
-        });
-        this.eventListeners = [];
     }
 }
 
