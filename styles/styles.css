@@ -3629,7 +3629,8 @@ a.dock-item {
 
 .email-count-badge,
 .todo-count-badge,
-.notes-count-badge {
+.notes-count-badge,
+.artwork-count-badge {
     position: absolute;
     top: 2px;
     right: 2px;

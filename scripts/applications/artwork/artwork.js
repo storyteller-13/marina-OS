@@ -8,6 +8,7 @@ class ArtworkApp {
         this.dockItemId = 'artwork-dock-item';
         this.window = null;
         this.dockItem = null;
+        this.elements = {};
         this.imagesLoaded = false;
 
         // List of images in pages/artwork directory
@@ -30,7 +31,37 @@ class ArtworkApp {
             return;
         }
 
+        this.cacheElements();
         this.setupEventListeners();
+        this.updateBadge();
+    }
+
+    cacheElements() {
+        this.elements.badge = document.getElementById('artwork-count-badge');
+        this.elements.menuCount = document.getElementById('artwork-menu-count');
+    }
+
+    updateBadge() {
+        const { badge, menuCount } = this.elements;
+        const count = this.images.length;
+        const text = count > 99 ? '99+' : count.toString();
+
+        if (badge) {
+            if (count > 0) {
+                badge.textContent = text;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+        if (menuCount) {
+            if (count > 0) {
+                menuCount.textContent = text;
+                menuCount.style.display = 'flex';
+            } else {
+                menuCount.style.display = 'none';
+            }
+        }
     }
 
     setupEventListeners() {
