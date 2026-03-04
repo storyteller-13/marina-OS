@@ -45,9 +45,10 @@ class MusicPlayer {
                 id: '2026-reward',
                 name: '2026 reward',
                 songs: [
+                    { id: 'ozXZnwYTMbs', title: 'nothing else matthers (metallica)' },
+                    { id: 'ikabFnO0qpc', title: 'slow mornings (essential classics)' },
                     { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
-                    { id: 'co6WMzDOh1o', title: 'it\'s a beautiful day (u2)' },
-                    { id: 'ikabFnO0qpc', title: 'slow mornings (essential classics)' }
+                    { id: 'co6WMzDOh1o', title: 'beautiful day (u2)' }
                 ],
                 position: 0
             },
