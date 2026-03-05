@@ -6,14 +6,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 vonsteinkirch.com — a personal website styled as a desktop operating system. Vanilla JS (no frameworks), single `index.html` page with modular application scripts. Deployed on Vercel.
 
+## Installation
+
+Clone the repo, then run `make install` (or `npm install`). This installs dependencies and sets up the Git pre-commit hook (Husky) so `npm test` runs before every commit. Skip hook: `git commit --no-verify`.
+
 ## Commands
 
+- `make install` — npm install; also configures pre-commit to run tests
 - `make server` — local dev server at http://localhost:8088 (python3 http.server)
 - `make test` — run tests once (vitest)
 - `make test-watch` — vitest in watch mode
 - `make test-coverage` — vitest with coverage
 
-Tests: `tests/` (e.g. `window-manager.test.js`, `notes-storage.test.js`). Setup: `tests/setup.js`. Config: `vitest.config.js`.
+Tests: `tests/` (e.g. `window-manager.test.js`, `notes-storage.test.js`). Setup: `tests/setup.js`. Config: `vitest.config.js`. Pre-commit hook: `.husky/pre-commit` runs `npm test`.
 
 ## Architecture
 

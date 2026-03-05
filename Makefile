@@ -5,7 +5,7 @@ PYTHON := python3
 
 help:
 	@echo "vonsteinkirch.com — make targets:"
-	@echo "  make install     — npm install"
+	@echo "  make install     — npm install (also sets up git pre-commit hook to run tests)"
 	@echo "  make server     — dev server at http://localhost:$(PORT)"
 	@echo "  make test       — run tests once"
 	@echo "  make test-watch — vitest in watch mode"

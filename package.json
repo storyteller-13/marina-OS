@@ -7,10 +7,12 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@vitest/ui": "^1.0.0",
+    "husky": "^9.1.7",
     "jsdom": "^23.0.0",
     "vitest": "^1.0.0"
   }
