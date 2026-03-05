@@ -24,14 +24,7 @@ class XKCDPanel {
             this.setupEventListeners();
             // Make sure box is visible
             const box = document.getElementById('xkcd-box');
-            if (box) {
-                box.style.display = 'block';
-                // Ensure box is visible even if CSS hides it
-                const computedStyle = window.getComputedStyle(box);
-                if (computedStyle.display === 'none') {
-                    box.style.display = 'block';
-                }
-            }
+            if (box) box.style.display = 'block';
             this.loadXKCD();
         } catch (error) {
             // Error initializing XKCD panel
@@ -212,67 +205,38 @@ class XKCDPanel {
         // Clear loading state
         imageContainer.innerHTML = '';
 
-        // Ensure we have a valid image URL
-        if (!data || !data.img) {
+        if (!data || !data.img || typeof data.img !== 'string') {
             this.showError();
             return;
         }
-        
-        // Use the image URL directly from API (should be like https://imgs.xkcd.com/comics/anyone_else_here.png)
-        let imageUrl = data.img;
-        
-        if (!imageUrl || typeof imageUrl !== 'string') {
-            this.showError();
-            return;
-        }
-        
-        // Ensure URL is absolute (XKCD API should return full URL, but just in case)
-        if (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
-            // If it's just a filename, prepend the base URL
-            imageUrl = 'https://imgs.xkcd.com/comics/' + imageUrl;
-        }
-        
-        // Create image element and set up handlers BEFORE setting src
+        this.ensureAbsoluteImageUrl(data);
+
         const img = document.createElement('img');
         img.alt = data.alt || 'XKCD Comic';
         img.className = 'xkcd-box-image';
-        img.loading = 'eager'; // Use eager loading to ensure image loads even if container is not immediately visible
-        
-        // Force reload if image doesn't load within 5 seconds
+        img.loading = 'eager';
+
         const loadTimeout = setTimeout(() => {
             if (!img.complete || img.naturalWidth === 0) {
                 const currentSrc = img.src;
                 img.src = '';
-                setTimeout(() => {
-                    img.src = currentSrc;
-                }, 100);
+                setTimeout(() => { img.src = currentSrc; }, 100);
             }
         }, 5000);
-        
-        // Set up event handlers first
+
         img.onload = () => {
             clearTimeout(loadTimeout);
-            // Remove any error/loading state
             const errorDiv = imageContainer.querySelector('.xkcd-error, .xkcd-loading');
-            if (errorDiv) {
-                errorDiv.remove();
-            }
+            if (errorDiv) errorDiv.remove();
         };
-        
-        img.onerror = (e) => {
+        img.onerror = () => {
             clearTimeout(loadTimeout);
-            // Remove the failed image
-            if (img.parentNode) {
-                img.parentNode.removeChild(img);
-            }
+            if (img.parentNode) img.parentNode.removeChild(img);
             this.showError();
         };
-        
-        // Add to container BEFORE setting src (some browsers need this)
+
         imageContainer.appendChild(img);
-        
-        // Now set the src to trigger loading
-        img.src = imageUrl;
+        img.src = data.img;
 
         // Keep title as "XKCD"
         if (titleElement) {
@@ -280,14 +244,7 @@ class XKCDPanel {
             titleElement.title = data.title || 'XKCD Comic';
         }
 
-        // Update popup content
-        if (popupImage && data.img) {
-            let popupImageUrl = data.img;
-            if (!popupImageUrl.startsWith('http://') && !popupImageUrl.startsWith('https://')) {
-                popupImageUrl = 'https://imgs.xkcd.com/comics/' + popupImageUrl;
-            }
-            popupImage.src = popupImageUrl;
-        }
+        if (popupImage) popupImage.src = data.img;
         if (popupTitle) popupTitle.textContent = data.title || 'XKCD Comic';
         if (popupAlt) popupAlt.textContent = data.alt || '';
     }
@@ -414,11 +371,8 @@ class XKCDPanel {
         }
     }
 
-    /**
-     * Cleans up event listeners
-     */
     destroy() {
-        // Event listeners will be cleaned up automatically when elements are removed
+        // No-op; panel is not torn down in this app.
     }
 }
 
