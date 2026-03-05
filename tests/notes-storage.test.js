@@ -1,7 +1,7 @@
 /**
  * NotesStorage tests – load script in jsdom and assert load/save contract
  */
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, beforeAll, vi } from 'vitest';
 import { readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -10,14 +10,32 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const scriptPath = join(__dirname, '../scripts/applications/notes/notes-storage.js');
 const script = readFileSync(scriptPath, 'utf8');
 
+function makeFakeStorage() {
+    const store = {};
+    return {
+        getItem(k) { return store[k] ?? null; },
+        setItem(k, v) { store[k] = String(v); },
+        removeItem(k) { delete store[k]; },
+        clear() { for (const k of Object.keys(store)) delete store[k]; },
+        get length() { return Object.keys(store).length; },
+        key(i) { return Object.keys(store)[i] ?? null; },
+    };
+}
+
 function loadNotesStorage() {
     const run = new Function(script + '\nreturn NotesStorage;');
     return run();
 }
 
+const NOTES_KEY = 'notes-entries';
+
 describe('NotesStorage', () => {
+    beforeAll(() => {
+        vi.stubGlobal('localStorage', makeFakeStorage());
+    });
+
     beforeEach(() => {
-        localStorage.clear();
+        localStorage.removeItem(NOTES_KEY);
     });
 
     it('defines NotesStorage class with load and save', () => {
