@@ -7,7 +7,6 @@
  */
 
 export default async function handler(req, res) {
-  // Handle CORS preflight
   if (req.method === 'OPTIONS') {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
@@ -15,22 +14,16 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  // Only allow GET method
   if (req.method !== 'GET') {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    return res.status(405).json({ error: 'Method not allowed' });
+    return res.status(405).json({ error: 'method not allowed' });
   }
 
   try {
-    // Use environment variable API key if available, otherwise use DEMO_KEY
     const apiKey = process.env.NASA_API_KEY || 'DEMO_KEY';
-    
-    // Get date from query params, default to today
     const date = req.query.date || new Date().toISOString().split('T')[0];
-    
     const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${date}`;
 
-    // Fetch from NASA API
     const response = await fetch(apiUrl, {
       headers: {
         'User-Agent': 'vonsteinkirch.com/1.0',
@@ -42,8 +35,8 @@ export default async function handler(req, res) {
       if (response.status === 429) {
         res.setHeader('Access-Control-Allow-Origin', '*');
         return res.status(429).json({
-          error: 'Rate limit exceeded',
-          message: 'Too many requests. Please try again later.',
+          error: 'rate limit exceeded',
+          message: 'too many requests. please try again later.',
           retryAfter: response.headers.get('Retry-After') || 3600
         });
       }
@@ -53,7 +46,6 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    // Return the data with CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=86400');
     return res.status(200).json(data);
@@ -61,8 +53,8 @@ export default async function handler(req, res) {
   } catch (error) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(500).json({
-      error: 'Failed to fetch APOD',
-      message: error.message || 'An unexpected error occurred'
+      error: 'failed to fetch apod',
+      message: error.message || 'an unexpected error occurred'
     });
   }
 }

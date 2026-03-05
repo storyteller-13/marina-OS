@@ -384,8 +384,8 @@ a.menu-button {
     filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.8));
 }
 
-/* Philosophy Quotes Box – same size and style as XKCD/APOD, stacked above XKCD */
-.philosophy-box {
+/* Quotes Box – same size and style as XKCD/APOD, stacked above XKCD */
+.quotes-box {
     position: fixed;
     bottom: 322px;
     left: 20px;
@@ -404,7 +404,7 @@ a.menu-button {
     overflow: hidden;
 }
 
-.philosophy-box::before {
+.quotes-box::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -416,7 +416,7 @@ a.menu-button {
     pointer-events: none;
 }
 
-.philosophy-box-glow {
+.quotes-box-glow {
     position: absolute;
     top: 0;
     left: 0;
@@ -428,7 +428,7 @@ a.menu-button {
     border-radius: 12px;
 }
 
-.philosophy-box:hover {
+.quotes-box:hover {
     transform: translateY(-4px) scale(1.02);
     box-shadow:
         0 12px 40px rgba(0, 0, 0, 0.9),
@@ -437,13 +437,13 @@ a.menu-button {
     border-color: rgba(34, 197, 94, 0.8);
 }
 
-.philosophy-box-content {
+.quotes-box-content {
     position: relative;
     z-index: 1;
     padding: 12px;
 }
 
-.philosophy-box-header {
+.quotes-box-header {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -453,7 +453,7 @@ a.menu-button {
     margin-bottom: 8px;
 }
 
-.philosophy-box-title {
+.quotes-box-title {
     flex: 1;
     min-width: 0;
     font-weight: 700;
@@ -463,7 +463,7 @@ a.menu-button {
     white-space: nowrap;
 }
 
-.philosophy-icon-wrapper {
+.quotes-icon-wrapper {
     position: relative;
     width: 20px;
     height: 20px;
@@ -473,7 +473,7 @@ a.menu-button {
     flex-shrink: 0;
 }
 
-.philosophy-icon {
+.quotes-icon {
     font-size: 16px;
     position: relative;
     z-index: 2;
@@ -483,13 +483,13 @@ a.menu-button {
     justify-content: center;
 }
 
-.philosophy-icon svg {
+.quotes-icon svg {
     width: 100%;
     height: 100%;
     display: block;
 }
 
-.philosophy-box-close {
+.quotes-box-close {
     background: linear-gradient(135deg, rgba(34, 197, 94, 0.4) 0%, rgba(21, 128, 61, 0.4) 100%);
     border: 1px solid rgba(34, 197, 94, 0.6);
     color: #bbf7d0;
@@ -509,7 +509,7 @@ a.menu-button {
     position: relative;
 }
 
-.philosophy-box-close::before {
+.quotes-box-close::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -522,23 +522,23 @@ a.menu-button {
     transition: width 0.3s, height 0.3s;
 }
 
-.philosophy-box-close:hover::before {
+.quotes-box-close:hover::before {
     width: 100%;
     height: 100%;
 }
 
-.philosophy-box-close:hover {
+.quotes-box-close:hover {
     background: linear-gradient(135deg, rgba(34, 197, 94, 0.6) 0%, rgba(21, 128, 61, 0.6) 100%);
     box-shadow: 0 0 25px rgba(34, 197, 94, 1), 0 0 40px rgba(21, 128, 61, 0.6);
     transform: scale(1.15) rotate(5deg);
     border-color: rgba(34, 197, 94, 0.9);
 }
 
-.philosophy-box-close:active {
+.quotes-box-close:active {
     transform: scale(1.05) rotate(-5deg);
 }
 
-.philosophy-quote-container {
+.quotes-quote-container {
     position: relative;
     width: 100%;
     min-height: 200px;
@@ -561,7 +561,7 @@ a.menu-button {
     box-sizing: border-box;
 }
 
-.philosophy-quote-container::before {
+.quotes-quote-container::before {
     content: '"';
     position: absolute;
     top: 8px;
@@ -573,7 +573,7 @@ a.menu-button {
     pointer-events: none;
 }
 
-.philosophy-quote-container::after {
+.quotes-quote-container::after {
     content: '"';
     position: absolute;
     bottom: 8px;
@@ -585,12 +585,12 @@ a.menu-button {
     pointer-events: none;
 }
 
-.philosophy-quote-container:hover {
+.quotes-quote-container:hover {
     border-color: rgba(34, 197, 94, 0.5);
     box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
 }
 
-.philosophy-quote-author {
+.quotes-quote-author {
     margin-top: 10px;
     font-size: 13px;
     color: rgba(187, 247, 208, 0.95);
@@ -3756,7 +3756,7 @@ a.dock-item {
         height: auto;
     }
 
-    .philosophy-box {
+    .quotes-box {
         width: calc(100% - 40px);
         max-width: 360px;
         max-height: 75vh;
@@ -3769,22 +3769,22 @@ a.dock-item {
         overflow: hidden;
     }
 
-    .philosophy-box[style*="display: block"] {
+    .quotes-box[style*="display: block"] {
         display: flex !important;
     }
 
-    .philosophy-box-content {
+    .quotes-box-content {
         display: flex;
         flex-direction: column;
         min-height: 0;
         flex: 1;
     }
 
-    .philosophy-box:hover {
+    .quotes-box:hover {
         transform: translate(-50%, -50%) translateY(-4px) scale(1.02);
     }
 
-    .philosophy-quote-container {
+    .quotes-quote-container {
         flex: 1;
         min-height: 180px;
         max-height: 55vh;
@@ -3900,7 +3900,7 @@ a.dock-item {
         max-height: 150px;
     }
 
-    /* Music Player */
+    /* Music */
     .music-player {
         width: calc(100% - 40px);
         max-width: 360px;
@@ -4350,7 +4350,7 @@ a.dock-item {
         right: 6px;
     }
 
-    .philosophy-box {
+    .quotes-box {
         width: calc(100% - 24px);
         max-width: 360px;
         max-height: 75vh;
@@ -4363,11 +4363,11 @@ a.dock-item {
         overflow: hidden;
     }
 
-    .philosophy-box[style*="display: block"] {
+    .quotes-box[style*="display: block"] {
         display: flex !important;
     }
 
-    .philosophy-box-content {
+    .quotes-box-content {
         padding: 10px;
         display: flex;
         flex-direction: column;
@@ -4375,7 +4375,7 @@ a.dock-item {
         flex: 1;
     }
 
-    .philosophy-quote-container {
+    .quotes-quote-container {
         flex: 1;
         min-height: 160px;
         max-height: 50vh;
@@ -4390,27 +4390,27 @@ a.dock-item {
         justify-content: flex-start;
     }
 
-    .philosophy-quote-container::before,
-    .philosophy-quote-container::after {
+    .quotes-quote-container::before,
+    .quotes-quote-container::after {
         font-size: 32px;
     }
 
-    .philosophy-quote-container::before {
+    .quotes-quote-container::before {
         left: 8px;
         top: 4px;
     }
 
-    .philosophy-quote-container::after {
+    .quotes-quote-container::after {
         right: 8px;
         bottom: 4px;
     }
 
-    .philosophy-quote-author {
+    .quotes-quote-author {
         font-size: 12px;
         margin-top: 8px;
     }
 
-    .philosophy-box:hover {
+    .quotes-box:hover {
         transform: translate(-50%, -50%) translateY(-4px) scale(1.02);
     }
 
@@ -4658,7 +4658,7 @@ a.dock-item {
         width: 200px;
     }
 
-    .philosophy-box {
+    .quotes-box {
         bottom: auto;
         left: 50%;
         top: 50%;
@@ -4670,22 +4670,22 @@ a.dock-item {
         overflow: hidden;
     }
 
-    .philosophy-box[style*="display: block"] {
+    .quotes-box[style*="display: block"] {
         display: flex !important;
     }
 
-    .philosophy-box-content {
+    .quotes-box-content {
         display: flex;
         flex-direction: column;
         min-height: 0;
         flex: 1;
     }
 
-    .philosophy-box:hover {
+    .quotes-box:hover {
         transform: translate(-50%, -50%) translateY(-4px) scale(1.02);
     }
 
-    .philosophy-quote-container {
+    .quotes-quote-container {
         flex: 1;
         min-height: 140px;
         max-height: 45vh;

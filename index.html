@@ -23,7 +23,14 @@
     <meta name="twitter:description" content="welcome to the matrix">
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/panel.css">
+    <link rel="stylesheet" href="styles/tray-boxes.css">
+    <link rel="stylesheet" href="styles/music.css">
+    <link rel="stylesheet" href="styles/desktop-icons.css">
+    <link rel="stylesheet" href="styles/windows.css">
+    <link rel="stylesheet" href="styles/dock.css">
+    <link rel="stylesheet" href="styles/responsive.css">
 </head>
 <body>
     <div class="desktop">
@@ -85,7 +92,7 @@
                                         <circle cx="3.5" cy="6.5" r="0.4" fill="#a855f7" opacity="0.6"/>
                                     </svg>
                                 </span>
-                                <span class="menu-item-text">e-mails</span>
+                                <span class="menu-item-text">messages</span>
                             </a>
                             <a href="javascript:void(0)" class="menu-item" onclick="window.openTerminalWindow(); return false;">
                                 <span class="menu-item-icon">
@@ -241,7 +248,7 @@
             </div>
             <div class="panel-right">
                 <div class="system-tray">
-                    <a href="javascript:void(0)" id="philosophy-icon-tray" onclick="window.openPhilosophyWindow(); return false;" style="text-decoration: none; cursor: pointer;">
+                    <a href="javascript:void(0)" id="quotes-icon-tray" onclick="window.openQuotesWindow(); return false;" style="text-decoration: none; cursor: pointer;">
                         <span class="tray-icon tray-icon-wisdom">
                             <svg width="24" height="24" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                 <!-- Classic lamp bulb: glass, neck, screw base -->
@@ -293,21 +300,21 @@
             </div>
         </div>
 
-        <!-- Philosophy Quotes Box (stacked above XKCD) -->
-        <div class="philosophy-box" id="philosophy-box">
-            <div class="philosophy-box-glow"></div>
-            <div class="philosophy-box-content">
-                <div class="philosophy-box-header">
-                    <div class="philosophy-icon-wrapper">
-                        <span class="philosophy-icon">💡</span>
+        <!-- Quotes Box (stacked above XKCD) -->
+        <div class="quotes-box" id="quotes-box">
+            <div class="quotes-box-glow"></div>
+            <div class="quotes-box-content">
+                <div class="quotes-box-header">
+                    <div class="quotes-icon-wrapper">
+                        <span class="quotes-icon">💡</span>
                     </div>
-                    <span class="philosophy-box-title">TODAY'S WISDOM</span>
-                    <button class="philosophy-box-close" id="philosophy-box-close" title="Close">
+                    <span class="quotes-box-title">TODAY'S WISDOM</span>
+                    <button class="quotes-box-close" id="quotes-box-close" title="Close">
                         <span class="close-icon">×</span>
                     </button>
                 </div>
-                <div class="philosophy-quote-container" id="philosophy-quote-container"></div>
-                <div class="philosophy-quote-author" id="philosophy-quote-author"></div>
+                <div class="quotes-quote-container" id="quotes-quote-container"></div>
+                <div class="quotes-quote-author" id="quotes-quote-author"></div>
             </div>
         </div>
 
@@ -930,53 +937,55 @@
     </div>
 
     <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="scripts/core/protection.js"></script>
+    <script src="core/protection.js"></script>
+    <script src="core/env.js"></script>
+    <script src="core/base-app.js"></script>
 
     <!-- Core System Modules -->
-    <script src="scripts/core/window-manager.js"></script>
-    <script src="scripts/core/panel.js"></script>
-    <script src="scripts/applications/music-player/music-player-storage.js"></script>
-    <script src="scripts/applications/music-player/music-player.js"></script>
+    <script src="core/window-manager.js"></script>
+    <script src="core/panel.js"></script>
+    <script src="applications/music-player/music-player-storage.js"></script>
+    <script src="applications/music-player/music-player.js"></script>
 
     <!-- Application Modules -->
     <!-- Todo App -->
-    <script src="scripts/applications/todo/todo-storage.js"></script>
-    <script src="scripts/applications/todo/todo.js"></script>
+    <script src="applications/todo/todo-storage.js"></script>
+    <script src="applications/todo/todo.js"></script>
 
     <!-- Notes App -->
-    <script src="scripts/applications/notes/notes-storage.js"></script>
-    <script src="scripts/applications/notes/notes.js"></script>
+    <script src="applications/notes/notes-storage.js"></script>
+    <script src="applications/notes/notes.js"></script>
 
     <!-- Email App -->
-    <script src="scripts/applications/email/email-data.js"></script>
-    <script src="scripts/applications/email/email.js"></script>
+    <script src="applications/email/email-data.js"></script>
+    <script src="applications/email/email.js"></script>
 
     <!-- B-Bot App -->
-    <script src="scripts/applications/b-bot/b-bot-api.js"></script>
-    <script src="scripts/applications/b-bot/b-bot.js"></script>
+    <script src="applications/b-bot/b-bot-api.js"></script>
+    <script src="applications/b-bot/b-bot.js"></script>
 
-    <!-- Philosophy Quotes Panel (data first, then panel) -->
-    <script src="scripts/applications/philosophy-quotes/philosophy-quotes-data.js"></script>
-    <script src="scripts/applications/philosophy-quotes/philosophy-quotes.js"></script>
+    <!-- Quotes Panel (data first, then panel) -->
+    <script src="applications/quotes/quotes-data.js"></script>
+    <script src="applications/quotes/quotes.js"></script>
 
     <!-- XKCD Panel -->
-    <script src="scripts/applications/xkcd/xkcd.js"></script>
+    <script src="applications/xkcd/xkcd.js"></script>
 
     <!-- APOD Panel -->
-    <script src="scripts/applications/apod/apod.js"></script>
+    <script src="applications/apod/apod.js"></script>
 
     <!-- Chess Panel -->
-    <script src="scripts/applications/chess/chess.js"></script>
+    <script src="applications/chess/chess.js"></script>
 
     <!-- Home App -->
-    <script src="scripts/applications/home/home.js"></script>
+    <script src="applications/home/home.js"></script>
 
     <!-- Artwork App -->
-    <script src="scripts/applications/artwork/artwork.js"></script>
+    <script src="applications/artwork/artwork.js"></script>
 
     <!-- Terminal App -->
-    <script src="scripts/applications/terminal/terminal-app.js"></script>
-    <script src="scripts/applications/terminal/terminal.js"></script>
+    <script src="applications/terminal/terminal-app.js"></script>
+    <script src="applications/terminal/terminal.js"></script>
 
 </body>
 </html>

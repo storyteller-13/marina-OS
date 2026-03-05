@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
   if (req.method !== 'GET') {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    return res.status(405).json({ error: 'Method not allowed' });
+    return res.status(405).json({ error: 'method not allowed' });
   }
 
   try {
@@ -40,8 +40,8 @@ export default async function handler(req, res) {
     console.error('Chess proxy error:', error);
     res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(500).json({
-      error: 'Failed to fetch puzzle',
-      message: error.message || 'An unexpected error occurred',
+      error: 'failed to fetch puzzle',
+      message: error.message || 'an unexpected error occurred',
     });
   }
 }
