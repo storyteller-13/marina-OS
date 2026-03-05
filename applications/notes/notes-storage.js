@@ -1,4 +1,4 @@
- /**
+/**
  * Notes Storage Module
  * Handles localStorage persistence for notes entries
  */
@@ -31,9 +31,7 @@ class NotesStorage {
         }
     }
 
-/*****************************************
- *          ENTRIES GO HERE 
- *****************************************/
+    /** Default entries; add new entries to the array below. */
     getDefaultEntries() {
         return [
             {
@@ -183,35 +181,6 @@ what’s the most evident difference between people who live on food stamps and 
 
 humanity.
                     
-
-                `)
-            },
-
-            {
-                date: '2026-02-28T00:00:00.000Z',
-                title: 'david lynch is my only friend',
-                content: this.cleanContent(`
-
-«i»dark
-deep darkness
-and 
-splendor
-all around it
-was in the roots
-and
-under
-and a tree came out
-and then a house
-with stars above -
-inside the house a girl
-with eyes to see and
-long arms reaching
-she saw the splendor
-all around
-and reaching out into
-the deep darkness
-she saw herself
-«/i»
 
                 `)
             },
@@ -647,9 +616,9 @@ things are going to get whimsical
         ];
     }
 
- /**
- *          END OF ENTRIES
- */
+    /**
+     * End of default entries; add new entries above.
+     */
     cleanContent(content) {
         if (!content) return '';
         const lines = content.split('\n');
@@ -680,9 +649,8 @@ things are going to get whimsical
             .trim();
     }
 
-
     generateId() {
-        return Date.now().toString(36) + Math.random().toString(36).substr(2);
+        return Date.now().toString(36) + Math.random().toString(36).substring(2);
     }
 
     formatDate(date) {

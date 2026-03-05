@@ -45,10 +45,6 @@ class NotesApp extends BaseApp {
         this.storage.save(this.entries);
     }
 
-    setupEventListeners() {
-        super.setupEventListeners();
-    }
-
     open() {
         super.open();
         this.render();
@@ -123,7 +119,7 @@ class NotesApp extends BaseApp {
             return `
                 <div class="notes-date-item ${isRead ? 'read' : ''}" data-date-key="${dateKey}">
                     <div class="notes-read-indicator">${indicator}</div>
-                    <span class="notes-date-text">${this.escapeHtml(date)}${title ? '' : ''}</span>
+                    <span class="notes-date-text">${this.escapeHtml(date)}</span>
                     ${title ? `<span class="notes-date-title">${this.escapeHtml(title)}</span>` : ''}
                 </div>
             `;
@@ -287,14 +283,6 @@ class NotesApp extends BaseApp {
                 entriesList.scrollTop = 0;
             });
         }
-    }
-
-    hasEntryForToday() {
-        const today = new Date().toDateString();
-        return this.entries.some(entry => {
-            const entryDate = new Date(entry.createdAt).toDateString();
-            return entryDate === today;
-        });
     }
 
     updateBadge() {
