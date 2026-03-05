@@ -23,6 +23,7 @@ class BBotApp extends BaseApp {
     init() {
         super.init();
         if (!this.window) return;
+
         this.input = document.getElementById('b-bot-input');
         this.sendBtn = document.getElementById('b-bot-send-btn');
         this.messages = document.getElementById('b-bot-messages');
@@ -33,10 +34,6 @@ class BBotApp extends BaseApp {
         this.downloadInput = document.getElementById('b-bot-download-input');
         this.downloadStatus = document.getElementById('b-bot-download-status');
         this.settingsPanel = document.getElementById('b-bot-settings-panel');
-
-        if (!this.window) {
-            return;
-        }
 
         this.setupEventListeners();
         // Initialize toggle state to match default config
@@ -253,14 +250,13 @@ class BBotApp extends BaseApp {
         this.modelSelect.disabled = true;
 
         try {
-            const isConnected = await this.api.checkOllamaConnection();
-            if (!isConnected) {
+            const { ok, models } = await this.api.getOllamaTags();
+            if (!ok) {
                 this.modelSelect.innerHTML = '<option value="">Ollama not available - check if running</option>';
                 this.modelSelect.disabled = true;
                 return;
             }
 
-            const models = await this.api.listOllamaModels();
             this.modelSelect.innerHTML = '';
             this.modelSelect.disabled = false;
 
