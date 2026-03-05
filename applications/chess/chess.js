@@ -9,30 +9,25 @@ const PIECE_SYMBOLS = {
 class ChessPanel {
   constructor() {
     this.boxId = 'chess-box';
-    this.apiUrl = (typeof window !== 'undefined' && window.Env && window.Env.isLocalhost())
-      ? 'https://api.chess.com/pub/puzzle'
-      : '/api/chess';
+    this.apiUrl = window.Env?.isLocalhost() ? 'https://api.chess.com/pub/puzzle' : '/api/chess';
+    this.els = {};
     this.init();
   }
 
   init() {
-    this.setupEventListeners();
-    this.loadPuzzle();
-  }
+    this.els.box = document.getElementById(this.boxId);
+    this.els.closeBtn = document.getElementById('chess-box-close');
+    this.els.loading = document.getElementById('chess-loading');
+    this.els.content = document.getElementById('chess-puzzle-content');
+    this.els.error = document.getElementById('chess-error');
+    this.els.wrap = document.getElementById('chess-board-wrap');
 
-  setupEventListeners() {
-    const box = document.getElementById(this.boxId);
-    const closeBtn = document.getElementById('chess-box-close');
-
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => this.hideBox());
-    }
-
+    if (this.els.closeBtn) this.els.closeBtn.addEventListener('click', () => this.hideBox());
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && box && box.style.display !== 'none') {
-        this.hideBox();
-      }
+      if (e.key === 'Escape' && this.els.box && window.getComputedStyle(this.els.box).display !== 'none') this.hideBox();
     });
+
+    this.loadPuzzle();
   }
 
   /** Parse FEN piece placement (first field) into 8x8 array; returns board[rank][file] with rank 0 = 8th rank. */
@@ -75,9 +70,7 @@ class ChessPanel {
   }
 
   setLoading(loading) {
-    const el = document.getElementById('chess-loading');
-    const content = document.getElementById('chess-puzzle-content');
-    const err = document.getElementById('chess-error');
+    const { loading: el, content, error: err } = this.els;
     if (el) el.style.display = loading ? 'block' : 'none';
     if (content) content.style.display = loading ? 'none' : 'flex';
     if (err) err.style.display = 'none';
@@ -85,52 +78,38 @@ class ChessPanel {
 
   extractFen(data) {
     if (!data) return null;
-    if (typeof data === 'string' && /^[rnbqkpRNBQKP1-8\/\s]+/.test(data)) return data.split(/\s/)[0];
     if (data.fen) return data.fen;
-    if (data.puzzle && data.puzzle.fen) return data.puzzle.fen;
-    if (Array.isArray(data['@graph']) && data['@graph'][0]?.fen) return data['@graph'][0].fen;
-    if (data.pgn) {
-      const match = data.pgn.match(/\bFEN\s+"([^"]+)"/);
-      if (match) return match[1];
-    }
-    return null;
+    if (data.puzzle?.fen) return data.puzzle.fen;
+    if (typeof data === 'string' && /^[rnbqkpRNBQKP1-8\/\s]+/.test(data)) return data.split(/\s/)[0];
+    const pgnMatch = data.pgn?.match(/\bFEN\s+"([^"]+)"/);
+    return pgnMatch ? pgnMatch[1] : null;
   }
 
   setError() {
-    const el = document.getElementById('chess-loading');
-    const content = document.getElementById('chess-puzzle-content');
-    const err = document.getElementById('chess-error');
+    const { loading: el, content, error: err } = this.els;
     if (el) el.style.display = 'none';
     if (content) content.style.display = 'none';
     if (err) err.style.display = 'block';
   }
 
   async loadPuzzle() {
-    const wrap = document.getElementById('chess-board-wrap');
-    const content = document.getElementById('chess-puzzle-content');
+    const { wrap, content } = this.els;
     if (!wrap || !content) return;
 
     this.setLoading(true);
-
     try {
-      const res = await fetch(this.apiUrl, { headers: { Accept: 'application/json' } });
-      if (!res.ok) throw new Error(res.statusText);
-      const data = await res.json();
-
+      const data = await this.fetchPuzzle(this.apiUrl);
       const fen = this.extractFen(data);
       if (fen) {
         this.renderBoard(wrap, fen);
         this.setLoading(false);
         return;
       }
-
       throw new Error('No FEN in response');
-    } catch (e) {
+    } catch {
       try {
         const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://api.chess.com/pub/puzzle');
-        const res = await fetch(proxyUrl);
-        if (!res.ok) throw new Error(res.statusText);
-        const data = await res.json();
+        const data = await this.fetchPuzzle(proxyUrl);
         const fen = this.extractFen(data);
         if (fen) {
           this.renderBoard(wrap, fen);
@@ -142,16 +121,21 @@ class ChessPanel {
     }
   }
 
+  async fetchPuzzle(url) {
+    const res = await fetch(url, { headers: { Accept: 'application/json' } });
+    if (!res.ok) throw new Error(res.statusText);
+    return res.json();
+  }
+
   toggleVisibility() {
-    const box = document.getElementById(this.boxId);
+    const box = this.els.box;
     if (!box) return;
-    const isVisible = box.style.display !== 'none' && window.getComputedStyle(box).display !== 'none';
-    if (isVisible) this.hideBox();
-    else this.showBox();
+    const visible = box.style.display !== 'none' && window.getComputedStyle(box).display !== 'none';
+    visible ? this.hideBox() : this.showBox();
   }
 
   showBox() {
-    const box = document.getElementById(this.boxId);
+    const box = this.els.box;
     if (!box) return;
     box.style.display = 'block';
     box.style.opacity = '0';
@@ -165,7 +149,7 @@ class ChessPanel {
   }
 
   hideBox() {
-    const box = document.getElementById(this.boxId);
+    const box = this.els.box;
     if (!box) return;
     box.style.opacity = '0';
     box.style.transform = 'translateX(-50%) translateY(-10px) scale(0.95)';
