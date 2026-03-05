@@ -16,6 +16,7 @@ Clone the repo, then run `make install` (or `npm install`). This installs depend
 - `make server` — local dev server at http://localhost:8088 (python3 http.server)
 - `make test` — run tests once (vitest)
 - `make test-watch` — vitest in watch mode
+- `make test-ui` — vitest with UI
 - `make test-coverage` — vitest with coverage
 
 Tests: `tests/` (e.g. `window-manager.test.js`, `notes-storage.test.js`). Setup: `tests/setup.js`. Config: `vitest.config.js`. Pre-commit hook: `.husky/pre-commit` runs `npm test`.
@@ -36,11 +37,11 @@ Everything runs inside a single `index.html` (60KB). The page renders a desktop 
 
 ### Applications (`applications/`)
 
-13 self-contained app modules, each a class with `init()`, `open()`, `close()`, and `render()` methods. Classes are exposed on `window` for both global access and testing (e.g., `window.APODPanelClass`).
+12 self-contained app modules, each a class with `init()`, `open()`, `close()`, and `render()` methods. Classes are exposed on `window` for both global access and testing (e.g., `window.APODPanelClass`).
 
-Apps with external data: **apod** (NASA API), **chess** (Chess.com), **xkcd** (XKCD), **b-bot** (Ollama LLM), **astro-chart** (iframe embed), **music-player** (YouTube IFrame API).
+Apps with external data: **apod** (NASA API), **chess** (Chess.com), **xkcd** (XKCD), **b-bot** (Ollama LLM), **music-player** (YouTube IFrame API).
 
-Apps with local storage: **email** (email-storage.js, email-data.js), **notes** (notes-storage.js), **todo** (todo-storage.js), **music-player** (music-player-storage.js). Storage modules expose `load()`, `save()`, `generateId()`, `getDefaultData()`.
+Apps with local storage: **email** (email-data.js; email-storage.js exists but is not loaded), **notes** (notes-storage.js), **todo** (todo-storage.js), **music-player** (music-player-storage.js). Storage modules expose `load()`, `save()`, `generateId()`, `getDefaultData()`.
 
 Simple apps: **home** (iframe wrapper), **artwork** (image lightbox), **philosophy-quotes** (random quote display), **terminal** (simulated filesystem with ls/cd/cat/view commands).
 
@@ -60,7 +61,7 @@ Vercel serverless functions — all are CORS-enabled GET proxies with 1-hour cac
 - **24-hour localStorage caching** with timestamp validation (APOD, XKCD).
 - **No build step**: all JS loads via `<script>` tags directly. No bundler, no transpiler.
 - **Split CSS**: `styles/` has `base.css`, `panel.css`, `tray-boxes.css`, `music.css`, `desktop-icons.css`, `windows.css`, `dock.css`, `responsive.css`. Original single file kept as `styles.css` for reference.
-- **Script load order** (in `index.html`): `protection.js` → `env.js` → `base-app.js` → `window-manager.js` → `panel.js` → storage/app scripts (music-player, todo, notes, email, b-bot, philosophy-quotes, xkcd, apod, chess, home, artwork, terminal-app, terminal). Env and BaseApp must load before any app that uses them.
+- **Script load order** (in `index.html`): YouTube iframe API → `protection.js` → `env.js` → `base-app.js` → `window-manager.js` → `panel.js` → then app scripts (music-player-storage, music-player; todo-storage, todo; notes-storage, notes; email-data, email; b-bot-api, b-bot; philosophy-quotes-data, philosophy-quotes; xkcd; apod; chess; home; artwork; terminal-app, terminal). Env and BaseApp must load before any app that uses them.
 
 ## Styles
 
