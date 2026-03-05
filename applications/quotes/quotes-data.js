@@ -21,7 +21,6 @@ window.QUOTES = [
     { text: 'one cannot step twice in the same river.', author: 'heraclitus' },
     { text: 'the price of anything is the amount of life you exchange for it.', author: 'henry david thoreau' },
     { text: 'we suffer more often in imagination than in reality.', author: 'seneca' },
-    // Seneca
     { text: 'luck is what happens when preparation meets opportunity.', author: 'seneca' },
     { text: 'as is a tale, so is life: not how long it is, but how good it is, is what matters.', author: 'seneca' },
     { text: 'we are more often frightened than hurt; and we suffer more from imagination than from reality.', author: 'seneca' },
@@ -36,7 +35,6 @@ window.QUOTES = [
     { text: 'we are not given a short life but we make it short, and we are not ill-supplied but wasteful of it.', author: 'seneca' },
     { text: 'it does not matter what you bear, but how you bear it.', author: 'seneca' },
     { text: 'begin at once to live, and count each separate day as a separate life.', author: 'seneca' },
-    { text: 'we suffer more in imagination than in reality.', author: 'seneca' },
     { text: 'a gem cannot be polished without friction, nor a man perfected without trials.', author: 'seneca' },
     // Marcus Aurelius
     { text: 'you have power over your mind—not outside events. realize this, and you will find strength.', author: 'marcus aurelius' },
@@ -100,10 +98,10 @@ window.QUOTES = [
     { text: 'nothing is great and little otherwise than by comparison.', author: 'jonathan swift' },
     { text: 'when an idea is wanting, a word can always be found to take its place.', author: 'goethe' },
     { text: 'nothing that is worth knowing can be taught.', author: 'oscar wilde' },
-    { text: 'the paradox is the source of the thinker\'s passion, and the thinker without a paradox is like a lover without feeling: a paltry mediocrity.', author: 'soren kierkergaard' },
+    { text: 'the paradox is the source of the thinker\'s passion, and the thinker without a paradox is like a lover without feeling: a paltry mediocrity.', author: 'søren kierkegaard' },
     { text: 'the human understanding is greatly indebted to the passions.', author: 'jean jacques rousseau' },
     { text: 'the real danger is not that computers will begin to think like men, but that men will begin to think like computers.', author: 'sydney j. harris' },
-    { text: 'thirty spokes share the wheel\'s hub, but it is the hole in the center that provides its usefulness.', author: 'lao tsu' },
+    { text: 'thirty spokes share the wheel\'s hub, but it is the hole in the center that provides its usefulness.', author: 'lao tzu' },
     { text: 'the human race took centuries or millennia to see through the mist of difficulties and paradoxes which instructors now invite us to solve in a few minutes.', author: 'lancelot hogben' },
     { text: 'the attraction of discovering the most elegant way of dividing up the mind into two major complementary cognitive systems is almost irresistible.', author: 'terrence w. deacon' },
     { text: 'learning is, at its base, a function of the probability of correlations between things, from the synaptic level to the behavioral level. past correlations tend to be predictive of future correlations.', author: 'terrence w. deacon' },

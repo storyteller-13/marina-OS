@@ -1,6 +1,5 @@
 /**
- * Quotes Panel
- * Shows a random quote from the curated list in a panel above the XKCD box.
+ * Quotes Panel – random quote from the curated list (panel above XKCD).
  */
 class QuotesPanel {
     constructor() {
@@ -9,31 +8,22 @@ class QuotesPanel {
     }
 
     init() {
-        this.setupEventListeners();
-        if (!this.isMobile()) {
-            this.showBox();
-        }
-    }
-
-    setupEventListeners() {
-        const box = document.getElementById('quotes-box');
         const closeBtn = document.getElementById('quotes-box-close');
-
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => this.hideBox());
-        }
-
+        if (closeBtn) closeBtn.addEventListener('click', () => this.hideBox());
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && box && box.style.display !== 'none') {
+            if (e.key === 'Escape' && this.getBox() && window.getComputedStyle(this.getBox()).display !== 'none') {
                 this.hideBox();
             }
         });
+        if (!this.isMobile()) this.showBox();
+    }
+
+    getBox() {
+        return document.getElementById('quotes-box');
     }
 
     getRandomQuote() {
-        if (!this.quotes.length) {
-            return { text: 'No quotes loaded.', author: '' };
-        }
+        if (!this.quotes.length) return { text: 'No quotes loaded.', author: '' };
         return this.quotes[Math.floor(Math.random() * this.quotes.length)];
     }
 
@@ -41,24 +31,16 @@ class QuotesPanel {
         const container = document.getElementById('quotes-quote-container');
         const authorEl = document.getElementById('quotes-quote-author');
         if (!container) return;
-
         const { text, author } = this.getRandomQuote();
         container.textContent = text;
         if (authorEl) authorEl.textContent = author ? `— ${author}` : '';
     }
 
     toggleVisibility() {
-        const box = document.getElementById('quotes-box');
+        const box = this.getBox();
         if (!box) return;
-
-        const isVisible = box.style.display !== 'none' &&
-            window.getComputedStyle(box).display !== 'none';
-
-        if (isVisible) {
-            this.hideBox();
-        } else {
-            this.showBox();
-        }
+        if (window.getComputedStyle(box).display !== 'none') this.hideBox();
+        else this.showBox();
     }
 
     isMobile() {
@@ -66,9 +48,8 @@ class QuotesPanel {
     }
 
     showBox() {
-        const box = document.getElementById('quotes-box');
+        const box = this.getBox();
         if (!box) return;
-
         const center = this.isMobile() ? 'translate(-50%, -50%) ' : '';
         this.displayQuote();
         box.style.display = 'block';
@@ -83,28 +64,17 @@ class QuotesPanel {
     }
 
     hideBox() {
-        const box = document.getElementById('quotes-box');
+        const box = this.getBox();
         if (!box) return;
-
         const center = this.isMobile() ? 'translate(-50%, -50%) ' : '';
         box.style.opacity = '0';
         box.style.transform = center + 'translateY(-10px) scale(0.95)';
-        setTimeout(() => {
-            box.style.display = 'none';
-        }, 400);
+        setTimeout(() => { box.style.display = 'none'; }, 400);
     }
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        window.QuotesPanel = new QuotesPanel();
-    });
-} else {
-    window.QuotesPanel = new QuotesPanel();
-}
+const initQuotes = () => { window.QuotesPanel = new QuotesPanel(); };
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initQuotes);
+else initQuotes();
 
-window.openQuotesWindow = () => {
-    if (window.QuotesPanel) {
-        window.QuotesPanel.toggleVisibility();
-    }
-};
+window.openQuotesWindow = () => window.QuotesPanel?.toggleVisibility();
