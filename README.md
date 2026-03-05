@@ -6,9 +6,12 @@
 
 <br>
 
-- start the local development server at [`localhost:8088`](http://localhost:8088):
+- start the local development server at **[`localhost:8088`](http://localhost:8088)**:
 
 ```bash
 make server
 ```
 
+<br>
+
+- **license** — this project is released under the **[MIT License](LICENSE)**.
