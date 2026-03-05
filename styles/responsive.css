@@ -476,10 +476,6 @@
     }
 
     /* Notes */
-    .notes-input-container {
-        padding: 12px;
-    }
-
     .notes-entries-list {
         padding: 12px;
         -webkit-overflow-scrolling: touch;
@@ -507,23 +503,6 @@
         overflow: hidden;
         text-overflow: ellipsis;
         opacity: 0.9;
-    }
-
-    .notes-title-input,
-    .notes-content-input {
-        font-size: 12px;
-        padding: 8px 10px;
-    }
-
-    .notes-content-input {
-        min-height: 80px;
-    }
-
-    .notes-save-btn,
-    .notes-cancel-btn,
-    .notes-new-btn {
-        padding: 6px 12px;
-        font-size: 11px;
     }
 
     .notes-entry {
@@ -915,10 +894,6 @@
         padding: 10px;
     }
 
-    .notes-input-container {
-        padding: 10px;
-    }
-
     .notes-entries-list {
         padding: 10px;
         -webkit-overflow-scrolling: touch;
@@ -1115,11 +1090,6 @@
     .todo-add-btn,
     .todo-checkbox,
     .todo-delete-btn,
-    .notes-save-btn,
-    .notes-cancel-btn,
-    .notes-new-btn,
-    .notes-edit-btn,
-    .notes-delete-btn,
     .notes-date-item,
     .b-bot-send-btn,
     .back-btn {

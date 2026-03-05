@@ -146,7 +146,7 @@
     text-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
 }
 
-.terminal-icon, .file-icon, .home-icon, .b-bot-icon, .artwork-icon, .youtube-icon, .detective-icon {
+.terminal-icon, .file-icon, .home-icon, .b-bot-icon, .artwork-icon, .youtube-icon {
     font-size: 12px;
 }
 
