@@ -8,7 +8,6 @@
  */
 
 export default async function handler(req, res) {
-  // Handle CORS preflight
   if (req.method === 'OPTIONS') {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -16,32 +15,26 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  // Only allow POST and GET methods
   if (!['GET', 'POST'].includes(req.method)) {
-    return res.status(405).json({ error: 'Method not allowed' });
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    return res.status(405).json({ error: 'method not allowed' });
   }
 
-  // Get Ollama URL from environment variable
   const ollamaUrl = process.env.OLLAMA_URL;
-
-  // Check if OLLAMA_URL is configured
   if (!ollamaUrl) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(500).json({
-      error: 'OLLAMA_URL environment variable not set',
-      message: 'Please set OLLAMA_URL in your Vercel project settings (e.g., https://your-ollama-server.com:11434)',
-      detail: 'The proxy requires OLLAMA_URL to be configured in Vercel environment variables'
+      error: 'ollama_url environment variable not set',
+      message: 'please set OLLAMA_URL in your vercel project settings (e.g., https://your-ollama-server.com:11434)',
+      detail: 'the proxy requires OLLAMA_URL to be configured in vercel environment variables'
     });
   }
 
   const path = req.query.path || [];
   const endpoint = Array.isArray(path) ? path.join('/') : path;
-
-  // Construct the full URL
   const url = `${ollamaUrl}/api/${endpoint}`;
 
   try {
-    // Forward the request to Ollama
     const fetchOptions = {
       method: req.method,
       headers: {
@@ -49,19 +42,14 @@ export default async function handler(req, res) {
       },
     };
 
-    // Include body for POST requests
     if (req.method === 'POST' && req.body) {
       fetchOptions.body = JSON.stringify(req.body);
     }
 
     const response = await fetch(url, fetchOptions);
-
-    // Get response data
     const contentType = response.headers.get('content-type') || '';
 
-    // Handle streaming responses (for model downloads) - simplified for now
     if (contentType.includes('application/x-ndjson') || contentType.includes('text/plain')) {
-      // For streaming, we'll buffer and send as JSON array
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
       const chunks = [];
@@ -87,35 +75,26 @@ export default async function handler(req, res) {
       return res.status(response.status).json(jsonData);
     }
 
-    // Handle JSON responses
     const data = await response.json();
-
-    // Set CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-    res.status(response.status).json(data);
+    return res.status(response.status).json(data);
   } catch (error) {
     res.setHeader('Access-Control-Allow-Origin', '*');
-
-    // Provide more helpful error messages
-    let errorMessage = error.message || 'Unknown error';
+    let errorMessage = error.message || 'unknown error';
     let detail = '';
 
     if (errorMessage.includes('ECONNREFUSED') || errorMessage.includes('Connection refused') || errorMessage.includes('Failed to establish')) {
-      detail = `Cannot connect to ${ollamaUrl}. Make sure the Ollama server is running and accessible.`;
+      detail = 'cannot connect. make sure the ollama server is running and accessible.';
     } else if (errorMessage.includes('ENOTFOUND') || errorMessage.includes('getaddrinfo')) {
-      detail = `Cannot resolve hostname for ${ollamaUrl}. Check that the URL is correct.`;
+      detail = 'cannot resolve ollama hostname. check that OLLAMA_URL is correct.';
     } else if (errorMessage.includes('ETIMEDOUT') || errorMessage.includes('timeout')) {
-      detail = `Connection to ${ollamaUrl} timed out. The server may be down or unreachable.`;
+      detail = 'connection timed out. the ollama server may be down or unreachable.';
     }
 
-    res.status(500).json({
-      error: 'Failed to connect to Ollama server',
+    return res.status(500).json({
+      error: 'failed to connect to ollama server',
       message: errorMessage,
-      detail: detail || `Error connecting to ${ollamaUrl}`,
-      ollamaUrl: ollamaUrl // Include the URL being used for debugging
+      detail: detail || 'error connecting to ollama'
     });
   }
 }
