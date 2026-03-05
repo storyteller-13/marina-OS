@@ -41,10 +41,10 @@ class MusicPlayer {
             this.songs = [...currentPlaylist.songs];
             this.currentSongIndex = Math.max(0, Math.min(this.currentSongIndex, this.songs.length - 1));
         } else {
-            const fallbackPlaylist = this.storage.getPlaylist(this.playlistsData, '2026-reward');
+            const fallbackPlaylist = this.storage.getPlaylist(this.playlistsData, '2026 reward');
             if (fallbackPlaylist && fallbackPlaylist.songs && fallbackPlaylist.songs.length > 0) {
                 this.songs = [...fallbackPlaylist.songs];
-                this.playlistsData.currentPlaylistId = '2026-reward';
+                this.playlistsData.currentPlaylistId = '2026 reward';
                 this.storage.save(this.playlistsData);
             } else {
                 this.playlistsData = this.storage.getDefaultData();
@@ -243,6 +243,41 @@ class MusicPlayer {
                 e.preventDefault();
                 e.stopPropagation();
                 this.playNextSong();
+            });
+        }
+
+        const songListElement = document.getElementById(this.selectors.songList);
+        if (songListElement) {
+            songListElement.addEventListener('click', (e) => {
+                const header = e.target.closest('.music-playlist-header');
+                const songItem = e.target.closest('.music-song-item-small');
+                if (header) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const playlistId = header.getAttribute('data-playlist-id');
+                    const currentPlaylistId = this.playlistsData?.currentPlaylistId;
+                    if (this.expandedPlaylists.has(playlistId)) {
+                        this.expandedPlaylists.delete(playlistId);
+                    } else {
+                        this.expandedPlaylists.add(playlistId);
+                    }
+                    if (playlistId !== currentPlaylistId) {
+                        this.switchPlaylist(playlistId);
+                    }
+                    this.renderSongList();
+                } else if (songItem) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const playlistId = songItem.getAttribute('data-playlist-id');
+                    const songId = songItem.getAttribute('data-song-id');
+                    const currentPlaylistId = this.playlistsData?.currentPlaylistId;
+                    if (playlistId !== currentPlaylistId) {
+                        this.switchPlaylist(playlistId);
+                        setTimeout(() => this.playSongById(songId), 100);
+                    } else {
+                        this.playSongById(songId);
+                    }
+                }
             });
         }
     }
@@ -455,15 +490,13 @@ class MusicPlayer {
         songListElement.innerHTML = this.playlistsData.playlists.map(playlist => {
             const isCurrentPlaylist = playlist.id === currentPlaylistId;
             const isExpanded = this.expandedPlaylists.has(playlist.id);
-            const songsHtml = (playlist.songs || []).map((song, index) => {
-                // Find the song index in the current songs array
+            const songsHtml = (playlist.songs || []).map((song) => {
                 const globalSongIndex = this.songs.findIndex(s => s.id === song.id);
                 const isActive = isCurrentPlaylist && globalSongIndex === this.currentSongIndex;
                 return `
                     <div class="music-song-item-small ${isActive ? 'active' : ''}" 
                          data-playlist-id="${playlist.id}" 
-                         data-song-id="${song.id}"
-                         data-song-index="${globalSongIndex >= 0 ? globalSongIndex : index}">
+                         data-song-id="${song.id}">
                         <span class="music-song-title-small">${song.title}</span>
                     </div>
                 `;
@@ -481,52 +514,6 @@ class MusicPlayer {
                 </div>
             `;
         }).join('');
-
-        // Attach click handlers for playlist headers
-        songListElement.querySelectorAll('.music-playlist-header').forEach(header => {
-            header.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const playlistId = header.getAttribute('data-playlist-id');
-                
-                // Toggle expansion
-                if (this.expandedPlaylists.has(playlistId)) {
-                    this.expandedPlaylists.delete(playlistId);
-                } else {
-                    this.expandedPlaylists.add(playlistId);
-                }
-                
-                // Switch to the playlist if not current
-                if (playlistId !== currentPlaylistId) {
-                    this.switchPlaylist(playlistId);
-                }
-                
-                // Re-render to update active states and expansion
-                this.renderSongList();
-            });
-        });
-
-        // Attach click handlers for songs
-        songListElement.querySelectorAll('.music-song-item-small').forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const playlistId = item.getAttribute('data-playlist-id');
-                const songId = item.getAttribute('data-song-id');
-
-                // Switch to the playlist if not current
-                if (playlistId !== currentPlaylistId) {
-                    this.switchPlaylist(playlistId);
-                    // Wait for playlist to switch, then find and play the song
-                    setTimeout(() => {
-                        this.playSongById(songId);
-                    }, 100);
-                } else {
-                    // Play the song in current playlist
-                    this.playSongById(songId);
-                }
-            });
-        });
     }
 
     /**
@@ -551,13 +538,9 @@ class MusicPlayer {
                 console.error('Failed to toggle play/pause:', error);
             }
         } else {
-            // Switch to the new song
             this.currentSongIndex = songIndex;
-            this.loadSong(true); // Load and play the song
+            this.loadSong(true);
         }
-
-        // Re-render to update active states
-        this.renderSongList();
     }
 }
 

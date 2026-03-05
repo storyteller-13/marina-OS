@@ -12,14 +12,6 @@ class MusicPlayerStorage {
      * @returns {Object} Playlists data object with playlists array
      */
     load() {
-        // Clear cache from previous sessions only once per browser session
-        const sessionClearedKey = 'music-player-session-cleared';
-        if (!sessionStorage.getItem(sessionClearedKey)) {
-            localStorage.removeItem(this.storageKey);
-            sessionStorage.setItem(sessionClearedKey, 'true');
-        }
-        
-        // Load from localStorage or return default data
         const stored = localStorage.getItem(this.storageKey);
         let data;
         
@@ -52,7 +44,7 @@ class MusicPlayerStorage {
 
     /**
      * Get default playlists data structure
-     * @returns {Object} Default playlists data with emo playlist containing current songs
+     * @returns {Object} Default playlists data
      */
     getDefaultData() {
         return {
