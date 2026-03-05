@@ -41,7 +41,7 @@ Everything runs inside a single `index.html` (60KB). The page renders a desktop 
 
 Apps with external data: **apod** (NASA API), **chess** (Chess.com), **xkcd** (XKCD), **b-bot** (Ollama LLM), **music-player** (YouTube IFrame API).
 
-Apps with local storage: **email** (email-data.js; email-storage.js exists but is not loaded), **notes** (notes-storage.js), **todo** (todo-storage.js), **music-player** (music-player-storage.js). Storage modules expose `load()`, `save()`, `generateId()`, `getDefaultData()`.
+Apps with local storage: **notes** (notes-storage.js), **todo** (todo-storage.js), **music-player** (music-player-storage.js). Storage modules expose `load()`, `save()`, `generateId()`, `getDefaultData()`. **Email** uses email-data.js only (in-memory, no persistence).
 
 Simple apps: **home** (iframe wrapper), **artwork** (image lightbox), **quotes** (random quote display), **terminal** (simulated filesystem with ls/cd/cat/view commands).
 
