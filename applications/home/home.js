@@ -5,15 +5,12 @@
 class HomeApp extends BaseApp {
     constructor() {
         super({ windowId: 'home-window', dockItemId: 'home-dock-item' });
-        this.desktopIcon = null;
         this.init();
     }
 
     init() {
-        super.init();
-        if (!this.window) return;
         this.desktopIcon = document.getElementById('home-desktop-icon');
-        this.setupEventListeners();
+        super.init();
     }
 
     setupEventListeners() {
@@ -28,10 +25,8 @@ class HomeApp extends BaseApp {
     }
 }
 
-// Expose class constructor for testing
 window.HomeAppClass = HomeApp;
 
-// Initialize when DOM is ready
 const initHomeApp = () => {
     window.HomeApp = new HomeApp();
 };
@@ -42,9 +37,4 @@ if (document.readyState === 'loading') {
     initHomeApp();
 }
 
-// Expose open function globally for onclick handlers
-window.openHomeWindow = () => {
-    if (window.HomeApp) {
-        window.HomeApp.open();
-    }
-};
+window.openHomeWindow = () => window.HomeApp?.open();
