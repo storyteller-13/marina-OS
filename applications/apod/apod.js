@@ -4,21 +4,18 @@
  */
 class APODPanel {
     constructor() {
-        // Use API proxy to avoid CORS and rate limiting issues (Env.isLocalhost from env.js)
-        const isLocalhost = window.Env && window.Env.isLocalhost();
-        if (isLocalhost) {
-            // For local development, use NASA API directly with DEMO_KEY
-            this.apiUrl = 'https://api.nasa.gov/planetary/apod';
-            this.apiKey = 'DEMO_KEY';
-        } else {
-            // For production, use our API endpoint
-            this.apiUrl = '/api/apod';
-            this.apiKey = null; // Not needed when using proxy
-        }
-        
+        this.apiBase = window.Env && window.Env.getApiBase('apod');
         this.cacheKey = 'apod_cache';
-        this.cacheExpiry = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+        this.cacheExpiry = 24 * 60 * 60 * 1000; // 24 hours
         this.init();
+    }
+
+    /** Build API URL for a given date (YYYY-MM-DD). */
+    buildApiUrl(dateStr) {
+        if (this.apiBase) {
+            return `${this.apiBase}?date=${dateStr}`;
+        }
+        return `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${dateStr}`;
     }
 
     init() {
@@ -76,22 +73,15 @@ class APODPanel {
      * Loads APOD data, checking cache first
      */
     async loadAPOD() {
-        // Check cache first
         const cached = this.getCachedAPOD();
         if (cached) {
             this.displayAPOD(cached);
-            // Still try to fetch fresh data in background (but don't block on it)
             this.fetchAPOD().then(data => {
                 if (data) {
                     this.cacheAPOD(data);
-                    // Only update if we got new data
-                    if (data.date !== cached.date) {
-                        this.displayAPOD(data);
-                    }
+                    if (data.date !== cached.date) this.displayAPOD(data);
                 }
-            }).catch(() => {
-                // Silently fail - we already have cached data displayed
-            });
+            }).catch(() => {});
             return;
         }
 
@@ -103,14 +93,10 @@ class APODPanel {
             } else {
                 this.showError('unable to load APOD; rate limit may be active.');
             }
-        } catch (error) {
-            // Check if we have any cached data to show (even if expired)
-            const cachedData = this.getCachedAPOD();
-            if (cachedData) {
-                this.displayAPOD(cachedData);
-            } else {
-                this.showError('unable to load APOD; please try again later.');
-            }
+        } catch (_) {
+            const stale = this.getCachedAPOD(true);
+            if (stale) this.displayAPOD(stale);
+            else this.showError('unable to load APOD; please try again later.');
         }
     }
 
@@ -119,61 +105,27 @@ class APODPanel {
      */
     async fetchAPOD() {
         try {
-            // Try to get today's picture
             const today = new Date().toISOString().split('T')[0];
-            let url;
-            
-            if (this.apiKey) {
-                // Direct API call (local dev)
-                url = `${this.apiUrl}?api_key=${this.apiKey}&date=${today}`;
-            } else {
-                // API proxy (production)
-                url = `${this.apiUrl}?date=${today}`;
-            }
+            const response = await fetch(this.buildApiUrl(today));
 
-            const response = await fetch(url);
-            
-            // Handle rate limiting
             if (response.status === 429) {
                 const cached = this.getCachedAPOD();
-                if (cached) {
-                    return cached;
-                }
+                if (cached) return cached;
                 throw new Error('rate limited and no cached data available');
             }
-            
-            if (!response.ok) {
-                throw new Error(`API returned ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`API returned ${response.status}`);
 
             const data = await response.json();
-
-            // Validate that we have an image
             if (data.media_type !== 'image') {
-                // If it's a video, try yesterday's picture
                 const yesterday = new Date();
                 yesterday.setDate(yesterday.getDate() - 1);
                 const yesterdayStr = yesterday.toISOString().split('T')[0];
-                
-                let yesterdayUrl;
-                if (this.apiKey) {
-                    yesterdayUrl = `${this.apiUrl}?api_key=${this.apiKey}&date=${yesterdayStr}`;
-                } else {
-                    yesterdayUrl = `${this.apiUrl}?date=${yesterdayStr}`;
-                }
-                
-                const yesterdayResponse = await fetch(yesterdayUrl);
-                if (yesterdayResponse.ok) {
-                    return await yesterdayResponse.json();
-                }
+                const yesterdayResponse = await fetch(this.buildApiUrl(yesterdayStr));
+                if (yesterdayResponse.ok) return await yesterdayResponse.json();
             }
-
             return data;
         } catch (error) {
-            // Try a random date from the past week as fallback (only if not rate limited)
-            if (!error.message.includes('rate limited')) {
-                return this.fetchRandomAPOD();
-            }
+            if (!error.message.includes('rate limited')) return this.fetchRandomAPOD();
             return null;
         }
     }
@@ -184,33 +136,16 @@ class APODPanel {
     async fetchRandomAPOD() {
         try {
             const daysAgo = Math.floor(Math.random() * 7);
-            const date = new Date();
-            date.setDate(date.getDate() - daysAgo);
-            const dateStr = date.toISOString().split('T')[0];
-            
-            let url;
-            if (this.apiKey) {
-                url = `${this.apiUrl}?api_key=${this.apiKey}&date=${dateStr}`;
-            } else {
-                url = `${this.apiUrl}?date=${dateStr}`;
-            }
-
-            const response = await fetch(url);
-            
-            // Don't retry if rate limited
-            if (response.status === 429) {
-                return null;
-            }
-            
+            const d = new Date();
+            d.setDate(d.getDate() - daysAgo);
+            const dateStr = d.toISOString().split('T')[0];
+            const response = await fetch(this.buildApiUrl(dateStr));
+            if (response.status === 429) return null;
             if (response.ok) {
                 const data = await response.json();
-                if (data.media_type === 'image') {
-                    return data;
-                }
+                if (data.media_type === 'image') return data;
             }
-        } catch (error) {
-            // Error fetching random APOD
-        }
+        } catch (_) {}
         return null;
     }
 
@@ -239,7 +174,6 @@ class APODPanel {
 
         imageContainer.appendChild(img);
 
-        // Keep title as "APOD"
         if (titleElement) {
             titleElement.textContent = 'APOD';
             titleElement.title = data.title || 'astronomical picture of the day';
@@ -349,24 +283,19 @@ class APODPanel {
     }
 
     /**
-     * Gets cached APOD data if still valid
+     * Gets cached APOD data. If allowExpired is true, returns data even when expired (stale fallback).
      */
-    getCachedAPOD() {
+    getCachedAPOD(allowExpired = false) {
         try {
-            const cached = localStorage.getItem(this.cacheKey);
-            if (!cached) return null;
-
-            const { data, timestamp } = JSON.parse(cached);
-            const now = Date.now();
-
-            if (now - timestamp < this.cacheExpiry) {
-                return data;
-            }
-
-            // Cache expired
+            const raw = localStorage.getItem(this.cacheKey);
+            if (!raw) return null;
+            const { data, timestamp } = JSON.parse(raw);
+            const valid = Date.now() - timestamp < this.cacheExpiry;
+            if (valid) return data;
+            if (allowExpired) return data;
             localStorage.removeItem(this.cacheKey);
             return null;
-        } catch (error) {
+        } catch (_) {
             return null;
         }
     }
@@ -376,21 +305,8 @@ class APODPanel {
      */
     cacheAPOD(data) {
         try {
-            const cache = {
-                data,
-                timestamp: Date.now()
-            };
-            localStorage.setItem(this.cacheKey, JSON.stringify(cache));
-        } catch (error) {
-            // Error caching APOD
-        }
-    }
-
-    /**
-     * Cleans up event listeners
-     */
-    destroy() {
-        // Event listeners will be cleaned up automatically when elements are removed
+            localStorage.setItem(this.cacheKey, JSON.stringify({ data, timestamp: Date.now() }));
+        } catch (_) {}
     }
 }
 
