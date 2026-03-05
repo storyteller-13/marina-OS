@@ -45,7 +45,7 @@ class MusicPlayer {
                 id: '2026-reward',
                 name: '2026 reward',
                 songs: [ 
-                    { id: 'ozXZnwYTMbs', title: 'nothing else matthers (metallica)' },
+                    { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
                     { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
                     { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' }
                 ],
