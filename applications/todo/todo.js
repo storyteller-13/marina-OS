@@ -96,23 +96,19 @@ class TodoApp extends BaseApp {
         this.persistAndUpdate();
     }
 
-    clearCompleted() {
-        this.todos = this.todos.filter(t => !t.completed);
-        this.persistAndUpdate();
-    }
-
     persistAndUpdate() {
         this.storage.save(this.todos);
-        this.render();
-        this.updateBadge();
+        const activeCount = this.getActiveCount();
+        this.render(activeCount);
+        this.updateBadge(activeCount);
     }
 
-    render() {
+    render(activeCountArg) {
         const { todoList, todoFooter, todoCount } = this.elements;
 
         if (!todoList) return;
 
-        const activeCount = this.getActiveCount();
+        const activeCount = activeCountArg ?? this.getActiveCount();
 
         // Update count
         if (todoCount) {
@@ -145,8 +141,8 @@ class TodoApp extends BaseApp {
         `).join('');
     }
 
-    updateBadge() {
-        const activeCount = this.getActiveCount();
+    updateBadge(activeCountArg) {
+        const activeCount = activeCountArg ?? this.getActiveCount();
         const text = activeCount > 99 ? '99+' : String(activeCount);
         const show = activeCount > 0;
         for (const el of [this.elements.badge, this.elements.menuCount]) {
@@ -157,9 +153,9 @@ class TodoApp extends BaseApp {
     }
 
     escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
+        if (!this._escapeDiv) this._escapeDiv = document.createElement('div');
+        this._escapeDiv.textContent = text;
+        return this._escapeDiv.innerHTML;
     }
 }
 
