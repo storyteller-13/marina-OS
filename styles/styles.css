@@ -3900,7 +3900,7 @@ a.dock-item {
         max-height: 150px;
     }
 
-    /* Music Player */
+    /* Music */
     .music-player {
         width: calc(100% - 40px);
         max-width: 360px;
