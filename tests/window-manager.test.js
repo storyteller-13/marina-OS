@@ -7,7 +7,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const scriptPath = join(__dirname, '../scripts/core/window-manager.js');
+const scriptPath = join(__dirname, '../core/window-manager.js');
 const script = readFileSync(scriptPath, 'utf8');
 
 describe('WindowManager', () => {

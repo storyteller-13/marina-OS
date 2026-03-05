@@ -26,7 +26,7 @@ Tests: `tests/` (e.g. `window-manager.test.js`, `notes-storage.test.js`). Setup:
 
 Everything runs inside a single `index.html` (60KB). The page renders a desktop with a top panel (clock, app menu), draggable windows, and a dock. Each "application" is a JS class that manages its own window.
 
-### Core System (`scripts/core/`)
+### Core System (`core/`)
 
 - **env.js** — `window.Env`: `isLocalhost()`, `getApiBase(path)`. Central place for local vs production API choice. Load before apps.
 - **base-app.js** — `BaseApp` class: shared window/dock open, close, fallback. Dock apps (home, notes, todo, email, artwork, b-bot) extend it; tray/terminal do not.
@@ -34,7 +34,7 @@ Everything runs inside a single `index.html` (60KB). The page renders a desktop 
 - **panel.js** — `Panel` class: top bar clock (HH:MM:SS), applications dropdown menu.
 - **protection.js** — IIFE that blocks right-click, dev-tool shortcuts, and image dragging (client-side only).
 
-### Applications (`scripts/applications/`)
+### Applications (`applications/`)
 
 13 self-contained app modules, each a class with `init()`, `open()`, `close()`, and `render()` methods. Classes are exposed on `window` for both global access and testing (e.g., `window.APODPanelClass`).
 
@@ -69,8 +69,8 @@ Styling is split under `styles/`. The visual theme is a dark desktop OS with neo
 ## File layout
 
 - `index.html` — single page; links split CSS and loads all scripts in order.
-- `scripts/core/` — env, base-app, window-manager, panel, protection.
-- `scripts/applications/` — one folder per app (e.g. `notes/notes.js`, `notes/notes-storage.js`).
+- `core/` — env, base-app, window-manager, panel, protection.
+- `applications/` — one folder per app (e.g. `notes/notes.js`, `notes/notes-storage.js`).
 - `styles/` — split CSS files; `styles.css` is the legacy single file.
 - `api/` — Vercel serverless proxies (apod, chess, xkcd, ollama).
 - `tests/` — Vitest tests; run with `make test` or `npm run test:coverage`.

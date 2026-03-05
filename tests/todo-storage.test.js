@@ -7,7 +7,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const scriptPath = join(__dirname, '../scripts/applications/todo/todo-storage.js');
+const scriptPath = join(__dirname, '../applications/todo/todo-storage.js');
 const script = readFileSync(scriptPath, 'utf8');
 
 function makeFakeStorage() {
