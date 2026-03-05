@@ -29,150 +29,24 @@ class MusicPlayer {
     }
 
     /**
-     * Initialize playlists and ensure required playlists exist
+     * Initialize playlists and ensure default playlists exist (single source of truth in storage).
      */
     loadPlaylists() {
         this.playlistsData = this.storage.load();
-        
-        // Ensure playlists array exists
-        if (!this.playlistsData.playlists) {
-            this.playlistsData.playlists = [];
-        }
-
-        // Define required playlists with their songs
-        const requiredPlaylists = [
-            {
-                id: '2026-reward',
-                name: '2026 reward',
-                songs: [ 
-                    { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
-                    { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
-                    { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' }
-                ],
-                position: 0
-            },
-            {
-                id: '2026-epiphany',
-                name: '2026 epiphany',
-                songs: [
-                    { id: 'CevxZvSJLk8', title: 'roar (kate perry)' },
-                    { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
-                    { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
-                    { id: 'Z4A9ZZo_rAE', title: 'shake it off (taylor swift)' },
-                    { id: 'hT_nvWreIhg', title: 'counting stars (onerepublic)' },
-                    { id: '94UmYrW5oto', title: 'what up gangsta (50 cent)' },
-                    { id: 'co6WMzDOh1o', title: 'beautiful day (u2)' },
-                    { id: 'iGTN1xz0f84', title: 'old dog (j. cole)' }
-                ],
-                position: 1
-            },
-            {
-                id: 'renewal',
-                name: '2026 renewal',
-                songs: [
-                    { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright (god is an astronaut)' },
-                    { id: 'X2959NkomEc', title: 'up all night (meltt)' },
-                    { id: 'wpWOQSgsetk', title: 'butterfly (anees)' },
-                    { id: '3CygXxv1f2k', title: 'secret smile (semisonic)' },
-                    { id: 'b9WKC5sT9Z4', title: 'gymnopedies (erik satie)' },
-                    { id: 'FoYdeEDdtK4', title: 'peaches in regalia (frank zappa)' },
-                    { id: 'fhOAsDVg8pY', title: 'round && round (bob moses)' }
-                ],
-                position: 2
-            },
-            {
-                id: 'afterlife 2025',
-                name: '2025 afterlife',
-                songs: [
-                    { id: 'MO0LdXqwDP0', title: 'afterlife (evanescence)' },
-                    { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
-                    { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
-                    { id: 'cfjDrutsfRQ', title: 'sympathy magic (florence + the machine)' },
-                    { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' },
-                    { id: 'pe3jFvJ0qjs', title: "don't fear the reaper (blue oyster cult)" }
-                ],
-                position: 3
-            },
-            {
-                id: 'dualities-playlist',
-                name: '2025 dualities',
-                songs: [
-                    { id: 'IXdNnw99-Ic', title: 'wish you were here (pink floyd)' },
-                    { id: 'ujNeHIo7oTE', title: 'with or without you (u2)' },
-                    { id: '1lyu1KKwC74', title: 'bitter sweet symphony (the verve)' },
-                    { id: 'ln7Vn_WKkWU', title: 'stuck in the middle (stealers wheel)' },
-                    { id: '7jMlFXouPk8', title: 'high hopes (pink floyd)' },
-                    { id: 'TFjmvfRvjTc', title: 'hey you (pink floyd)' }
-                ],
-                position: 4
-            }
-        ];
-
-        // Ensure all required playlists exist and are properly configured
-        requiredPlaylists.forEach(required => {
-            let playlist = this.storage.getPlaylist(this.playlistsData, required.id);
-            
-            if (!playlist) {
-                // Create new playlist
-                playlist = {
-                    id: required.id,
-                    name: required.name,
-                    songs: [...required.songs]
-                };
-                
-                if (required.position >= 0) {
-                    this.playlistsData.playlists.splice(required.position, 0, playlist);
-                } else {
-                    this.playlistsData.playlists.push(playlist);
-                }
-            } else {
-                // Ensure all required songs exist in the playlist
-                if (!playlist.songs) {
-                    playlist.songs = [];
-                }
-                
-                required.songs.forEach(requiredSong => {
-                    if (!playlist.songs.some(s => s.id === requiredSong.id)) {
-                        playlist.songs.push({ ...requiredSong });
-                    }
-                });
-                
-                // Ensure playlist is in correct position
-                const currentIndex = this.playlistsData.playlists.findIndex(p => p.id === required.id);
-                if (required.position >= 0 && currentIndex !== required.position) {
-                    this.playlistsData.playlists.splice(currentIndex, 1);
-                    this.playlistsData.playlists.splice(required.position, 0, playlist);
-                }
-            }
-        });
-
-        // Set default playlist if none is set
-        if (!this.playlistsData.currentPlaylistId) {
-            this.playlistsData.currentPlaylistId = '2026-reward';
-        }
-
-        // Migrate old playlist ID if needed
-        if (this.playlistsData.currentPlaylistId === 'dualities-playlist') {
-            this.playlistsData.currentPlaylistId = '2026-reward';
-        }
-
-        // Save any changes
+        this.storage.ensureDefaultPlaylists(this.playlistsData);
         this.storage.save(this.playlistsData);
 
-        // Load songs from current playlist
         const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
         if (currentPlaylist && currentPlaylist.songs && currentPlaylist.songs.length > 0) {
-            this.songs = [...currentPlaylist.songs]; // Create a copy
+            this.songs = [...currentPlaylist.songs];
             this.currentSongIndex = Math.max(0, Math.min(this.currentSongIndex, this.songs.length - 1));
         } else {
-            // Fallback to 2026 reward playlist (Nothing Else Matters)
             const fallbackPlaylist = this.storage.getPlaylist(this.playlistsData, '2026-reward');
             if (fallbackPlaylist && fallbackPlaylist.songs && fallbackPlaylist.songs.length > 0) {
                 this.songs = [...fallbackPlaylist.songs];
                 this.playlistsData.currentPlaylistId = '2026-reward';
                 this.storage.save(this.playlistsData);
             } else {
-                // Last resort: use default data
                 this.playlistsData = this.storage.getDefaultData();
                 this.storage.save(this.playlistsData);
                 this.songs = [...this.playlistsData.playlists[0].songs];
@@ -181,16 +55,6 @@ class MusicPlayer {
         }
     }
     
-    /**
-     * Get the current playlist name
-     * @returns {string} Current playlist name
-     */
-    getCurrentPlaylistName() {
-        if (!this.playlistsData) return '';
-        const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
-        return currentPlaylist ? currentPlaylist.name : '';
-    }
-
     init() {
         this.setupYouTubeAPI();
         this.setupUIControls();
@@ -300,13 +164,6 @@ class MusicPlayer {
 
     handlePlayerError(event) {
         const errorCode = event.data;
-        const errorMessages = {
-            2: 'Invalid parameter - check video ID',
-            5: 'HTML5 player error - browser may not support playback',
-            100: 'Video not found',
-            101: 'Embedding not allowed',
-            150: 'Embedding not allowed (same as 101)'
-        };
 
         // Auto-skip to next song on certain errors
         if (errorCode === 100 || errorCode === 101 || errorCode === 150) {
@@ -407,19 +264,6 @@ class MusicPlayer {
             }
         } catch (error) {
             console.error('Failed to toggle play/pause:', error);
-        }
-    }
-
-    updatePlayingState(isPlaying) {
-        const musicToggle = document.getElementById(this.selectors.toggle);
-        const musicPlayer = document.getElementById(this.selectors.player);
-
-        if (isPlaying) {
-            if (musicToggle) musicToggle.classList.add('playing');
-            if (musicPlayer) musicPlayer.classList.add('playing');
-        } else {
-            if (musicToggle) musicToggle.classList.remove('playing');
-            if (musicPlayer) musicPlayer.classList.remove('playing');
         }
     }
 

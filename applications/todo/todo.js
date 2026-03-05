@@ -39,8 +39,6 @@ class TodoApp extends BaseApp {
     }
 
     refresh() {
-        // Don't reload todos - they should only load once during initialization
-        // This prevents resetting todos when refreshing
         this.render();
         this.updateBadge();
     }
@@ -48,12 +46,10 @@ class TodoApp extends BaseApp {
     setupEventListeners() {
         super.setupEventListeners();
 
-        // Use event delegation for todo interactions
         if (this.elements.todoList) {
             this.elements.todoList.addEventListener('click', (e) => {
-                const todoId = e.target.dataset.todoId;
+                const { todoId } = e.target.dataset;
                 if (!todoId) return;
-
                 if (e.target.classList.contains('todo-checkbox')) {
                     e.stopPropagation();
                     this.toggleTodo(todoId);
@@ -66,11 +62,8 @@ class TodoApp extends BaseApp {
     }
 
     setupVisibilityListener() {
-        // Reload when page becomes visible (e.g., switching tabs back)
         document.addEventListener('visibilitychange', () => {
-            if (!document.hidden) {
-                this.refresh();
-            }
+            if (!document.hidden) this.refresh();
         });
     }
 
@@ -82,35 +75,34 @@ class TodoApp extends BaseApp {
 
     addTodo(text) {
         if (!text.trim()) return;
-
         this.todos.push({
             id: this.storage.generateId(),
             text: text.trim(),
             completed: false,
             createdAt: new Date().toISOString()
         });
-
-        this.render();
-        this.updateBadge();
+        this.persistAndUpdate();
     }
 
     toggleTodo(id) {
         const todo = this.todos.find(t => t.id === id);
-        if (todo) {
-            todo.completed = !todo.completed;
-            this.render();
-            this.updateBadge();
-        }
+        if (!todo) return;
+        todo.completed = !todo.completed;
+        this.persistAndUpdate();
     }
 
     deleteTodo(id) {
         this.todos = this.todos.filter(t => t.id !== id);
-        this.render();
-        this.updateBadge();
+        this.persistAndUpdate();
     }
 
     clearCompleted() {
         this.todos = this.todos.filter(t => !t.completed);
+        this.persistAndUpdate();
+    }
+
+    persistAndUpdate() {
+        this.storage.save(this.todos);
         this.render();
         this.updateBadge();
     }
@@ -154,25 +146,13 @@ class TodoApp extends BaseApp {
     }
 
     updateBadge() {
-        const { badge, menuCount } = this.elements;
         const activeCount = this.getActiveCount();
-        const text = activeCount > 99 ? '99+' : activeCount.toString();
-
-        if (badge) {
-            if (activeCount > 0) {
-                badge.textContent = text;
-                badge.style.display = 'flex';
-            } else {
-                badge.style.display = 'none';
-            }
-        }
-        if (menuCount) {
-            if (activeCount > 0) {
-                menuCount.textContent = text;
-                menuCount.style.display = 'flex';
-            } else {
-                menuCount.style.display = 'none';
-            }
+        const text = activeCount > 99 ? '99+' : String(activeCount);
+        const show = activeCount > 0;
+        for (const el of [this.elements.badge, this.elements.menuCount]) {
+            if (!el) continue;
+            el.textContent = text;
+            el.style.display = show ? 'flex' : 'none';
         }
     }
 
