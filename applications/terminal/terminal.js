@@ -387,12 +387,7 @@
                 if (result !== null) {
                     const output = document.createElement('div');
                     output.className = 'terminal-output';
-                    if (result.includes('<') || result.includes('\n')) {
-                        // Contains HTML or newlines, use innerHTML
-                        output.innerHTML = result.split('\n').join('<br>');
-                    } else {
-                        output.textContent = result;
-                    }
+                    output.textContent = result;
                     terminalOutput.appendChild(output);
                 }
             } else {
