@@ -248,7 +248,7 @@
             </div>
             <div class="panel-right">
                 <div class="system-tray">
-                    <a href="javascript:void(0)" id="philosophy-icon-tray" onclick="window.openPhilosophyWindow(); return false;" style="text-decoration: none; cursor: pointer;">
+                    <a href="javascript:void(0)" id="quotes-icon-tray" onclick="window.openQuotesWindow(); return false;" style="text-decoration: none; cursor: pointer;">
                         <span class="tray-icon tray-icon-wisdom">
                             <svg width="24" height="24" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                 <!-- Classic lamp bulb: glass, neck, screw base -->
@@ -300,21 +300,21 @@
             </div>
         </div>
 
-        <!-- Philosophy Quotes Box (stacked above XKCD) -->
-        <div class="philosophy-box" id="philosophy-box">
-            <div class="philosophy-box-glow"></div>
-            <div class="philosophy-box-content">
-                <div class="philosophy-box-header">
-                    <div class="philosophy-icon-wrapper">
-                        <span class="philosophy-icon">💡</span>
+        <!-- Quotes Box (stacked above XKCD) -->
+        <div class="quotes-box" id="quotes-box">
+            <div class="quotes-box-glow"></div>
+            <div class="quotes-box-content">
+                <div class="quotes-box-header">
+                    <div class="quotes-icon-wrapper">
+                        <span class="quotes-icon">💡</span>
                     </div>
-                    <span class="philosophy-box-title">TODAY'S WISDOM</span>
-                    <button class="philosophy-box-close" id="philosophy-box-close" title="Close">
+                    <span class="quotes-box-title">TODAY'S WISDOM</span>
+                    <button class="quotes-box-close" id="quotes-box-close" title="Close">
                         <span class="close-icon">×</span>
                     </button>
                 </div>
-                <div class="philosophy-quote-container" id="philosophy-quote-container"></div>
-                <div class="philosophy-quote-author" id="philosophy-quote-author"></div>
+                <div class="quotes-quote-container" id="quotes-quote-container"></div>
+                <div class="quotes-quote-author" id="quotes-quote-author"></div>
             </div>
         </div>
 
@@ -964,9 +964,9 @@
     <script src="applications/b-bot/b-bot-api.js"></script>
     <script src="applications/b-bot/b-bot.js"></script>
 
-    <!-- Philosophy Quotes Panel (data first, then panel) -->
-    <script src="applications/philosophy-quotes/philosophy-quotes-data.js"></script>
-    <script src="applications/philosophy-quotes/philosophy-quotes.js"></script>
+    <!-- Quotes Panel (data first, then panel) -->
+    <script src="applications/quotes/quotes-data.js"></script>
+    <script src="applications/quotes/quotes.js"></script>
 
     <!-- XKCD Panel -->
     <script src="applications/xkcd/xkcd.js"></script>

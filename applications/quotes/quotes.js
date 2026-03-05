@@ -1,10 +1,10 @@
 /**
- * Philosophy Quotes Panel
+ * Quotes Panel
  * Shows a random quote from the curated list in a panel above the XKCD box.
  */
-class PhilosophyQuotesPanel {
+class QuotesPanel {
     constructor() {
-        this.quotes = typeof window.PHILOSOPHY_QUOTES !== 'undefined' ? window.PHILOSOPHY_QUOTES : [];
+        this.quotes = typeof window.QUOTES !== 'undefined' ? window.QUOTES : [];
         this.init();
     }
 
@@ -16,8 +16,8 @@ class PhilosophyQuotesPanel {
     }
 
     setupEventListeners() {
-        const box = document.getElementById('philosophy-box');
-        const closeBtn = document.getElementById('philosophy-box-close');
+        const box = document.getElementById('quotes-box');
+        const closeBtn = document.getElementById('quotes-box-close');
 
         if (closeBtn) {
             closeBtn.addEventListener('click', () => this.hideBox());
@@ -38,8 +38,8 @@ class PhilosophyQuotesPanel {
     }
 
     displayQuote() {
-        const container = document.getElementById('philosophy-quote-container');
-        const authorEl = document.getElementById('philosophy-quote-author');
+        const container = document.getElementById('quotes-quote-container');
+        const authorEl = document.getElementById('quotes-quote-author');
         if (!container) return;
 
         const { text, author } = this.getRandomQuote();
@@ -48,7 +48,7 @@ class PhilosophyQuotesPanel {
     }
 
     toggleVisibility() {
-        const box = document.getElementById('philosophy-box');
+        const box = document.getElementById('quotes-box');
         if (!box) return;
 
         const isVisible = box.style.display !== 'none' &&
@@ -66,7 +66,7 @@ class PhilosophyQuotesPanel {
     }
 
     showBox() {
-        const box = document.getElementById('philosophy-box');
+        const box = document.getElementById('quotes-box');
         if (!box) return;
 
         const center = this.isMobile() ? 'translate(-50%, -50%) ' : '';
@@ -83,7 +83,7 @@ class PhilosophyQuotesPanel {
     }
 
     hideBox() {
-        const box = document.getElementById('philosophy-box');
+        const box = document.getElementById('quotes-box');
         if (!box) return;
 
         const center = this.isMobile() ? 'translate(-50%, -50%) ' : '';
@@ -97,14 +97,14 @@ class PhilosophyQuotesPanel {
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        window.PhilosophyQuotesPanel = new PhilosophyQuotesPanel();
+        window.QuotesPanel = new QuotesPanel();
     });
 } else {
-    window.PhilosophyQuotesPanel = new PhilosophyQuotesPanel();
+    window.QuotesPanel = new QuotesPanel();
 }
 
-window.openPhilosophyWindow = () => {
-    if (window.PhilosophyQuotesPanel) {
-        window.PhilosophyQuotesPanel.toggleVisibility();
+window.openQuotesWindow = () => {
+    if (window.QuotesPanel) {
+        window.QuotesPanel.toggleVisibility();
     }
 };

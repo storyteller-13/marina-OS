@@ -1,8 +1,8 @@
 /**
- * Philosophy quotes – curated list for the quotes panel.
+ * Quotes – curated list for the quotes panel.
  * Add or edit entries; each is { text: string, author: string }.
  */
-window.PHILOSOPHY_QUOTES = [
+window.QUOTES = [
     { text: 'the unexamined life is not worth living.', author: 'socrates' },
     { text: 'we are what we repeatedly do. excellence, then, is not an act, but a habit.', author: 'aristotle' },
     { text: 'the only true wisdom is in knowing you know nothing.', author: 'socrates' },
@@ -110,4 +110,3 @@ window.PHILOSOPHY_QUOTES = [
     { text: 'a competence is an available skill, normally one learned or acquired previously. So by analogy an innate language competence is an ability to perform certain language tasks as though they had previously been learned.', author: 'terrence w. deacon' },
     { text: 'languages are abstractions. they are fuzzy collections of behaviors that happen to be reasonably well described by logical rule systems.', author: 'terrence w. deacon' },
 ];
-

@@ -43,7 +43,7 @@ Apps with external data: **apod** (NASA API), **chess** (Chess.com), **xkcd** (X
 
 Apps with local storage: **email** (email-data.js; email-storage.js exists but is not loaded), **notes** (notes-storage.js), **todo** (todo-storage.js), **music-player** (music-player-storage.js). Storage modules expose `load()`, `save()`, `generateId()`, `getDefaultData()`.
 
-Simple apps: **home** (iframe wrapper), **artwork** (image lightbox), **philosophy-quotes** (random quote display), **terminal** (simulated filesystem with ls/cd/cat/view commands).
+Simple apps: **home** (iframe wrapper), **artwork** (image lightbox), **quotes** (random quote display), **terminal** (simulated filesystem with ls/cd/cat/view commands).
 
 ### API Layer (`api/`)
 
@@ -61,7 +61,7 @@ Vercel serverless functions — all are CORS-enabled GET proxies with 1-hour cac
 - **24-hour localStorage caching** with timestamp validation (APOD, XKCD).
 - **No build step**: all JS loads via `<script>` tags directly. No bundler, no transpiler.
 - **Split CSS**: `styles/` has `base.css`, `panel.css`, `tray-boxes.css`, `music.css`, `desktop-icons.css`, `windows.css`, `dock.css`, `responsive.css`. Original single file kept as `styles.css` for reference.
-- **Script load order** (in `index.html`): YouTube iframe API → `protection.js` → `env.js` → `base-app.js` → `window-manager.js` → `panel.js` → then app scripts (music-player-storage, music-player; todo-storage, todo; notes-storage, notes; email-data, email; b-bot-api, b-bot; philosophy-quotes-data, philosophy-quotes; xkcd; apod; chess; home; artwork; terminal-app, terminal). Env and BaseApp must load before any app that uses them.
+- **Script load order** (in `index.html`): YouTube iframe API → `protection.js` → `env.js` → `base-app.js` → `window-manager.js` → `panel.js` → then app scripts (music-player-storage, music-player; todo-storage, todo; notes-storage, notes; email-data, email; b-bot-api, b-bot; quotes-data, quotes; xkcd; apod; chess; home; artwork; terminal-app, terminal). Env and BaseApp must load before any app that uses them.
 
 ## Styles
 

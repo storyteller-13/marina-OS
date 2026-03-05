@@ -79,7 +79,7 @@
         height: auto;
     }
 
-    .philosophy-box {
+    .quotes-box {
         width: calc(100% - 40px);
         max-width: 360px;
         max-height: 75vh;
@@ -92,22 +92,22 @@
         overflow: hidden;
     }
 
-    .philosophy-box[style*="display: block"] {
+    .quotes-box[style*="display: block"] {
         display: flex !important;
     }
 
-    .philosophy-box-content {
+    .quotes-box-content {
         display: flex;
         flex-direction: column;
         min-height: 0;
         flex: 1;
     }
 
-    .philosophy-box:hover {
+    .quotes-box:hover {
         transform: translate(-50%, -50%) translateY(-4px) scale(1.02);
     }
 
-    .philosophy-quote-container {
+    .quotes-quote-container {
         flex: 1;
         min-height: 180px;
         max-height: 55vh;
@@ -652,7 +652,7 @@
         right: 6px;
     }
 
-    .philosophy-box {
+    .quotes-box {
         width: calc(100% - 24px);
         max-width: 360px;
         max-height: 75vh;
@@ -665,11 +665,11 @@
         overflow: hidden;
     }
 
-    .philosophy-box[style*="display: block"] {
+    .quotes-box[style*="display: block"] {
         display: flex !important;
     }
 
-    .philosophy-box-content {
+    .quotes-box-content {
         padding: 10px;
         display: flex;
         flex-direction: column;
@@ -677,7 +677,7 @@
         flex: 1;
     }
 
-    .philosophy-quote-container {
+    .quotes-quote-container {
         flex: 1;
         min-height: 160px;
         max-height: 50vh;
@@ -692,27 +692,27 @@
         justify-content: flex-start;
     }
 
-    .philosophy-quote-container::before,
-    .philosophy-quote-container::after {
+    .quotes-quote-container::before,
+    .quotes-quote-container::after {
         font-size: 32px;
     }
 
-    .philosophy-quote-container::before {
+    .quotes-quote-container::before {
         left: 8px;
         top: 4px;
     }
 
-    .philosophy-quote-container::after {
+    .quotes-quote-container::after {
         right: 8px;
         bottom: 4px;
     }
 
-    .philosophy-quote-author {
+    .quotes-quote-author {
         font-size: 12px;
         margin-top: 8px;
     }
 
-    .philosophy-box:hover {
+    .quotes-box:hover {
         transform: translate(-50%, -50%) translateY(-4px) scale(1.02);
     }
 
@@ -956,7 +956,7 @@
         width: 200px;
     }
 
-    .philosophy-box {
+    .quotes-box {
         bottom: auto;
         left: 50%;
         top: 50%;
@@ -968,22 +968,22 @@
         overflow: hidden;
     }
 
-    .philosophy-box[style*="display: block"] {
+    .quotes-box[style*="display: block"] {
         display: flex !important;
     }
 
-    .philosophy-box-content {
+    .quotes-box-content {
         display: flex;
         flex-direction: column;
         min-height: 0;
         flex: 1;
     }
 
-    .philosophy-box:hover {
+    .quotes-box:hover {
         transform: translate(-50%, -50%) translateY(-4px) scale(1.02);
     }
 
-    .philosophy-quote-container {
+    .quotes-quote-container {
         flex: 1;
         min-height: 140px;
         max-height: 45vh;
