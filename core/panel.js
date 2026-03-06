@@ -6,9 +6,11 @@ class Panel {
     // Constants
     static CLOCK_UPDATE_INTERVAL = 1000; // 1 second
     static MENU_CLOSE_DELAY = 100; // milliseconds
+    static SUBMENU_HIDE_DELAY = 150; // milliseconds
 
     constructor() {
         this.clockIntervalId = null;
+        this.submenuHideTimeoutId = null;
         this.init();
     }
 
@@ -69,26 +71,86 @@ class Panel {
             }
         });
 
-        // Close dropdown when clicking outside
+        // Close dropdown when clicking outside (dropdown contains submenus, so clicking in submenu still counts as inside)
         document.addEventListener('click', (e) => {
             if (!applicationsMenuButton.contains(e.target) &&
                 !applicationsDropdown.contains(e.target)) {
                 applicationsDropdown.classList.remove('show');
+                this.closeAllSubmenus();
             }
         });
 
-        // Close dropdown when clicking a menu item (event delegation)
+        // Close main dropdown only when clicking a leaf menu item (link inside a submenu), not when clicking a parent row
         applicationsDropdown.addEventListener('click', (e) => {
-            if (e.target.closest('.menu-item')) {
-                setTimeout(() => applicationsDropdown.classList.remove('show'), Panel.MENU_CLOSE_DELAY);
+            const link = e.target.closest('a.menu-item');
+            if (link && link.closest('.menu-submenu')) {
+                setTimeout(() => {
+                    applicationsDropdown.classList.remove('show');
+                    this.closeAllSubmenus();
+                }, Panel.MENU_CLOSE_DELAY);
             }
         });
+
+        this.setupSubmenus(applicationsDropdown);
+    }
+
+    /**
+     * Sets up hover and keyboard behavior for menu items that have submenus
+     */
+    setupSubmenus(applicationsDropdown) {
+        const parents = applicationsDropdown.querySelectorAll('.menu-item-has-submenu');
+        parents.forEach((parent) => {
+            const submenu = parent.querySelector('.menu-submenu');
+            if (!submenu) return;
+
+            const showSubmenu = () => {
+                if (this.submenuHideTimeoutId !== null) {
+                    clearTimeout(this.submenuHideTimeoutId);
+                    this.submenuHideTimeoutId = null;
+                }
+                this.closeAllSubmenus();
+                submenu.classList.add('show');
+            };
+
+            const hideSubmenu = () => {
+                this.submenuHideTimeoutId = setTimeout(() => {
+                    submenu.classList.remove('show');
+                    this.submenuHideTimeoutId = null;
+                }, Panel.SUBMENU_HIDE_DELAY);
+            };
+
+            parent.addEventListener('mouseenter', showSubmenu);
+            parent.addEventListener('mouseleave', () => hideSubmenu());
+            submenu.addEventListener('mouseenter', showSubmenu);
+            submenu.addEventListener('mouseleave', () => hideSubmenu());
+
+            // Keyboard: arrow right opens submenu, enter opens on focus
+            parent.addEventListener('focus', () => showSubmenu());
+            parent.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    showSubmenu();
+                }
+            });
+        });
+    }
+
+    /**
+     * Closes all submenus inside the applications dropdown
+     */
+    closeAllSubmenus() {
+        if (this.submenuHideTimeoutId !== null) {
+            clearTimeout(this.submenuHideTimeoutId);
+            this.submenuHideTimeoutId = null;
+        }
+        document.querySelectorAll('.menu-submenu.show').forEach((sub) => sub.classList.remove('show'));
     }
 
     /**
      * Closes all menu dropdowns
      */
     closeAllDropdowns() {
+        this.closeAllSubmenus();
         document.querySelectorAll('.menu-dropdown').forEach(dropdown => {
             dropdown.classList.remove('show');
         });
