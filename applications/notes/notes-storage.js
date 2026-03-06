@@ -53,6 +53,7 @@ class NotesStorage {
 <3                                                             <3
 <3               https://the-side-quest.vercel.app             <3
 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3
+
                 `)
             },
             {
