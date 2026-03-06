@@ -2,13 +2,6 @@
  * TodoStorage tests – load script in jsdom and assert load/save contract
  */
 import { describe, it, expect, beforeEach, beforeAll, vi } from 'vitest';
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const scriptPath = join(__dirname, '../applications/todo/todo-storage.js');
-const script = readFileSync(scriptPath, 'utf8');
 
 function makeFakeStorage() {
     const store = {};
@@ -22,16 +15,12 @@ function makeFakeStorage() {
     };
 }
 
-function loadTodoStorage() {
-    const run = new Function(script + '\nreturn TodoStorage;');
-    return run();
-}
-
 const TODOS_KEY = 'todos';
 
 describe('TodoStorage', () => {
-    beforeAll(() => {
+    beforeAll(async () => {
         vi.stubGlobal('localStorage', makeFakeStorage());
+        await import('../applications/todo/todo-storage.js');
     });
 
     beforeEach(() => {
@@ -39,14 +28,14 @@ describe('TodoStorage', () => {
     });
 
     it('defines TodoStorage class with load and save', () => {
-        const TodoStorage = loadTodoStorage();
+        const TodoStorage = window.TodoStorage;
         expect(TodoStorage).toBeDefined();
         expect(typeof TodoStorage.prototype.load).toBe('function');
         expect(typeof TodoStorage.prototype.save).toBe('function');
     });
 
     it('load() returns an array of todos with expected shape', () => {
-        const TodoStorage = loadTodoStorage();
+        const TodoStorage = window.TodoStorage;
         const storage = new TodoStorage();
         const todos = storage.load();
         expect(Array.isArray(todos)).toBe(true);
@@ -59,7 +48,7 @@ describe('TodoStorage', () => {
     });
 
     it('save() persists and load() returns saved data', () => {
-        const TodoStorage = loadTodoStorage();
+        const TodoStorage = window.TodoStorage;
         const storage = new TodoStorage();
         const todos = storage.load();
         todos[0].text = 'updated';

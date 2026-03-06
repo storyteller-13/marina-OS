@@ -2,13 +2,6 @@
  * NotesStorage tests – load script in jsdom and assert load/save contract
  */
 import { describe, it, expect, beforeEach, beforeAll, vi } from 'vitest';
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const scriptPath = join(__dirname, '../applications/notes/notes-storage.js');
-const script = readFileSync(scriptPath, 'utf8');
 
 function makeFakeStorage() {
     const store = {};
@@ -22,16 +15,12 @@ function makeFakeStorage() {
     };
 }
 
-function loadNotesStorage() {
-    const run = new Function(script + '\nreturn NotesStorage;');
-    return run();
-}
-
 const NOTES_KEY = 'notes-entries';
 
 describe('NotesStorage', () => {
-    beforeAll(() => {
+    beforeAll(async () => {
         vi.stubGlobal('localStorage', makeFakeStorage());
+        await import('../applications/notes/notes-storage.js');
     });
 
     beforeEach(() => {
@@ -39,14 +28,14 @@ describe('NotesStorage', () => {
     });
 
     it('defines NotesStorage class with load and save', () => {
-        const NotesStorage = loadNotesStorage();
+        const NotesStorage = window.NotesStorage;
         expect(NotesStorage).toBeDefined();
         expect(typeof NotesStorage.prototype.load).toBe('function');
         expect(typeof NotesStorage.prototype.save).toBe('function');
     });
 
     it('load() returns an array of entries with expected shape', () => {
-        const NotesStorage = loadNotesStorage();
+        const NotesStorage = window.NotesStorage;
         const storage = new NotesStorage();
         const entries = storage.load();
         expect(Array.isArray(entries)).toBe(true);
@@ -59,9 +48,31 @@ describe('NotesStorage', () => {
     });
 
     it('save() accepts array without throwing', () => {
-        const NotesStorage = loadNotesStorage();
+        const NotesStorage = window.NotesStorage;
         const storage = new NotesStorage();
         const entries = storage.load();
         expect(() => storage.save(entries)).not.toThrow();
+    });
+
+    it('save() returns early when given non-array', () => {
+        const NotesStorage = window.NotesStorage;
+        const storage = new NotesStorage();
+        expect(() => storage.save(null)).not.toThrow();
+        expect(() => storage.save({})).not.toThrow();
+    });
+
+    it('formatDate returns empty for null or invalid date', () => {
+        const NotesStorage = window.NotesStorage;
+        const storage = new NotesStorage();
+        expect(storage.formatDate(null)).toBe('');
+        expect(storage.formatDate('not-a-date')).toBe('');
+    });
+
+    it('formatDate returns formatted string for valid date', () => {
+        const NotesStorage = window.NotesStorage;
+        const storage = new NotesStorage();
+        const out = storage.formatDate('2026-03-07T00:00:00.000Z');
+        expect(out).toMatch(/\d{4}/);
+        expect(out).toMatch(/saturday|sunday|monday|tuesday|wednesday|thursday|friday/i);
     });
 });

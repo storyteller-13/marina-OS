@@ -10,11 +10,15 @@ build/
 coverage/
 .nyc_output/
 vitest.results.json
+*.lcov
 
 # Environment variables
 .env
 .env.local
 .env.*.local
+
+# Git hooks (local only)
+.husky/
 
 # IDE
 .vscode/
@@ -37,6 +41,7 @@ yarn-error.log*
 *.tmp
 *.temp
 .cache/
+.vitest/
 
+# macOS
 .DS_Store
-

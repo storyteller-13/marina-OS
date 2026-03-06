@@ -80,7 +80,7 @@ class ChessPanel {
     if (!data) return null;
     if (data.fen) return data.fen;
     if (data.puzzle?.fen) return data.puzzle.fen;
-    if (typeof data === 'string' && /^[rnbqkpRNBQKP1-8\/\s]+/.test(data)) return data.split(/\s/)[0];
+    if (typeof data === 'string' && /^[rnbqkpRNBQKP1-8/\s]+/.test(data)) return data.split(/\s/)[0];
     const pgnMatch = data.pgn?.match(/\bFEN\s+"([^"]+)"/);
     return pgnMatch ? pgnMatch[1] : null;
   }
