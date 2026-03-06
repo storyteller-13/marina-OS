@@ -2,20 +2,13 @@
  * Env tests – isLocalhost() and getApiBase() behavior
  */
 import { describe, it, expect, beforeAll, afterEach, vi } from 'vitest';
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const scriptPath = join(__dirname, '../core/env.js');
-const script = readFileSync(scriptPath, 'utf8');
 
 describe('Env', () => {
     let realLocation;
 
-    beforeAll(() => {
+    beforeAll(async () => {
         realLocation = window.location;
-        eval(script);
+        await import('../core/env.js');
     });
 
     afterEach(() => {

@@ -1,16 +1,17 @@
-.PHONY: help server install test test-watch test-ui test-coverage
+.PHONY: help server install test test-watch test-ui test-coverage clean
 
 PORT ?= 8088
 PYTHON := python3
 
 help:
 	@echo "vonsteinkirch.com — make targets:"
-	@echo "  make install     — npm install (also sets up git pre-commit hook to run tests)"
-	@echo "  make server     — dev server at http://localhost:$(PORT)"
-	@echo "  make test       — run tests once"
-	@echo "  make test-watch — vitest in watch mode"
-	@echo "  make test-ui    — vitest with UI"
+	@echo "  make install      — npm install (and pre-commit hook)"
+	@echo "  make server      — dev server at http://localhost:$(PORT)"
+	@echo "  make test        — run tests once"
+	@echo "  make test-watch  — vitest watch"
+	@echo "  make test-ui     — vitest UI"
 	@echo "  make test-coverage — vitest with coverage"
+	@echo "  make clean       — remove node_modules, coverage, caches"
 
 server:
 	@echo "⭐️ starting development server on http://localhost:$(PORT)"
@@ -34,3 +35,7 @@ test-ui: node_modules/.bin/vitest
 
 test-coverage: node_modules/.bin/vitest
 	bash -lc 'cd "$(CURDIR)" && ./node_modules/.bin/vitest run --coverage'
+
+clean:
+	rm -rf node_modules coverage .cache .vitest dist build .vite
+	@echo "Cleaned node_modules, coverage, caches, and build outputs."

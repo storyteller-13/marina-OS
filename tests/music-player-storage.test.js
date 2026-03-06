@@ -2,13 +2,6 @@
  * MusicPlayerStorage tests – load/save, getDefaultData, getPlaylist, ensureDefaultPlaylists
  */
 import { describe, it, expect, beforeEach, beforeAll, vi } from 'vitest';
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const scriptPath = join(__dirname, '../applications/music-player/music-player-storage.js');
-const script = readFileSync(scriptPath, 'utf8');
 
 function makeFakeStorage() {
     const store = {};
@@ -25,9 +18,9 @@ function makeFakeStorage() {
 const STORAGE_KEY = 'music-player-playlists';
 
 describe('MusicPlayerStorage', () => {
-    beforeAll(() => {
+    beforeAll(async () => {
         vi.stubGlobal('localStorage', makeFakeStorage());
-        eval(script);
+        await import('../applications/music-player/music-player-storage.js');
     });
 
     beforeEach(() => {
@@ -101,6 +94,35 @@ describe('MusicPlayerStorage', () => {
         const data = { playlists: [], currentPlaylistId: null };
         storage.ensureDefaultPlaylists(data);
         expect(data.playlists.length).toBeGreaterThan(0);
+        expect(data.currentPlaylistId).toBe('2026 reward');
+    });
+
+    it('load() uses getDefaultData when stored value is invalid JSON', () => {
+        localStorage.setItem(STORAGE_KEY, 'not valid json');
+        const storage = new window.MusicPlayerStorage();
+        const data = storage.load();
+        expect(data.playlists).toBeDefined();
+        expect(Array.isArray(data.playlists)).toBe(true);
+    });
+
+    it('setCurrentPlaylist does not update when playlist id does not exist', () => {
+        const storage = new window.MusicPlayerStorage();
+        const data = storage.load();
+        const before = data.currentPlaylistId;
+        storage.setCurrentPlaylist(data, 'nonexistent-id');
+        const raw = localStorage.getItem(STORAGE_KEY);
+        const parsed = JSON.parse(raw);
+        expect(parsed.currentPlaylistId).toBe(before);
+    });
+
+    it('ensureDefaultPlaylists migrates old playlist ids', () => {
+        const storage = new window.MusicPlayerStorage();
+        const data = {
+            playlists: [{ id: '2026-reward', name: 'old', songs: [] }],
+            currentPlaylistId: '2026-reward'
+        };
+        storage.ensureDefaultPlaylists(data);
+        expect(data.playlists[0].id).toBe('2026 reward');
         expect(data.currentPlaylistId).toBe('2026 reward');
     });
 });

@@ -2,28 +2,23 @@
  * WindowManager tests – load script in jsdom and assert behavior
  */
 import { describe, it, expect, beforeAll } from 'vitest';
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const scriptPath = join(__dirname, '../core/window-manager.js');
-const script = readFileSync(scriptPath, 'utf8');
 
 describe('WindowManager', () => {
-    beforeAll(() => {
-        // Minimal DOM so init() can run (querySelectorAll('.window'))
+    beforeAll(async () => {
         document.body.innerHTML = `
             <div class="window" id="test-window">
                 <div class="window-header"></div>
             </div>
+            <div class="window" id="notes-window">
+                <div class="window-header">
+                    <button class="control close"></button>
+                    <button class="control minimize"></button>
+                </div>
+                <div class="window-content">Notes content</div>
+            </div>
+            <div id="notes-dock-item" class="dock-item"></div>
         `;
-        // Run the script; it will set window.WindowManager when document.readyState !== 'loading'
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => eval(script));
-        } else {
-            eval(script);
-        }
+        await import('../core/window-manager.js');
     });
 
     it('exposes WindowManager on window after load', () => {
@@ -94,5 +89,37 @@ describe('WindowManager', () => {
         wm.minimize(el);
         expect(el.style.transform).toContain('translateY');
         expect(el.style.transform).toContain('scale(0.8)');
+    });
+
+    it('clicking .control.close closes window and clears dock active state', async () => {
+        const wm = window.WindowManager;
+        const notesWindow = document.getElementById('notes-window');
+        const dockItem = document.getElementById('notes-dock-item');
+        wm.open(notesWindow, dockItem);
+        expect(notesWindow.style.display).toBe('block');
+        dockItem.classList.add('active');
+        const closeBtn = notesWindow.querySelector('.control.close');
+        closeBtn.click();
+        await new Promise((r) => setTimeout(r, 250));
+        expect(notesWindow.style.display).toBe('none');
+        expect(dockItem.classList.contains('active')).toBe(false);
+    });
+
+    it('clicking .control.minimize minimizes window', () => {
+        const notesWindow = document.getElementById('notes-window');
+        const minimizeBtn = notesWindow.querySelector('.control.minimize');
+        notesWindow.style.display = 'block';
+        minimizeBtn.click();
+        expect(notesWindow.style.transform).toContain('translateY');
+    });
+
+    it('clicking .window-content (not on control) brings window to front', () => {
+        const wm = window.WindowManager;
+        const notesWindow = document.getElementById('notes-window');
+        const content = notesWindow.querySelector('.window-content');
+        const before = parseInt(notesWindow.style.zIndex || '0', 10) || 0;
+        content.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+        const after = parseInt(notesWindow.style.zIndex, 10);
+        expect(after).toBeGreaterThan(before);
     });
 });

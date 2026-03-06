@@ -1,19 +1,12 @@
 /**
  * Panel tests – PanelClass clock and menu helpers (no full DOM menu tree)
  */
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const scriptPath = join(__dirname, '../core/panel.js');
-const script = readFileSync(scriptPath, 'utf8');
+import { describe, it, expect, afterEach, vi } from 'vitest';
 
 describe('Panel', () => {
-    beforeAll(() => {
+    beforeAll(async () => {
         document.body.innerHTML = '<div class="clock"></div>';
-        eval(script);
+        await import('../core/panel.js');
     });
 
     afterEach(() => {
@@ -50,6 +43,56 @@ describe('Panel', () => {
             expect(panel.clockIntervalId).toBeTruthy();
             vi.advanceTimersByTime(2000);
             vi.useRealTimers();
+        });
+
+        it('updateClock returns early when clock element is missing', () => {
+            document.body.innerHTML = '';
+            const panel = new window.PanelClass();
+            expect(() => panel.updateClock()).not.toThrow();
+        });
+    });
+
+    describe('setupApplicationsMenu and setupSubmenus', () => {
+        it('setupApplicationsMenu attaches to menu DOM without throwing', () => {
+            document.body.innerHTML = `
+                <div class="clock"></div>
+                <button id="applications-menu-button">Apps</button>
+                <div id="applications-dropdown" class="menu-dropdown">
+                    <div class="menu-item-has-submenu">
+                        <span>Submenu</span>
+                        <div class="menu-submenu">
+                            <a href="#" class="menu-item">Item</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            const panel = new window.PanelClass();
+            expect(() => panel.setupApplicationsMenu()).not.toThrow();
+            expect(document.getElementById('applications-dropdown')).toBeTruthy();
+        });
+
+        it('mouseenter on parent shows submenu, mouseleave hides after delay', async () => {
+            document.body.innerHTML = `
+                <div class="clock"></div>
+                <button id="applications-menu-button">Apps</button>
+                <div id="applications-dropdown" class="menu-dropdown">
+                    <div class="menu-item-has-submenu">
+                        <span>Submenu</span>
+                        <div class="menu-submenu">
+                            <a href="#" class="menu-item">Item</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            const panel = new window.PanelClass();
+            panel.setupApplicationsMenu();
+            const parent = document.querySelector('.menu-item-has-submenu');
+            const submenu = document.querySelector('.menu-submenu');
+            parent.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+            expect(submenu.classList.contains('show')).toBe(true);
+            parent.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
+            await new Promise((r) => setTimeout(r, 200));
+            expect(submenu.classList.contains('show')).toBe(false);
         });
     });
 

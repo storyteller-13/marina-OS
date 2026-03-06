@@ -2,23 +2,14 @@
  * BaseApp tests – load script in jsdom and assert init/open/close behavior
  */
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const scriptPath = join(__dirname, '../core/base-app.js');
-const script = readFileSync(scriptPath, 'utf8');
 
 describe('BaseApp', () => {
-    let BaseApp;
     let app;
     let windowEl;
     let dockItem;
 
-    beforeAll(() => {
-        eval(script);
-        BaseApp = window.BaseApp;
+    beforeAll(async () => {
+        await import('../core/base-app.js');
     });
 
     beforeEach(() => {

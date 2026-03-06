@@ -10,6 +10,7 @@ build/
 coverage/
 .nyc_output/
 vitest.results.json
+*.lcov
 
 # Environment variables
 .env
@@ -37,6 +38,4 @@ yarn-error.log*
 *.tmp
 *.temp
 .cache/
-
-.DS_Store
-
+.vitest/
