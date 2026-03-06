@@ -1,2 +1,3 @@
 #!/usr/bin/env sh
+# Run full test suite before commit (env, storage, core, panel, protection, vercel config)
 npm test

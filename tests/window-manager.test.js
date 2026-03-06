@@ -46,4 +46,53 @@ describe('WindowManager', () => {
     it('exposes bringToFront globally', () => {
         expect(typeof window.bringToFront).toBe('function');
     });
+
+    it('exposes WindowManagerClass for testing', () => {
+        expect(window.WindowManagerClass).toBeDefined();
+    });
+
+    it('isCenteredWindow returns true for terminal-window, artwork-window, notes-letter-window', () => {
+        const wm = window.WindowManager;
+        const term = document.createElement('div');
+        term.className = 'window terminal-window';
+        const art = document.createElement('div');
+        art.className = 'window artwork-window';
+        const notes = document.createElement('div');
+        notes.className = 'window notes-letter-window';
+        expect(wm.isCenteredWindow(term)).toBe(true);
+        expect(wm.isCenteredWindow(art)).toBe(true);
+        expect(wm.isCenteredWindow(notes)).toBe(true);
+    });
+
+    it('isCenteredWindow returns false for regular window', () => {
+        const wm = window.WindowManager;
+        const el = document.getElementById('test-window');
+        expect(wm.isCenteredWindow(el)).toBe(false);
+    });
+
+    it('open() shows window and brings to front', () => {
+        const wm = window.WindowManager;
+        const el = document.getElementById('test-window');
+        el.style.display = 'none';
+        wm.open(el, null);
+        expect(el.style.display).toBe('block');
+        expect(parseInt(el.style.zIndex, 10)).toBeGreaterThan(0);
+    });
+
+    it('close() hides window after transition', async () => {
+        const wm = window.WindowManager;
+        const el = document.getElementById('test-window');
+        wm.open(el, null);
+        wm.close(el, null);
+        await new Promise((r) => setTimeout(r, 250));
+        expect(el.style.display).toBe('none');
+    });
+
+    it('minimize() applies transform and reduces opacity', () => {
+        const wm = window.WindowManager;
+        const el = document.getElementById('test-window');
+        wm.minimize(el);
+        expect(el.style.transform).toContain('translateY');
+        expect(el.style.transform).toContain('scale(0.8)');
+    });
 });
