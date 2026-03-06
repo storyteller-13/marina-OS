@@ -17,9 +17,8 @@ vitest.results.json
 .env.local
 .env.*.local
 
-# IDE (keep shared ESLint settings)
-.vscode/*
-!.vscode/settings.json
+# IDE
+.vscode/
 .idea/
 *.swp
 *.swo
