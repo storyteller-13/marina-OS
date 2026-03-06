@@ -1,7 +1,7 @@
 /**
  * TodoApp tests – init, render, add/toggle/delete, badge, escapeHtml
  */
-import { describe, it, expect, beforeAll, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, beforeAll, beforeEach, vi } from 'vitest';
 
 function makeFakeStorage() {
     const store = {};

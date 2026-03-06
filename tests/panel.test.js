@@ -85,7 +85,6 @@ describe('Panel', () => {
             `;
             const panel = new window.PanelClass();
             panel.setupApplicationsMenu();
-            const btn = document.getElementById('applications-menu-button');
             const dropdown = document.getElementById('applications-dropdown');
             expect(dropdown.classList.contains('show')).toBe(false);
             // Simulate opening: same logic as button handler when dropdown was closed

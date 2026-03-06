@@ -213,7 +213,6 @@ describe('WindowManager', () => {
         document.body.appendChild(win);
         wm.makeDraggable(win);
         const header = win.querySelector('.window-header');
-        const getBoundingClientRect = win.getBoundingClientRect.bind(win);
         vi.spyOn(win, 'getBoundingClientRect').mockReturnValue({
             left: 400,
             top: 300,
