@@ -49,6 +49,7 @@ a.menu-button {
     justify-content: center;
     position: relative;
     overflow: visible;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .menu-button.cherry-icon svg {
@@ -77,22 +78,26 @@ a.menu-button {
     z-index: -1;
 }
 
-.menu-button.cherry-icon:hover {
-    background: rgba(57, 255, 20, 0.2);
-    box-shadow: 0 0 20px rgba(57, 255, 20, 0.6), 0 0 40px rgba(57, 255, 20, 0.4);
+.menu-button.cherry-icon:hover,
+.menu-button.cherry-icon:focus,
+.menu-button.cherry-icon:focus-visible {
+    background: transparent !important;
+    outline: none;
+    border: none;
+    box-shadow: none;
     transform: scale(1.05);
+}
+
+/* Hide the ::before glow on hover so it can't render as a box */
+.menu-button.cherry-icon:hover::before {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 .menu-button.cherry-icon:hover svg {
     filter: drop-shadow(0 0 8px rgba(57, 255, 20, 1)) drop-shadow(0 0 16px rgba(57, 255, 20, 0.8)) drop-shadow(0 0 24px rgba(57, 255, 20, 0.6));
     animation: star-rotate 6s linear infinite, star-pulse 1.2s ease-in-out infinite;
-}
-
-.menu-button.cherry-icon:hover::before {
-    width: 50px;
-    height: 50px;
-    background: radial-gradient(circle, rgba(57, 255, 20, 0.5) 0%, transparent 70%);
-    animation: star-glow-pulse 1s ease-in-out infinite;
 }
 
 .menu-container {
