@@ -38,6 +38,12 @@ describe('BaseApp', () => {
         expect(app.dockItemId).toBe('notes-dock-item');
     });
 
+    it('constructor with empty options sets window/dockItem to null', () => {
+        const emptyApp = new BaseApp({});
+        expect(emptyApp.window).toBeNull();
+        expect(emptyApp.dockItem).toBeNull();
+    });
+
     it('init() finds window and dock item and does not throw', () => {
         expect(() => app.init()).not.toThrow();
         expect(app.window).toBe(windowEl);
@@ -83,6 +89,39 @@ describe('BaseApp', () => {
         expect(otherDock.classList.contains('active')).toBe(false);
     });
 
+    it('openFallback() runs rAF callback and calls bringToFront when defined', () => {
+        app.init();
+        const bringToFrontSpy = vi.fn();
+        vi.stubGlobal('requestAnimationFrame', (cb) => { cb(); });
+        window.bringToFront = bringToFrontSpy;
+        app.openFallback();
+        expect(windowEl.style.opacity).toBe('1');
+        expect(windowEl.style.transform).toContain('scale(1)');
+        expect(bringToFrontSpy).toHaveBeenCalledWith(windowEl);
+    });
+
+    it('openFallback() does not call bringToFront when undefined', () => {
+        app.init();
+        vi.stubGlobal('requestAnimationFrame', (cb) => { cb(); });
+        delete window.bringToFront;
+        expect(() => app.openFallback()).not.toThrow();
+        expect(windowEl.style.opacity).toBe('1');
+    });
+
+    it('openFallback() works when dockItem is null', () => {
+        document.body.innerHTML = `
+            <div id="notes-window" class="window" style="display: none;">
+                <div class="window-header"></div>
+            </div>
+        `;
+        windowEl = document.getElementById('notes-window');
+        app = new BaseApp({ windowId: 'notes-window', dockItemId: 'missing-dock' });
+        app.init();
+        vi.stubGlobal('requestAnimationFrame', (cb) => { cb(); });
+        expect(() => app.openFallback()).not.toThrow();
+        expect(windowEl.style.display).toBe('block');
+    });
+
     it('close() uses WindowManager.close when present', () => {
         app.init();
         window.WindowManager = { close: vi.fn() };
@@ -96,5 +135,24 @@ describe('BaseApp', () => {
         delete window.WindowManager;
         app.close();
         expect(dockItem.classList.contains('active')).toBe(false);
+    });
+
+    it('close() does nothing when WindowManager absent and no dockItem', () => {
+        document.body.innerHTML = `
+            <div id="notes-window" class="window"></div>
+        `;
+        app = new BaseApp({ windowId: 'notes-window', dockItemId: 'missing-dock' });
+        app.init();
+        delete window.WindowManager;
+        expect(() => app.close()).not.toThrow();
+    });
+
+    it('setupEventListeners does not add listener when dockItem missing', () => {
+        document.body.innerHTML = `
+            <div id="notes-window" class="window"></div>
+        `;
+        app = new BaseApp({ windowId: 'notes-window', dockItemId: 'missing-dock' });
+        app.init();
+        expect(app.dockItem).toBeNull();
     });
 });

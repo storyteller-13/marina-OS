@@ -90,4 +90,23 @@ describe('Protection', () => {
         document.dispatchEvent(e);
         expect(preventSpy).toHaveBeenCalled();
     });
+
+    it('unblocked keydown does not call preventDefault', () => {
+        const e = new KeyboardEvent('keydown', { key: 'a', bubbles: true });
+        const preventSpy = vi.spyOn(e, 'preventDefault');
+        document.dispatchEvent(e);
+        expect(preventSpy).not.toHaveBeenCalled();
+    });
+
+    it('dragstart on non-IMG target does not call preventDefault', () => {
+        const div = document.createElement('div');
+        div.id = 'non-img';
+        document.body.appendChild(div);
+        const e = new Event('dragstart', { bubbles: true });
+        Object.defineProperty(e, 'target', { value: div, configurable: true });
+        const preventSpy = vi.spyOn(e, 'preventDefault');
+        document.dispatchEvent(e);
+        expect(preventSpy).not.toHaveBeenCalled();
+        document.body.removeChild(div);
+    });
 });

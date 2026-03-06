@@ -26,6 +26,11 @@ describe('Env', () => {
             expect(window.Env.isLocalhost()).toBe(true);
         });
 
+        it('returns true for empty hostname', () => {
+            vi.stubGlobal('location', { ...realLocation, hostname: '' });
+            expect(window.Env.isLocalhost()).toBe(true);
+        });
+
         it('returns false for production hostname', () => {
             vi.stubGlobal('location', { ...realLocation, hostname: 'example.com' });
             expect(window.Env.isLocalhost()).toBe(false);

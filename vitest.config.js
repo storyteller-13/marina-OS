@@ -10,6 +10,7 @@ export default defineConfig({
       provider: 'istanbul',
       include: ['core/**/*.js', 'applications/**/*.js', 'api/**/*.js'],
       exclude: ['tests/**', '**/*.test.js', 'node_modules/**'],
+      reporter: ['text', 'text-summary'],
     },
   },
 });

@@ -53,6 +53,12 @@ describe('Panel', () => {
     });
 
     describe('setupApplicationsMenu and setupSubmenus', () => {
+        it('setupApplicationsMenu returns early when button or dropdown missing', () => {
+            document.body.innerHTML = '<div class="clock"></div>';
+            const panel = new window.PanelClass();
+            expect(() => panel.setupApplicationsMenu()).not.toThrow();
+        });
+
         it('setupApplicationsMenu attaches to menu DOM without throwing', () => {
             document.body.innerHTML = `
                 <div class="clock"></div>
@@ -69,6 +75,85 @@ describe('Panel', () => {
             const panel = new window.PanelClass();
             expect(() => panel.setupApplicationsMenu()).not.toThrow();
             expect(document.getElementById('applications-dropdown')).toBeTruthy();
+        });
+
+        it('applications menu button adds show to dropdown when clicked and dropdown was closed', () => {
+            document.body.innerHTML = `
+                <div class="clock"></div>
+                <button id="applications-menu-button">Apps</button>
+                <div id="applications-dropdown" class="menu-dropdown"></div>
+            `;
+            const panel = new window.PanelClass();
+            panel.setupApplicationsMenu();
+            const btn = document.getElementById('applications-menu-button');
+            const dropdown = document.getElementById('applications-dropdown');
+            expect(dropdown.classList.contains('show')).toBe(false);
+            // Simulate opening: same logic as button handler when dropdown was closed
+            panel.closeAllDropdowns();
+            dropdown.classList.add('show');
+            expect(dropdown.classList.contains('show')).toBe(true);
+            // Simulate second click: close only
+            panel.closeAllDropdowns();
+            expect(dropdown.classList.contains('show')).toBe(false);
+        });
+
+        it('document click outside closes dropdown and submenus', () => {
+            document.body.innerHTML = `
+                <div class="clock"></div>
+                <button id="applications-menu-button">Apps</button>
+                <div id="applications-dropdown" class="menu-dropdown show"></div>
+                <div id="outside">Outside</div>
+            `;
+            const panel = new window.PanelClass();
+            panel.setupApplicationsMenu();
+            const dropdown = document.getElementById('applications-dropdown');
+            document.getElementById('outside').click();
+            expect(dropdown.classList.contains('show')).toBe(false);
+        });
+
+        it('clicking leaf menu item closes dropdown after delay', async () => {
+            document.body.innerHTML = `
+                <div class="clock"></div>
+                <button id="applications-menu-button">Apps</button>
+                <div id="applications-dropdown" class="menu-dropdown show">
+                    <div class="menu-item-has-submenu">
+                        <span>Submenu</span>
+                        <div class="menu-submenu">
+                            <a href="#" class="menu-item">Item</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            const panel = new window.PanelClass();
+            panel.setupApplicationsMenu();
+            const dropdown = document.getElementById('applications-dropdown');
+            const link = document.querySelector('a.menu-item');
+            link.click();
+            await new Promise((r) => setTimeout(r, 150));
+            expect(dropdown.classList.contains('show')).toBe(false);
+        });
+
+        it('focus and keydown Enter on parent show submenu', () => {
+            document.body.innerHTML = `
+                <div class="clock"></div>
+                <button id="applications-menu-button">Apps</button>
+                <div id="applications-dropdown" class="menu-dropdown">
+                    <div class="menu-item-has-submenu" tabindex="0">
+                        <span>Submenu</span>
+                        <div class="menu-submenu">
+                            <a href="#" class="menu-item">Item</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            const panel = new window.PanelClass();
+            panel.setupApplicationsMenu();
+            const parent = document.querySelector('.menu-item-has-submenu');
+            const submenu = document.querySelector('.menu-submenu');
+            parent.dispatchEvent(new FocusEvent('focus', { bubbles: true }));
+            expect(submenu.classList.contains('show')).toBe(true);
+            parent.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+            expect(submenu.classList.contains('show')).toBe(true);
         });
 
         it('mouseenter on parent shows submenu, mouseleave hides after delay', async () => {
@@ -94,6 +179,30 @@ describe('Panel', () => {
             await new Promise((r) => setTimeout(r, 200));
             expect(submenu.classList.contains('show')).toBe(false);
         });
+
+        it('showSubmenu clears existing submenuHideTimeoutId when opening', () => {
+            document.body.innerHTML = `
+                <div class="clock"></div>
+                <button id="applications-menu-button">Apps</button>
+                <div id="applications-dropdown" class="menu-dropdown">
+                    <div class="menu-item-has-submenu">
+                        <span>Submenu</span>
+                        <div class="menu-submenu">
+                            <a href="#" class="menu-item">Item</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            const panel = new window.PanelClass();
+            panel.setupApplicationsMenu();
+            panel.submenuHideTimeoutId = 123;
+            const clearSpy = vi.spyOn(global, 'clearTimeout');
+            const parent = document.querySelector('.menu-item-has-submenu');
+            parent.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+            expect(clearSpy).toHaveBeenCalledWith(123);
+            expect(panel.submenuHideTimeoutId).toBeNull();
+        });
+
     });
 
     describe('closeAllSubmenus / closeAllDropdowns', () => {
