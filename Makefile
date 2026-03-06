@@ -1,4 +1,4 @@
-.PHONY: help server install test test-watch test-ui test-coverage clean
+.PHONY: help server install lint test test-watch test-ui coverage clean
 
 PORT ?= 8088
 PYTHON := python3
@@ -7,6 +7,7 @@ help:
 	@echo "vonsteinkirch.com — make targets:"
 	@echo "  make install      — npm install (and pre-commit hook)"
 	@echo "  make server      — dev server at http://localhost:$(PORT)"
+	@echo "  make lint        — run ESLint"
 	@echo "  make test        — run tests once"
 	@echo "  make test-watch  — vitest watch"
 	@echo "  make test-ui     — vitest UI"
@@ -23,6 +24,9 @@ node_modules/.bin/vitest: package.json package-lock.json
 
 install: node_modules/.bin/vitest
 
+lint: node_modules/.bin/vitest
+	bash -lc 'cd "$(CURDIR)" && npm run lint'
+
 # Use login shell so nvm/fnm (and node) are on PATH
 test: node_modules/.bin/vitest
 	bash -lc 'cd "$(CURDIR)" && ./node_modules/.bin/vitest run'
@@ -33,7 +37,7 @@ test-watch: node_modules/.bin/vitest
 test-ui: node_modules/.bin/vitest
 	bash -lc 'cd "$(CURDIR)" && ./node_modules/.bin/vitest --ui'
 
-test-coverage: node_modules/.bin/vitest
+coverage: node_modules/.bin/vitest
 	bash -lc 'cd "$(CURDIR)" && ./node_modules/.bin/vitest run --coverage'
 
 clean:

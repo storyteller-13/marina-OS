@@ -114,7 +114,6 @@ describe('WindowManager', () => {
     });
 
     it('clicking .window-content (not on control) brings window to front', () => {
-        const wm = window.WindowManager;
         const notesWindow = document.getElementById('notes-window');
         const content = notesWindow.querySelector('.window-content');
         const before = parseInt(notesWindow.style.zIndex || '0', 10) || 0;
