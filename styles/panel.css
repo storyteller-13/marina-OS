@@ -122,7 +122,7 @@ a.menu-button {
 }
 
 .menu-group {
-    padding: 4px 0;
+    padding: 2px 0;
 }
 
 .menu-group-label {
@@ -139,7 +139,7 @@ a.menu-button {
 .menu-item {
     display: flex;
     align-items: center;
-    padding: 10px 18px;
+    padding: 6px 18px;
     color: #bbf7d0;
     font-size: 14px;
     text-decoration: none;
