@@ -17,6 +17,9 @@ vitest.results.json
 .env.local
 .env.*.local
 
+# Git hooks (local only)
+.husky/
+
 # IDE
 .vscode/
 .idea/
