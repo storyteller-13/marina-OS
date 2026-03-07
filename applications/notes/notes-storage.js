@@ -137,7 +137,7 @@ she saw herself
                 title: 'denver\'s love && hate',
                 content: this.cleanContent(`
 
-in astrology, there is something called astrocartography, which allows you to see how your birth chart overlays the earth’s ecliptic - with each planet represented as a line crossing specific cities. in theory, when you visit these places, you feel “the influence” of that planet’s energy.
+in astrology, there is a technique called astrocartography that maps your birth chart onto the earth, showing where each planet was rising, setting, or at the top of the sky when you were born. in theory, with each planet represented as a line crossing specific cities, when you visit these places, you feel “the influence” of that planet’s energy.
 
 my uranus line crosses denver, so i should expect many unexpected events, disturbances, and things not going as planned. i must admit, from my experience so far, this seems accurate.
 
