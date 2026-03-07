@@ -83,19 +83,6 @@
                                     </span>
                                     <span class="menu-item-text">home</span>
                                 </a>
-                                <a href="javascript:void(0)" class="menu-item" onclick="window.openEmailWindow(); return false;">
-                                    <span class="menu-item-icon">
-                                        <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2 4 L8 9 L14 4 Z" fill="#a855f7" opacity="0.8"/>
-                                            <rect x="2" y="4.5" width="12" height="9" rx="1.5" fill="none" stroke="#a855f7" stroke-width="1.2"/>
-                                            <rect x="2" y="4.5" width="12" height="5" rx="1.5" fill="rgba(168, 85, 247, 0.15)"/>
-                                            <path d="M11.5 5.2 C11.5 4.8 11.8 4.5 12.2 4.5 C12.6 4.5 12.9 4.8 12.9 5.2 C12.9 5.6 12.2 6.3 12.2 6.3 C12.2 6.3 11.5 5.6 11.5 5.2 Z" fill="#ff69b4" opacity="0.95"/>
-                                            <path d="M11.6 5.2 C11.6 4.95 11.85 4.7 12.1 4.7 C12.35 4.7 12.6 4.95 12.6 5.2 C12.6 5.45 12.1 5.95 12.1 5.95 C12.1 5.95 11.6 5.45 11.6 5.2 Z" fill="#ff1493" opacity="0.8"/>
-                                            <circle cx="3.5" cy="6.5" r="0.4" fill="#a855f7" opacity="0.6"/>
-                                        </svg>
-                                    </span>
-                                    <span class="menu-item-text">messages</span>
-                                </a>
                                 <a href="javascript:void(0)" class="menu-item" onclick="window.openBBotWindow(); return false;">
                                     <span class="menu-item-icon">
                                         <svg width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -120,6 +107,19 @@
                                         </svg>
                                     </span>
                                     <span class="menu-item-text">terminal</span>
+                                </a>
+                                <a href="javascript:void(0)" class="menu-item" onclick="window.openEmailWindow(); return false;">
+                                    <span class="menu-item-icon">
+                                        <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 4 L8 9 L14 4 Z" fill="#a855f7" opacity="0.8"/>
+                                            <rect x="2" y="4.5" width="12" height="9" rx="1.5" fill="none" stroke="#a855f7" stroke-width="1.2"/>
+                                            <rect x="2" y="4.5" width="12" height="5" rx="1.5" fill="rgba(168, 85, 247, 0.15)"/>
+                                            <path d="M11.5 5.2 C11.5 4.8 11.8 4.5 12.2 4.5 C12.6 4.5 12.9 4.8 12.9 5.2 C12.9 5.6 12.2 6.3 12.2 6.3 C12.2 6.3 11.5 5.6 11.5 5.2 Z" fill="#ff69b4" opacity="0.95"/>
+                                            <path d="M11.6 5.2 C11.6 4.95 11.85 4.7 12.1 4.7 C12.35 4.7 12.6 4.95 12.6 5.2 C12.6 5.45 12.1 5.95 12.1 5.95 C12.1 5.95 11.6 5.45 11.6 5.2 Z" fill="#ff1493" opacity="0.8"/>
+                                            <circle cx="3.5" cy="6.5" r="0.4" fill="#a855f7" opacity="0.6"/>
+                                        </svg>
+                                    </span>
+                                    <span class="menu-item-text">lovemeter</span>
                                 </a>
                             </div>
                         </div>
@@ -525,7 +525,7 @@
             </div>
         </div>
 
-        <!-- Email Window -->
+        <!-- Lovemeter Window -->
         <div class="window email-window" id="email-window" style="display: none;">
             <div class="window-header">
                 <div class="window-controls">
@@ -543,84 +543,19 @@
                             <circle cx="3.5" cy="6.5" r="0.4" fill="#a855f7" opacity="0.6"/>
                         </svg>
                     </span>
-                    mail
+                    lovemeter
                 </div>
             </div>
             <div class="window-content">
-                <div class="email-app">
-                    <div class="email-toolbar">
-                        <button class="email-btn" data-folder="inbox" title="inbox">
-                            <span>📥</span> inbox
-                        </button>
-                        <button class="email-btn" data-folder="sent" title="sent">
-                            <span>📤</span> sent
-                        </button>
-                        <button class="email-btn" data-folder="drafts" title="drafts">
-                            <span>📝</span> drafts
-                        </button>
-                        <button class="email-btn" data-folder="friends" title="friends">
-                            <span>💜</span> friends
-                        </button>
-                        <button class="email-btn" data-folder="trash" title="trash">
-                            <span>
-                                <svg width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3 4 L3 13 L13 13 L13 4 L11 4 L11 3 L9 3 L9 2 L7 2 L7 3 L5 3 L5 4 Z" fill="#1a1a2e" stroke="#a855f7" stroke-width="1.2" stroke-linejoin="round"/>
-                                    <path d="M3 4 L3 13 L13 13 L13 4" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1.2"/>
-                                    <path d="M5 6 L5 11 M7 6 L7 11 M9 6 L9 11 M11 6 L11 11" stroke="#a855f7" stroke-width="0.8" opacity="0.6" stroke-linecap="round"/>
-                                </svg>
-                            </span> trash
-                        </button>
-                    </div>
-                    <div class="email-layout">
-                        <div class="email-sidebar">
-                            <div class="email-folder active" data-folder="inbox">
-                                <span class="folder-icon">📥</span>
-                                <span class="folder-name">inbox</span>
-                                <span class="folder-count">0</span>
-                            </div>
-                            <div class="email-folder" data-folder="sent">
-                                <span class="folder-icon">📤</span>
-                                <span class="folder-name">sent</span>
-                                <span class="folder-count">0</span>
-                            </div>
-                            <div class="email-folder" data-folder="drafts">
-                                <span class="folder-icon">📝</span>
-                                <span class="folder-name">drafts</span>
-                                <span class="folder-count">0</span>
-                            </div>
-                            <div class="email-folder" data-folder="friends">
-                                <span class="folder-icon">💜</span>
-                                <span class="folder-name">friends</span>
-                                <span class="folder-count">0</span>
-                            </div>
-                            <div class="email-folder" data-folder="trash">
-                                <span class="folder-icon">
-                                    <svg width="14" height="14" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3 4 L3 13 L13 13 L13 4 L11 4 L11 3 L9 3 L9 2 L7 2 L7 3 L5 3 L5 4 Z" fill="#1a1a2e" stroke="#a855f7" stroke-width="1.2" stroke-linejoin="round"/>
-                                        <path d="M3 4 L3 13 L13 13 L13 4" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1.2"/>
-                                        <path d="M5 6 L5 11 M7 6 L7 11 M9 6 L9 11 M11 6 L11 11" stroke="#a855f7" stroke-width="0.8" opacity="0.6" stroke-linecap="round"/>
-                                    </svg>
-                                </span>
-                                <span class="folder-name">trash</span>
-                                <span class="folder-count">0</span>
-                            </div>
-                        </div>
-                        <div class="email-main">
-                            <div class="email-list" id="email-list">
-                                <div class="email-empty">
-                                    <div class="empty-icon">📭</div>
-                                    <div class="empty-text">no emails yet</div>
-                                </div>
-                            </div>
-                            <div class="email-view" id="email-view" style="display: none;">
-                                <div class="email-view-header">
-                                    <button class="back-btn" id="back-to-list">← back</button>
-                                </div>
-                                <div class="email-view-content" id="email-view-content">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="home-container">
+                    <iframe
+                        id="email-iframe"
+                        width="100%"
+                        height="100%"
+                        src="https://donationvonsteinkirchcom.vercel.app/"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -950,7 +885,6 @@
                         <circle cx="3.5" cy="6.5" r="0.4" fill="#a855f7" opacity="0.6"/>
                     </svg>
                 </div>
-                <span class="email-count-badge" id="email-count-badge" style="display: none;">0</span>
             </a>
         </div>
     </div>
@@ -975,8 +909,7 @@
     <script src="applications/notes/notes-storage.js"></script>
     <script src="applications/notes/notes.js"></script>
 
-    <!-- Email App -->
-    <script src="applications/email/email-data.js"></script>
+    <!-- Lovemeter App (iframe window, like home) -->
     <script src="applications/email/email.js"></script>
 
     <!-- B-Bot App -->
