@@ -34,6 +34,10 @@ describe('vercel.json', () => {
         expect(keys).toContain('Referrer-Policy');
         expect(keys).toContain('Permissions-Policy');
         expect(keys).toContain('Strict-Transport-Security');
+        expect(keys).toContain('Content-Security-Policy');
+        expect(keys).toContain('Cross-Origin-Opener-Policy');
+        expect(keys).toContain('Cross-Origin-Resource-Policy');
+        expect(keys).toContain('X-Permitted-Cross-Domain-Policies');
     });
 
     it('sets X-Content-Type-Options to nosniff', () => {
@@ -46,6 +50,14 @@ describe('vercel.json', () => {
         const catchAll = config.headers.find((h) => h.source === '/(.*)');
         const h = catchAll.headers.find((x) => x.key === 'X-Frame-Options');
         expect(h.value).toBe('DENY');
+    });
+
+    it('sets a restrictive Content-Security-Policy', () => {
+        const catchAll = config.headers.find((h) => h.source === '/(.*)');
+        const h = catchAll.headers.find((x) => x.key === 'Content-Security-Policy');
+        expect(h.value).toContain("default-src 'self'");
+        expect(h.value).toContain("object-src 'none'");
+        expect(h.value).toContain("base-uri 'self'");
     });
 
     it('has filesystem then catch-all route for SPA', () => {
