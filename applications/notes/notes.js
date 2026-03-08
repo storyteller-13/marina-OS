@@ -169,12 +169,16 @@ class NotesApp extends BaseApp {
         const dateEl = document.getElementById('letter-date');
         const titleEl = document.getElementById('letter-title');
         const contentEl = document.getElementById('letter-content');
+        const containerEl = document.querySelector('.letter-container');
 
         if (dateEl) dateEl.textContent = date;
         if (titleEl) titleEl.textContent = entry.title || '';
         if (contentEl) {
             contentEl.innerHTML = this.formatContent(entry.content || '');
             contentEl.classList.toggle('letter-content--italic', entry.italic === true);
+        }
+        if (containerEl) {
+            containerEl.classList.toggle('letter-container--ascii', entry.asciiArt === true);
         }
     }
 

@@ -1065,7 +1065,7 @@ a.file-item {
     padding: 20px;
     background: rgba(10, 5, 15, 0.9);
     overflow-y: auto;
-    overflow-x: visible;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -1084,7 +1084,7 @@ a.file-item {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .letter-paper::before {
@@ -1114,7 +1114,7 @@ a.file-item {
     min-height: 0;
     display: flex;
     flex-direction: column;
-    overflow: visible;
+    overflow: hidden;
     max-width: 100%;
 }
 
@@ -1134,17 +1134,37 @@ a.file-item {
     font-style: italic;
 }
 
-/* pre preserves ASCII art alignment; .window-content provides horizontal scroll on mobile */
 .letter-text {
     font-size: 13px;
-    white-space: pre;
+    white-space: pre-wrap;
     color: #a7f3d0;
     line-height: 1.6;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     text-shadow: 0 0 5px rgba(34, 197, 94, 0.4);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* ASCII art notes: preserve alignment with pre, allow horizontal scroll */
+.letter-container.letter-container--ascii {
+    overflow-x: auto;
+}
+.letter-container.letter-container--ascii .letter-paper {
+    overflow: visible;
+}
+.letter-container.letter-container--ascii .letter-body {
+    overflow: visible;
+}
+.letter-container.letter-container--ascii .letter-text {
+    white-space: pre;
     word-wrap: normal;
     overflow-wrap: normal;
     word-break: normal;
+    max-width: none;
+    overflow-x: visible;
     min-width: min-content;
 }
 

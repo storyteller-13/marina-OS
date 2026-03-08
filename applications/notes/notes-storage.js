@@ -21,7 +21,8 @@ class NotesStorage {
             createdAt: entry.date || entry.createdAt || new Date().toISOString(),
             updatedAt: entry.updatedAt || null,
             read: entry.read || false,
-            italic: entry.italic || false
+            italic: entry.italic || false,
+            asciiArt: entry.asciiArt || false
         };
     }
 
@@ -37,6 +38,7 @@ class NotesStorage {
             {
                 date: '2026-03-07T00:00:00.000Z',
                 title: 'the side quest',
+                asciiArt: true,
                 content: this.cleanContent(`
 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3 <3
 <3                       ████        ████                      <3
@@ -58,6 +60,7 @@ class NotesStorage {
             {
                 date: '2026-03-04T00:00:00.000Z',
                 title: 'bloody moon',
+                asciiArt: true,
                 content: this.cleanContent(`
                             
                                                             
