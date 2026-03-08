@@ -11,6 +11,7 @@ class ArtworkApp extends BaseApp {
         this.images = [
             'you_met_me_at_a_very_strange_time_in_my_life.png',
             'cypherpunk.png',
+            'denver.jpg',
             'freeee.png',
             'perfect.png',
             'princess.png'
