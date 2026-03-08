@@ -17,5 +17,13 @@ describe('Vercel security headers', () => {
     expect(headerMap.get('Referrer-Policy')).toBe('strict-origin-when-cross-origin');
     expect(headerMap.get('Permissions-Policy')).toBe('camera=(), microphone=(), geolocation=()');
     expect(headerMap.get('Strict-Transport-Security')).toContain('max-age=63072000');
+    expect(headerMap.get('Cross-Origin-Opener-Policy')).toBe('same-origin');
+    expect(headerMap.get('Cross-Origin-Resource-Policy')).toBe('same-origin');
+    expect(headerMap.get('X-Permitted-Cross-Domain-Policies')).toBe('none');
+
+    const csp = headerMap.get('Content-Security-Policy');
+    expect(csp).toContain("default-src 'self'");
+    expect(csp).toContain("object-src 'none'");
+    expect(csp).toContain("frame-ancestors 'none'");
   });
 });
