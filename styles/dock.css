@@ -61,6 +61,12 @@ a.dock-item {
     font-size: 28px;
 }
 
+/* Slightly larger icons for email and heart (Sunday Chats) */
+.dock-item--icon-lg .dock-icon svg {
+    width: 38px;
+    height: 38px;
+}
+
 .email-count-badge,
 .todo-count-badge,
 .notes-count-badge,
