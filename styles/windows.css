@@ -1065,7 +1065,7 @@ a.file-item {
     padding: 20px;
     background: rgba(10, 5, 15, 0.9);
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: visible;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -1084,7 +1084,7 @@ a.file-item {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .letter-paper::before {
@@ -1114,7 +1114,7 @@ a.file-item {
     min-height: 0;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: visible;
     max-width: 100%;
 }
 
@@ -1134,18 +1134,18 @@ a.file-item {
     font-style: italic;
 }
 
+/* pre preserves ASCII art alignment; .window-content provides horizontal scroll on mobile */
 .letter-text {
     font-size: 13px;
-    white-space: pre-wrap;
+    white-space: pre;
     color: #a7f3d0;
     line-height: 1.6;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     text-shadow: 0 0 5px rgba(34, 197, 94, 0.4);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    max-width: 100%;
-    overflow-x: hidden;
+    word-wrap: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+    min-width: min-content;
 }
 
 .letter-icon {
