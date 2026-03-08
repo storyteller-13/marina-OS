@@ -49,7 +49,7 @@ in my own experience, their theory describes the experience of emotional and phy
 ------------------
 
 🗡️ mental state: denial, shock, numbness — when innocence cracks
-🗡️ experience: feeling dazed, robotic, or physically cold; the mind stands in a doorway and refuses to step inside the truth
+🗡️ experience: feeling dazed, robotic; the mind stands in a doorway and refuses to step inside the truth
 
 
 -----------------
@@ -69,7 +69,7 @@ in my own experience, their theory describes the experience of emotional and phy
 
 «i»you begin to see what was taken:
 your ease, your safety, your innocence,
-the trust that love does not hurt
+the trust that love cannot be cruel
 
 you mourn not only the past,
 but the version of yourself who once 
@@ -77,7 +77,7 @@ walked through the world unafraid«/i»
 
 
 ----------------
-3️⃣ the rebirth 
+4️⃣ the rebirth 
 ----------------
 
 🐦‍🔥 mental state: acceptance and recovery — when something stubborn survives
@@ -124,7 +124,6 @@ you are the endless sky above the drifting clouds«/i»
             {
                 date: '2026-03-04T00:00:00.000Z',
                 title: 'bloody moon',
-                asciiArt: true,
                 content: this.cleanContent(`
                             
                                                             
