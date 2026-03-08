@@ -32,9 +32,73 @@ class NotesStorage {
         }
     }
 
-    /** Default entries; add new entries to the array below. */
     getDefaultEntries() {
         return [
+            {
+                date: '2026-03-09T00:00:00.000Z',
+                title: 'the 4 stages of loss',
+                content: this.cleanContent(`
+
+elisabeth kübler-ross, john bowlby, and colin murray parkes developed what we now know as the stages of grief and loss.
+
+in my own experience, their theory describes the experience of emotional and physical abuse with striking accuracy.
+
+
+------------------
+1️⃣ the shattering 
+------------------
+
+🗡️ mental state: denial, shock, numbness — when innocence cracks
+🗡️ experience: feeling dazed, robotic, or physically cold; the mind stands in a doorway and refuses to step inside the truth
+
+
+-----------------
+2️⃣ the withering 
+-----------------
+
+🩸 mental state: anger, disorganization, despair — the self begins to fade
+🩸 experience: the slow dimming begins; each day, a piece of you is quietly traded for survival
+
+
+----------------
+3️⃣ the mourning 
+----------------
+
+😿 mental state: depression — grieving the person you were
+😿 experience: eventually the truth settles like winter
+
+«i»you begin to see what was taken:
+your ease, your safety, your innocence,
+the trust that love does not hurt
+
+you mourn not only the past,
+but the version of yourself who once 
+walked through the world unafraid«/i»
+
+
+----------------
+3️⃣ the rebirth 
+----------------
+
+🐦‍🔥 mental state: acceptance and recovery — when something stubborn survives
+🐦‍🔥 experience: "this is part of my story now"
+
+«i»yet somewhere beneath the ruins,
+a small ember refuses to die:
+"this was never my fault"«/i»
+
+
+-------
+ outro
+-------
+
+«i»you are not the survivor of the storm;
+you are the endless sky above the drifting clouds«/i»
+
+<3
+
+                `)
+            },
             {
                 date: '2026-03-07T00:00:00.000Z',
                 title: 'the side quest',
