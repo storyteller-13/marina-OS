@@ -14,4 +14,4 @@ make server
 
 <br>
 
-- **license** — this project is released under the **[MIT License](LICENSE)**.
+**[MIT](LICENSE)**.

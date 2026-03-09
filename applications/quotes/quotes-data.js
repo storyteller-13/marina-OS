@@ -91,6 +91,8 @@ window.QUOTES = [
     { text: 'whatever i do now is going to be my best work ever. and whoever i make my family now will be the most loved people ever.', author: 'dr. steinkirch' },
     { text: 'i\'ve spent my entire life building myself into the best mother i could be.', author: 'dr. steinkirch' },
     { text: 'soon i will be sitting in my nice chair, in my nice house, with a nice cup of tea, looking at everything i have and how i overcame so much. and i will feel this immense happiness inside my veins — something so strong and so intense. total. complete. bliss.', author: 'dr. steinkirch' },
+    // robert greene
+    { text: 'no calling is superior to another. what matters is that it be tied to a personal need and inclination, and that your energy moves you toward improvement and continuous learning from experience.', author: 'robert greene' },
     // science
     { text: 'silence is deep as eternity, speech is shallow as time.', author: 'thomas carlyle' },
     { text: 'if our brains were simple, we would be too simple to understand them.', author: 'mario puzo' },
