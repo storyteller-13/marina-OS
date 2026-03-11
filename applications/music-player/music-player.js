@@ -53,6 +53,13 @@ class MusicPlayer {
             }
             this.currentSongIndex = 0;
         }
+        // When 2026 reward is current, show Wild Mountain Honey on load
+        if (this.playlistsData?.currentPlaylistId === '2026 reward' && this.songs.length > 0) {
+            const wildMountainHoneyIndex = this.songs.findIndex(s => s.id === 'fF8GARU44iY');
+            if (wildMountainHoneyIndex >= 0) {
+                this.currentSongIndex = wildMountainHoneyIndex;
+            }
+        }
     }
     
     init() {
