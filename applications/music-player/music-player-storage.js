@@ -56,7 +56,8 @@ class MusicPlayerStorage {
                         { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
                         { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
                         { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' },
-                        { id: 'YLTFbtOfmxk', title: 'ghost of a chance (rush)' }
+                        { id: 'YLTFbtOfmxk', title: 'ghost of a chance (rush)' },
+                        { id: 'fF8GARU44iY', title: 'wild mountain honey (steve miller)' }
                     ]
                 },
                 {
