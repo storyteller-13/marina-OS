@@ -64,7 +64,8 @@ class MusicPlayerStorage {
                     id: '2026 dreaming',
                     name: '2026 dreaming',
                     songs: [
-                        { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' }
+                        { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' },
+                        { id: 'YcvudjjnFdo', title: 'fess up (dr. john)' }
                     ]
                 },
                 {
