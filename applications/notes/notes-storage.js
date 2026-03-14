@@ -67,7 +67,7 @@ the last time i saw mr. denver, i told him that our meeting on that particular d
 
 elisabeth kübler-ross, john bowlby, and colin murray parkes developed what we now know as the stages of grief and loss.
 
-in my own experience, their theory describes the experience of emotional and physical abuse with striking accuracy.
+in my own experience, their theory describes the (non-linear) experience of emotional and physical abuse with striking accuracy.
 
 
 ------------------

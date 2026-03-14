@@ -53,10 +53,11 @@ class MusicPlayerStorage {
                     id: '2026 reward',
                     name: '2026 reward',
                     songs: [
-                        { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
+                        { id: 'x11NA63gLDM', title: 'change the world (eric clapton)' },
                         { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
                         { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' },
                         { id: 'YLTFbtOfmxk', title: 'ghost of a chance (rush)' },
+                        { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
                         { id: 'fF8GARU44iY', title: 'wild mountain honey (steve miller)' }
                     ]
                 },
@@ -77,6 +78,7 @@ class MusicPlayerStorage {
                         { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
                         { id: 'Z4A9ZZo_rAE', title: 'shake it off (taylor swift)' },
                         { id: 'hT_nvWreIhg', title: 'counting stars (onerepublic)' },
+                        { id: 'vRQb_-mRcAc', title: 'unwritten (natasha bedingfield)' },
                         { id: '94UmYrW5oto', title: 'what up gangsta (50 cent)' },
                         { id: 'co6WMzDOh1o', title: 'beautiful day (u2)' },
                         { id: 'iGTN1xz0f84', title: 'old dog (j. cole)' }
