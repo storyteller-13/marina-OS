@@ -35,6 +35,32 @@ class NotesStorage {
     getDefaultEntries() {
         return [
             {
+                date: '2026-03-16T00:00:00.000Z',
+                title: 'chez mr. denver',
+                content: this.cleanContent(`
+today i will tell the story of another angel i’ve met recently on my now-over-thank-god kerouacian journey.
+
+his name is mr. denver, a 59-year-old tall thin fellow who, interestingly enough, had a small contribution to why the city denver is called denver.
+
+mr. denver was born and spent his entire life (with the exception of a couple of years when he hitchhiked with the grateful dead through every state of the usa, with the exception of california and alaska) in denver. i also learned that danny in danish sounds like denver, and his great great great father was the guy who gave the name to the city. according to mr. denver, this story is not even in books or on the internet.
+
+mr. denver’s partner has just passed away from cancer 6 months ago, which he tells me with not much more detail while starting his playlist full of dr. john, bob marley, and the steve miller band. now he lives with 2 kitties in a 2-bedroom with a balcony pointed toward the denver mountains. he tells me that he always wanted to live in this building, and funny enough his apartment number is 501 - coinciding with the fact that for many decades that’s what he would wear on the daily. he asks me what song from the grateful dead he should play on his (blue) guitar and i say scarlet begonias. he tells me this was cheryl’s favorite too. i tell him every girl loves that song, as he shows off some half chords and sings 'she had rings on her fingers and bells on her shoes'.
+
+mr. denver says he might have to go to jail soon, up to 16 years — he is waiting for his trial in a few weeks. he got into a fight with 2 cops. he says he was helping his friend, and he hates cops. he swears he is not scared and maybe he will be able to be redeemed from this sentence. in any case, he has packed all his expensive guitars and home decor from his apartment and left them with his cousin. however, he can still show me a couple of pieces in his possession - a large escher that he believes is original, together with a picasso’s blue period lady that he bought while he was on the road. but the one he really likes is a piece he found in the garbage of a goodwill, an artistic take on the 27 club, where you could clearly recognize morrison, hendrix, and joplin in a dreaming dalí-themed depiction. 'they are worth a lot of money', he says.
+
+mr. denver tells me about his stories as a deadhead, and the women he loved, and machines he fixed, and men he owned. he tells me he has no regrets in his life except never marrying the woman he spent the last decades with and who now is gone. we both agree he will have to forgive himself. he tells me that’s why he has this poster 'let that sh*t go' in front of his comfortable blue chair found in the street (and now the main piece of his living room).
+
+mr. denver and i met in one of the last days of my recovery from The Crime. stoic as i am, i don’t usually cry — especially in public. but that particular tuesday i was leaving my favorite coffee shop a bit earlier because my heart was pretty heavy. as i started walking up i could not hold back what i would call one of the biggest cries of my life. i was also very hungry and i started searching for G’d on the clouds in the sky and speaking the words 'i need help'. mr. denver was passing by and he told me he had himself some tears as he had been feeling very lonely. 2 humans at the same time and in the same street, feeling the same deep sadness that sometimes itches the human soul. mr. denver saw me and gracefully opened his thin long arms and asked whether i was okay and whether i wanted a hug. i don’t think i had ever hugged a stranger on the street before in my life, but funny enough my first reaction was to accept that random act of kindness.
+
+mr. denver then asked me if i would like to try the best pizza in town, which he had many memories of, including eating it every weekend together with his grandparents when he was a child. mr. denver told me to wipe my tears and to get an entire pie so i would have some for breakfast. he told me to stop thanking him, and all i needed to do was pay it forward to someone else later. he told me that this is how the world should work. i asked mr. denver whether he believes in miracles and he said no. i told him i see miracles every day.
+
+interestingly enough, in the following days my luck and my soul and my mojo were back and i was starting to feel sure i was out of the dark hole for good. it seems like one of the best pizzas of your life, together with raw human connection, can do that.
+
+the last time i saw mr. denver, i told him that our meeting on that particular day was a miracle, and he agreed with me — as i could see his eyes watering. i told him that he is what i call an angel and i would never forget his kindness and his pocket-sized-friendship. i thanked him for the bolivian-styled blanket he insisted i had as i walked back home. i told him i would write a short story about him and that i knew everything was going to be okay for both of us. he smiled timidly as we waved goodbye.
+
+                `)
+            },
+            {
                 date: '2026-03-09T00:00:00.000Z',
                 title: 'the 4 stages of loss',
                 content: this.cleanContent(`
