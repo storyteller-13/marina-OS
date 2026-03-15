@@ -238,7 +238,7 @@ my uranus line crosses denver, so i should expect many unexpected events, distur
 STRIKE #1
 ----------
                     
-the first time i went to denver was back on thanksgiving 2021. i had just quit my job at shopify because my team and i were promised a $2M pre-seed investment from polygon to make the first FilmmakerDAO movie: "humans of web3". we already had a solid plan with two hollywood directors, and we were overly excited to get that money wired to our account.
+the first time i went to denver was back on thanksgiving 2021. i had just quit my very-well-paid engineer job at shopify because my team and i were promised a $2M pre-seed investment from polygon to make the first FilmmakerDAO movie: "humans of web3". we already had a solid plan with two hollywood directors, and we were overly excited to get that money wired to our account.
 
 i went to denver with my then-boyfriend and his family, and we met a couple of friends to hang out at a very cool arcade. that was the first time i learned how much money searchers were making with MEV, and my mind was blown.
 
