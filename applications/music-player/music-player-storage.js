@@ -114,6 +114,7 @@ class MusicPlayerStorage {
                     name: '2025 dualities',
                     songs: [
                         { id: 'IXdNnw99-Ic', title: 'wish you were here (pink floyd)' },
+                        { id: 'QkQe7SctWRs', title: 'comfortably numb (david gilmour)' },
                         { id: 'ujNeHIo7oTE', title: 'with or without you (u2)' },
                         { id: '1lyu1KKwC74', title: 'bitter sweet symphony (the verve)' },
                         { id: 'ln7Vn_WKkWU', title: 'stuck in the middle (stealers wheel)' },
