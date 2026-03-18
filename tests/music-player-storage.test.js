@@ -52,6 +52,12 @@ describe('MusicPlayerStorage', () => {
         expect(playlist.songs.length).toBeGreaterThan(0);
         expect(playlist.songs[0]).toHaveProperty('id');
         expect(playlist.songs[0]).toHaveProperty('title');
+
+        const renewal = data.playlists.find(p => p.id === '2026 renewal');
+        expect(renewal).toBeDefined();
+        expect(
+            renewal.songs.some(s => s.id === 'UVpcupE1xEo' && s.title === 'seven (david bowie)')
+        ).toBe(true);
     });
 
     it('save() persists and load() returns saved data', () => {
