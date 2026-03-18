@@ -135,7 +135,7 @@ you are the endless sky above the drifting clouds«/i»
 <3                     ███████     ████████                    <3
 <3                    ██████████████████████                   <3
 <3                   ████████████████████████                  <3
-<3                    █████   S && S  ██████                   <3
+<3                    █████   L && M  ██████                   <3
 <3                     ████████████████████                    <3
 <3                      ██████████████████                     <3
 <3                        █████████████                        <3
@@ -553,7 +553,7 @@ the girl now is a woman.
 i feel complete and satisfied with my life.
 i know exactly what i am and exactly what i am not.
                     
-and there is nothing i want more than go back to the only place that ever felt like home, working on the subject that has been constantly somehow part of my life since high school.
+and there is nothing i want more than find the place that feels like home, with the man i'll spend the rest of my life with.
 
                     `)
                 },

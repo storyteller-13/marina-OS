@@ -94,7 +94,8 @@ class MusicPlayerStorage {
                         { id: '3CygXxv1f2k', title: 'secret smile (semisonic)' },
                         { id: 'b9WKC5sT9Z4', title: 'gymnopedies (erik satie)' },
                         { id: 'FoYdeEDdtK4', title: 'peaches in regalia (frank zappa)' },
-                        { id: 'fhOAsDVg8pY', title: 'round && round (bob moses)' }
+                        { id: 'fhOAsDVg8pY', title: 'round && round (bob moses)' },
+                        { id: 'UVpcupE1xEo', title: 'seven (david bowie)' }
                     ]
                 },
                 {
