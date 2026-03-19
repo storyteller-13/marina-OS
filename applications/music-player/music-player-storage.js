@@ -66,7 +66,7 @@ class MusicPlayerStorage {
                     name: '2026 dreaming',
                     songs: [
                         { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' },
-                        { id: 'YcvudjjnFdo', title: 'fess up (dr. john)' }
+                        { id: '3VXERT7uu3Y', title: 'head in the clouds (oingo boingo)' }
                     ]
                 },
                 {
