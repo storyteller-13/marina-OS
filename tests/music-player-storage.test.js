@@ -53,6 +53,12 @@ describe('MusicPlayerStorage', () => {
         expect(playlist.songs[0]).toHaveProperty('id');
         expect(playlist.songs[0]).toHaveProperty('title');
 
+        const dreaming = data.playlists.find(p => p.id === '2026 dreaming');
+        expect(dreaming).toBeDefined();
+        expect(
+            dreaming.songs.some(s => s.id === '3VXERT7uu3Y' && s.title === 'head in the clouds (oingo boingo)')
+        ).toBe(true);
+
         const renewal = data.playlists.find(p => p.id === '2026 renewal');
         expect(renewal).toBeDefined();
         expect(
