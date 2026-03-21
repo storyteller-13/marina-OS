@@ -50,6 +50,13 @@ class MusicPlayerStorage {
         return {
             playlists: [
                 {
+                    id: '2026 dreaming',
+                    name: '2026 dreaming',
+                    songs: [
+                        { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' }
+                    ]
+                },
+                {
                     id: '2026 reward',
                     name: '2026 reward',
                     songs: [
@@ -62,11 +69,10 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id: '2026 dreaming',
-                    name: '2026 dreaming',
+                    id: '2026 memories',
+                    name: '2026 memories',
                     songs: [
-                        { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' },
-                        { id: '3VXERT7uu3Y', title: 'head in the clouds (oingo boingo)' }
+                        { id: 'MAmqJjyDH48', title: 'a song for our fathers (explosion in the sky)' }
                     ]
                 },
                 {
@@ -124,7 +130,7 @@ class MusicPlayerStorage {
                     ]
                 }
             ],
-            currentPlaylistId: '2026 reward'
+            currentPlaylistId: '2026 dreaming'
         };
     }
 
@@ -170,7 +176,7 @@ class MusicPlayerStorage {
             }
         });
         if (!data.currentPlaylistId) {
-            data.currentPlaylistId = '2026 reward';
+            data.currentPlaylistId = '2026 dreaming';
         }
     }
 
