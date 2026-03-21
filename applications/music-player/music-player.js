@@ -41,10 +41,10 @@ class MusicPlayer {
             this.songs = [...currentPlaylist.songs];
             this.currentSongIndex = Math.max(0, Math.min(this.currentSongIndex, this.songs.length - 1));
         } else {
-            const fallbackPlaylist = this.storage.getPlaylist(this.playlistsData, '2026 reward');
+            const fallbackPlaylist = this.storage.getPlaylist(this.playlistsData, '2026 dreaming');
             if (fallbackPlaylist && fallbackPlaylist.songs && fallbackPlaylist.songs.length > 0) {
                 this.songs = [...fallbackPlaylist.songs];
-                this.playlistsData.currentPlaylistId = '2026 reward';
+                this.playlistsData.currentPlaylistId = '2026 dreaming';
                 this.storage.save(this.playlistsData);
             } else {
                 this.playlistsData = this.storage.getDefaultData();

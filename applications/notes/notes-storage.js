@@ -35,6 +35,52 @@ class NotesStorage {
     getDefaultEntries() {
         return [
             {
+                date: '2026-03-23T00:00:00.000Z',
+                title: 'an ode to dad',
+                content: this.cleanContent(`
+
+on a certain night, around 21 years ago, i was at my friend's party in são paulo when i received a strange call.
+
+on the other side of the line, my mom asked to talk to one of my best friends. they chatted for a few minutes, and then he hung up and looked at me with a face i will never forget.
+
+"o seu pai morreu"
+
+which translates to:
+
+"your hero, the smartest and kindest and funniest person you ever met, the person you loved most in your life, the person you wanted to be when you grew up, the person you always looked up to, who would bring sandwiches when you were studying, who would make sure your pillow was comfortable enough and you had enough blankets, who would show you the most beautiful hikes, who taught you physics, math, and chess, who bought your first video game and played all night with you, who made you love pink floyd as your favorite band — that person, that person who is probably the only person who ever loved you unconditionally in your entire life, that person, that person, that person is dead."
+
+i never found out who murdered my dad.
+
+and i don't recall much more after that, nor even the years that followed. all i know is that i pretty much dissociated the way i love to do: through working every second and forgetting my surroundings.
+
+i was in college, at the university of são paulo, the best school in latin america, and i had just transferred from the prestigious engineering program at the polytechnic school to the physics program.
+
+i had an undergraduate research scholarship, working in the department of mathematical physics under the direction of a famous cosmologist, dr. elcio abdalla. and i was working as hard as i could to be able to get out of that timeline.
+
+i succeeded. a few years later, i was accepted into a prestigious string theory phd program in stony brook, new york, with a full scholarship, so i could run away forever from what i never fully understood.
+
+dad was a genius, by the way. he really was. grandma helga would always talk about how he aced IQ tests, how he got into this very prestigious military engineering school, ITA, which is almost impossible to get into.
+
+dad liked to build stuff. when he was in his 20s, he decided to build his own hang glider from scratch. he would go to a sports store and take measurements and notes, and then come home and cut and build and sew (there was no internet back then). he built it, and he flew it from the mountains around curitiba. he literally jumped from a mountain with an object he built himself, and he did not die. that was dad.
+
+dad loved the mountains. he would do his mountaineering all over paraná and argentina. on that same mountain he jumped from, called anhagava, he was the one who installed the metal bars in certain parts so others could also climb there.
+
+dad died too early. and i could never tell him all the things i did. i could never tell him i worked at nasa, and at apple, and that i moved to the usa, and that i did a phd, and that i traveled the world. i could never.
+
+in the many years after i moved to the usa, i was comfortably numb. i was working and studying ridiculously hard. i was ignoring many natural things in life.
+
+it took me almost a decade to finally process the loss. that only happened when i had my first contact with weed, during the last year of my phd. i was 30 years old. it was the first time i tried any mind-altering substance whatsoever. and it altered my mind in a very positive way (funny enough, i moved to san francisco months later). that's when the black box of grief gracefully opened, and i could accept what happened.
+
+however, it was only last year, when i realized what men do to women without fathers, that i really understood — when my dad was murdered, i didn't just lose my best friend, i lost the only person in the world who could really protect me from monsters.
+
+any chance i had in life became null
+on april 4th, 2005.
+
+
+
+                `)
+            },
+            {
                 date: '2026-03-16T00:00:00.000Z',
                 title: 'chez mr. denver',
                 content: this.cleanContent(`
