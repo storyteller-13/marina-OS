@@ -34,6 +34,7 @@ class NotesStorage {
 
     getDefaultEntries() {
         return [
+
             {
                 date: '2026-03-23T00:00:00.000Z',
                 title: 'an ode to dad',
@@ -169,54 +170,6 @@ you are the endless sky above the drifting clouds«/i»
 
 <3
 
-                `)
-            },
-            {
-                date: '2026-03-04T00:00:00.000Z',
-                title: 'bloody moon',
-                content: this.cleanContent(`
-                            
-                                                            
- ▄▄                                                         
- ██                                                         
- ██▄████▄   ▄████▄                                          
- ██▀   ██  ██▄▄▄▄██                                         
- ██    ██  ██▀▀▀▀▀▀                                         
- ██    ██  ▀██▄▄▄▄█                                         
- ▀▀    ▀▀    ▀▀▀▀▀                                          
-                                                                                                                                                                            
- ▄▄▄▄                          ▄▄                           
- ▀▀██                          ██                           
-   ██       ▄████▄    ▄████▄   ██ ▄██▀   ▄▄█████▄           
-   ██      ██▀  ▀██  ██▀  ▀██  ██▄██     ██▄▄▄▄ ▀           
-   ██      ██    ██  ██    ██  ██▀██▄     ▀▀▀▀██▄           
-   ██▄▄▄   ▀██▄▄██▀  ▀██▄▄██▀  ██  ▀█▄   █▄▄▄▄▄██           
-    ▀▀▀▀     ▀▀▀▀      ▀▀▀▀    ▀▀   ▀▀▀   ▀▀▀▀▀▀            
-                                                            
-                                                             
- ▄▄▄▄         ██     ▄▄                                     
- ▀▀██         ▀▀     ██                                     
-   ██       ████     ██ ▄██▀    ▄████▄                      
-   ██         ██     ██▄██     ██▄▄▄▄██                     
-   ██         ██     ██▀██▄    ██▀▀▀▀▀▀                     
-   ██▄▄▄   ▄▄▄██▄▄▄  ██  ▀█▄   ▀██▄▄▄▄█                     
-    ▀▀▀▀   ▀▀▀▀▀▀▀▀  ▀▀   ▀▀▀    ▀▀▀▀▀                      
-                                                                                                          
-                                                            
-  ▄█████▄                                                   
-  ▀ ▄▄▄██                                                   
- ▄██▀▀▀██                                                   
- ██▄▄▄███                                                   
-  ▀▀▀▀ ▀▀                                                                                                       
-                 
-                                         ██                 
- ▄▄█████▄  ██▄████▄   ▄█████▄   ▄█████▄  ██ ▄██▀            
- ██▄▄▄▄ ▀  ██▀   ██   ▀ ▄▄▄██  ██▀    ▀  ██▄██              
-  ▀▀▀▀██▄  ██    ██  ▄██▀▀▀██  ██        ██▀██▄             
- █▄▄▄▄▄██  ██    ██  ██▄▄▄███  ▀██▄▄▄▄█  ██  ▀█▄            
-  ▀▀▀▀▀▀   ▀▀    ▀▀   ▀▀▀▀ ▀▀    ▀▀▀▀▀   ▀▀   ▀▀▀           
-                                                            
-                                                                                           
                 `)
             },
             {
@@ -577,7 +530,7 @@ the girl now is a woman.
 i feel complete and satisfied with my life.
 i know exactly what i am and exactly what i am not.
                     
-and there is nothing i want more than find the place that feels like home, with the man i'll spend the rest of my life with.
+and there is nothing i want more than to go back and find again the only place that ever felt like home.
 
                     `)
                 },
@@ -724,9 +677,47 @@ and i already love every cell of your body
 
 <3
 
+ps: meanwhile, you can play the games i have been building (look at "the true love series" in the stories section) or the "2026 reward" playlist i have been creating - they are all for you because this is what "perfect true love" means for me
+
                 `)
             },
             
+            {
+                date: '2026-01-04T00:00:00.000Z',
+                title: 'bt3gl monogatari 物語',
+                content: this.cleanContent(`
+
+back in 2008, i was already a young hacker, deeply fascinated by the ideas of decentralization and self-sovereignty. around that time, my mother was completing her master’s thesis on financial decentralization in brazilian public schools, while i was finishing my bachelor’s degree in theoretical physics and spending the summer at nasa goddard.
+
+my undergraduate thesis focused on modeling the equation of state for dark matter and dark energy as decaying, interacting fluids. although i shifted the focus of my research when i began my phd in new york, it's fascinating to see that physicists are now returning to this very framework in an effort to solve one of the universe's greatest mysteries.
+
+specifically, they are revisiting the idea of a positive cosmological constant in einstein's field equations and its connection to de sitter space in quantum field theory. in other words, this involves assuming an interaction between dark matter and dark energy, and investigating how such coupling influences the fluid dynamics of galaxy clusters — for example, by the layser-irvine equation.
+
+with the rapid advances in artificial intelligence and the rise of decentralized science (desci), we may now be equipped to tackle this long-standing open problem — potentially uncovering new physics that deepens our understanding of how the universe truly works.
+
+                `)
+            },
+
+
+            {
+                date: '2026-01-03T00:00:00.000Z',
+                title: 'an ode to the future',
+                content: this.cleanContent(`
+i still believe in the goodness of human nature. therefore, my predictions are on the optimistic side of the scale.
+
+i believe that decentralization and self-sovereignty will become the status quo, countries might be replaced by things like network states with like-minded humans (a la robert nozick), wars among nations will become pointless, and privacy will be the norm through cryptography and zero-knowledge techniques.
+
+i believe that with ai and desci, we will be able to solve many of the great mysteries in science, astrophysics, theorem proving, health, longevity, theology, and history. and perhaps we will be close to understanding our origins, our destiny, and our very human condition.
+
+i believe we will be able to reach out to underserved communities and guarantee that every human has access to a home, food, and the opportunity to prosper. i also believe that ai will replace sub-human jobs, so that humans will have more time to be in the moment and spend time with their families and communities.
+
+i believe art, sports, games, spirituality, and every form of fun human expression will flourish, and living will be blissful.
+
+i believe we will be able to start colonizing space — the first steps toward expanding our species throughout our immense universe. in addition, our defense systems will also be automated and expanded, guaranteeing our survival through the next millennia.
+
+前進、そして飛躍
+                `)
+            },
             {
                 date: '2026-01-02T00:00:00.000Z',
                 title: '0, 1, 2, 3 ... ♾️',

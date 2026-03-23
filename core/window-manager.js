@@ -5,6 +5,8 @@
 class WindowManager {
     constructor() {
         this.highestZIndex = 100;
+        this.viewportPadding = 12;
+        this.dockClearance = 8;
         this.init();
     }
 
@@ -87,6 +89,14 @@ class WindowManager {
 
         // Bring to front
         this.bringToFront(windowElement);
+
+        // Keep non-centered windows inside the viewport and above the dock.
+        // Centered windows intentionally retain top/left 50% on open.
+        if (!isCentered) {
+            requestAnimationFrame(() => {
+                this.clampWindowToViewport(windowElement);
+            });
+        }
     }
 
     close(windowElement, dockItem = null) {
@@ -128,6 +138,72 @@ class WindowManager {
         windowElement.style.zIndex = this.highestZIndex;
     }
 
+    getSafeBottomY() {
+        const dock = document.querySelector('.bottom-dock');
+        if (!dock) return window.innerHeight - this.viewportPadding;
+
+        const dockRect = dock.getBoundingClientRect();
+        return dockRect.top - this.dockClearance;
+    }
+
+    clampValue(value, min, max) {
+        if (max < min) return min;
+        return Math.min(Math.max(value, min), max);
+    }
+
+    clampWindowToViewport(element) {
+        if (!element || element.style.display === 'none') return;
+
+        const safeBottomY = this.getSafeBottomY();
+        const width = element.offsetWidth;
+        const height = element.offsetHeight;
+        const isCentered = this.isCenteredWindow(element);
+
+        if (isCentered) {
+            const rect = element.getBoundingClientRect();
+            let centerX = rect.left + rect.width / 2;
+            let centerY = rect.top + rect.height / 2;
+
+            centerX = this.clampValue(
+                centerX,
+                this.viewportPadding + width / 2,
+                window.innerWidth - this.viewportPadding - width / 2
+            );
+            centerY = this.clampValue(
+                centerY,
+                this.viewportPadding + height / 2,
+                safeBottomY - height / 2
+            );
+
+            element.style.left = `${centerX}px`;
+            element.style.top = `${centerY}px`;
+            element.style.transform = 'translate(-50%, -50%)';
+
+            const viewportCenterX = window.innerWidth / 2;
+            const viewportCenterY = window.innerHeight / 2;
+            element._xOffset = centerX - viewportCenterX;
+            element._yOffset = centerY - viewportCenterY;
+            return;
+        }
+
+        const left = parseFloat(getComputedStyle(element).left) || 0;
+        const top = parseFloat(getComputedStyle(element).top) || 0;
+        const xOffset = element._xOffset || 0;
+        const yOffset = element._yOffset || 0;
+
+        const minX = this.viewportPadding - left;
+        const maxX = window.innerWidth - this.viewportPadding - left - width;
+        const minY = this.viewportPadding - top;
+        const maxY = safeBottomY - top - height;
+
+        const clampedX = this.clampValue(xOffset, minX, maxX);
+        const clampedY = this.clampValue(yOffset, minY, maxY);
+
+        element._xOffset = clampedX;
+        element._yOffset = clampedY;
+        element.style.transform = `translate(${clampedX}px, ${clampedY}px)`;
+    }
+
     makeDraggable(element) {
         let isDragging = false;
         let currentX;
@@ -142,11 +218,7 @@ class WindowManager {
         const header = element.querySelector('.window-header');
         if (!header) return;
 
-        header.addEventListener('mousedown', dragStart);
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('mouseup', dragEnd);
-
-        function dragStart(e) {
+        const dragStart = (e) => {
             // Don't start dragging if clicking on control buttons
             if (e.target.closest('.control')) {
                 return;
@@ -176,9 +248,9 @@ class WindowManager {
 
                 isDragging = true;
             }
-        }
+        };
 
-        function drag(e) {
+        const drag = (e) => {
             if (isDragging) {
                 e.preventDefault();
 
@@ -194,8 +266,23 @@ class WindowManager {
 
                     const centerX = window.innerWidth / 2;
                     const centerY = window.innerHeight / 2;
-                    const newLeft = centerX + xOffset;
-                    const newTop = centerY + yOffset;
+                    const safeBottomY = this.getSafeBottomY();
+                    const halfWidth = element.offsetWidth / 2;
+                    const halfHeight = element.offsetHeight / 2;
+
+                    const minCenterX = this.viewportPadding + halfWidth;
+                    const maxCenterX = window.innerWidth - this.viewportPadding - halfWidth;
+                    const minCenterY = this.viewportPadding + halfHeight;
+                    const maxCenterY = safeBottomY - halfHeight;
+
+                    const newLeft = this.clampValue(centerX + xOffset, minCenterX, maxCenterX);
+                    const newTop = this.clampValue(centerY + yOffset, minCenterY, maxCenterY);
+
+                    xOffset = newLeft - centerX;
+                    yOffset = newTop - centerY;
+
+                    element._xOffset = xOffset;
+                    element._yOffset = yOffset;
 
                     element.style.top = `${newTop}px`;
                     element.style.left = `${newLeft}px`;
@@ -207,8 +294,19 @@ class WindowManager {
                     currentX = e.clientX - initialX;
                     currentY = e.clientY - initialY;
 
-                    xOffset = currentX;
-                    yOffset = currentY;
+                    const left = parseFloat(getComputedStyle(element).left) || 0;
+                    const top = parseFloat(getComputedStyle(element).top) || 0;
+                    const width = element.offsetWidth;
+                    const height = element.offsetHeight;
+                    const safeBottomY = this.getSafeBottomY();
+
+                    const minX = this.viewportPadding - left;
+                    const maxX = window.innerWidth - this.viewportPadding - left - width;
+                    const minY = this.viewportPadding - top;
+                    const maxY = safeBottomY - top - height;
+
+                    xOffset = this.clampValue(currentX, minX, maxX);
+                    yOffset = this.clampValue(currentY, minY, maxY);
 
                     element._xOffset = xOffset;
                     element._yOffset = yOffset;
@@ -216,13 +314,21 @@ class WindowManager {
                     element.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
                 }
             }
-        }
+        };
 
-        function dragEnd() {
+        const dragEnd = () => {
             if (isDragging) {
                 isDragging = false;
             }
-        }
+        };
+
+        header.addEventListener('mousedown', dragStart);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', dragEnd);
+
+        window.addEventListener('resize', () => {
+            this.clampWindowToViewport(element);
+        });
     }
 
     setupWindowControls() {
