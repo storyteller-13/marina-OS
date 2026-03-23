@@ -172,54 +172,6 @@ you are the endless sky above the drifting clouds«/i»
                 `)
             },
             {
-                date: '2026-03-04T00:00:00.000Z',
-                title: 'bloody moon',
-                content: this.cleanContent(`
-                            
-                                                            
- ▄▄                                                         
- ██                                                         
- ██▄████▄   ▄████▄                                          
- ██▀   ██  ██▄▄▄▄██                                         
- ██    ██  ██▀▀▀▀▀▀                                         
- ██    ██  ▀██▄▄▄▄█                                         
- ▀▀    ▀▀    ▀▀▀▀▀                                          
-                                                                                                                                                                            
- ▄▄▄▄                          ▄▄                           
- ▀▀██                          ██                           
-   ██       ▄████▄    ▄████▄   ██ ▄██▀   ▄▄█████▄           
-   ██      ██▀  ▀██  ██▀  ▀██  ██▄██     ██▄▄▄▄ ▀           
-   ██      ██    ██  ██    ██  ██▀██▄     ▀▀▀▀██▄           
-   ██▄▄▄   ▀██▄▄██▀  ▀██▄▄██▀  ██  ▀█▄   █▄▄▄▄▄██           
-    ▀▀▀▀     ▀▀▀▀      ▀▀▀▀    ▀▀   ▀▀▀   ▀▀▀▀▀▀            
-                                                            
-                                                             
- ▄▄▄▄         ██     ▄▄                                     
- ▀▀██         ▀▀     ██                                     
-   ██       ████     ██ ▄██▀    ▄████▄                      
-   ██         ██     ██▄██     ██▄▄▄▄██                     
-   ██         ██     ██▀██▄    ██▀▀▀▀▀▀                     
-   ██▄▄▄   ▄▄▄██▄▄▄  ██  ▀█▄   ▀██▄▄▄▄█                     
-    ▀▀▀▀   ▀▀▀▀▀▀▀▀  ▀▀   ▀▀▀    ▀▀▀▀▀                      
-                                                                                                          
-                                                            
-  ▄█████▄                                                   
-  ▀ ▄▄▄██                                                   
- ▄██▀▀▀██                                                   
- ██▄▄▄███                                                   
-  ▀▀▀▀ ▀▀                                                                                                       
-                 
-                                         ██                 
- ▄▄█████▄  ██▄████▄   ▄█████▄   ▄█████▄  ██ ▄██▀            
- ██▄▄▄▄ ▀  ██▀   ██   ▀ ▄▄▄██  ██▀    ▀  ██▄██              
-  ▀▀▀▀██▄  ██    ██  ▄██▀▀▀██  ██        ██▀██▄             
- █▄▄▄▄▄██  ██    ██  ██▄▄▄███  ▀██▄▄▄▄█  ██  ▀█▄            
-  ▀▀▀▀▀▀   ▀▀    ▀▀   ▀▀▀▀ ▀▀    ▀▀▀▀▀   ▀▀   ▀▀▀           
-                                                            
-                                                                                           
-                `)
-            },
-            {
                 date: '2026-02-28T00:00:00.000Z',
                 title: 'david lynch is my only friend',
                 content: this.cleanContent(`
@@ -577,7 +529,7 @@ the girl now is a woman.
 i feel complete and satisfied with my life.
 i know exactly what i am and exactly what i am not.
                     
-and there is nothing i want more than find the place that feels like home, with the man i'll spend the rest of my life with.
+and there is nothing i want more than to go back and find again the only place that ever felt like home.
 
                     `)
                 },
@@ -723,6 +675,8 @@ i know i will see you soon
 and i already love every cell of your body
 
 <3
+
+ps: meanwhile, you can play the games i have been building (look at "the true love series" in the stories section) or the "2026 reward" playlist i have been creating - they are all for you because this is what "perfect true love" means for me <3
 
                 `)
             },

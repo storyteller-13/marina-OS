@@ -44,7 +44,6 @@ class TodoStorage {
         const defaultTodoData = [
             { text: 'memento mori', completed: false },
             { text: 'become unomad and happy forever', completed: false },
-            { text: 'get my snack ready', completed: true },
             { text: 'focus on what is one of my greatest source of happiness: my work', completed: true },
             { text: 'be in the present, and find gratitude and fullfiment every single day', completed: true },
             { text: 'become marina v2.0: perfectly unkillable', completed: true },
