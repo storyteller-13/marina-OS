@@ -52,13 +52,8 @@ describe('MusicPlayerStorage', () => {
         expect(playlist.songs.length).toBeGreaterThan(0);
         expect(playlist.songs[0]).toHaveProperty('id');
         expect(playlist.songs[0]).toHaveProperty('title');
-
-        const memories = data.playlists.find(p => p.id === '2026 memories');
-        expect(memories).toBeDefined();
         expect(
-            memories.songs.some(
-                s => s.id === 'MAmqJjyDH48' && s.title === 'a song for our fathers (explosion in the sky)'
-            )
+            playlist.songs.some(s => s.id === 'd8eHpiLdBOI' && s.title === "there's fire (the black keys)")
         ).toBe(true);
 
         const dreaming = data.playlists.find(p => p.id === '2026 dreaming');
@@ -66,6 +61,12 @@ describe('MusicPlayerStorage', () => {
         expect(
             dreaming.songs.some(s => s.id === 'aA4Kub9flag' && s.title === 'dreamer (luke faulkner)')
         ).toBe(true);
+        expect(
+            dreaming.songs.some(
+                s => s.id === 'MAmqJjyDH48' && s.title === 'a song for our fathers (explosion in the sky)'
+            )
+        ).toBe(true);
+        expect(data.playlists.some(p => p.id === '2026 memories')).toBe(false);
 
         const renewal = data.playlists.find(p => p.id === '2026 renewal');
         expect(renewal).toBeDefined();
@@ -144,5 +145,16 @@ describe('MusicPlayerStorage', () => {
         storage.ensureDefaultPlaylists(data);
         expect(data.playlists[0].id).toBe('2026 dreaming');
         expect(data.currentPlaylistId).toBe('2026 reward');
+    });
+
+    it('ensureDefaultPlaylists removes deprecated 2026 memories playlist', () => {
+        const storage = new window.MusicPlayerStorage();
+        const data = {
+            playlists: [{ id: '2026 memories', name: '2026 memories', songs: [] }],
+            currentPlaylistId: '2026 memories'
+        };
+        storage.ensureDefaultPlaylists(data);
+        expect(data.playlists.some(p => p.id === '2026 memories')).toBe(false);
+        expect(data.currentPlaylistId).toBe('2026 dreaming');
     });
 });

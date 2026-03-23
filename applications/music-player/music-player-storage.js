@@ -53,7 +53,8 @@ class MusicPlayerStorage {
                     id: '2026 dreaming',
                     name: '2026 dreaming',
                     songs: [
-                        { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' }
+                        { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' },
+                        { id: 'MAmqJjyDH48', title: 'a song for our fathers (explosion in the sky)' }
                     ]
                 },
                 {
@@ -65,14 +66,8 @@ class MusicPlayerStorage {
                         { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' },
                         { id: 'YLTFbtOfmxk', title: 'ghost of a chance (rush)' },
                         { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
-                        { id: 'fF8GARU44iY', title: 'wild mountain honey (steve miller)' }
-                    ]
-                },
-                {
-                    id: '2026 memories',
-                    name: '2026 memories',
-                    songs: [
-                        { id: 'MAmqJjyDH48', title: 'a song for our fathers (explosion in the sky)' }
+                        { id: 'fF8GARU44iY', title: 'wild mountain honey (steve miller)' },
+                        { id: 'd8eHpiLdBOI', title: "there's fire (the black keys)" }
                     ]
                 },
                 {
@@ -152,6 +147,9 @@ class MusicPlayerStorage {
             data.currentPlaylistId = idMap[data.currentPlaylistId];
         }
         const defaultData = this.getDefaultData();
+        const defaultPlaylistIds = new Set(defaultData.playlists.map(p => p.id));
+        // Remove deprecated default playlist ids from saved data.
+        data.playlists = data.playlists.filter(p => p.id !== '2026 memories');
         defaultData.playlists.forEach((defaultPlaylist, position) => {
             let playlist = this.getPlaylist(data, defaultPlaylist.id);
             if (!playlist) {
@@ -175,7 +173,7 @@ class MusicPlayerStorage {
                 }
             }
         });
-        if (!data.currentPlaylistId) {
+        if (!data.currentPlaylistId || !defaultPlaylistIds.has(data.currentPlaylistId)) {
             data.currentPlaylistId = '2026 dreaming';
         }
     }
