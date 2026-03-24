@@ -681,7 +681,92 @@ ps: meanwhile, you can play the games i have been building (look at "the true lo
 
                 `)
             },
-            
+
+
+            {
+                date: '2026-01-06T00:00:00.000Z',
+                title: 'pattern recognition in astro',
+                content: this.cleanContent(`
+
+the study of pattern recognition in astronomy, often referred to as astrology, has evolved independently across numerous civilizations, with variations primarily in language or representation, while the underlying science remains remarkably consistent.
+
+this field has a wide range of applications. one notable example is how western astrology charts are used as a tool for:
+
+1. understanding an individual's proclivities and personality within the finite set of jungian archetypes (via the natal chart).
+2. predicting events for this individual by overlaying future charts with their natal chart.
+predicting events for the collective by analyzing event charts, with scientific reproducibility based on historical patterns.
+
+since this science can be modeled using group theory and demonstrated to be reproducible through data, i'm highly confident that large language models (ai) could be used to develop a system for predicting the future.
+
+ps: a question for future humanity: what happens if we leave the solar system? do these "mysterious" forces/energies/ spookytivities stop influencing us?
+
+                `)
+            },
+
+            {
+                date: '2026-01-05T00:00:00.000Z',
+                title: 'a postmortem on dating',
+                content: this.cleanContent(`
+«i»you are a precious diamond. you are amazing, loving, hardworking, and kind. you would take a bullet for the people you love. you have suffered a lot, but you have a very good karma. you deserve the best, true love, happiness, safety, respect, appreciation, and peace. now love yourself, maintain strong boundaries, and never let any monster enter your life again.«/i»
+
+-------------------------
+"what success looks like"
+-------------------------
+
+1. your soulmate is nothing less than a completely kind and thoughtful gentleman
+2. when he meets you, he sees your soulmate potential right away and he will move everything around to get to know you and be with you
+3. there are absolutely no third parties in the story, he should have been single for a while, and clean of any past relationships
+4. there is an immediate chemistry, you feel safe, you also see the soulmate potential
+5. he does not hurry anything but does not leave you in a vacuum: the cadence of getting to know each other feels good and right
+6. you know he likes you: you don't question yourself all the time, he does not make you anxious, he improves your life (IF YOU'RE NOT HAPPIER AFTER MEETING HIM, RUN!)
+7. he believes you, he sees you, he understands you, he respects you (don't take anything less than this)
+8. you share core values, principles, and interests — both for raising kids together and for enjoying the life you're building
+9. he has good friends, and his friends like and respect you
+10. the ultimate test: life feels magical when you're found your soulmate (remember? ;))
+
+--------------
+personal rules
+--------------
+
+1. absolutely no flirting in the workplace
+2. absolutely no dating apps (never did, never will)
+3. absolutely no commitment before 3 good dates
+4. absolutely no online flirting (this is my work and career)
+5. if you see ONE red flag, you leave (no more "giving them a chance" or overlooking bad behavior)
+
+---------
+red flags
+---------
+
+«i»narcissists often need constant admiration and validation, becoming cold or punishing when they don't get it. they may also display grandiosity about their achievements, talents, or importance while being hypersensitive to any criticism.«/i»
+
+
+1. sarcasm or joke that feels like bullying (they speak disrespectfully to or about you, even disguised as "jokes"; trust your gut)
+2. rudeness (to you or others)
+3. he does not respect your privacy (run!)
+4. not keeping his word (inconsistency between words and actions: if he promises something and doesn't do it, run)
+5. making you feel uncomfortable in front of others (run!)
+6. clearly more interested in looking good than in your well-being
+7. not respecting your boundaries
+8. not listening to your needs
+9. gaslighting (making you question your own memory, perception, or sanity)
+10. inconsistent communication without good reason (they're hot and cold, disappearing for days then acting like nothing happened)
+11. he makes and announces decisions that affect your life, but does not talk to you first
+12. secrecy about their life (you don't know who their friends are)
+13. they can't apologize or take responsibility (everything becomes your fault)
+
+------------
+dating rules
+------------
+
+1. never ask for the first date (they should do it)
+2. if the first date is not absolutely amazing, move on
+3. always make dates on thursdays (so if it goes well, you can make plans for the weekend)
+
+
+                `)
+            },        
+    
             {
                 date: '2026-01-04T00:00:00.000Z',
                 title: 'bt3gl monogatari 物語',
@@ -697,7 +782,6 @@ with the rapid advances in artificial intelligence and the rise of decentralized
 
                 `)
             },
-
 
             {
                 date: '2026-01-03T00:00:00.000Z',
