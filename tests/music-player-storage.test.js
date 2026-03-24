@@ -66,6 +66,21 @@ describe('MusicPlayerStorage', () => {
                 s => s.id === 'MAmqJjyDH48' && s.title === 'a song for our fathers (explosion in the sky)'
             )
         ).toBe(true);
+        expect(
+            dreaming.songs.some(
+                s => s.id === 'YBioStgspO8' && s.title === 'classical for happy moments (essential)'
+            )
+        ).toBe(true);
+        expect(
+            dreaming.songs.some(
+                s => s.id === 'pGNDncTbJRU' && s.title === 'a place to call home (world of warcraft)'
+            )
+        ).toBe(true);
+        expect(
+            dreaming.songs.some(
+                s => s.id === '3y47asXQxfM' && s.title === 'jun tanaka takeover (soulection)'
+            )
+        ).toBe(true);
         expect(data.playlists.some(p => p.id === '2026 memories')).toBe(false);
 
         const renewal = data.playlists.find(p => p.id === '2026 renewal');

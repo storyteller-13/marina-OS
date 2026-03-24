@@ -36,6 +36,70 @@ class NotesStorage {
         return [
 
             {
+                date: '2026-03-25T00:00:00.000Z',
+                title: 'an ode to spring',
+                content: this.cleanContent(`
+
+today i woke up feeling so so so happy!
+colorado is so beautiful; i'm definitely going to miss it when i leave!
+
+and i love my work and research so much - there is so much to learn and build and create!
+
+and rose made me delicious coffee before i left for work!
+
+and any problem is going to be solved the way it should be solved!
+
+and i am having delicious gluten-free cornbread with book-store good-hearted pocket-sized friends!
+
+and maybe... maybe... maybe i met someone :)
+(let's just say he might love books as much as i do)
+(let's see how it goes, i'm surely taking it very slow, because my heart is still healing and i'm in no hurry)
+(but i'm excited for our first date: a 🌄 picnic in the mountains 🧺🍷🍇)
+
+spring is here, my dear anon!
+let's make it the best one ever? who's with me?
+
+<3
+
+ps: bonus points for serendipitous music...
+
+we drift like the wind
+soft yet steady 
+carrying the world in our hands
+we scatter the seeds
+small yet heavy
+nurturing the peace 
+of our land
+we look for the dawn
+we look for the dawn
+chasing his lights
+are familiar and bright
+yet so unknown
+we look for the dawn
+we look for the dawn
+over the hills
+where the water is still
+clear from the storm
+we carry the blade
+calm but ready
+and the shadows we tame
+remember our names
+a world of war touches many
+let our voices burn with song
+we look for the dawn
+we look for the dawn
+shielding the light
+we let the light carry us home
+look to the sun
+look to the sun
+as long as it burns
+i will return to where I belong
+a place to call home
+
+                `)
+            },
+
+            {
                 date: '2026-03-23T00:00:00.000Z',
                 title: 'an ode to dad',
                 content: this.cleanContent(`
@@ -483,7 +547,7 @@ i love you, i love you, i love you, i love you
             },
             {
                 date: '2026-02-11T00:00:00.000Z',
-                title: 'claude, remind me about meaning',
+                title: 'robot, remind me about meaning',
                 italic: true,
                 content: this.cleanContent(`
 "memory is a garden where meaning grows wild, blooming in the spaces between what happened and what we choose to keep. 
@@ -722,7 +786,7 @@ ps: a question for future humanity: what happens if we leave the solar system? d
 7. he believes you, he sees you, he understands you, he respects you (don't take anything less than this)
 8. you share core values, principles, and interests — both for raising kids together and for enjoying the life you're building
 9. he has good friends, and his friends like and respect you
-10. the ultimate test: life feels magical when you're found your soulmate (remember? ;))
+10. the ultimate test: life feels magical when you are in love (remember?)
 
 --------------
 personal rules
@@ -732,7 +796,8 @@ personal rules
 2. absolutely no dating apps (never did, never will)
 3. absolutely no commitment before 3 good dates
 4. absolutely no online flirting (this is my work and career)
-5. if you see ONE red flag, you leave (no more "giving them a chance" or overlooking bad behavior)
+5. never ask for the first date (they should do it)
+6. if you see ONE red flag, you leave (no more "giving them a chance" or overlooking bad behavior)
 
 ---------
 red flags
@@ -755,13 +820,6 @@ red flags
 12. secrecy about their life (you don't know who their friends are)
 13. they can't apologize or take responsibility (everything becomes your fault)
 
-------------
-dating rules
-------------
-
-1. never ask for the first date (they should do it)
-2. if the first date is not absolutely amazing, move on
-3. always make dates on thursdays (so if it goes well, you can make plans for the weekend)
 
 
                 `)

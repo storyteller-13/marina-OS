@@ -54,6 +54,9 @@ class MusicPlayerStorage {
                     name: '2026 dreaming',
                     songs: [
                         { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' },
+                        { id: '3y47asXQxfM', title: 'jun tanaka takeover (soulection)' },
+                        { id: 'YBioStgspO8', title: 'classical for happy moments (essential)' },
+                        { id: 'pGNDncTbJRU', title: 'a place to call home (world of warcraft)' },
                         { id: 'MAmqJjyDH48', title: 'a song for our fathers (explosion in the sky)' }
                     ]
                 },
