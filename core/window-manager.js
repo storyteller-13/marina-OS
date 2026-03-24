@@ -90,6 +90,8 @@ class WindowManager {
         // Bring to front
         this.bringToFront(windowElement);
 
+        this.constrainWindowToVerticalBounds(windowElement);
+
         // Keep non-centered windows inside the viewport and above the dock.
         // Centered windows intentionally retain top/left 50% on open.
         if (!isCentered) {
@@ -143,7 +145,15 @@ class WindowManager {
         if (!dock) return window.innerHeight - this.viewportPadding;
 
         const dockRect = dock.getBoundingClientRect();
-        return dockRect.top - this.dockClearance;
+        return dockRect.top;
+    }
+
+    getSafeTopY() {
+        const topPanel = document.querySelector('.top-panel');
+        if (!topPanel) return this.viewportPadding;
+
+        const panelRect = topPanel.getBoundingClientRect();
+        return panelRect.bottom;
     }
 
     clampValue(value, min, max) {
@@ -151,9 +161,28 @@ class WindowManager {
         return Math.min(Math.max(value, min), max);
     }
 
+    constrainWindowToVerticalBounds(element) {
+        if (!element) return;
+
+        const safeTopY = this.getSafeTopY();
+        const safeBottomY = this.getSafeBottomY();
+        const availableHeight = Math.max(0, safeBottomY - safeTopY);
+
+        if (availableHeight <= 0) return;
+
+        // Ensure window never exceeds the vertical space between panel and dock.
+        element.style.maxHeight = `${availableHeight}px`;
+
+        if (element.offsetHeight > availableHeight) {
+            element.style.height = `${availableHeight}px`;
+        }
+    }
+
     clampWindowToViewport(element) {
         if (!element || element.style.display === 'none') return;
 
+        this.constrainWindowToVerticalBounds(element);
+        const safeTopY = this.getSafeTopY();
         const safeBottomY = this.getSafeBottomY();
         const width = element.offsetWidth;
         const height = element.offsetHeight;
@@ -171,7 +200,7 @@ class WindowManager {
             );
             centerY = this.clampValue(
                 centerY,
-                this.viewportPadding + height / 2,
+                safeTopY + height / 2,
                 safeBottomY - height / 2
             );
 
@@ -193,7 +222,7 @@ class WindowManager {
 
         const minX = this.viewportPadding - left;
         const maxX = window.innerWidth - this.viewportPadding - left - width;
-        const minY = this.viewportPadding - top;
+        const minY = safeTopY - top;
         const maxY = safeBottomY - top - height;
 
         const clampedX = this.clampValue(xOffset, minX, maxX);
@@ -266,13 +295,14 @@ class WindowManager {
 
                     const centerX = window.innerWidth / 2;
                     const centerY = window.innerHeight / 2;
+                    const safeTopY = this.getSafeTopY();
                     const safeBottomY = this.getSafeBottomY();
                     const halfWidth = element.offsetWidth / 2;
                     const halfHeight = element.offsetHeight / 2;
 
                     const minCenterX = this.viewportPadding + halfWidth;
                     const maxCenterX = window.innerWidth - this.viewportPadding - halfWidth;
-                    const minCenterY = this.viewportPadding + halfHeight;
+                    const minCenterY = safeTopY + halfHeight;
                     const maxCenterY = safeBottomY - halfHeight;
 
                     const newLeft = this.clampValue(centerX + xOffset, minCenterX, maxCenterX);
@@ -298,11 +328,12 @@ class WindowManager {
                     const top = parseFloat(getComputedStyle(element).top) || 0;
                     const width = element.offsetWidth;
                     const height = element.offsetHeight;
+                    const safeTopY = this.getSafeTopY();
                     const safeBottomY = this.getSafeBottomY();
 
                     const minX = this.viewportPadding - left;
                     const maxX = window.innerWidth - this.viewportPadding - left - width;
-                    const minY = this.viewportPadding - top;
+                    const minY = safeTopY - top;
                     const maxY = safeBottomY - top - height;
 
                     xOffset = this.clampValue(currentX, minX, maxX);
@@ -327,6 +358,7 @@ class WindowManager {
         document.addEventListener('mouseup', dragEnd);
 
         window.addEventListener('resize', () => {
+            this.constrainWindowToVerticalBounds(element);
             this.clampWindowToViewport(element);
         });
     }
