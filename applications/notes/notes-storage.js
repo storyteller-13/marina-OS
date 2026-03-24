@@ -36,6 +36,31 @@ class NotesStorage {
         return [
 
             {
+                date: '2026-03-25T00:00:00.000Z',
+                title: 'an ode to spring',
+                content: this.cleanContent(`
+
+today i woke up feeling so so so happy!
+colorado is so beautiful; i am surely going to miss it when i leave!
+
+and i love my work so much - there is so much to learn and build and create!
+
+and rose made me delicious coffee before i left for work!
+
+and i am having delicious gluten-free corn bread with good pocket-sized friends!
+
+and i maybe... maybe... maybe i met someone :)
+(let's say he might love books as much as i do)
+
+spring is here, my dear anon!
+let's make it the best ever? who is with me?
+
+<3
+
+                `)
+            },
+
+            {
                 date: '2026-03-23T00:00:00.000Z',
                 title: 'an ode to dad',
                 content: this.cleanContent(`
