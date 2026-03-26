@@ -40,21 +40,17 @@ class NotesStorage {
                 title: 'an ode to spring',
                 content: this.cleanContent(`
 
-today i woke up feeling so so so happy!
-colorado is so beautiful; i'm definitely going to miss it when i leave!
+🌸 today i woke up feeling so so so happy!
 
-and i love my work and research so much - there is so much to learn and build and create!
+🌺 colorado is so beautiful; i'm definitely going to miss it when i leave!
 
-and rose made me delicious coffee before i left for work!
+🪻 and i love my work and research so much - there is so much to learn and build and create!
 
-and any problem is going to be solved the way it should be solved!
+🌹 and rose made me delicious coffee before i left for work!
 
-and i am having delicious gluten-free cornbread with book-store good-hearted pocket-sized friends!
+🌼 and any problem is going to be solved the way it should be solved!
 
-and maybe... maybe... maybe i met someone :)
-(let's just say he might love books as much as i do)
-(let's see how it goes, i'm surely taking it very slow, because my heart is still healing and i'm in no hurry)
-(but i'm excited for our first date: a 🌄 picnic in the mountains 🧺🍷🍇)
+🌻 and i am having delicious gluten-free cornbread with book-store good-hearted pocket-sized friends!
 
 spring is here, my dear anon!
 let's make it the best one ever? who's with me?
@@ -63,6 +59,7 @@ let's make it the best one ever? who's with me?
 
 ps: bonus points for serendipitous music...
 
+✨
 we drift like the wind
 soft yet steady 
 carrying the world in our hands
@@ -93,8 +90,9 @@ we let the light carry us home
 look to the sun
 look to the sun
 as long as it burns
-i will return to where I belong
+i will return to where i belong
 a place to call home
+✨
 
                 `)
             },
@@ -104,7 +102,7 @@ a place to call home
                 title: 'an ode to dad',
                 content: this.cleanContent(`
 
-on a certain night, around 21 years ago, i was at my friend's party in são paulo when i received a strange call.
+on a certain night, around 21 years ago, i was at a friend's party in são paulo when i received a strange call.
 
 on the other side of the line, my mom asked to talk to one of my best friends. they chatted for a few minutes, and then he hung up and looked at me with a face i will never forget.
 

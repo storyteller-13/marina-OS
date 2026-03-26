@@ -43,7 +43,11 @@ class BBotApp extends BaseApp {
         if (this.modelSelect) {
             this.modelSelect.disabled = !this.api.config.useOllama;
         }
-        this.loadModels();
+        if (this.api.config.useOllama) {
+            this.loadModels();
+        } else if (this.modelSelect) {
+            this.modelSelect.innerHTML = '<option value="">Ollama is disabled</option>';
+        }
     }
 
     setupEventListeners() {
@@ -215,7 +219,12 @@ class BBotApp extends BaseApp {
             this.settingsPanel.style.display = isVisible ? 'none' : 'block';
 
             if (!isVisible) {
-                this.loadModels();
+                if (this.api.config.useOllama) {
+                    this.loadModels();
+                } else if (this.modelSelect) {
+                    this.modelSelect.innerHTML = '<option value="">Ollama is disabled</option>';
+                    this.modelSelect.disabled = true;
+                }
                 // Update toggle state
                 if (this.ollamaToggle) {
                     this.ollamaToggle.checked = this.api.config.useOllama;

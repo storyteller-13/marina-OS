@@ -8,7 +8,7 @@ class BBotAPI {
             maxTokens: 500,
             temperature: 0.7,
             ollamaUrl: window.OLLAMA_URL || 'http://localhost:11434',
-            useOllama: true,
+            useOllama: false,
             ollamaModel: 'llama2'
         };
     }
