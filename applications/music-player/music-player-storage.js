@@ -54,74 +54,51 @@ class MusicPlayerStorage {
                     name: '2026 dreaming',
                     songs: [
                         { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' },
-                        { id: '3y47asXQxfM', title: 'jun tanaka takeover (soulection)' },
                         { id: 'YBioStgspO8', title: 'classical for happy moments (essential)' },
-                        { id: 'pGNDncTbJRU', title: 'a place to call home (world of warcraft)' },
-                        { id: 'MAmqJjyDH48', title: 'a song for our fathers (explosion in the sky)' }
                     ]
                 },
                 {
                     id: '2026 reward',
                     name: '2026 reward',
                     songs: [
-                        { id: 'x11NA63gLDM', title: 'change the world (eric clapton)' },
+                        { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
                         { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
                         { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' },
-                        { id: 'YLTFbtOfmxk', title: 'ghost of a chance (rush)' },
+                        { id: 'x11NA63gLDM', title: 'change the world (eric clapton)' },
                         { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
                         { id: 'fF8GARU44iY', title: 'wild mountain honey (steve miller)' },
-                        { id: 'd8eHpiLdBOI', title: "there's fire (the black keys)" }
+                        { id: 'pGNDncTbJRU', title: 'a place to call home (world of warcraft)' }
                     ]
                 },
                 {
-                    id: '2026 epiphany',
-                    name: '2026 epiphany',
-                    songs: [
-                        { id: 'CevxZvSJLk8', title: 'roar (kate perry)' },
-                        { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
-                        { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
-                        { id: 'Z4A9ZZo_rAE', title: 'shake it off (taylor swift)' },
-                        { id: 'hT_nvWreIhg', title: 'counting stars (onerepublic)' },
-                        { id: 'vRQb_-mRcAc', title: 'unwritten (natasha bedingfield)' },
-                        { id: '94UmYrW5oto', title: 'what up gangsta (50 cent)' },
-                        { id: 'co6WMzDOh1o', title: 'beautiful day (u2)' },
-                        { id: 'iGTN1xz0f84', title: 'old dog (j. cole)' }
-                    ]
-                },
-                {
-                    id: '2026 renewal',
-                    name: '2026 renewal',
+                    id: '2026 afterlife',
+                    name: '2026 afterlife',
                     songs: [
                         { id: 'ya7L3A1DOlg', title: 'all is violent, all is bright (god is an astronaut)' },
+                        { id: 'MAmqJjyDH48', title: 'a song for our fathers (explosion in the sky)' },
                         { id: 'X2959NkomEc', title: 'up all night (meltt)' },
                         { id: 'wpWOQSgsetk', title: 'butterfly (anees)' },
                         { id: 'b9WKC5sT9Z4', title: 'gymnopedies (erik satie)' },
-                        { id: 'FoYdeEDdtK4', title: 'peaches in regalia (frank zappa)' },
                         { id: 'fhOAsDVg8pY', title: 'round && round (bob moses)' },
-                        { id: 'UVpcupE1xEo', title: 'seven (david bowie)' }
-                    ]
-                },
-                {
-                    id: '2025 afterlife',
-                    name: '2025 afterlife',
-                    songs: [
+                        { id: 'CevxZvSJLk8', title: 'roar (kate perry)' },
+                        { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
+                        { id: 'Z4A9ZZo_rAE', title: 'shake it off (taylor swift)' },
+                        { id: 'vRQb_-mRcAc', title: 'unwritten (natasha bedingfield)' },
+                        { id: 'UVpcupE1xEo', title: 'seven (david bowie)' },
+                        { id: 'iGTN1xz0f84', title: 'old dog (j. cole)' },
+                        { id: '94UmYrW5oto', title: 'what up gangsta (50 cent)' },
+                        { id: 'hT_nvWreIhg', title: 'counting stars (onerepublic)' },
+                        { id: 'ln7Vn_WKkWU', title: 'stuck in the middle (stealers wheel)' },
                         { id: 'MO0LdXqwDP0', title: 'afterlife (evanescence)' },
                         { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
                         { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
+                        { id: 'pTF5azM4w5E', title: "miss me when i'm gone (will sass)" },
                         { id: 'cfjDrutsfRQ', title: 'sympathy magic (florence + the machine)' },
                         { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' },
-                        { id: 'pe3jFvJ0qjs', title: "don't fear the reaper (blue oyster cult)" }
-                    ]
-                },
-                {
-                    id: '2025 dualities',
-                    name: '2025 dualities',
-                    songs: [
+                        { id: 'pe3jFvJ0qjs', title: "don't fear the reaper (blue oyster cult)" },
                         { id: 'IXdNnw99-Ic', title: 'wish you were here (pink floyd)' },
-                        { id: 'QkQe7SctWRs', title: 'comfortably numb (david gilmour)' },
                         { id: 'ujNeHIo7oTE', title: 'with or without you (u2)' },
                         { id: '1lyu1KKwC74', title: 'bitter sweet symphony (the verve)' },
-                        { id: 'ln7Vn_WKkWU', title: 'stuck in the middle (stealers wheel)' },
                         { id: '7jMlFXouPk8', title: 'high hopes (pink floyd)' },
                         { id: 'TFjmvfRvjTc', title: 'hey you (pink floyd)' }
                     ]
@@ -139,14 +116,6 @@ class MusicPlayerStorage {
     ensureDefaultPlaylists(data) {
         if (!data.playlists) {
             data.playlists = [];
-        }
-        // Migrate old playlist ids to match list names
-        const idMap = { '2026-reward': '2026 reward', '2026-epiphany': '2026 epiphany', 'renewal': '2026 renewal', 'afterlife 2025': '2025 afterlife', 'dualities-playlist': '2025 dualities' };
-        data.playlists.forEach(p => {
-            if (idMap[p.id]) p.id = idMap[p.id];
-        });
-        if (idMap[data.currentPlaylistId]) {
-            data.currentPlaylistId = idMap[data.currentPlaylistId];
         }
         const defaultData = this.getDefaultData();
         const defaultPlaylistIds = new Set(defaultData.playlists.map(p => p.id));

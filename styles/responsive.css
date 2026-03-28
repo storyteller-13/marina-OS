@@ -9,11 +9,15 @@
         min-height: 100%;
         min-height: 100dvh;
         overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
         -webkit-overflow-scrolling: touch;
     }
     .desktop {
         min-height: 100%;
         min-height: 100dvh;
+        width: 100%;
+        max-width: 100%;
     }
 
     /* Desktop container padding for fixed top panel + safe area (notch/home indicator) */
@@ -253,6 +257,8 @@
         max-width: 360px;
         top: 20px;
         right: 20px;
+        max-height: calc(100vh - 44px);
+        max-height: calc(100dvh - 44px);
     }
 
     .music-player-header {
@@ -369,7 +375,8 @@
         transform: translateX(-50%);
     }
 
-    .home-window {
+    .home-window,
+    .sunday-chats-window {
         width: 95%;
         height: calc(100vh - 48px - 80px);
         height: calc(100dvh - 48px - 80px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
@@ -697,6 +704,8 @@
         max-width: none;
         top: 60px;
         right: 6px;
+        max-height: calc(100vh - 76px);
+        max-height: calc(100dvh - 76px);
     }
 
     .quotes-box {
@@ -1007,6 +1016,8 @@
     .music-player {
         top: 52px;
         width: 200px;
+        max-height: calc(100vh - 68px);
+        max-height: calc(100dvh - 68px);
     }
 
     .quotes-box {
