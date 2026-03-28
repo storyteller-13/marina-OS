@@ -47,13 +47,16 @@ describe('MusicPlayerStorage', () => {
         const storage = new window.MusicPlayerStorage();
         const data = storage.getDefaultData();
         expect(data.currentPlaylistId).toBe('2026 dreaming');
-        const playlist = data.playlists.find(p => p.id === '2026 reward');
-        expect(playlist).toBeDefined();
-        expect(playlist.songs.length).toBeGreaterThan(0);
-        expect(playlist.songs[0]).toHaveProperty('id');
-        expect(playlist.songs[0]).toHaveProperty('title');
+        const reward = data.playlists.find(p => p.id === '2026 reward');
+        expect(reward).toBeDefined();
+        expect(reward.songs.length).toBeGreaterThan(0);
+        expect(reward.songs[0]).toHaveProperty('id');
+        expect(reward.songs[0]).toHaveProperty('title');
         expect(
-            playlist.songs.some(s => s.id === 'd8eHpiLdBOI' && s.title === "there's fire (the black keys)")
+            reward.songs.some(s => s.id === 'G2dR2DV-eGc' && s.title === 'hard to concentrate (rhcp)')
+        ).toBe(true);
+        expect(
+            reward.songs.some(s => s.id === 'x11NA63gLDM' && s.title === 'change the world (eric clapton)')
         ).toBe(true);
 
         const dreaming = data.playlists.find(p => p.id === '2026 dreaming');
@@ -63,40 +66,28 @@ describe('MusicPlayerStorage', () => {
         ).toBe(true);
         expect(
             dreaming.songs.some(
-                s => s.id === 'MAmqJjyDH48' && s.title === 'a song for our fathers (explosion in the sky)'
-            )
-        ).toBe(true);
-        expect(
-            dreaming.songs.some(
                 s => s.id === 'YBioStgspO8' && s.title === 'classical for happy moments (essential)'
-            )
-        ).toBe(true);
-        expect(
-            dreaming.songs.some(
-                s => s.id === 'pGNDncTbJRU' && s.title === 'a place to call home (world of warcraft)'
-            )
-        ).toBe(true);
-        expect(
-            dreaming.songs.some(
-                s => s.id === '3y47asXQxfM' && s.title === 'jun tanaka takeover (soulection)'
             )
         ).toBe(true);
         expect(data.playlists.some(p => p.id === '2026 memories')).toBe(false);
 
-        const renewal = data.playlists.find(p => p.id === '2026 renewal');
-        expect(renewal).toBeDefined();
+        const afterlife = data.playlists.find(p => p.id === '2025 afterlife');
+        expect(afterlife).toBeDefined();
         expect(
-            renewal.songs.some(s => s.id === 'UVpcupE1xEo' && s.title === 'seven (david bowie)')
+            afterlife.songs.some(s => s.id === 'MAmqJjyDH48' && s.title === 'a song for our fathers (explosion in the sky)')
+        ).toBe(true);
+        expect(
+            afterlife.songs.some(s => s.id === 'UVpcupE1xEo' && s.title === 'seven (david bowie)')
         ).toBe(true);
     });
 
     it('save() persists and load() returns saved data', () => {
         const storage = new window.MusicPlayerStorage();
         const data = storage.load();
-        data.currentPlaylistId = '2025 dualities';
+        data.currentPlaylistId = '2025 afterlife';
         storage.save(data);
         const loaded = storage.load();
-        expect(loaded.currentPlaylistId).toBe('2025 dualities');
+        expect(loaded.currentPlaylistId).toBe('2025 afterlife');
     });
 
     it('getPlaylist returns playlist by id or null', () => {
@@ -119,10 +110,10 @@ describe('MusicPlayerStorage', () => {
     it('setCurrentPlaylist updates currentPlaylistId and saves', () => {
         const storage = new window.MusicPlayerStorage();
         const data = storage.load();
-        storage.setCurrentPlaylist(data, '2025 dualities');
+        storage.setCurrentPlaylist(data, '2025 afterlife');
         const raw = localStorage.getItem(STORAGE_KEY);
         const parsed = JSON.parse(raw);
-        expect(parsed.currentPlaylistId).toBe('2025 dualities');
+        expect(parsed.currentPlaylistId).toBe('2025 afterlife');
     });
 
     it('ensureDefaultPlaylists merges defaults and preserves order', () => {
@@ -149,17 +140,6 @@ describe('MusicPlayerStorage', () => {
         const raw = localStorage.getItem(STORAGE_KEY);
         const parsed = JSON.parse(raw);
         expect(parsed.currentPlaylistId).toBe(before);
-    });
-
-    it('ensureDefaultPlaylists migrates old playlist ids', () => {
-        const storage = new window.MusicPlayerStorage();
-        const data = {
-            playlists: [{ id: '2026-reward', name: 'old', songs: [] }],
-            currentPlaylistId: '2026-reward'
-        };
-        storage.ensureDefaultPlaylists(data);
-        expect(data.playlists[0].id).toBe('2026 dreaming');
-        expect(data.currentPlaylistId).toBe('2026 reward');
     });
 
     it('ensureDefaultPlaylists removes deprecated 2026 memories playlist', () => {

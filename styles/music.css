@@ -4,6 +4,11 @@
     top: 56px;
     right: 20px;
     width: 320px;
+    max-height: calc(100vh - 72px);
+    max-height: calc(100dvh - 72px);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
     background: rgba(20, 10, 30, 0.95);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(34, 197, 94, 0.6);
@@ -61,6 +66,11 @@
     position: relative;
     z-index: 1;
     padding: 20px;
+    flex: 1 1 0%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .music-player-header {
@@ -71,6 +81,7 @@
     font-size: 12px;
     text-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
     margin-bottom: 12px;
+    flex-shrink: 0;
 }
 
 .music-nav {
@@ -476,6 +487,7 @@
     padding: 4px 0;
     opacity: 1;
     transition: opacity 0.3s;
+    flex-shrink: 0;
 }
 
 .music-player.playing .music-visualizer {
@@ -542,7 +554,7 @@
     }
 }
 
-/* Music Song List */
+/* Playlists stack here; no outer scroll — each expanded .music-playlist-songs scrolls if needed */
 .music-song-list {
     margin-top: 12px;
     padding-top: 12px;
@@ -550,6 +562,10 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    flex: 1 1 0%;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .music-playlist-container {
@@ -612,7 +628,12 @@
 }
 
 .music-playlist-songs.expanded {
-    max-height: 1000px;
+    max-height: min(42vh, 280px);
+    max-height: min(42dvh, 280px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
     opacity: 1;
     padding-left: 8px;
     padding-top: 4px;

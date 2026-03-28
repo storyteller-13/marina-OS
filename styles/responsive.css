@@ -9,11 +9,15 @@
         min-height: 100%;
         min-height: 100dvh;
         overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
         -webkit-overflow-scrolling: touch;
     }
     .desktop {
         min-height: 100%;
         min-height: 100dvh;
+        width: 100%;
+        max-width: 100%;
     }
 
     /* Desktop container padding for fixed top panel + safe area (notch/home indicator) */
@@ -253,6 +257,8 @@
         max-width: 360px;
         top: 20px;
         right: 20px;
+        max-height: calc(100vh - 44px);
+        max-height: calc(100dvh - 44px);
     }
 
     .music-player-header {
@@ -369,7 +375,8 @@
         transform: translateX(-50%);
     }
 
-    .home-window {
+    .home-window,
+    .sunday-chats-window {
         width: 95%;
         height: calc(100vh - 48px - 80px);
         height: calc(100dvh - 48px - 80px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
@@ -406,6 +413,10 @@
     .window-header {
         height: 40px;
         padding: 0 8px;
+    }
+
+    .window-content {
+        height: calc(100% - 40px);
     }
 
     .window-title {
@@ -476,7 +487,7 @@
     }
 
     .terminal-input-main {
-        font-size: 12px;
+        font-size: 16px; /* avoids iOS zoom-on-focus */
     }
 
     /* File Manager */
@@ -500,7 +511,7 @@
     }
 
     .todo-input {
-        font-size: 14px;
+        font-size: 16px; /* avoids iOS zoom-on-focus */
         padding: 8px 10px;
     }
 
@@ -566,7 +577,7 @@
     }
 
     .b-bot-input {
-        font-size: 12px;
+        font-size: 16px; /* avoids iOS zoom-on-focus */
         padding: 8px 10px;
     }
 
@@ -697,6 +708,8 @@
         max-width: none;
         top: 60px;
         right: 6px;
+        max-height: calc(100vh - 76px);
+        max-height: calc(100dvh - 76px);
     }
 
     .quotes-box {
@@ -844,6 +857,7 @@
     .todo-window,
     .notes-window,
     .home-window,
+    .sunday-chats-window,
     .b-bot-window,
     .artwork-window {
         width: 100%;
@@ -889,6 +903,10 @@
     .window-header {
         height: 52px;
         padding: 0 6px;
+    }
+
+    .window-content {
+        height: calc(100% - 52px);
     }
 
     .control {
@@ -991,6 +1009,10 @@
         z-index: 20000;
     }
 
+    .window-content {
+        height: calc(100% - 40px);
+    }
+
     .panel-left {
         flex-shrink: 0;
     }
@@ -1007,6 +1029,8 @@
     .music-player {
         top: 52px;
         width: 200px;
+        max-height: calc(100vh - 68px);
+        max-height: calc(100dvh - 68px);
     }
 
     .quotes-box {
@@ -1101,12 +1125,13 @@
     .todo-window,
     .notes-window,
     .home-window,
+    .sunday-chats-window,
     .b-bot-window,
     .artwork-window,
     .notes-letter-window {
         width: 95%;
-        height: calc(100vh - 44px - 70px);
-        max-height: calc(100vh - 44px - 70px);
+        height: calc(100dvh - 44px - 70px);
+        max-height: calc(100dvh - 44px - 70px);
         top: 44px;
         left: 50%;
         transform: translateX(-50%);
