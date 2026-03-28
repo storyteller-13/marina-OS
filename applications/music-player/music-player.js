@@ -24,17 +24,32 @@ class MusicPlayer {
             songList: 'music-song-list'
         };
 
-        this.loadPlaylists();
+        this.loadPlaylists({ resetDefaultEntry: true });
         this.init();
     }
 
     /**
      * Initialize playlists and ensure default playlists exist (single source of truth in storage).
+     * @param {Object} [options]
+     * @param {boolean} [options.resetDefaultEntry] - Full page load: current playlist + track = 2026 dreaming / dreamer
      */
-    loadPlaylists() {
+    loadPlaylists(options = {}) {
+        const resetDefaultEntry = options.resetDefaultEntry === true;
         this.playlistsData = this.storage.load();
         this.storage.ensureDefaultPlaylists(this.playlistsData);
         this.storage.save(this.playlistsData);
+
+        if (resetDefaultEntry) {
+            const dreamPlaylist = this.storage.getPlaylist(this.playlistsData, '2026 dreaming');
+            if (dreamPlaylist && dreamPlaylist.songs && dreamPlaylist.songs.length > 0) {
+                this.playlistsData.currentPlaylistId = '2026 dreaming';
+                this.songs = [...dreamPlaylist.songs];
+                const dreamerIdx = this.songs.findIndex(s => s.id === 'aA4Kub9flag');
+                this.currentSongIndex = dreamerIdx >= 0 ? dreamerIdx : 0;
+                this.storage.save(this.playlistsData);
+                return;
+            }
+        }
 
         const currentPlaylist = this.storage.getCurrentPlaylist(this.playlistsData);
         if (currentPlaylist && currentPlaylist.songs && currentPlaylist.songs.length > 0) {
@@ -52,13 +67,6 @@ class MusicPlayer {
                 this.songs = [...this.playlistsData.playlists[0].songs];
             }
             this.currentSongIndex = 0;
-        }
-        // When 2026 reward is current, show Change the World on load
-        if (this.playlistsData?.currentPlaylistId === '2026 reward' && this.songs.length > 0) {
-            const changeTheWorldIndex = this.songs.findIndex(s => s.id === 'x11NA63gLDM');
-            if (changeTheWorldIndex >= 0) {
-                this.currentSongIndex = changeTheWorldIndex;
-            }
         }
     }
     

@@ -95,7 +95,7 @@ window.QUOTES = [
     { text: 'soon i will be sitting in my nice chair, in my nice house, with a nice cup of tea, looking at everything i have and how i overcame so much. and i will feel this immense happiness inside my veins — something so strong and so intense. total. complete. bliss.', author: 'dr. steinkirch' },
     { text: 'being a winner means mastering the art of not taking rejection personally. even better: actively seek it. try everything, reach out to everyone. you\'ll get a flood of NOs and silence. but eventually, a signal breaks through — and when it does, it feels incredible.', author: 'dr. steinkirch' },
     { text: 'being misunderstood is underrated — it\'s a signal that you\'re not following the herd. embrace that feeling, tune out the noise of criticism, and keep trusting your intuition to take you where you need to go.', author: 'dr. steinkirch' },
-
+    { text: 'there is nothing sadder than someone who chooses fame over building a family, and online influence over true love. life is so short, and illusions are so dangerous.', author: 'dr. steinkirch' },
     // robert greene
     { text: 'no calling is superior to another. what matters is that it be tied to a personal need and inclination, and that your energy moves you toward improvement and continuous learning from experience.', author: 'robert greene' },
     // science
