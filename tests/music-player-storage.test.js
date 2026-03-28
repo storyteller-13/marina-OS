@@ -71,7 +71,7 @@ describe('MusicPlayerStorage', () => {
         ).toBe(true);
         expect(data.playlists.some(p => p.id === '2026 memories')).toBe(false);
 
-        const afterlife = data.playlists.find(p => p.id === '2026 afterlife');
+        const afterlife = data.playlists.find(p => p.id === '2025 afterlife');
         expect(afterlife).toBeDefined();
         expect(
             afterlife.songs.some(s => s.id === 'MAmqJjyDH48' && s.title === 'a song for our fathers (explosion in the sky)')
@@ -84,10 +84,10 @@ describe('MusicPlayerStorage', () => {
     it('save() persists and load() returns saved data', () => {
         const storage = new window.MusicPlayerStorage();
         const data = storage.load();
-        data.currentPlaylistId = '2026 afterlife';
+        data.currentPlaylistId = '2025 afterlife';
         storage.save(data);
         const loaded = storage.load();
-        expect(loaded.currentPlaylistId).toBe('2026 afterlife');
+        expect(loaded.currentPlaylistId).toBe('2025 afterlife');
     });
 
     it('getPlaylist returns playlist by id or null', () => {
@@ -110,10 +110,10 @@ describe('MusicPlayerStorage', () => {
     it('setCurrentPlaylist updates currentPlaylistId and saves', () => {
         const storage = new window.MusicPlayerStorage();
         const data = storage.load();
-        storage.setCurrentPlaylist(data, '2026 afterlife');
+        storage.setCurrentPlaylist(data, '2025 afterlife');
         const raw = localStorage.getItem(STORAGE_KEY);
         const parsed = JSON.parse(raw);
-        expect(parsed.currentPlaylistId).toBe('2026 afterlife');
+        expect(parsed.currentPlaylistId).toBe('2025 afterlife');
     });
 
     it('ensureDefaultPlaylists merges defaults and preserves order', () => {

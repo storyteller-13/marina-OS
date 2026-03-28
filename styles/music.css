@@ -8,6 +8,7 @@
     max-height: calc(100dvh - 72px);
     display: flex;
     flex-direction: column;
+    min-height: 0;
     background: rgba(20, 10, 30, 0.95);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(34, 197, 94, 0.6);
@@ -553,7 +554,7 @@
     }
 }
 
-/* Music Song List */
+/* Music Song List — sole vertical scroll area for playlists/songs (no nested scrollbars) */
 .music-song-list {
     margin-top: 12px;
     padding-top: 12px;
@@ -566,6 +567,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
 }
 
 .music-playlist-container {
@@ -628,11 +630,9 @@
 }
 
 .music-playlist-songs.expanded {
-    max-height: min(58vh, 720px);
-    max-height: min(58dvh, 720px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
+    /* Large cap for max-height transition only; scrolling happens on .music-song-list */
+    max-height: 10000px;
+    overflow: visible;
     opacity: 1;
     padding-left: 8px;
     padding-top: 4px;
