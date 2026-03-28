@@ -415,6 +415,10 @@
         padding: 0 8px;
     }
 
+    .window-content {
+        height: calc(100% - 40px);
+    }
+
     .window-title {
         font-size: 10px;
     }
@@ -483,7 +487,7 @@
     }
 
     .terminal-input-main {
-        font-size: 12px;
+        font-size: 16px; /* avoids iOS zoom-on-focus */
     }
 
     /* File Manager */
@@ -507,7 +511,7 @@
     }
 
     .todo-input {
-        font-size: 14px;
+        font-size: 16px; /* avoids iOS zoom-on-focus */
         padding: 8px 10px;
     }
 
@@ -573,7 +577,7 @@
     }
 
     .b-bot-input {
-        font-size: 12px;
+        font-size: 16px; /* avoids iOS zoom-on-focus */
         padding: 8px 10px;
     }
 
@@ -853,6 +857,7 @@
     .todo-window,
     .notes-window,
     .home-window,
+    .sunday-chats-window,
     .b-bot-window,
     .artwork-window {
         width: 100%;
@@ -898,6 +903,10 @@
     .window-header {
         height: 52px;
         padding: 0 6px;
+    }
+
+    .window-content {
+        height: calc(100% - 52px);
     }
 
     .control {
@@ -998,6 +1007,10 @@
         right: 0;
         width: 100%;
         z-index: 20000;
+    }
+
+    .window-content {
+        height: calc(100% - 40px);
     }
 
     .panel-left {
@@ -1112,12 +1125,13 @@
     .todo-window,
     .notes-window,
     .home-window,
+    .sunday-chats-window,
     .b-bot-window,
     .artwork-window,
     .notes-letter-window {
         width: 95%;
-        height: calc(100vh - 44px - 70px);
-        max-height: calc(100vh - 44px - 70px);
+        height: calc(100dvh - 44px - 70px);
+        max-height: calc(100dvh - 44px - 70px);
         top: 44px;
         left: 50%;
         transform: translateX(-50%);
