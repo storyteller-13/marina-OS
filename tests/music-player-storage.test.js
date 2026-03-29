@@ -69,6 +69,9 @@ describe('MusicPlayerStorage', () => {
                 s => s.id === 'YBioStgspO8' && s.title === 'classical for happy moments (essential)'
             )
         ).toBe(true);
+        expect(
+            dreaming.songs.some(s => s.id === 'bTvOEXAuIEU' && s.title === 'frailed (flea)')
+        ).toBe(true);
         expect(data.playlists.some(p => p.id === '2026 memories')).toBe(false);
 
         const afterlife = data.playlists.find(p => p.id === '2025 afterlife');

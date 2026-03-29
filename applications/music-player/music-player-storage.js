@@ -53,10 +53,11 @@ class MusicPlayerStorage {
                     id: '2026 dreaming',
                     name: '2026 dreaming',
                     songs: [
-                        { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' },
-                        { id: 'b9WKC5sT9Z4', title: 'gymnopedies (erik satie)' },
+                        { id: 'YBioStgspO8', title: 'classical for happy moments (essential)' },
                         { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
-                        { id: 'YBioStgspO8', title: 'classical for happy moments (essential)' }
+                        { id: 'b9WKC5sT9Z4', title: 'gymnopedies (erik satie)' },
+                        { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' },
+                        { id: 'bTvOEXAuIEU', title: 'frailed (flea)' }
                     ]
                 },
                 {
