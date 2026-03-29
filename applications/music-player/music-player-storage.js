@@ -8,6 +8,17 @@ class MusicPlayerStorage {
     }
 
     /**
+     * Remove persisted playlists so the next load() starts from defaults.
+     */
+    clearPersisted() {
+        try {
+            localStorage.removeItem(this.storageKey);
+        } catch (e) {
+            // ignore quota / private mode
+        }
+    }
+
+    /**
      * Load playlists from localStorage or return default data
      * @returns {Object} Playlists data object with playlists array
      */
