@@ -739,7 +739,7 @@ and i already love every cell of your body
 
 <3
 
-ps: meanwhile, you can play the games i have been building (look at "the true love series" in the stories section) or the "2026 reward" playlist i have been creating - they are all for you because this is what "perfect true love" means for me
+ps: meanwhile, you can play the games i have been building (look at "the true love series" in the stories section) or the "2026 future hubby" playlist i have been creating - they are all for you because this is what "perfect true love" means for me
 
                 `)
             },

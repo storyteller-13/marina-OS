@@ -50,8 +50,8 @@ class MusicPlayerStorage {
         return {
             playlists: [
                 {
-                    id: '2026 dreaming',
-                    name: '2026 dreaming',
+                    id: '2026 dream bliss',
+                    name: '2026 dream bliss',
                     songs: [
                         { id: 'YBioStgspO8', title: 'classical for happy moments (essential)' },
                         { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
@@ -61,8 +61,8 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id: '2026 reward',
-                    name: '2026 reward',
+                    id: '2026 future hubby',
+                    name: '2026 future hubby',
                     songs: [
                         { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
                         { id: 'x11NA63gLDM', title: 'change the world (eric clapton)' },
@@ -72,8 +72,8 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id: '2025 afterlife',
-                    name: '2025 afterlife',
+                    id: '2025 beyond afterlife',
+                    name: '2025 beyond afterlife',
                     songs: [
                         { id: 'ya7L3A1DOlg', title: 'all is violent, bright (god is an astronaut)' },
                         { id: 'MAmqJjyDH48', title: 'a song for our fathers (explosion in the sky)' },
@@ -106,7 +106,7 @@ class MusicPlayerStorage {
                     ]
                 }
             ],
-            currentPlaylistId: '2026 dreaming'
+            currentPlaylistId: '2026 dream bliss'
         };
     }
 
@@ -123,15 +123,7 @@ class MusicPlayerStorage {
         const defaultPlaylistIds = new Set(defaultData.playlists.map(p => p.id));
         // Remove deprecated default playlist ids from saved data.
         data.playlists = data.playlists.filter(p => p.id !== '2026 memories');
-        // Brief mistaken id was 2026 afterlife; canonical default is 2025 afterlife
-        const mistakenAfterlife = data.playlists.find(p => p.id === '2026 afterlife');
-        if (mistakenAfterlife) {
-            mistakenAfterlife.id = '2025 afterlife';
-            mistakenAfterlife.name = '2025 afterlife';
-        }
-        if (data.currentPlaylistId === '2026 afterlife') {
-            data.currentPlaylistId = '2025 afterlife';
-        }
+
         defaultData.playlists.forEach((defaultPlaylist, position) => {
             let playlist = this.getPlaylist(data, defaultPlaylist.id);
             if (!playlist) {
@@ -156,7 +148,7 @@ class MusicPlayerStorage {
             }
         });
         if (!data.currentPlaylistId || !defaultPlaylistIds.has(data.currentPlaylistId)) {
-            data.currentPlaylistId = '2026 dreaming';
+            data.currentPlaylistId = '2026 dream bliss';
         }
     }
 

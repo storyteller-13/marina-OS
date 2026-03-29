@@ -31,7 +31,7 @@ class MusicPlayer {
     /**
      * Initialize playlists and ensure default playlists exist (single source of truth in storage).
      * @param {Object} [options]
-     * @param {boolean} [options.resetDefaultEntry] - Full page load: current playlist + track = 2026 dreaming / dreamer
+     * @param {boolean} [options.resetDefaultEntry] - Full page load: current playlist + track = 2026 dream bliss / dreamer
      */
     loadPlaylists(options = {}) {
         const resetDefaultEntry = options.resetDefaultEntry === true;
@@ -40,9 +40,9 @@ class MusicPlayer {
         this.storage.save(this.playlistsData);
 
         if (resetDefaultEntry) {
-            const dreamPlaylist = this.storage.getPlaylist(this.playlistsData, '2026 dreaming');
+            const dreamPlaylist = this.storage.getPlaylist(this.playlistsData, '2026 dream bliss');
             if (dreamPlaylist && dreamPlaylist.songs && dreamPlaylist.songs.length > 0) {
-                this.playlistsData.currentPlaylistId = '2026 dreaming';
+                this.playlistsData.currentPlaylistId = '2026 dream bliss';
                 this.songs = [...dreamPlaylist.songs];
                 const dreamerIdx = this.songs.findIndex(s => s.id === 'aA4Kub9flag');
                 this.currentSongIndex = dreamerIdx >= 0 ? dreamerIdx : 0;
@@ -56,10 +56,10 @@ class MusicPlayer {
             this.songs = [...currentPlaylist.songs];
             this.currentSongIndex = Math.max(0, Math.min(this.currentSongIndex, this.songs.length - 1));
         } else {
-            const fallbackPlaylist = this.storage.getPlaylist(this.playlistsData, '2026 dreaming');
+            const fallbackPlaylist = this.storage.getPlaylist(this.playlistsData, '2026 dream bliss');
             if (fallbackPlaylist && fallbackPlaylist.songs && fallbackPlaylist.songs.length > 0) {
                 this.songs = [...fallbackPlaylist.songs];
-                this.playlistsData.currentPlaylistId = '2026 dreaming';
+                this.playlistsData.currentPlaylistId = '2026 dream bliss';
                 this.storage.save(this.playlistsData);
             } else {
                 this.playlistsData = this.storage.getDefaultData();
@@ -565,16 +565,6 @@ window.MusicPlayerClass = MusicPlayer;
 // Initialize when DOM is ready
 const initMusicPlayer = () => {
     window.MusicPlayer = new MusicPlayer();
-    
-    // Expose method to check current playlist
-    window.getCurrentPlaylist = () => {
-        if (window.MusicPlayer && window.MusicPlayer.playlistsData) {
-            const storage = window.MusicPlayer.storage;
-            const currentPlaylist = storage.getCurrentPlaylist(window.MusicPlayer.playlistsData);
-            return currentPlaylist;
-        }
-        return null;
-    };
 };
 
 if (document.readyState === 'loading') {
