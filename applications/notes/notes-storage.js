@@ -35,10 +35,41 @@ class NotesStorage {
     getDefaultEntries() {
         return [
 
+            {
+                date: '2026-03-31T00:00:00.000Z',
+                title: 'an ode to april',
+                content: this.cleanContent(`
+
+gm, my dear anon, 
+
+can you believe it's already april?
+that means 25% of 2026 is already behind us!
+how are your dreams && ambitions shaping up?
+
+as for me — things are going well!
+
+my path is clear: career, goals, execution. i'm showing up every day and giving it everything i have. expect some exciting news soon!
+
+my routine is tight, intentional, and improving constantly. i'm taking pride in holding the line against distractions. nothing and no one is standing between me and where i'm headed.
+
+the side projects and hobbies that truly matter have been identified, and i'll be pursuing each one with dedication in my spare time.
+
+still haven't found my person yet, but the faith remains. jupiter moves into my 7th house in a couple of months — "they" say this is when you find the one.
+
+happy new month!
+looking amazing, smelling good, and feeling strong.
+no more excuses, no more delays, no more hesitation.
+
+shall we get to it?
+
+<3
+
+                                    `)
+            },
 
             {
                 date: '2026-03-30T00:00:00.000Z',
-                title: '4 shades of 96',
+                title: 'the 4 shades of 96',
                 content: this.cleanContent(`
 
             
@@ -46,7 +77,7 @@ DISCLAIMER: the following text is a narrative experiment conducted by an amateur
 
 this is a purely fictional construct and should be interpreted as such. the narrative is influenced stylistically by authors such as bukowski and nabokov, and is presented as an analytical exercise rather than a literal account.
 
-in this story, we examine a spectrum of behaviors associated with a particular intimate act (hereafter referred to as “fellatio”) through a quasi-analytical lens. the goal is not to sensationalize, but rather to categorize and reflect on the ethical, social, and psychological dimensions surrounding the act.
+in this story, we examine a spectrum of behaviors associated with a particular intimate act (hereafter referred to as "fellatio") through a quasi-analytical lens. the goal is not to sensationalize, but rather to categorize and reflect on the ethical, social, and psychological dimensions surrounding the act.
 
 the analysis proceeds from the most harmful and coercive manifestation to the most consensual and meaningful.
 
@@ -59,13 +90,13 @@ consider a hypothetical subject: a woman in her late thirties, characterized by 
 
 her social exposure is minimal, and her interpersonal relationships have historically been serious, long-term, and emotionally invested. she does not engage in casual encounters, avoids nightlife environments, and maintains a strong internal value system centered on trust, commitment, and future partnership.
 
-a defining feature of this subject is deferred emotional investment: she has consciously “saved” her affection, intimacy, and vulnerability for a future partner whom she perceives as worthy. this creates both depth of character and a structural vulnerability — high trust thresholds combined with limited real - world testing of adversarial social dynamics.
+a defining feature of this subject is deferred emotional investment: she has consciously "saved" her affection, intimacy, and vulnerability for a future partner whom she perceives as worthy. this creates both depth of character and a structural vulnerability — high trust thresholds combined with limited real-world testing of adversarial social dynamics.
 
 a predatory individual identifies this profile as exploitable. this individual is not sophisticated in a traditional sense, but possesses one critical capability: the ability to fabricate emotional signals without internal constraint. his objective is not relational, but reputational within a deviant peer network, where domination, deception, and documentation of exploitation function as status currency.
 
 the interaction begins with accelerated attachment formation. the perpetrator deploys high-frequency communication, exaggerated admiration, symbolic gestures (e.g., gifts, promises of travel), and explicit declarations of long-term intent (marriage, exclusivity). these signals are calibrated to align precisely with the subject's unmet emotional expectations.
 
-initially, the subject experiences cognitive dissonance. there are weak signals of incongruence—subtle intuitions that something is "off". however, these signals are overridden by contextual factors: isolation, desire for connection, and the psychological reward of being seen and valued. over repeated exposure, her resistance diminishes.
+initially, the subject experiences cognitive dissonance. there are weak signals of incongruence — subtle intuitions that something is "off". however, these signals are overridden by contextual factors: isolation, desire for connection, and the psychological reward of being seen and valued. over repeated exposure, her resistance diminishes.
 
 the subject grants increasing access: emotional, spatial (inviting him into her home), and temporal (regular interaction). at this stage, trust consolidation has been achieved.
 
@@ -89,7 +120,7 @@ this scenario represents a convergence of manipulation, chemical incapacitation,
 2️⃣ the opportunistic (metaphorical) modality
 --------------------------------------------
 
-in a metaphorical sense, the act may represent submissive or sycophantic behavior enacted for personal gain. here, the “act” is symbolic of abandoning integrity to secure favor, status, or protection.
+in a metaphorical sense, the act may represent submissive or sycophantic behavior enacted for personal gain. here, the "act" is symbolic of abandoning integrity to secure favor, status, or protection.
 
 an illustrative case involves betrayal of peers in exchange for alignment with powerful or attention-seeking individuals. such figures often exhibit egocentric worldviews, interpreting external actions as centered on themselves. their social ecosystems may reward flattery and compliance.
 
@@ -569,10 +600,9 @@ dear anon friend,
 
 i am looking for a new long-term 
 opportunity with great people to
-build something new and meaningful
-either as an engineer or researcher 
-working on AI-related projects
-or as an amateur filmmaker
+build something new and meaningful,
+either as an engineer or researcher,
+working on AI-related projects.
 
 if you'd like to have me on your team,
 let’s chat: contact@vonsteinkirch.com

@@ -84,8 +84,8 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id: '2026 beyond afterlife',
-                    name: '2026 beyond afterlife',
+                    id: '2026 after afterlife',
+                    name: '2026 after afterlife',
                     songs: [
                         { id: 'ya7L3A1DOlg', title: 'all is violent, bright (god is an astronaut)' },
                         { id: 'MAmqJjyDH48', title: 'a song for our fathers (explosion in the sky)' },
