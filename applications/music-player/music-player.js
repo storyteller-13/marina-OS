@@ -35,6 +35,9 @@ class MusicPlayer {
      */
     loadPlaylists(options = {}) {
         const resetDefaultEntry = options.resetDefaultEntry === true;
+        if (resetDefaultEntry) {
+            this.storage.clearPersisted();
+        }
         this.playlistsData = this.storage.load();
         this.storage.ensureDefaultPlaylists(this.playlistsData);
         this.storage.save(this.playlistsData);

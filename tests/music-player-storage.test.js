@@ -76,6 +76,17 @@ describe('MusicPlayerStorage', () => {
         expect(loaded.currentPlaylistId).toBe('2025 beyond afterlife');
     });
 
+    it('clearPersisted() removes key; next load() uses defaults', () => {
+        const storage = new window.MusicPlayerStorage();
+        const data = storage.load();
+        data.currentPlaylistId = '2025 beyond afterlife';
+        storage.save(data);
+        storage.clearPersisted();
+        expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
+        const again = storage.load();
+        expect(again.currentPlaylistId).toBe('2026 dream bliss');
+    });
+
     it('getPlaylist returns playlist by id or null', () => {
         const storage = new window.MusicPlayerStorage();
         const data = storage.load();

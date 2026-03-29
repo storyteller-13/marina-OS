@@ -8,6 +8,17 @@ class MusicPlayerStorage {
     }
 
     /**
+     * Remove persisted playlists so the next load() starts from defaults.
+     */
+    clearPersisted() {
+        try {
+            localStorage.removeItem(this.storageKey);
+        } catch (e) {
+            // ignore quota / private mode
+        }
+    }
+
+    /**
      * Load playlists from localStorage or return default data
      * @returns {Object} Playlists data object with playlists array
      */
@@ -65,6 +76,7 @@ class MusicPlayerStorage {
                     name: '2026 future hubby',
                     songs: [
                         { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
+                        { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' },
                         { id: 'x11NA63gLDM', title: 'change the world (eric clapton)' },
                         { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
                         { id: 'fF8GARU44iY', title: 'wild mountain honey (steve miller)' },
@@ -84,13 +96,11 @@ class MusicPlayerStorage {
                         { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
                         { id: 'Z4A9ZZo_rAE', title: 'shake it off (taylor swift)' },
                         { id: 'vRQb_-mRcAc', title: 'unwritten (natasha bedingfield)' },
-                        { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' },
                         { id: 'UVpcupE1xEo', title: 'seven (david bowie)' },
                         { id: 'iGTN1xz0f84', title: 'old dog (j. cole)' },
                         { id: '94UmYrW5oto', title: 'what up gangsta (50 cent)' },
                         { id: 'hT_nvWreIhg', title: 'counting stars (onerepublic)' },
                         { id: 'ln7Vn_WKkWU', title: 'stuck in the middle (stealers wheel)' },
-                        { id: 'ds18Ozzp8h0', title: 'honey, are you coming (måneskin)' },
                         { id: 'MO0LdXqwDP0', title: 'afterlife (evanescence)' },
                         { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
                         { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
@@ -99,7 +109,6 @@ class MusicPlayerStorage {
                         { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' },
                         { id: 'pe3jFvJ0qjs', title: "don't fear the reaper (blue oyster cult)" },
                         { id: 'IXdNnw99-Ic', title: 'wish you were here (pink floyd)' },
-                        { id: 'ujNeHIo7oTE', title: 'with or without you (u2)' },
                         { id: '1lyu1KKwC74', title: 'bitter sweet symphony (the verve)' },
                         { id: '7jMlFXouPk8', title: 'high hopes (pink floyd)' },
                         { id: 'TFjmvfRvjTc', title: 'hey you (pink floyd)' }
