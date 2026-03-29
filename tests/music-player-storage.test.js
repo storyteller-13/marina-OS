@@ -57,7 +57,7 @@ describe('MusicPlayerStorage', () => {
         ).toBe(true);
         expect(data.playlists.some(p => p.id === '2026 memories')).toBe(false);
 
-        const afterlife = data.playlists.find(p => p.id === '2025 beyond afterlife');
+        const afterlife = data.playlists.find(p => p.id === '2026 beyond afterlife');
         expect(afterlife).toBeDefined();
         expect(
             afterlife.songs.some(s => s.id === 'MAmqJjyDH48' && s.title === 'a song for our fathers (explosion in the sky)')
@@ -70,16 +70,16 @@ describe('MusicPlayerStorage', () => {
     it('save() persists and load() returns saved data', () => {
         const storage = new window.MusicPlayerStorage();
         const data = storage.load();
-        data.currentPlaylistId = '2025 beyond afterlife';
+        data.currentPlaylistId = '2026 beyond afterlife';
         storage.save(data);
         const loaded = storage.load();
-        expect(loaded.currentPlaylistId).toBe('2025 beyond afterlife');
+        expect(loaded.currentPlaylistId).toBe('2026 beyond afterlife');
     });
 
     it('clearPersisted() removes key; next load() uses defaults', () => {
         const storage = new window.MusicPlayerStorage();
         const data = storage.load();
-        data.currentPlaylistId = '2025 beyond afterlife';
+        data.currentPlaylistId = '2026 beyond afterlife';
         storage.save(data);
         storage.clearPersisted();
         expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
@@ -106,10 +106,10 @@ describe('MusicPlayerStorage', () => {
     it('setCurrentPlaylist updates currentPlaylistId and saves', () => {
         const storage = new window.MusicPlayerStorage();
         const data = storage.load();
-        storage.setCurrentPlaylist(data, '2025 beyond afterlife');
+        storage.setCurrentPlaylist(data, '2026 beyond afterlife');
         const raw = localStorage.getItem(STORAGE_KEY);
         const parsed = JSON.parse(raw);
-        expect(parsed.currentPlaylistId).toBe('2025 beyond afterlife');
+        expect(parsed.currentPlaylistId).toBe('2026 beyond afterlife');
     });
 
     it('ensureDefaultPlaylists merges defaults and preserves order', () => {

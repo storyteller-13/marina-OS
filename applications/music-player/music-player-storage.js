@@ -84,8 +84,8 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id: '2025 beyond afterlife',
-                    name: '2025 beyond afterlife',
+                    id: '2026 beyond afterlife',
+                    name: '2026 beyond afterlife',
                     songs: [
                         { id: 'ya7L3A1DOlg', title: 'all is violent, bright (god is an astronaut)' },
                         { id: 'MAmqJjyDH48', title: 'a song for our fathers (explosion in the sky)' },
@@ -95,6 +95,7 @@ class MusicPlayerStorage {
                         { id: 'CevxZvSJLk8', title: 'roar (kate perry)' },
                         { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
                         { id: 'Z4A9ZZo_rAE', title: 'shake it off (taylor swift)' },
+                        { id: 'HBMy-y2wb4I', title: 'father (ye and travis scott)' },
                         { id: 'vRQb_-mRcAc', title: 'unwritten (natasha bedingfield)' },
                         { id: 'UVpcupE1xEo', title: 'seven (david bowie)' },
                         { id: 'iGTN1xz0f84', title: 'old dog (j. cole)' },
