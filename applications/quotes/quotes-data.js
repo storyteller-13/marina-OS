@@ -88,6 +88,7 @@ window.QUOTES = [
     // dr. steinkirch
     { text: 'impossible is a state of mind.', author: 'dr. steinkirch' },
     { text: 'you are supposed to be free.', author: 'dr. steinkirch' },
+    { text: 'the difference between the successful and the rest isn\'t just talent — it\'s the ability to sacrifice the moment, plan for what\'s coming, and imagine what hasn\'t happened yet.', author: 'dr. steinkirch' },
     { text: 'a man who won\'t defend his woman\'s honor is truly lacking in character.', author: 'dr. steinkirch' },
     { text: 'never understimate (or mess with) someone who has lost everything and has nothing else to lose.', author: 'dr. steinkirch' },
     { text: 'whatever i do now is going to be my best work ever. and whoever i make my family now will be the most loved people ever.', author: 'dr. steinkirch' },
