@@ -56,7 +56,7 @@ the side projects and hobbies that truly matter have been identified, and i'll b
 
 still haven't found my person yet, but the faith remains. jupiter moves into my 7th house in a couple of months — "they" say this is when you find the one.
 
-happy new month!
+happy full moon in libra!
 looking amazing, smelling good, and feeling strong.
 no more excuses, no more delays, no more hesitation.
 

@@ -49,7 +49,7 @@ describe('MusicPlayerStorage', () => {
         ).toBe(true);
         expect(
             dreaming.songs.some(
-                s => s.id === 'YBioStgspO8' && s.title === 'classical for happy moments (essential)'
+                s => s.id === 'YBioStgspO8' && s.title === 'happy moments (essential)'
             )
         ).toBe(true);
         expect(

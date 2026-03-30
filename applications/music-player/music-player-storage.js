@@ -64,10 +64,11 @@ class MusicPlayerStorage {
                     id: '2026 dream bliss',
                     name: '2026 dream bliss',
                     songs: [
-                        { id: 'YBioStgspO8', title: 'classical for happy moments (essential)' },
+                        { id: 'YBioStgspO8', title: 'happy moments (essential)' },
                         { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
                         { id: 'b9WKC5sT9Z4', title: 'gymnopedies (erik satie)' },
                         { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' },
+                        { id: 'y9Yc46rVgRQ', title: 'saturn (james malikey)' },
                         { id: 'bTvOEXAuIEU', title: 'frailed (flea)' }
                     ]
                 },
