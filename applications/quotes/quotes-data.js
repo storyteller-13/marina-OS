@@ -99,6 +99,8 @@ window.QUOTES = [
     { text: 'there is nothing sadder than someone who chooses fame over building a family, and online influence over true love. life is so short, and illusions are so dangerous.', author: 'dr. steinkirch' },
     // robert greene
     { text: 'no calling is superior to another. what matters is that it be tied to a personal need and inclination, and that your energy moves you toward improvement and continuous learning from experience.', author: 'robert greene' },
+    // ryan holiday
+    { text: 'humble. humble even if you have achieved an impressive amount, even if you have done many impressive things.', author: 'ryan holiday' },
     // science
     { text: 'silence is deep as eternity, speech is shallow as time.', author: 'thomas carlyle' },
     { text: 'if our brains were simple, we would be too simple to understand them.', author: 'mario puzo' },
