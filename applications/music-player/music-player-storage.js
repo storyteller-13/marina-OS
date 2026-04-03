@@ -64,6 +64,7 @@ class MusicPlayerStorage {
                     id: '2026 dream bliss',
                     name: '2026 dream bliss',
                     songs: [
+                        { id: '0tiuAKQjRpg', title: 'rose garden (afloat in time)' },
                         { id: 'YBioStgspO8', title: 'happy moments (essential)' },
                         { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
                         { id: 'b9WKC5sT9Z4', title: 'gymnopedies (erik satie)' },
@@ -81,7 +82,8 @@ class MusicPlayerStorage {
                         { id: 'x11NA63gLDM', title: 'change the world (eric clapton)' },
                         { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
                         { id: 'fF8GARU44iY', title: 'wild mountain honey (steve miller)' },
-                        { id: 'pGNDncTbJRU', title: 'a place to call home (world of warcraft)' }
+                        { id: 'pGNDncTbJRU', title: 'a place to call home (world of warcraft)' },
+                        
                     ]
                 },
                 {
