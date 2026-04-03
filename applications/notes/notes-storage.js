@@ -36,6 +36,55 @@ class NotesStorage {
         return [
 
             {
+                date: '2026-04-06T00:00:00.000Z',
+                title: 'o death, where is your sting?',
+                content: this.cleanContent(`
+
+happy easter and passover, my dear anon friend.
+today i want to touch a bit on my views on celibacy and marriage.
+
+for the younger reader, i want you to know that i understand that what i am about to say may cause you a little outrage — i have been where you are, when my mind used to think in a very different way about these things.
+
+when i was in my 20s, a friend of mine told me this: "if you are not a communist in your 20s, you don't have a heart; but if you are still a communist in your 30s, you don't have a brain." i was never really a communist (more like an anarchist, or better, a libertarian). but in my 20s i was slightly shifted towards the left because that was where the cool, smart ,university-y people were. this was prior to woke, and antifa, and all the craziness. and this was before i realized that far left ideology and artificial feminism do get left men laid, but it is actually very detrimental to women.
+
+so, i never really thought i would be saying this, but getting older does make you a conservative. it is, indeed, the natural order of things.
+but i am going to go a step even further and say that i am completely convinced that the best choice is to "save yourself" (or the best parts of yourself) for marriage — to really believe that you can find one person and grow with that person and be with that person for the rest of your life. and this is not woo-woo or fantasy. this is a conscious, mature choice.
+
+the choice relies on cutting out all the other possibilities and simply committing. and being humble enough to accept that both you and the person of your choice are very flawed (like any human is), but that because of your commitment, you will find ways to work through the conflicts, the problems, and the imperfect aspects of the relationship. and you will both come out stronger, and better, and closer over the years.
+
+so picking a person to spend the rest of your life with is not only the most courageous thing you can do — it is also your conscious acceptance that the old you, the one who was moving through life by yourself, making choices that optimized only your desires and needs — that old you will be dead. happily dead. and the resurrection is a new you who comes with a complement, with an exclusive mirror that you get to help mold.
+
+no, it should not get boring if you choose right (and if you never get boring yourself). a human is never static. and two humans together will never be static if they consciously commit to it.
+
+i am not claiming you need to necessarily get married early in life. i am not opposed to it, but i don't support it either. for some people this works, for others it won't. in my case, i am the kind of person who had to mature to be able to choose someone — because i had way too many self-indulgent desires and dreams, and i liked to be alone. i had to live everything first, because that is how i wanted it (i would probably feel like i was missing out if i hadn't had all the experiences i had before where i am now — even though i would probably be happier and safer if i had married early. but you never know).
+
+what i am claiming is that, at some point in your life, you should make choosing someone and marrying them and dedicating the rest of your life to that person until death your main priority. at some point, you must do that. and i will also claim that it's okay if you are already in the second part of your life when you finally decide to do this — there will be others like you. and one magical thing about love is that, once you find it, when you feel it in your veins, everything feels so symmetrical and exciting that all the mistakes and guilty feelings and self-conscious thoughts carry no weight anymore. that's why love is the supreme feeling of all feelings. that's why love is all we need.
+
+so, again, as long as you get to a moment where you realize it's time to dedicate yourself fully to someone else, you will be okay. every person has their own path and it's really nobody else's business, so let's drop the judgment.
+
+now, before i leave you to your delicious good weekend, i want to make one more point. i want to touch on celibacy. should we save ourselves for marriage? for the one?
+
+this question would have sounded ridiculous to me five years ago. after all, you should "practice," you should "learn," etc. etc. right? 
+
+well, my dear reader — i have come to the conclusion that this might be an incorrect take. i don't want to try to change your mind in this regard: you should do whatever you want and if it's a mistake you will learn from it (like everyone does, including myself). but i do want to share my personal thoughts, simply because they are very far from the current status quo. 
+
+i do now believe celibacy is not so weird, and that you can absolutely save yourself for the person you choose to be with for the rest of your life. and yes, of course things can go wrong, but they can also go right. and if none of us will ever know the outcome, why wouldn't we choose the one that is sweeter and more romantic? plus, trust me, there is nothing really to "be learned" — if you and your partner are truly and deeply connected in love, making love will be naturally wonderful by its very own definition of what a connection through love is (both figuratively and not figuratively).
+
+i came to the above realization a little too late in life, so obviously i did not save myself for the man i will spend the rest of my days with (aka my soulmate). but what i was able to do is, in the moment it became absolutely clear to me — two years ago — i chose celibacy and abstinence from any intimacy (e.g. kisses or even intimate thoughts) with anyone other than the person i am waiting for. that's the minimum i could do.
+
+but not only that — there is something magical and sweet about waiting. there is something purifying about preserving your innermost acts of affection for the person you choose to care for and love until you die.
+
+but mostly, there is something very honorable about consciously redeeming and forgiving yourself for past mistakes, and killing the part of you that does not belong to a life of loyalty to your other half.
+
+and that, my reader, is enough reason to welcome the death of your hedonistic self.
+
+until next time, my dear anon
+<3
+
+                `)
+            },
+
+            {
                 date: '2026-03-31T00:00:00.000Z',
                 title: 'an ode to april',
                 content: this.cleanContent(`
