@@ -82,8 +82,7 @@ class MusicPlayerStorage {
                         { id: 'x11NA63gLDM', title: 'change the world (eric clapton)' },
                         { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
                         { id: 'fF8GARU44iY', title: 'wild mountain honey (steve miller)' },
-                        { id: 'pGNDncTbJRU', title: 'a place to call home (world of warcraft)' },
-                        
+                        { id: 'pGNDncTbJRU', title: 'a place to call home (world of warcraft)' }
                     ]
                 },
                 {
