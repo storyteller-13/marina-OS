@@ -78,7 +78,7 @@ but mostly, there is something very honorable about consciously redeeming and fo
 
 and that, my reader, is enough reason to welcome the death of your hedonistic self.
 
-until next time, my dear anon
+until next time,
 <3
 
                 `)
