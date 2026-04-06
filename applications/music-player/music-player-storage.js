@@ -65,12 +65,14 @@ class MusicPlayerStorage {
                     name: '2026 dream bliss',
                     songs: [
                         { id: '0tiuAKQjRpg', title: 'rose garden (afloat in time)' },
+                        { id: 'rSzKm3hqhs8', title: 'perpetual (tommy guerrero)' },
                         { id: 'YBioStgspO8', title: 'happy moments (essential)' },
                         { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
                         { id: 'b9WKC5sT9Z4', title: 'gymnopedies (erik satie)' },
                         { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' },
                         { id: 'y9Yc46rVgRQ', title: 'saturn (james malikey)' },
                         { id: 'bTvOEXAuIEU', title: 'frailed (flea)' }
+                       
                     ]
                 },
                 {

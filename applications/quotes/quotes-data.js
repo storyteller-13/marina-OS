@@ -36,6 +36,10 @@ window.QUOTES = [
     { text: 'it does not matter what you bear, but how you bear it.', author: 'seneca' },
     { text: 'begin at once to live, and count each separate day as a separate life.', author: 'seneca' },
     { text: 'a gem cannot be polished without friction, nor a man perfected without trials.', author: 'seneca' },
+    { text: 'today is a good day to have a good day.', author: 'unknown' },
+    { text: 'what you seek is seeking you.', author: 'rumi' },
+    { text: 'keep your face always toward the sunshine, and shadows will fall behind you.', author: 'walt whitman' },
+    { text: 'believe you can and you\'re halfway there.', author: 'theodore roosevelt' },
     // Marcus Aurelius
     { text: 'you have power over your mind—not outside events. realize this, and you will find strength.', author: 'marcus aurelius' },
     { text: 'the happiness of your life depends upon the quality of your thoughts.', author: 'marcus aurelius' },
@@ -100,6 +104,7 @@ window.QUOTES = [
     { text: 'there is nothing sadder than someone who chooses fame over building a family, and online influence over true love. life is so short, and illusions are so dangerous.', author: 'dr. steinkirch' },
     // robert greene
     { text: 'no calling is superior to another. what matters is that it be tied to a personal need and inclination, and that your energy moves you toward improvement and continuous learning from experience.', author: 'robert greene' },
+    { text: 'see the person, not the myth. imagine him or her as a child, as someone riddled with insecurities. cutting the other person down to size will help your keep your mental balance.', author: 'robert greene' },
     // ryan holiday
     { text: 'humble. humble even if you have achieved an impressive amount, even if you have done many impressive things.', author: 'ryan holiday' },
     // science
@@ -172,4 +177,8 @@ window.QUOTES = [
     { text: 'intellect can be enlightened only in a kind person. a person can be kind only when he has an enlightened intellect.', author: 'chinese wisdom' },
     { text: 'simplicity is the consequence of refined emotions.', author: 'jean d\'alembert' },
     { text: 'words can unite people. therefore, try to speak very clearly, and tell only the truth.', author: 'leo tolstoy' },
+    // athletes
+    { text: 'i had to use the jail situation as something positive. someone sees weakness in you, they\'ll exploit it. i never showed any weakness, i just kept going strong until i came out.', author: 'allen iverson' },
+    // scientists
+    {text: 'in the middle of every difficulty lies opportunity.', author: 'albert einstein' },
 ];
