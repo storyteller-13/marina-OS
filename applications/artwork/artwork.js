@@ -12,6 +12,7 @@ class ArtworkApp extends BaseApp {
             'you_met_me_at_a_very_strange_time_in_my_life.png',
             'cypherpunk.png',
             'denver.jpg',
+            'friday_love.jpg',
             'freeee.png',
             'perfect.png',
             'princess.png'
@@ -53,7 +54,7 @@ class ArtworkApp extends BaseApp {
         if (!fileList) return;
 
         const fragment = document.createDocumentFragment();
-        const basePath = 'pages/artwork/';
+        const basePath = '/pages/artwork/';
 
         for (const imageName of this.images) {
             const fileItem = document.createElement('div');

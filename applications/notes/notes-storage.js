@@ -35,6 +35,39 @@ class NotesStorage {
     getDefaultEntries() {
         return [
 
+
+            {
+                date: '2026-04-09T00:00:00.000Z',
+                title: 'a prayer for wordly happiness',
+                content: this.cleanContent(`
+
+gracious god, in your gentle light,
+we come with open hands today —
+not asking for a perfect life,
+but for joy that finds us anyway.
+
+let morning sun kiss our faces warm,
+and quiet moments be our norm.
+may laughter ripple, soft and free,
+and kindness flow through all we see.
+
+wash away the weight of sorrow,
+bring us peace for each tomorrow.
+grant us courage, grant us grace,
+to meet each twist with a smiling face.
+
+may love surround us, near and far,
+and happiness become our guiding star —
+gratitude too wide to stay within,
+a light that warms all gathered in.
+
+may we lift each other, low or tall,
+and find your light reflected in us all.
+
+amen.
+                                    `)
+            },
+
             {
                 date: '2026-04-06T00:00:00.000Z',
                 title: 'o death, where is your sting?',
@@ -47,7 +80,7 @@ for the younger reader, i want you to know that i understand that what i am abou
 
 when i was in my 20s, a friend of mine told me this: "if you are not a communist in your 20s, you don't have a heart; but if you are still a communist in your 30s, you don't have a brain." 
 
-i was never really a communist (more like an anarchist, or better, a libertarian). but in my 20s i was slightly shifted towards the left because that was where the cool, smart, university-y people were. this was prior to woke, and antifa, and all the craziness. and this was before i realized that far left ideology and artificial feminism do get left men laid, but it is actually very detrimental to women.
+i was never really a communist (more like an anarchist, or better, a libertarian). but in my 20s i was slightly shifted towards the left because that was where the cool, smart, university-y people were. this was prior to woke, and antifa, and all the craziness. and this was before i realized that far left ideology and artificial feminism do get left men laid, but they are actually very detrimental to women.
 
 i never really thought i would be saying this, but getting older does make you a conservative. it is, indeed, the natural order of things.
 
@@ -69,7 +102,7 @@ now, before i leave you to your delicious good weekend, i want to make one more 
 
 this question would have sounded ridiculous to me five years ago. after all, you should "practice," you should "learn," etc. etc. right? 
 
-well, my dear reader — i have come to the conclusion that this might be an incorrect take. i don't want to try to change your mind in this regard: you should do whatever you want and if it's a mistake you will learn from it (like everyone does, including myself). but i do want to share my personal thoughts, simply because they are very far from the current status quo. 
+well, my dear reader — i have come to the conclusion that this might be an incorrect take. i don't want to try to change your mind in this regard: you should do whatever you want and if it's a mistake you will learn from it (like everyone does, including myself). but i do want to share my personal thoughts, simply because they diverge from the current status quo. 
 
 i do now believe celibacy is not so weird, and that you can absolutely save yourself for the person you choose to be with for the rest of your life. and yes, of course things can go wrong, but they can also go right. and if none of us will ever know the outcome, why wouldn't we choose the one that is sweeter and more romantic? plus, trust me, there is nothing really to "be learned" — if you and your partner are truly and deeply connected in love, making love will be naturally wonderful by its very own definition of what a connection through love is (both figuratively and not figuratively).
 
@@ -772,8 +805,7 @@ a decade has passed. i have been in every corner of the earth. i have worked on 
 the girl now is a woman.
 i feel complete and satisfied with my life.
 i know exactly what i am and exactly what i am not.
-                    
-and there is nothing i want more than to go back and find again the only place that ever felt like home.
+
 
                     `)
                 },

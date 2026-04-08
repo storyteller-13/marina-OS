@@ -79,13 +79,13 @@ class MusicPlayerStorage {
                     id: '2026 future hubby',
                     name: '2026 future hubby',
                     songs: [
+                        { id: 'n2MtEsrcTTs', title: 'harvest moon (neil young)' },
                         { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
                         { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' },
                         { id: 'x11NA63gLDM', title: 'change the world (eric clapton)' },
                         { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
                         { id: 'fF8GARU44iY', title: 'wild mountain honey (steve miller)' },
-                        { id: 'pGNDncTbJRU', title: 'a place to call home (world of warcraft)' },
-                        
+                        { id: 'pGNDncTbJRU', title: 'a place to call home (world of warcraft)' }                    
                     ]
                 },
                 {
@@ -104,13 +104,14 @@ class MusicPlayerStorage {
                         { id: 'vRQb_-mRcAc', title: 'unwritten (natasha bedingfield)' },
                         { id: 'UVpcupE1xEo', title: 'seven (david bowie)' },
                         { id: 'iGTN1xz0f84', title: 'old dog (j. cole)' },
+                        { id: 'y9S38QLwCUM', title: 'joy (dogstar)' },
                         { id: '94UmYrW5oto', title: 'what up gangsta (50 cent)' },
                         { id: 'hT_nvWreIhg', title: 'counting stars (onerepublic)' },
                         { id: 'ln7Vn_WKkWU', title: 'stuck in the middle (stealers wheel)' },
                         { id: 'MO0LdXqwDP0', title: 'afterlife (evanescence)' },
+                        { id: 'po4GAzP0kHU', title: 'original sin (tim henson)' },
                         { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
                         { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
-                        { id: 'pTF5azM4w5E', title: "miss me when i'm gone (will sass)" },
                         { id: 'cfjDrutsfRQ', title: 'sympathy magic (florence + the machine)' },
                         { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' },
                         { id: 'pe3jFvJ0qjs', title: "don't fear the reaper (blue oyster cult)" },

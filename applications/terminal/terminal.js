@@ -44,6 +44,7 @@
                 'you_met_me_at_a_very_strange_time_in_my_life.png': 'file',
                 'cypherpunk.png': 'file',
                 'denver.jpg': 'file',
+                'friday_love.jpg': 'file',
                 'freeee.png': 'file',
                 'perfect.png': 'file',
                 'princess.png': 'file'
@@ -354,11 +355,11 @@
                 let filepath = args[0];
                 // Handle artwork/image_name format
                 if (filepath.startsWith('artwork/')) {
-                    filepath = `pages/${filepath}`;
+                    filepath = `/pages/${filepath}`;
                 }
                 // If it's just a filename without path, assume it's in artwork directory
                 else if (!filepath.includes('/') && !filepath.startsWith('pages/')) {
-                    filepath = `pages/artwork/${filepath}`;
+                    filepath = `/pages/artwork/${filepath}`;
                 }
                 openPicture(filepath);
                 return '';

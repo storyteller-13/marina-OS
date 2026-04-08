@@ -3,25 +3,58 @@
  * Add or edit entries; each is { text: string, author: string }.
  */
 window.QUOTES = [
-    { text: 'the unexamined life is not worth living.', author: 'socrates' },
-    { text: 'we are what we repeatedly do. excellence, then, is not an act, but a habit.', author: 'aristotle' },
-    { text: 'the only true wisdom is in knowing you know nothing.', author: 'socrates' },
-    { text: 'it is not that we have a short time to live, but that we waste a lot of it.', author: 'seneca' },
-    { text: 'happiness is not something ready made. it comes from your own actions.', author: 'dalai lama xiv' },
-    { text: 'life must be understood backward. but it must be lived forward.', author: 'søren kierkegaard' },
-    { text: 'to live is to suffer, to survive is to find some meaning in the suffering.', author: 'friedrich nietzsche' },
-    { text: 'the mind is everything. what you think you become.', author: 'buddha' },
+    
+    // confucius
     { text: 'we have two lives, and the second begins when we realize we only have one.', author: 'confucius' },
+    { text: 'pure perfection can be found only in god; one\'s life consists of becoming closer to god.', author: 'confucius' },
+    { text: 'you can achieve wisdom in three ways. the first is meditation — the most noble. the second is imitation — the easiest. the third is experience — the most difficult.', author: 'confucius' },
+    { text: 'when an arrow does not hit its target, the marksman blames himself, not another person. a wise man behaves in the same way.', author: 'confucius' },
+
+    // dalai lama
+    { text: 'happiness is not something ready made. it comes from your own actions.', author: 'dalai lama xiv' },
+
+    // lao tzu
     { text: 'knowing others is intelligence; knowing yourself is true wisdom.', author: 'lao tzu' },
-    { text: 'the function of freedom is to free someone else.', author: 'toni morrison' },
-    { text: 'even a happy life cannot be without a measure of darkness.', author: 'carl jung' },
-    { text: 'what we think, we become.', author: 'often attributed to buddha' },
+    { text: 'to be strong, you have to be like water.', author: 'lao tzu' },
+    { text: 'heaven and earth are eternal because they do not exist for themselves. in the same way, a truly holy person does not live for himself, and therefore he can become eternal, and can achieve anything.', author: 'lao tzu' },
+    { text: 'thirty spokes share the wheel\'s hub, but it is the hole in the center that provides its usefulness.', author: 'lao tzu' },
+    { text: 'abstention should be a habit in your life; it should support you in your virtues. for he who is resolute in goodness, there is nothing that he could not overcome.', author: 'lao tzu' },
+
+    // rumi
+    { text: 'what you seek is seeking you.', author: 'rumi' },
+
+    // kierkegaard
+    { text: 'life must be understood backward. but it must be lived forward.', author: 'søren kierkegaard' },
+    { text: 'the paradox is the source of the thinker\'s passion, and the thinker without a paradox is like a lover without feeling: a paltry mediocrity.', author: 'søren kierkegaard' },
+
+    // nietzsche
+    { text: 'to live is to suffer, to survive is to find some meaning in the suffering.', author: 'friedrich nietzsche' },
+
+    // joseph campbell
     { text: 'the cave you fear to enter holds the treasure you seek.', author: 'joseph campbell' },
+
+    // buddha
+    { text: 'what we think, we become.', author: 'buddha' },
+    { text: 'the mind is everything. what you think you become.', author: 'buddha' },
+    { text: 'a man who starts to live for his soul is like a man who brings a lantern into a dark house. the darkness disappears at once. you have to be persistent in this, and your soul will have this light.', author: 'buddha' },
+
+    // carl young
+    { text: 'even a happy life cannot be without a measure of darkness.', author: 'carl jung' },
+
+    // jp sartre
     { text: 'man is condemned to be free.', author: 'jean-paul sartre' },
-    { text: 'one cannot step twice in the same river.', author: 'heraclitus' },
-    { text: 'the price of anything is the amount of life you exchange for it.', author: 'henry david thoreau' },
+
+    // aristotle
+    { text: 'we are what we repeatedly do. excellence, then, is not an act, but a habit.', author: 'aristotle' },
+
+    // socrates
+    { text: 'the only true wisdom is in knowing you know nothing.', author: 'socrates' },
+    { text: 'the unexamined life is not worth living.', author: 'socrates' },
+
+    // seneca
     { text: 'we suffer more often in imagination than in reality.', author: 'seneca' },
     { text: 'luck is what happens when preparation meets opportunity.', author: 'seneca' },
+    { text: 'it is not that we have a short time to live, but that we waste a lot of it.', author: 'seneca' },
     { text: 'as is a tale, so is life: not how long it is, but how good it is, is what matters.', author: 'seneca' },
     { text: 'we are more often frightened than hurt; and we suffer more from imagination than from reality.', author: 'seneca' },
     { text: 'it is the power of the mind to be unconquerable.', author: 'seneca' },
@@ -36,11 +69,8 @@ window.QUOTES = [
     { text: 'it does not matter what you bear, but how you bear it.', author: 'seneca' },
     { text: 'begin at once to live, and count each separate day as a separate life.', author: 'seneca' },
     { text: 'a gem cannot be polished without friction, nor a man perfected without trials.', author: 'seneca' },
-    { text: 'today is a good day to have a good day.', author: 'unknown' },
-    { text: 'what you seek is seeking you.', author: 'rumi' },
-    { text: 'keep your face always toward the sunshine, and shadows will fall behind you.', author: 'walt whitman' },
-    { text: 'believe you can and you\'re halfway there.', author: 'theodore roosevelt' },
-    // Marcus Aurelius
+
+    // marcus aurelius
     { text: 'you have power over your mind—not outside events. realize this, and you will find strength.', author: 'marcus aurelius' },
     { text: 'the happiness of your life depends upon the quality of your thoughts.', author: 'marcus aurelius' },
     { text: 'waste no more time arguing about what a good man should be. be one.', author: 'marcus aurelius' },
@@ -64,19 +94,8 @@ window.QUOTES = [
     { text: 'the best answer to anger is silence.', author: 'marcus aurelius' },
     { text: 'confine yourself to the present.', author: 'marcus aurelius' },
     { text: 'remember that very little is needed to make a happy life.', author: 'marcus aurelius' },
-    // Psalms
-    { text: 'he makes me lie down in green pastures. he leads me beside still waters.', author: 'psalm 23' },
-    { text: 'even though i walk through the valley of the shadow of death, i will fear no evil, for you are with me.', author: 'psalm 23' },
-    { text: 'the lord is my light and my salvation; whom shall i fear?', author: 'psalm 27' },
-    { text: 'wait for the lord; be strong, and let your heart take courage.', author: 'psalm 27' },
-    { text: 'be still, and know that i am god.', author: 'psalm 46' },
-    { text: 'create in me a clean heart, o god, and renew a right spirit within me.', author: 'psalm 51' },
-    { text: 'cast your burden on the lord, and he will sustain you.', author: 'psalm 55' },
-    { text: 'this is the day that the lord has made; let us rejoice and be glad in it.', author: 'psalm 118' },
-    { text: 'i lift my eyes to the hills. from where does my help come? my help comes from the lord.', author: 'psalm 121' },
-    { text: 'the lord will keep your going out and your coming in from this time forth and forevermore.', author: 'psalm 121' },
-    { text: 'search me, o god, and know my heart; try me and know my thoughts.', author: 'psalm 139' },
-    // St. Paul
+    
+    // st. paul
     { text: 'for i am convinced that neither death nor life, nor angels nor rulers, nor things present nor things to come, nor powers, nor height nor depth, nor anything else in all creation, will be able to separate us from the love of god.', author: 'st. paul' },
     { text: 'rejoice in the lord always; again i will say, rejoice.', author: 'st. paul' },
     { text: 'do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to god.', author: 'st. paul' },
@@ -90,6 +109,7 @@ window.QUOTES = [
     { text: 'for we are his workmanship, created in christ jesus for good works.', author: 'st. paul' },
     { text: 'whatever is true, whatever is honorable, whatever is just, whatever is pure, whatever is lovely, whatever is commendable — if there is any excellence, if there is anything worthy of praise, think about these things.', author: 'st. paul' },
     { text: 'death is swallowed up in victory.', author: 'st. paul' },
+
     // dr. steinkirch
     { text: 'impossible is a state of mind.', author: 'dr. steinkirch' },
     { text: 'you are supposed to be free.', author: 'dr. steinkirch' },
@@ -102,83 +122,124 @@ window.QUOTES = [
     { text: 'being a winner means mastering the art of not taking rejection personally. even better: actively seek it. try everything, reach out to everyone. you\'ll get a flood of NOs and silence. but eventually, a signal breaks through — and when it does, it feels incredible.', author: 'dr. steinkirch' },
     { text: 'being misunderstood is underrated — it\'s a signal that you\'re not following the herd. embrace that feeling, tune out the noise of criticism, and keep trusting your intuition to take you where you need to go.', author: 'dr. steinkirch' },
     { text: 'there is nothing sadder than someone who chooses fame over building a family, and online influence over true love. life is so short, and illusions are so dangerous.', author: 'dr. steinkirch' },
+    { text: 'your energy is a sacred currency. spend it wisely.', author: 'dr. steinkirch' },
+    
     // robert greene
     { text: 'no calling is superior to another. what matters is that it be tied to a personal need and inclination, and that your energy moves you toward improvement and continuous learning from experience.', author: 'robert greene' },
     { text: 'see the person, not the myth. imagine him or her as a child, as someone riddled with insecurities. cutting the other person down to size will help your keep your mental balance.', author: 'robert greene' },
+    
     // ryan holiday
     { text: 'humble. humble even if you have achieved an impressive amount, even if you have done many impressive things.', author: 'ryan holiday' },
-    // science
-    { text: 'silence is deep as eternity, speech is shallow as time.', author: 'thomas carlyle' },
-    { text: 'if our brains were simple, we would be too simple to understand them.', author: 'mario puzo' },
-    { text: 'we all agree that your theory is crazy. the question which divides us is whether it is crazy enough.', author: 'niels bohr' },
-    { text: 'nothing is great and little otherwise than by comparison.', author: 'jonathan swift' },
-    { text: 'when an idea is wanting, a word can always be found to take its place.', author: 'goethe' },
-    { text: 'nothing that is worth knowing can be taught.', author: 'oscar wilde' },
-    { text: 'the paradox is the source of the thinker\'s passion, and the thinker without a paradox is like a lover without feeling: a paltry mediocrity.', author: 'søren kierkegaard' },
-    { text: 'the human understanding is greatly indebted to the passions.', author: 'jean jacques rousseau' },
-    { text: 'the real danger is not that computers will begin to think like men, but that men will begin to think like computers.', author: 'sydney j. harris' },
-    { text: 'thirty spokes share the wheel\'s hub, but it is the hole in the center that provides its usefulness.', author: 'lao tzu' },
-    { text: 'the human race took centuries or millennia to see through the mist of difficulties and paradoxes which instructors now invite us to solve in a few minutes.', author: 'lancelot hogben' },
+    
+    // terrence deacon
     { text: 'the attraction of discovering the most elegant way of dividing up the mind into two major complementary cognitive systems is almost irresistible.', author: 'terrence w. deacon' },
     { text: 'learning is, at its base, a function of the probability of correlations between things, from the synaptic level to the behavioral level. past correlations tend to be predictive of future correlations.', author: 'terrence w. deacon' },
     { text: 'a competence is an available skill, normally one learned or acquired previously. so by analogy an innate language competence is an ability to perform certain language tasks as though they had previously been learned.', author: 'terrence w. deacon' },
     { text: 'languages are abstractions. they are fuzzy collections of behaviors that happen to be reasonably well described by logical rule systems.', author: 'terrence w. deacon' },
-    { text: 'kind people help each other even without noticing that they are doing so, and evil people act against each other on purpose.', author: 'chinese proverb' },
-    { text: 'the history of mankind is the movement of humanity toward greater and greater unification.', author: 'leo tolstoy' },
-    { text: 'a gunshot wound may be cured, but the wound made by a tongue never heals.', author: 'persian wisdom' },
-    { text: 'i said, i will take heed to my ways, that i sin not with my tongue.', author: 'psalms 39:1' },
-    { text: 'abstention should be a habit in your life; it should support you in your virtues. for he who is resolute in goodness, there is nothing that he could not overcome.', author: 'lao-tzu' },
-    { text: 'put at least half of your energy into making yourself free of empty wishes, and very soon you will see that in so doing you will receive much greater fulfillment and happiness.', author: 'epictetus' },
-    { text: 'god tests everyone, one with wealth, another with poverty. a rich man is tested in whether he would extend an arm of support to those who need it; a poor man in whether he would bear all his sufferings without discontent and with obedience.', author: 'the talmud' },
-    { text: 'no matter how many times you aim to achieve victory over your passions, do not give up. every effort weakens the power of passion and makes it easier to gain victory over it.', author: 'leo tolstoy' },
-    { text: 'you have to respect every person, no matter how miserable or ridiculous he or she may be. you should remember that in every person lives the same spirit which lives in us.', author: 'arthur schopenhauer' },
-    { text: 'pride costs more than all that is necessary for food, drink, shelter, or dress.', author: 'thomas jefferson' },
-    { text: 'kindness enriches our life; with kindness mysterious things become clear, difficult things become easy, and dull things become cheerful.', author: 'leo tolstoy' },
-    { text: 'a man who starts to live for his soul is like a man who brings a lantern into a dark house. the darkness disappears at once. you have to be persistent in this, and your soul will have this light.', author: 'buddha' },
-    { text: 'a constant flow of thoughts expressed by other people can stop and deaden your own thought and your own initiative.', author: 'schopenhauer' },
+
+    // jean jacques rousseau
+    { text: 'the human understanding is greatly indebted to the passions.', author: 'jean jacques rousseau' },
+
+    // kant
     { text: 'as we bring up our children, we have to remember that we are caretakers of the future. by improving their education, we improve the future of mankind, the future of this world.', author: 'immanuel kant' },
-    { text: 'i think that the major obligation of parents and educators is to give children an understanding of the divine beginning that exists within them.', author: 'william ellery channing' },
-    { text: 'when an arrow does not hit its target, the marksman blames himself, not another person. a wise man behaves in the same way.', author: 'confucius' },
-    { text: 'faith is the understanding of the meaning of life and the acceptance of those duties and responsibilities connected to it.', author: 'leo tolstoy' },
-    { text: 'god is love. and he who lives in love, lives in god, and god lives in him. if we love one another, god lives in us.', author: '1 john, chapter 4' },
-    { text: 'love is not a source, it is a consequence of our understanding the divine, spiritual beginning which exists in all of us.', author: 'leo tolstoy' },
-    { text: 'improve your own soul, and be confident that only in so doing can you contribute to the improvement of the larger society of which you are part.', author: 'leo tolstoy' },
-    { text: 'society can be improved only by self-sacrifice.', author: 'leo tolstoy' },
-    { text: 'heaven and earth are eternal because they do not exist for themselves. in the same way, a truly holy person does not live for himself, and therefore he can become eternal, and can achieve anything.', author: 'lao-tzu' },
-    { text: 'do not be embarrassed by your mistakes. nothing can teach us better than our understanding of them. this is one of the best ways of self-education.', author: 'thomas carlyle' },
-    { text: 'rage is very harmful for all people, but it is most harmful for the man who experiences it.', author: 'leo tolstoy' },
+
+    // goethe
+    { text: 'when an idea is wanting, a word can always be found to take its place.', author: 'goethe' },
+
+    // oscar wilde
+    { text: 'nothing that is worth knowing can be taught.', author: 'oscar wilde' },
+
+    // schopenhauer
+    { text: 'a constant flow of thoughts expressed by other people can stop and deaden your own thought and your own initiative.', author: 'arthur schopenhauer' },
+    { text: 'you have to respect every person, no matter how miserable or ridiculous he or she may be. you should remember that in every person lives the same spirit which lives in us.', author: 'arthur schopenhauer' },
+
+    // epictetus
+    { text: 'for a wise man, the wealth, the glory, and the rewards of this world are like sweets or empty shells on a road.', author: 'epictetus' },
+    { text: 'put at least half of your energy into making yourself free of empty wishes, and very soon you will see that in so doing you will receive much greater fulfillment and happiness.', author: 'epictetus' },
+
+    // dhammapada
     { text: 'your enemy will pay you back with rage, will make you suffer, but the biggest damage to you will be caused by the rage and hatred existing in your heart.', author: 'dhammapada' },
+    { text: 'divert your gaze from the world of lies. do not trust your feelings. only in yourself, only in your impersonal self, can you find the eternal.', author: 'dhammapada' },
+
+    // the talmud
+    { text: 'water does not stay on a mountaintop, but flows into the valley. in the same manner, real virtue stays only with people who are humble.', author: 'the talmud' },
+    { text: 'god tests everyone, one with wealth, another with poverty. a rich man is tested in whether he would extend an arm of support to those who need it; a poor man in whether he would bear all his sufferings without discontent and with obedience.', author: 'the talmud' },
+
+    // leo tolstoy
     { text: 'your rage cannot be justified by anything. the reason for your rage is always inside you.', author: 'leo tolstoy' },
     { text: 'nobody knows where the human race is going. the highest wisdom, then, is to know where you should go: toward perfection.', author: 'leo tolstoy' },
-    { text: 'divert your gaze from the world of lies. do not trust your feelings. only in yourself, only in your impersonal self, can you find the eternal.', author: 'dhammapada' },
-    { text: 'a wise man loves not because he wants to profit from it but because he finds bliss in love itself.', author: 'leo tolstoy' },
-    { text: 'do not regret the past. what is the use of regrets? the lie says that you should regret. the truth says you should be filled with love.', author: 'persian wisdom' },
-    { text: 'wisdom is knowing the purpose of life, and knowing how to achieve it.', author: 'leo tolstoy' },
-    { text: 'you can achieve wisdom in three ways. the first is meditation — the most noble. the second is imitation — the easiest. the third is experience — the most difficult.', author: 'confucius' },
-    { text: 'the merit of a man is not in the knowledge he possesses, but in the effort he made to achieve it.', author: 'gotthold ephraim lessing' },
-    { text: 'if you want to study yourself — look into the hearts of other people. if you want to study other people — look into your own heart.', author: 'friedrich von schiller' },
-    { text: 'your soul is both your judge and your place of sanctuary. your own soul is your highest judge.', author: 'manu' },
+    { text: 'words can unite people. therefore, try to speak very clearly, and tell only the truth.', author: 'leo tolstoy' },
+    { text: 'remember how many things you lost trying to satisfy your former desires. try to tame your present desires.', author: 'leo tolstoy' },
     { text: 'you should respond with kindness toward evil done to you, and you will destroy in an evil person that pleasure which he derives from evil.', author: 'leo tolstoy' },
     { text: 'there are two states of human existence: to live without thinking of death, and to live knowing you approach death with every hour of your life.', author: 'leo tolstoy' },
     { text: 'the more you transform your life from the material to the spiritual domain, the less you become afraid of death.', author: 'leo tolstoy' },
-    { text: 'the will of god for us is to live in happiness and to take an interest in the lives of others.', author: 'john ruskin' },
+    { text: 'when two people have a dispute, both are to blame.', author: 'leo tolstoy' },
+    { text: 'kindness enriches our life; with kindness mysterious things become clear, difficult things become easy, and dull things become cheerful.', author: 'leo tolstoy' },
+    { text: 'stop blaming other people, and you will feel relief in your soul.', author: 'leo tolstoy' },
     { text: 'love is real only when a person can sacrifice himself for another person.', author: 'leo tolstoy' },
     { text: 'nothing can make our life, or the lives of other people, more beautiful than perpetual kindness.', author: 'leo tolstoy' },
-    { text: 'for a wise man, the wealth, the glory, and the rewards of this world are like sweets or empty shells on a road.', author: 'epictetus' },
-    { text: 'remember how many things you lost trying to satisfy your former desires. try to tame your present desires.', author: 'leo tolstoy' },
-    { text: 'pure perfection can be found only in god; one\'s life consists of becoming closer to god.', author: 'confucius' },
-    { text: 'when two people have a dispute, both are to blame.', author: 'leo tolstoy' },
-    { text: 'stop blaming other people, and you will feel relief in your soul.', author: 'leo tolstoy' },
-    { text: 'to be strong, you have to be like water.', author: 'lao-tzu' },
-    { text: 'water does not stay on a mountaintop, but flows into the valley. in the same manner, real virtue stays only with people who are humble.', author: 'the talmud' },
-    { text: 'be as you are, as you have to be, and the rest is god\'s business.', author: 'henri amiel' },
-    { text: 'if only god is among us, and eternity exists, then everything is different.', author: 'erasmus' },
-    { text: 'one of the key questions we face is whether our lives end after death.', author: 'blaise pascal' },
-    { text: 'intellect can be enlightened only in a kind person. a person can be kind only when he has an enlightened intellect.', author: 'chinese wisdom' },
-    { text: 'simplicity is the consequence of refined emotions.', author: 'jean d\'alembert' },
-    { text: 'words can unite people. therefore, try to speak very clearly, and tell only the truth.', author: 'leo tolstoy' },
+    { text: 'the history of mankind is the movement of humanity toward greater and greater unification.', author: 'leo tolstoy' },
+    { text: 'love is not a source, it is a consequence of our understanding the divine, spiritual beginning which exists in all of us.', author: 'leo tolstoy' },
+    { text: 'improve your own soul, and be confident that only in so doing can you contribute to the improvement of the larger society of which you are part.', author: 'leo tolstoy' },
+    { text: 'society can be improved only by self-sacrifice.', author: 'leo tolstoy' },
+    { text: 'faith is the understanding of the meaning of life and the acceptance of those duties and responsibilities connected to it.', author: 'leo tolstoy' },
+    { text: 'rage is very harmful for all people, but it is most harmful for the man who experiences it.', author: 'leo tolstoy' },
+    { text: 'wisdom is knowing the purpose of life, and knowing how to achieve it.', author: 'leo tolstoy' },
+    { text: 'a wise man loves not because he wants to profit from it but because he finds bliss in love itself.', author: 'leo tolstoy' },
+    { text: 'no matter how many times you aim to achieve victory over your passions, do not give up. every effort weakens the power of passion and makes it easier to gain victory over it.', author: 'leo tolstoy' },
+    
+    // psalms
+    { text: 'he makes me lie down in green pastures. he leads me beside still waters.', author: 'psalm 23' },
+    { text: 'even though i walk through the valley of the shadow of death, i will fear no evil, for you are with me.', author: 'psalm 23' },
+    { text: 'the lord is my light and my salvation; whom shall i fear?', author: 'psalm 27' },
+    { text: 'wait for the lord; be strong, and let your heart take courage.', author: 'psalm 27' },
+    { text: 'be still, and know that i am god.', author: 'psalm 46' },
+    { text: 'create in me a clean heart, o god, and renew a right spirit within me.', author: 'psalm 51' },
+    { text: 'cast your burden on the lord, and he will sustain you.', author: 'psalm 55' },
+    { text: 'this is the day that the lord has made; let us rejoice and be glad in it.', author: 'psalm 118' },
+    { text: 'i lift my eyes to the hills. from where does my help come? my help comes from the lord.', author: 'psalm 121' },
+    { text: 'the lord will keep your going out and your coming in from this time forth and forevermore.', author: 'psalm 121' },
+    { text: 'search me, o god, and know my heart; try me and know my thoughts.', author: 'psalm 139' },
+    { text: 'i said, i will take heed to my ways, that i sin not with my tongue.', author: 'psalms 39:1' },
+
     // athletes
     { text: 'i had to use the jail situation as something positive. someone sees weakness in you, they\'ll exploit it. i never showed any weakness, i just kept going strong until i came out.', author: 'allen iverson' },
+
+    // philosophers
+    { text: 'the function of freedom is to free someone else.', author: 'toni morrison' },
+    { text: 'one cannot step twice in the same river.', author: 'heraclitus' },
+    { text: 'the price of anything is the amount of life you exchange for it.', author: 'henry david thoreau' },
+    { text: 'today is a good day to have a good day.', author: 'unknown' },
+    { text: 'silence is deep as eternity, speech is shallow as time.', author: 'thomas carlyle' },
+    { text: 'nothing is great and little otherwise than by comparison.', author: 'jonathan swift' },
+    { text: 'the real danger is not that computers will begin to think like men, but that men will begin to think like computers.', author: 'sydney j. harris' },
+    { text: 'the human race took centuries or millennia to see through the mist of difficulties and paradoxes which instructors now invite us to solve in a few minutes.', author: 'lancelot hogben' },
+    { text: 'kind people help each other even without noticing that they are doing so, and evil people act against each other on purpose.', author: 'chinese proverb' },
+    { text: 'a gunshot wound may be cured, but the wound made by a tongue never heals.', author: 'persian wisdom' },
+    { text: 'i think that the major obligation of parents and educators is to give children an understanding of the divine beginning that exists within them.', author: 'william ellery channing' },
+    { text: 'god is love. and he who lives in love, lives in god, and god lives in him. if we love one another, god lives in us.', author: '1 john, chapter 4' },
+    { text: 'do not be embarrassed by your mistakes. nothing can teach us better than our understanding of them. this is one of the best ways of self-education.', author: 'thomas carlyle' },
+    { text: 'do not regret the past. what is the use of regrets? the lie says that you should regret. the truth says you should be filled with love.', author: 'persian wisdom' },
+    { text: 'the merit of a man is not in the knowledge he possesses, but in the effort he made to achieve it.', author: 'gotthold ephraim lessing' },
+    { text: 'if you want to study yourself — look into the hearts of other people. if you want to study other people — look into your own heart.', author: 'friedrich von schiller' },
+    { text: 'your soul is both your judge and your place of sanctuary. your own soul is your highest judge.', author: 'manu' },
+    { text: 'the will of god for us is to live in happiness and to take an interest in the lives of others.', author: 'john ruskin' },
+    { text: 'be as you are, as you have to be, and the rest is god\'s business.', author: 'henri amiel' },
+    { text: 'if only god is among us, and eternity exists, then everything is different.', author: 'erasmus' },
+    { text: 'intellect can be enlightened only in a kind person. a person can be kind only when he has an enlightened intellect.', author: 'chinese wisdom' },
+    { text: 'simplicity is the consequence of refined emotions.', author: 'jean d\'alembert' },
+    
     // scientists
     {text: 'in the middle of every difficulty lies opportunity.', author: 'albert einstein' },
+    { text: 'if our brains were simple, we would be too simple to understand them.', author: 'mario puzo' },
+    { text: 'we all agree that your theory is crazy. the question which divides us is whether it is crazy enough.', author: 'niels bohr' },
+    { text: 'one of the key questions we face is whether our lives end after death.', author: 'blaise pascal' },
+
+    // politicians
+    { text: 'believe you can and you\'re halfway there.', author: 'theodore roosevelt' },
+    { text: 'pride costs more than all that is necessary for food, drink, shelter, or dress.', author: 'thomas jefferson' },
+    
+    // entrepreneurs
+    { text: 'the only way to do great work is to love what you do.', author: 'steve jobs' },
+    { text: 'a formidable person is one who seems like they’ll get what they want, regardless of whatever obstacles are in the way.', author: 'paul graham' },
 ];
