@@ -35,6 +35,47 @@ class NotesStorage {
     getDefaultEntries() {
         return [
 
+            {
+                date: '2026-04-12T00:00:00.000Z',
+                title: 'career anniversary',
+                content: this.cleanContent(`
+i love walks. in fact, i love walking without any destination, on a new, different path that will lead to somewhere i've never been. i love stopping at coffee shops along the way, or finding flowers and trees, or cemeteries and parks.
+
+since i don't really use cell phones anymore (unless i really need to), most of my walks are intentionally made so that i get lost. and i find it particularly fun to try to find my way back — either by looking at the sky, or remembering where i have been, or using some distinguishable buildings or places as references.
+
+this has been kind of a game for me for many, many years now. on top of that, as a good nerdy scientist, whenever i need to ponder a systematic problem, i love to go for a walk. this is something that has never changed over the years!
+
+but today, i am not talking about walking, but rather about traditions: i am at that age when dates and traditions become much more important than when you are yunger.
+
+i am at that age when you start to realize that there could be less ahead than behind — but even if this is not the case (i.e., we are advancing quickly on the longevity front), i cannot deny that there are certain things i won't ever be doing again; they were part of the early part of my life. hence, traditions and celebrations are a sweet and grateful way to honor the passage of time.
+
+i recently decided to pay tribute to one particular feature that has been one of the main themes of my life. something i never stopped doing, never took a break from for more than a few months, and that is, in a certain way, very tied to my identity: my career.
+
+i am going to claim that i started my career when i got my first paycheck job, when i was 16. then, when i was in college, i was on an undergraduate paid research scholarship for most of the time, so i am going to claim this was also part of my career. same with my phd, when i had a full research and teaching assistant scholarship — that was my labor.
+
+then, when i graduated, i never really stopped working until now — always on my computer, whether doing scientific or technical research or writing and shipping code. i also think i can claim i have worked (even if on humanistic side projects) around 2/3 of the weekends of my life. and although i have taken many vacations — like every normal and healthy person — i have never spent more than a few weeks idle.
+
+i can say with a chest full of pride that i have spent a solid 1/4 of a century on my career. i am very proud of all the things i have built, including many things that will never be published or known, or are closed source.
+
+«i»✨ nice to meet you, marina della torre von steinkirch, you are a full professional! and you absolutely have enough clout to be referred to as dr. steinkirch by the kids! ✨«/i»
+
+and now, i am at an interesting crossroads. with how fast AI is changing the world, things will never be the same — and i am excited about what is ahead!
+
+therefore, i will declare this beautiful moment the beginning of the second half of my career! i do think i am the kind of person who will be working for another couple of decades — but naturally shifting in the coming years to more leadership roles, where i will be building and managing teams and teaching newcomers all the knowledge i have, etc. — the natural order of things. plus, i still have a couple of long-term side projects that i will be slowly building as well, together with my broader research as an AI engineer, scientist, and perhaps... storyteller.
+
+(and yes, i'll be doing all this while deeply loving my soulmate — who, for some reason, is still MIA these days 😱 — with every cell of my body, and making sure our home && family are happy && fun every split second 💃🏻)
+
+in conclusion, since life is what we make of it, next friday, april 17th, when mars conjuncts saturn in my third house (an event that occurs roughly every 30 years), i will declare it 🎉 MY ANNUAL CAREER CELEBRATION DAY 🎊.
+
+from now on, until the end of my life, on this day i will engage in a full day of remembrance of all the cool things i have built, and all the cool things i still expect to build, with all the cool people i will collaborate with in the future. 
+
+i will also be eating strawberry cheesecake and listening to debussy, which are the symbols of the senior engineers and scientists who come from the planet uranus. you are welcome to send me flowers, gifts, and love poems.
+
+love, bytegirl
+<3
+
+                                    `)
+            },
 
             {
                 date: '2026-04-09T00:00:00.000Z',
