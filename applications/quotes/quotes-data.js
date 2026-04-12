@@ -40,7 +40,7 @@ window.QUOTES = [
 
     // carl young
     { text: 'even a happy life cannot be without a measure of darkness.', author: 'carl jung' },
-
+    
     // jp sartre
     { text: 'man is condemned to be free.', author: 'jean-paul sartre' },
 
