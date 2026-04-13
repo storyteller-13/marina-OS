@@ -35,6 +35,94 @@ class NotesStorage {
     getDefaultEntries() {
         return [
 
+
+            {
+                date: '2026-04-14T00:00:00.000Z',
+                title: 'eating yummy brains',
+                content: this.cleanContent(`
+
+i am now 100% intentional about what i let into my feeds and my mind.
+
+here's the rules of the game:
+
+1️⃣ it has to be relevant or enriching. scientific or tech content related to my work and interests, or things i genuinely love — art, film, music, philosophy. 
+
+2️⃣ it has to be neutral or uplifting. if something consistently triggers negative thoughts, that's an unfollow.
+
+3️⃣ zero political noise. no political messages, no political bias, no political influencers.
+
+4️⃣ no one trying to sell me something or "directly" sending me "messages".
+
+5️⃣ no negativity of any kind. that means no bullies and no noise that makes me feel bad about myself or the world.
+
+6️⃣ it should help me grow, contribute to my goals, or expand my thinking in a meaningful way.
+
+7️⃣ you are that one guy 🧠😋
+
+see ya if i see ya
+<3
+
+                                    `)
+            },
+
+            {
+                date: '2026-04-13T00:00:00.000Z',
+                title: 'if i were to found a party',
+                content: this.cleanContent(`
+
+SPOILER ALERT: i won't...
+life is too short — i have far more important things to focus on.
+
+but if i were, these would be the main principles:
+(go ahead, kids - steal this album!)
+
+I. INDIVIDUAL LIBERTY AND PERSONAL RESPONSIBILITY
+emphasis on personal freedom coupled with accountability for one's own choices and circumstances, rather than relying on government assistance.
+
+II. LIMITED GOVERNMENT
+belief that government power should be constrained and that many issues are best handled by individuals, families, and local communities rather than federal authority.
+
+III. FREE MARKET ECONOMICS
+support for capitalism, private enterprise, and minimal government intervention in the economy, with the conviction that free markets generate prosperity and innovation.
+
+IV. TRADITIONAL VALUES AND INSTITUTIONS
+respect for established social institutions like marriage, universities, and spiritual communities as foundations of a stable society.
+
+V. CONSTITUTIONAL ORIGINALISM
+interpreting the constitution based on its original meaning and intent, with skepticism toward judicial activism or expansive readings of federal power.
+
+VI. STRONG NATIONAL DEFENSE
+prioritizing a robust military and assertive foreign policy to protect american interests and security.
+
+VII. FISCAL RESPONSIBILITY
+advocating for balanced budgets, lower taxes, reduced government spending, and concern about national debt.
+
+VIII. RULE OF LAW
+emphasis on law and order, support for law enforcement, and belief in equal application of laws without special treatment.
+
+IX. SECOND AMENDMENT RIGHTS
+strong support for gun ownership rights as both a constitutional guarantee and practical necessity.
+
+X. FOURTH AMENDMENT RIGHTS
+the government cannot search you, your home, or your belongings or take your property without good reason and your consent.
+
+XI. FEDERALISM AND STATES' RIGHTS
+preference for keeping power at state and local levels rather than centralizing it in washington, d.c.
+
+XII. FAMILY AS THE FOUNDATION OF SOCIETY
+viewing marriage as a vital institution, and the belief that strong families are essential to community stability and child development.
+
+XIII. PARENTAL RIGHTS
+conviction that parents, not government or institutions, should have primary say in their children's education, healthcare decisions, and moral upbringing.
+
+🫡
+love from your favorite renegade
+
+
+            `)
+        },
+
+
             {
                 date: '2026-04-12T00:00:00.000Z',
                 title: 'annual career celebration day',
