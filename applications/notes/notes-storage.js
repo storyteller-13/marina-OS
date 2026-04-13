@@ -43,9 +43,9 @@ class NotesStorage {
 
 i am now 100% intentional about what i let into my feeds and my mind.
 
-here's the rules of the game:
+here are the rules of the game:
 
-1️⃣ it has to be relevant or enriching. scientific or tech content related to my work and interests, or things i genuinely love — art, film, music, philosophy. 
+1️⃣ it has to be relevant or enriching. scientific or technical content related to my work and interests, or things i genuinely love — art, film, music, philosophy. 
 
 2️⃣ it has to be neutral or uplifting. if something consistently triggers negative thoughts, that's an unfollow.
 
@@ -81,13 +81,13 @@ I. INDIVIDUAL LIBERTY AND PERSONAL RESPONSIBILITY
 emphasis on personal freedom coupled with accountability for one's own choices and circumstances, rather than relying on government assistance.
 
 II. LIMITED GOVERNMENT
-belief that government power should be constrained and that many issues are best handled by individuals, families, and local communities rather than federal authority.
+belief that government power should be constrained and that many issues are best addressed by individuals, families, ethical venture-backed non-predatory companies, intellectual patronage, and local communities rather than federal authority.
 
 III. FREE MARKET ECONOMICS
-support for capitalism, private enterprise, and minimal government intervention in the economy, with the conviction that free markets generate prosperity and innovation.
+support for capitalism and minimal government intervention in the economy, with the conviction that free markets generate prosperity and innovation.
 
 IV. TRADITIONAL VALUES AND INSTITUTIONS
-respect for established social institutions like marriage, universities, and spiritual communities as foundations of a stable society.
+respect for established social institutions — such as universities, artistic communities, and spiritual communities — as foundations of a stable society.
 
 V. CONSTITUTIONAL ORIGINALISM
 interpreting the constitution based on its original meaning and intent, with skepticism toward judicial activism or expansive readings of federal power.
@@ -99,13 +99,13 @@ VII. FISCAL RESPONSIBILITY
 advocating for balanced budgets, lower taxes, reduced government spending, and concern about national debt.
 
 VIII. RULE OF LAW
-emphasis on law and order, support for law enforcement, and belief in equal application of laws without special treatment.
+emphasis on law and order, support for law enforcement, and a commitment to the equal application of the law without special treatment.
 
 IX. SECOND AMENDMENT RIGHTS
 strong support for gun ownership rights as both a constitutional guarantee and practical necessity.
 
 X. FOURTH AMENDMENT RIGHTS
-the government cannot search you, your home, or your belongings or take your property without good reason and your consent.
+the government cannot search you, your home, or your belongings, or take your property without consent or just cause, due process, and lawful authorization.
 
 XI. FEDERALISM AND STATES' RIGHTS
 preference for keeping power at state and local levels rather than centralizing it in washington, d.c.
@@ -114,7 +114,7 @@ XII. FAMILY AS THE FOUNDATION OF SOCIETY
 viewing marriage as a vital institution, and the belief that strong families are essential to community stability and child development.
 
 XIII. PARENTAL RIGHTS
-conviction that parents, not government or institutions, should have primary say in their children's education, healthcare decisions, and moral upbringing.
+full rights for women, including equal legal, political, economic, and social rights, full protection under the law, and full bodily autonomy; and a strong conviction that parent — not the government or other institutions — should have the primary role in guiding their children’s education, healthcare decisions, and moral upbringing.
 
 🫡
 love from your favorite renegade
@@ -154,11 +154,9 @@ and now, i am at an interesting crossroads. with how fast AI is changing the wor
 
 therefore, i will declare this beautiful moment the beginning of the second half of my career! 
 
-i do think i am the kind of person who will be working for another couple of decades — but naturally shifting in the coming years to more leadership roles, where i will be building and managing teams and teaching newcomers all the knowledge i have, etc. — the natural order of things. 
+i do see myself working for another couple of decades — though naturally evolving into more leadership-focused roles over time, building and guiding teams, and passing on everything i've learned to the next wave of people coming up — the natural order of things. 
 
-plus, i still have a couple of long-term side projects that i will be slowly building as well, together with my broader research as an AI engineer, scientist, and perhaps... storyteller.
-
-(and yes, i'll be doing all this while deeply loving my soulmate — who, for some reason, is still MIA these days 😱 — with every cell of my body, and making sure our home && family are happy && fun every split second 💃🏻)
+(and through all of it, i'll be loving my soulmate with every single cell in my body — who, for some reason, is still MIA these days 😱 — while making sure our home && family are nothing short of joyful && alive in every possible moment 💃🏻)
 
 in conclusion, since life is what we make of it, next friday, april 17th, when mars conjuncts saturn in my third house (an event that occurs roughly every 30 years), i will declare it 🎉 MY ANNUAL CAREER CELEBRATION DAY 🎊.
 

@@ -155,7 +155,9 @@ window.QUOTES = [
     // robert greene
     { text: 'no calling is superior to another. what matters is that it be tied to a personal need and inclination, and that your energy moves you toward improvement and continuous learning from experience.', author: 'robert greene' },
     { text: 'see the person, not the myth. imagine him or her as a child, as someone riddled with insecurities. cutting the other person down to size will help your keep your mental balance.', author: 'robert greene' },
-    
+    { text: 'a bold act requires a high degree of confidence. people who are the targets of an audacious act, or who witness it, cannot help but believe that such confidence is real and justified.', author: 'robert greene' },
+    { text: 'a bold act can put people on their heels and eliminate obstacles. in this way, it creates its own favorable circumstances.', author: 'robert greene' },
+
     // ryan holiday
     { text: 'humble. humble even if you have achieved an impressive amount, even if you have done many impressive things.', author: 'ryan holiday' },
     
@@ -256,7 +258,8 @@ window.QUOTES = [
     { text: 'if only god is among us, and eternity exists, then everything is different.', author: 'erasmus' },
     { text: 'intellect can be enlightened only in a kind person. a person can be kind only when he has an enlightened intellect.', author: 'chinese wisdom' },
     { text: 'simplicity is the consequence of refined emotions.', author: 'jean d\'alembert' },
-    
+    { text: 'the ideal subject of totalitarian rule is not the convinced nazi or the convinced communist, but people for whom the distinction between fact and fiction and the distinction between true and false', author: 'hannah arendt' },
+
     // scientists
     {text: 'in the middle of every difficulty lies opportunity.', author: 'albert einstein' },
     { text: 'if our brains were simple, we would be too simple to understand them.', author: 'mario puzo' },
