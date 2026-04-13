@@ -50,6 +50,34 @@ window.QUOTES = [
     // socrates
     { text: 'the only true wisdom is in knowing you know nothing.', author: 'socrates' },
     { text: 'the unexamined life is not worth living.', author: 'socrates' },
+        {
+          text: 'the most important personal virtue, of course, is justice, which he conceives of as each part of the soul doing its own work: reason, not appetite or spirit, governs the just soul',
+          author: 'socrates'
+        },
+        {
+          text: 'hope cherishes the soul of him who lives in justice and holiness, and is the nurse of his age and the companion of his journey;– hope which is mightiest to sway the restless soul of man.',
+          author: 'socrates'
+        },
+        {
+          text: 'i know not what justice is, and therefore i am not likely to know whether it is or is not a virtue, nor can i say whether the just man is happy or unhappy.',
+          author: 'socrates'
+        },
+        {
+          text: 'we divide the soul into three parts; and distinguished the several natures of justice, temperance, courage, and wisdom',
+          author: 'socrates'
+        },
+        {
+          text: 'and they see only their own shadows, or the shadows of one another, which the fire throws on the opposite wall of the cave?',
+          author: 'plato'
+        },
+        {
+          text: 'freedom is the glory of the state',
+          author: 'socrates'
+        },
+        {
+          text: 'those then who know not wisdom and virtue, and are always busy with gluttony and sensuality, go down and up again as far as the mean; and in this region they move at random throughout life, but they never pass into the true upper world',
+          author: 'socrates'
+        },
 
     // seneca
     { text: 'we suffer more often in imagination than in reality.', author: 'seneca' },
