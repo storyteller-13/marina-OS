@@ -217,6 +217,15 @@ window.QUOTES = [
     { text: 'wisdom is knowing the purpose of life, and knowing how to achieve it.', author: 'leo tolstoy' },
     { text: 'a wise man loves not because he wants to profit from it but because he finds bliss in love itself.', author: 'leo tolstoy' },
     { text: 'no matter how many times you aim to achieve victory over your passions, do not give up. every effort weakens the power of passion and makes it easier to gain victory over it.', author: 'leo tolstoy' },
+
+    // alan kay
+    { text: 'a change in perspective is worth 80 iq points.', author: 'alan kay' },
+    { text: 'technology is anything that was invented after you were born.', author: 'alan kay' },
+    { text: 'normal is the greatest enemy with regard to creating the new.', author: 'alan kay' },
+    { text: 'scratch the surface in a typical boardroom and we\'re all just cavemen with briefcases, hungry for a wise person to tell us stories.', author: 'alan kay' },
+    { text: 'we haven\'t gotten any smarter, we\'ve just changed our representation system.', author: 'alan kay' },
+    { text: 'art is anything you can get away with.', author: 'alan kay' },
+    { text: 'the computer is the most remarkable tool we’ve ever come up with. it’s the equivalent of a bicycle for our minds.', author: 'alan kay' },
     
     // psalms
     { text: 'he makes me lie down in green pastures. he leads me beside still waters.', author: 'psalm 23' },
@@ -261,7 +270,7 @@ window.QUOTES = [
     { text: 'the ideal subject of totalitarian rule is not the convinced nazi or the convinced communist, but people for whom the distinction between fact and fiction and the distinction between true and false', author: 'hannah arendt' },
 
     // scientists
-    {text: 'in the middle of every difficulty lies opportunity.', author: 'albert einstein' },
+    { text: 'in the middle of every difficulty lies opportunity.', author: 'albert einstein' },
     { text: 'if our brains were simple, we would be too simple to understand them.', author: 'mario puzo' },
     { text: 'we all agree that your theory is crazy. the question which divides us is whether it is crazy enough.', author: 'niels bohr' },
     { text: 'one of the key questions we face is whether our lives end after death.', author: 'blaise pascal' },
