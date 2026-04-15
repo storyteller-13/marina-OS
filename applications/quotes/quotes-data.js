@@ -196,6 +196,14 @@ window.QUOTES = [
     { text: 'god tests everyone, one with wealth, another with poverty. a rich man is tested in whether he would extend an arm of support to those who need it; a poor man in whether he would bear all his sufferings without discontent and with obedience.', author: 'the talmud' },
 
     // rainer maria rilke:
+    { text: 'It is good to be solitary, for solitude is difficult; that something is difficult must be a reason the more for us to do it.', author: 'rainer maria rilke' },
+    { text: 'Once the realization is accepted that even between the closest human beings infinite distances continue, a wonderful living side by side can grow.', author: 'rainer maria rilke' },
+    { text: 'Perhaps all the dragons in our lives are princesses who are only waiting to see us act, just once, with beauty and courage.', author: 'rainer maria rilke' },
+    { text: 'Be patient toward all that is unsolved in your heart and try to love the questions themselves.', author: 'rainer maria rilke' },
+    { text: 'Let everything happen to you: beauty and terror. Just keep going. No feeling is final.', author: 'rainer maria rilke' },
+    { text: 'Love consists in this: that two solitudes protect and touch and greet each other.', author: 'rainer maria rilke' },
+    { text: 'For one human being to love another: that is perhaps the most difficult of all our tasks.', author: 'rainer maria rilke' },
+    { text: 'If your daily life seems poor, do not blame it; blame yourself.', author: 'rainer maria rilke' },
 
     // leo tolstoy
     { text: 'your rage cannot be justified by anything. the reason for your rage is always inside you.', author: 'leo tolstoy' },
