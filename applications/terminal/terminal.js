@@ -47,7 +47,8 @@
                 'friday_love.jpg': 'file',
                 'freeee.png': 'file',
                 'perfect.png': 'file',
-                'princess.png': 'file'
+                'princess.png': 'file',
+                'the_game_and_the_player.png': 'file'
             }
         };
 

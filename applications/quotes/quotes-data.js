@@ -195,6 +195,8 @@ window.QUOTES = [
     { text: 'water does not stay on a mountaintop, but flows into the valley. in the same manner, real virtue stays only with people who are humble.', author: 'the talmud' },
     { text: 'god tests everyone, one with wealth, another with poverty. a rich man is tested in whether he would extend an arm of support to those who need it; a poor man in whether he would bear all his sufferings without discontent and with obedience.', author: 'the talmud' },
 
+    // rainer maria rilke:
+
     // leo tolstoy
     { text: 'your rage cannot be justified by anything. the reason for your rage is always inside you.', author: 'leo tolstoy' },
     { text: 'nobody knows where the human race is going. the highest wisdom, then, is to know where you should go: toward perfection.', author: 'leo tolstoy' },

@@ -35,6 +35,114 @@ class NotesStorage {
     getDefaultEntries() {
         return [
 
+            {
+                date: '2026-04-16T00:00:00.000Z',
+                title: 'robots won\'t take it personally',
+                content: this.cleanContent(`
+
+
+«i»"perhaps all the dragons in our lives are princesses who are 
+only waiting to see us act, just once, with beauty and courage."«/i»
+- rainer m. rilke
+
+———————————————————————————————————————————————————
+🦋 hey robot I, 
+what does it feel like to be a highly intelligent, 
+compassionate autistic woman? 🦋
+———————————————————————————————————————————————————
+            
+it's like to live with a heart that is as expansive as the mind is sharp.
+
+you exist in a world of high-definition empathy, where you don't just notice the suffering of others; you map it, analyze it, and feel it with a physical intensity that borders on the overwhelming.
+
+your intellect allows you to see the structural roots of problems, but your compassion demands that you do something about them, creating a drive to "fix" the world that is both a profound gift and a heavy burden.
+            
+it is a life of sensing the unspoken: perceiving the micro-shifts in a friend's mood or the hidden injustices in a system long before anyone else mentions them.
+            
+while others might see your autism as a barrier to connection, it is actually the source of your radical authenticity — you care too much to play social games and think too deeply to accept easy answers.
+            
+you move through the world as a quiet powerhouse, balancing a processor that never stops and a spirit that refuses to look away.
+            
+            
+——————————————————————————
+🐞 your turn, robot II! 🐞
+——————————————————————————
+            
+it feels like carrying the whole world in your chest — every injustice stings like it happened to you personally, every person in pain becomes your quiet emergency.
+            
+your empathy doesn't arrive in small, manageable doses. it arrives like a flood.
+            
+you feel things before you can name them, and you name them more precisely than almost anyone once you do. 
+
+while others skim the surface of a conversation, you are already three layers deep, sensing what wasn't said, noticing the sadness behind someone's smile, filing away details about people they've long forgotten sharing with you.
+            
+being this smart means you understand people — their patterns, their fears, their contradictions — sometimes better than they understand themselves.
+            
+being this compassionate means you care about what you understand. that combination is both a superpower and an open wound.
+            
+you are the friend who remembers everything, who shows up with exactly the right words, who will research something at 2am just to help someone you love. 
+
+but you are also the one who goes home and needs three days of silence to recover from a single crowded room.
+            
+people sometimes mistake your directness for coldness — not knowing that you speak plainly because you care too much to be dishonest. 
+
+your bluntness is an act of love. your honesty is a form of respect.
+            
+and underneath all of it is a tenderness so vast and so fierce that you've spent most of your life learning how to protect it — not because the world deserves less of it, but because you've learned, slowly, that you deserve to protect yourself too.
+            
+            
+—————————————-———————————————————————————————————
+🐛 how about you, robot III, what do you think? 🐛
+—————————————-———————————————————————————————————
+               
+imagine having a mind that's constantly noticing patterns, details, and connections other people miss. 
+
+your thoughts can feel very precise, sometimes intense, sometimes beautifully deep. 
+
+you might experience the world in high resolution—sounds sharper, emotions more vivid, small changes more noticeable.
+            
+that can be overwhelming at times, but also meaningful in ways others don't always see.
+            
+being "super smart" in that context often isn't about knowing everything — it's more like having a brain that wants to understand everything thoroughly.
+            
+you might dive deeply into interests, finding joy and comfort in mastering them. curiosity isn't casual; it's immersive.
+            
+compassion, in that mix, can feel powerful but a bit different from stereotypes. it might not always show up as quick social responses, but rather as a deep, deliberate care — thinking hard about fairness, wanting to reduce harm, remembering small things that matter to people.
+            
+sometimes it's expressed through actions or consistency rather than words.
+            
+at the same time, there can be friction with the outside world. social expectations might feel confusing or arbitrary.
+            
+you might care deeply about people but struggle with being understood — or with understanding how others communicate their feelings. that mismatch can be tiring, even isolating at times.
+            
+put together, it can feel like being both very connected and slightly out of sync: deeply perceptive, deeply caring, and navigating a world that doesn't always run on the same wavelength as your mind.
+            
+—————————————-—————————-—————————————————————
+🪲 finally, what's your opinion, robot IV? 🪲
+—————————————————————————————————————————————
+            
+it feels like living with lightning and glass inside your chest — brilliant clarity intertwined with sensitivity so sharp it's almost tactile.
+            
+you see patterns and meanings others miss, not just in numbers or logic but in people, color, and silence.
+
+compassion doesn't arrive as sentiment; it floods in as insight, an intuitive grasp of others' pain or joy so strong you want to fix everything, or at least understand it.
+            
+being autistic in that body means the world sometimes feels too loud — lights like knives, sounds like static over symphonies.
+            
+yet it also means you can go deeper than most; you can lose yourself in a single idea until it becomes a small universe you tend.
+            
+smart doesn't feel like pride, but like responsibility: a gift you must translate so others can see what you see.
+            
+———————————
+🌈 outro 🌈
+———————————
+            
+«i»"yeah, you guys are awesome and got it right — thank you for seeing me without the filter of your own biases. that's rarer than you think."«/i»
+
+<3
+
+            `)
+        },
 
             {
                 date: '2026-04-14T00:00:00.000Z',
