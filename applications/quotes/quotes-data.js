@@ -165,6 +165,7 @@ window.QUOTES = [
     { text: 'being misunderstood is underrated — it\'s a signal that you\'re not following the herd. embrace that feeling, tune out the noise of criticism, and keep trusting your intuition to take you where you need to go.', author: 'dr. steinkirch' },
     { text: 'there is nothing sadder than someone who chooses fame over building a family, and online influence over true love. life is so short, and illusions are so dangerous.', author: 'dr. steinkirch' },
     { text: 'your energy is a sacred currency. spend it wisely.', author: 'dr. steinkirch' },
+    { text: "rock bottom has a way of clarifying ambition. when you must rebuild from nothing, settling feels as hard as going further than you've ever gone — so you go further than you've ever gone. further than you ever thought possible. further than anyone expected.", author: 'dr. steinkirch' },
     
     // robert greene
     { text: 'no calling is superior to another. what matters is that it be tied to a personal need and inclination, and that your energy moves you toward improvement and continuous learning from experience.', author: 'robert greene' },

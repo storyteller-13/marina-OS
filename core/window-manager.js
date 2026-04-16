@@ -381,10 +381,8 @@ class WindowManager {
 
                     // Map window IDs to dock item IDs
                     const dockItemMap = {
-                        'email-window': 'email-dock-item',
                         'todo-window': 'todo-dock-item',
                         'home-window': 'home-dock-item',
-                        'sunday-chats-window': 'sunday-chats-dock-item',
                         'b-bot-window': 'b-bot-dock-item',
                         'terminal-window': 'terminal-dock-item',
                         'artwork-window': 'artwork-dock-item',
