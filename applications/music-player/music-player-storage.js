@@ -61,31 +61,44 @@ class MusicPlayerStorage {
         return {
             playlists: [
                 {
-                    id: '2026 behemoth endeavor',
-                    name: '2026 behemoth endeavor',
+                    id: '2026 chill behemoth endeavor',
+                    name: '2026 chill behemoth endeavor',
                     songs: [
-                        { id: 'kLp_Hh6DKWc', title: 'in the hall of the mountain king (grieg)' },
-                        { id: 'GXFSK0ogeg4', title: 'carmina burana (carl orff)' }
+                        { id: 'GXFSK0ogeg4', title: 'carmina burana (carl orff)' },
+                        { id: 'kLp_Hh6DKWc', title: 'hall of the mountain king (grieg)' },
+                        { id: 'wneUNq_Ndbw', title: 'sorcerer\'s apprentice (dukas)' },
+                        { id: 'r30D3SW4OVw', title: 'bolero (maurice ravel)' },
+                        { id: 'bBsKplb2E6Q', title: 'dance of the knights (prokofiev)' },
+                        { id: 'GGU1P6lBW6Q', title: 'also sprach zarathustra (strauss)' },
+                        { id: 'dfe8tCcHnKY', title: 'ride of the valkyries (wagner)' },
+                        { id: 'CUGMZlvrR4c', title: 'requiem, dies irae (verdi)' },
+                        { id: 'YyknBTm_YyM', title: 'danse macabre (saint-saëns)' },
+                        { id: 'S8m4fm_cF6o', title: 'requiem, confutatis (mozart)' },
+                        { id: 'ho9rZjlsyYY', title: 'tocatta and fugue in D minor (bach)' },
+                        { id: 'iCEDfZgDPS8', title: 'night on bald mountain (mussorgsky)' },
+                        { id: 'L0bcRCCg01I', title: 'mars, the bringer of the last war (holst)' },
+                        { id: 'L0bcRCCg01I', title: 'welcome to the future, droid (moebius fm)' }
                     ]
                 },
                 {
-                    id: '2026 peaceful dreamer',
-                    name: '2026 peaceful dreamer',
+                    id: '2026 peaceful builder dreamer',
+                    name: '2026 peaceful builder dreamer',
                     songs: [
                         { id: '0tiuAKQjRpg', title: 'rose garden (afloat in time)' },
+                        { id: 'N0snMcR6aaA', title: 'emma\'s surrender (lofi girl)' },
                         { id: 'rSzKm3hqhs8', title: 'perpetual (tommy guerrero)' },
                         { id: 'YBioStgspO8', title: 'happy moments (essential)' },
                         { id: 'NH8uI4EJ0bo', title: 'romantic jazz (lofi girl)' },
                         { id: 'b9WKC5sT9Z4', title: 'gymnopedies (erik satie)' },
                         { id: 'aA4Kub9flag', title: 'dreamer (luke faulkner)' },
+                        { id: 'b44-5M4e9nI', title: 'the swan (saint-saens)' },
                         { id: 'y9Yc46rVgRQ', title: 'saturn (james malikey)' },
                         { id: 'bTvOEXAuIEU', title: 'frailed (flea)' }
-                       
                     ]
                 },
                 {
-                    id: '2026 rip future hubby',
-                    name: '2026 rip future hubby',
+                    id: '2026 when jupiter is in my 7th',
+                    name: '2026 when jupiter is in my 7th',
                     songs: [
                         { id: 'n2MtEsrcTTs', title: 'harvest moon (neil young)' },
                         { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
@@ -97,8 +110,8 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id: '2026 after afterlife',
-                    name: '2026 after afterlife',
+                    id: '2026 after afterlife phoenix',
+                    name: '2026 after afterlife phoenix',
                     songs: [
                         { id: 'ya7L3A1DOlg', title: 'all is violent, bright (god is an astronaut)' },
                         { id: 'MAmqJjyDH48', title: 'a song for our fathers (explosion in the sky)' },
@@ -118,6 +131,7 @@ class MusicPlayerStorage {
                         { id: 'ln7Vn_WKkWU', title: 'stuck in the middle (stealers wheel)' },
                         { id: 'MO0LdXqwDP0', title: 'afterlife (evanescence)' },
                         { id: 'po4GAzP0kHU', title: 'original sin (tim henson)' },
+                        { id: 'fA82c4YkAZ4', title: 'first light (lana del rey)' },
                         { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
                         { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
                         { id: 'cfjDrutsfRQ', title: 'sympathy magic (florence + the machine)' },

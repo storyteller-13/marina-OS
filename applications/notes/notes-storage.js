@@ -35,8 +35,63 @@ class NotesStorage {
     getDefaultEntries() {
         return [
 
+
             {
                 date: '2026-04-16T00:00:00.000Z',
+                title: 'hobo-curious: an engineer\'s take',
+                content: this.cleanContent(`
+
+[ or how i learned to stop worrying and love the thug life ]
+
+«i»"whoever oppresses a poor man insults his maker, but he who is generous to the needy honors him." — proverbs 14:31«/i»
+
+[ i would describe the last month as a fascinating social experiment ]
+
+[ the problem i was trying to solve was not technical — the problem was dignity — the question i kept coming back to is this: how can we make sure everyone has enough dignity to live their lives and follow their dreams? ]
+
+«i»"do not withhold good from those to whom it is due, when it is in your power to do it."«/i» — proverbs 3:27
+
+[ the system was broken in the specific way that broken systems always are — not dramatically, not all at once, but in the accumulation of small frictions that grind people down ]
+
+[ during the government shutdown people were genuinely afraid they would not eat — genuinely afraid ]
+
+[ i'm not going to tell you everything ]
+
+«i»"the righteous give without sparing." — proverbs 21:26«/i»
+
+[ some of the most important conversations of this chapter happened at a table with a cup of coffee and people i'd only just met ]
+
+[ i started paying attention to what it actually meant to be at the bottom of the resource pile and still be human, still be generous, still be in community; i went to food banks; i ate church food ]
+
+[ the thing that struck me, the thing i couldn't shake, is that the people with the least were often the most willing to share ]
+
+[ these people were not impressive in the way the world usually measures impressive; they were real; and the conversations we had over mutiny smelled like the 90s ]
+
+[ the last time i cried in my life ]
+
+«i»"you can give away 100% of your wealth when you are a hobo."«/i» — a kind hobo
+
+[ an interlude for MF Doom — the deliberate refusal to be recognized on the world's terms; the willingness to be called a villain while doing something quietly brilliant; the mask that let you be honest ]
+
+[ that posture — of working while the crowd looks the other way — that became a kind of north star for me during the ugly ]
+
+[ people fear anyone apparently "below" them; i've watched it happen; i understand the fear; i've felt it myself ]
+ 
+[ i'll tell you it was not about failure; it was about beauty — specifically, it was saint-saëns; the swan; something about that melody, in that moment, broke something open in me that needed to be broken open; i sat with it; i didn't fight it ]
+
+[ i was raised to believe that you never ever show weakness; that to be vulnerable was to hand someone a weapon; and i carried that belief for a long time and it cost me things i can't get back ]
+
+[ what i know now is that humility is not weakness; humility is accurate; it's seeing yourself the right size — neither smaller nor larger than you are; my dad knew this; it took me longer; going back to his lessons, back to the roots of where i came from ]
+
+[ i wake up in the morning and i pray; not because i have it figured out; because i don't, and the prayer is a kind of admission of that, a kind of alignment before the day gets going and i start pretending i'm more in control than i am ]
+
+[ i'm about to head back to real life — with a new perspective: whoever's still here is the real deal ]
+
+            `)
+        },
+
+            {
+                date: '2026-04-15T00:00:00.000Z',
                 title: 'robots won\'t take it personally',
                 content: this.cleanContent(`
 
@@ -165,7 +220,7 @@ here are the rules of the game:
 
 6️⃣ it should help me grow, contribute to my goals, or expand my thinking in a meaningful way.
 
-7️⃣ you are that one guy who talks about all the things i like 🧠😋
+7️⃣ you are a cool guy who talks about all the things i like 🧠😋
 
 see ya if i see ya
 <3
@@ -920,22 +975,23 @@ and no one will ever ever ever take this well-earned destiny from me.
             },
             {
                 date: '2026-02-18T00:00:00.000Z',
-                title: 'looking for a new chapter',
+                title: 'building my sunniest chapter',
                 content: this.cleanContent(`
 
 dear anon friend,
 
-i am looking for a new long-term 
-opportunity with great people to
-build something new and meaningful,
-either as an engineer or researcher,
-working on AI-related projects.
+today marks the beginning of the most exciting chapter of my career
 
-if you'd like to have me on your team,
-let’s chat: contact@vonsteinkirch.com
+a venture so ambitious, so thrilling, and so deeply meaningful that I expect to dedicate the next several decades of my life to it
+
+i can't reveal the details just yet, but here's a little teaser: think games, think fun
+
+think something you'll genuinely love — from your favorite e-girl (who loves to mess with your mind... in a good way)
+
+stay tuned
+the best is absolutely yet to come
 
 <3
-mvs
 
                                     `)
             },
