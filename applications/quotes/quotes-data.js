@@ -22,6 +22,20 @@ window.QUOTES = [
 
     // rumi
     { text: 'what you seek is seeking you.', author: 'rumi' },
+    { text: 'your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it.', author: 'rumi' },
+    { text: 'yesterday i was clever, so i wanted to change the world. today i am wise, so i am changing myself.', author: 'rumi' },
+    { text: 'out beyond ideas of wrongdoing and rightdoing, there is a field. i\'ll meet you there.', author: 'rumi' },
+    { text: 'silence is the language of god, all else is poor translation.', author: 'rumi' },
+    { text: 'do not feel lonely. the entire universe is inside you.', author: 'rumi' },
+    { text: 'the wound is the place where the light enters you.', author: 'rumi' },
+    { text: 'wherever you are, and whatever you do, be in love.', author: 'rumi' },
+    { text: 'as you start to walk on the way, the way appears.', author: 'rumi' },
+    { text: 'let yourself be silently drawn by the strange pull of what you really love. it will not lead you astray.', author: 'rumi' },
+    { text: 'set your life on fire. seek those who fan your flames.', author: 'rumi' },
+    { text: 'lovers don\'t finally meet somewhere. they\'re in each other all along.', author: 'rumi' },
+    { text: 'stop acting so small. you are the universe in ecstatic motion.', author: 'rumi' },
+    { text: 'why are you so busy with this or that or good or bad; pay attention to how things blend.', author: 'rumi' },
+    { text: 'where there is ruin, there is hope for a treasure.', author: 'rumi' },
 
     // kierkegaard
     { text: 'life must be understood backward. but it must be lived forward.', author: 'søren kierkegaard' },
@@ -196,14 +210,14 @@ window.QUOTES = [
     { text: 'god tests everyone, one with wealth, another with poverty. a rich man is tested in whether he would extend an arm of support to those who need it; a poor man in whether he would bear all his sufferings without discontent and with obedience.', author: 'the talmud' },
 
     // rainer maria rilke:
-    { text: 'It is good to be solitary, for solitude is difficult; that something is difficult must be a reason the more for us to do it.', author: 'rainer maria rilke' },
-    { text: 'Once the realization is accepted that even between the closest human beings infinite distances continue, a wonderful living side by side can grow.', author: 'rainer maria rilke' },
-    { text: 'Perhaps all the dragons in our lives are princesses who are only waiting to see us act, just once, with beauty and courage.', author: 'rainer maria rilke' },
-    { text: 'Be patient toward all that is unsolved in your heart and try to love the questions themselves.', author: 'rainer maria rilke' },
-    { text: 'Let everything happen to you: beauty and terror. Just keep going. No feeling is final.', author: 'rainer maria rilke' },
-    { text: 'Love consists in this: that two solitudes protect and touch and greet each other.', author: 'rainer maria rilke' },
-    { text: 'For one human being to love another: that is perhaps the most difficult of all our tasks.', author: 'rainer maria rilke' },
-    { text: 'If your daily life seems poor, do not blame it; blame yourself.', author: 'rainer maria rilke' },
+    { text: 'it is good to be solitary, for solitude is difficult; that something is difficult must be a reason the more for us to do it.', author: 'rainer m. rilke' },
+    { text: 'once the realization is accepted that even between the closest human beings infinite distances continue, a wonderful living side by side can grow.', author: 'rainer m. rilke' },
+    { text: 'perhaps all the dragons in our lives are princesses who are only waiting to see us act, just once, with beauty and courage.', author: 'rainer m. rilke' },
+    { text: 'be patient toward all that is unsolved in your heart and try to love the questions themselves.', author: 'rainer m. rilke' },
+    { text: 'let everything happen to you: beauty and terror. just keep going. No feeling is final.', author: 'rainer m. rilke' },
+    { text: 'love consists in this: that two solitudes protect and touch and greet each other.', author: 'rainer m. rilke' },
+    { text: 'for one human being to love another: that is perhaps the most difficult of all our tasks.', author: 'rainer m. rilke' },
+    { text: 'if your daily life seems poor, do not blame it; blame yourself.', author: 'rainer m. rilke' },
 
     // leo tolstoy
     { text: 'your rage cannot be justified by anything. the reason for your rage is always inside you.', author: 'leo tolstoy' },
