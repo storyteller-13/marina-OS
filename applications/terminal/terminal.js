@@ -48,7 +48,9 @@
                 'freeee.png': 'file',
                 'perfect.png': 'file',
                 'princess.png': 'file',
-                'the_game_and_the_player.png': 'file'
+                'the_game_and_the_player.png': 'file',
+                'new_pet.webp': 'file',
+                'back_2_school.png': 'file'
             }
         };
 

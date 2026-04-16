@@ -42,7 +42,7 @@ describe('MusicPlayerStorage', () => {
         expect(data.playlists[0]).toHaveProperty('name');
         expect(data.playlists[0]).toHaveProperty('songs');
 
-        const dreaming = data.playlists.find(p => p.id === '2026 dream bliss');
+        const dreaming = data.playlists.find(p => p.id === '2026 peaceful dreamer');
         expect(dreaming).toBeDefined();
         expect(
             dreaming.songs.some(s => s.id === 'aA4Kub9flag' && s.title === 'dreamer (luke faulkner)')
@@ -60,7 +60,6 @@ describe('MusicPlayerStorage', () => {
                 s => s.id === 'rSzKm3hqhs8' && s.title === 'perpetual (tommy guerrero)'
             )
         ).toBe(true);
-        expect(data.playlists.some(p => p.id === '2026 memories')).toBe(false);
 
         const afterlife = data.playlists.find(p => p.id === '2026 after afterlife');
         expect(afterlife).toBeDefined();
@@ -89,13 +88,13 @@ describe('MusicPlayerStorage', () => {
         storage.clearPersisted();
         expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
         const again = storage.load();
-        expect(again.currentPlaylistId).toBe('2026 dream bliss');
+        expect(again.currentPlaylistId).toBe('2026 peaceful dreamer');
     });
 
     it('getPlaylist returns playlist by id or null', () => {
         const storage = new window.MusicPlayerStorage();
         const data = storage.load();
-        const p = storage.getPlaylist(data, '2026 dream bliss');
+        const p = storage.getPlaylist(data, '2026 peaceful dreamer');
         expect(p).toBeDefined();
         expect(storage.getPlaylist(data, 'nonexistent')).toBeNull();
     });
@@ -122,7 +121,7 @@ describe('MusicPlayerStorage', () => {
         const data = { playlists: [], currentPlaylistId: null };
         storage.ensureDefaultPlaylists(data);
         expect(data.playlists.length).toBeGreaterThan(0);
-        expect(data.currentPlaylistId).toBe('2026 dream bliss');
+        expect(data.currentPlaylistId).toBe('2026 peaceful dreamer');
     });
 
     it('load() uses getDefaultData when stored value is invalid JSON', () => {
@@ -143,14 +142,4 @@ describe('MusicPlayerStorage', () => {
         expect(parsed.currentPlaylistId).toBe(before);
     });
 
-    it('ensureDefaultPlaylists removes deprecated 2026 memories playlist', () => {
-        const storage = new window.MusicPlayerStorage();
-        const data = {
-            playlists: [{ id: '2026 memories', name: '2026 memories', songs: [] }],
-            currentPlaylistId: '2026 memories'
-        };
-        storage.ensureDefaultPlaylists(data);
-        expect(data.playlists.some(p => p.id === '2026 memories')).toBe(false);
-        expect(data.currentPlaylistId).toBe('2026 dream bliss');
-    });
 });

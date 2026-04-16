@@ -31,7 +31,7 @@ class MusicPlayer {
     /**
      * Initialize playlists and ensure default playlists exist (single source of truth in storage).
      * @param {Object} [options]
-     * @param {boolean} [options.resetDefaultEntry] - Full page load: current playlist + track = 2026 dream bliss / dreamer
+     * @param {boolean} [options.resetDefaultEntry]
      */
     loadPlaylists(options = {}) {
         const resetDefaultEntry = options.resetDefaultEntry === true;
@@ -43,9 +43,9 @@ class MusicPlayer {
         this.storage.save(this.playlistsData);
 
         if (resetDefaultEntry) {
-            const dreamPlaylist = this.storage.getPlaylist(this.playlistsData, '2026 dream bliss');
+            const dreamPlaylist = this.storage.getPlaylist(this.playlistsData, '2026 peaceful dreamer');
             if (dreamPlaylist && dreamPlaylist.songs && dreamPlaylist.songs.length > 0) {
-                this.playlistsData.currentPlaylistId = '2026 dream bliss';
+                this.playlistsData.currentPlaylistId = '2026 peaceful dreamer';
                 this.songs = [...dreamPlaylist.songs];
                 const dreamerIdx = this.songs.findIndex(s => s.id === 'aA4Kub9flag');
                 this.currentSongIndex = dreamerIdx >= 0 ? dreamerIdx : 0;
@@ -59,10 +59,10 @@ class MusicPlayer {
             this.songs = [...currentPlaylist.songs];
             this.currentSongIndex = Math.max(0, Math.min(this.currentSongIndex, this.songs.length - 1));
         } else {
-            const fallbackPlaylist = this.storage.getPlaylist(this.playlistsData, '2026 dream bliss');
+            const fallbackPlaylist = this.storage.getPlaylist(this.playlistsData, '2026 peaceful dreamer');
             if (fallbackPlaylist && fallbackPlaylist.songs && fallbackPlaylist.songs.length > 0) {
                 this.songs = [...fallbackPlaylist.songs];
-                this.playlistsData.currentPlaylistId = '2026 dream bliss';
+                this.playlistsData.currentPlaylistId = '2026 peaceful dreamer';
                 this.storage.save(this.playlistsData);
             } else {
                 this.playlistsData = this.storage.getDefaultData();

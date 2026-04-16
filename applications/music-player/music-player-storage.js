@@ -61,8 +61,16 @@ class MusicPlayerStorage {
         return {
             playlists: [
                 {
-                    id: '2026 dream bliss',
-                    name: '2026 dream bliss',
+                    id: '2026 behemoth endeavor',
+                    name: '2026 behemoth endeavor',
+                    songs: [
+                        { id: 'kLp_Hh6DKWc', title: 'in the hall of the mountain king (grieg)' },
+                        { id: 'GXFSK0ogeg4', title: 'carmina burana (carl orff)' }
+                    ]
+                },
+                {
+                    id: '2026 peaceful dreamer',
+                    name: '2026 peaceful dreamer',
                     songs: [
                         { id: '0tiuAKQjRpg', title: 'rose garden (afloat in time)' },
                         { id: 'rSzKm3hqhs8', title: 'perpetual (tommy guerrero)' },
@@ -76,8 +84,8 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id: '2026 future hubby',
-                    name: '2026 future hubby',
+                    id: '2026 rip future hubby',
+                    name: '2026 rip future hubby',
                     songs: [
                         { id: 'n2MtEsrcTTs', title: 'harvest moon (neil young)' },
                         { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
@@ -122,7 +130,7 @@ class MusicPlayerStorage {
                     ]
                 }
             ],
-            currentPlaylistId: '2026 dream bliss'
+            currentPlaylistId: '2026 peaceful dreamer'
         };
     }
 
@@ -137,8 +145,6 @@ class MusicPlayerStorage {
         }
         const defaultData = this.getDefaultData();
         const defaultPlaylistIds = new Set(defaultData.playlists.map(p => p.id));
-        // Remove deprecated default playlist ids from saved data.
-        data.playlists = data.playlists.filter(p => p.id !== '2026 memories');
 
         defaultData.playlists.forEach((defaultPlaylist, position) => {
             let playlist = this.getPlaylist(data, defaultPlaylist.id);
@@ -164,7 +170,7 @@ class MusicPlayerStorage {
             }
         });
         if (!data.currentPlaylistId || !defaultPlaylistIds.has(data.currentPlaylistId)) {
-            data.currentPlaylistId = '2026 dream bliss';
+            data.currentPlaylistId = '2026 peaceful dreamer';
         }
     }
 
