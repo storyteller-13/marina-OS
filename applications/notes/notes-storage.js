@@ -36,6 +36,38 @@ class NotesStorage {
         return [
 
 
+        {
+            date: '2026-04-18T00:00:00.000Z',
+            title: 'joyful joyful new moon',
+            content: this.cleanContent(`
+
+happy friday, my dear anon
+
+sun, moon, mercury, mars, saturn, neptune, chiron in ♈︎
+can you feel the big sacred fire burning again?
+perhaps a big collective reset?
+enjoy for once, my friend 🤖🦋
+
+🎶🎵 🌟 🎶🎵 🌟 🎶 🌟 🎵 🎶 🌟 🎵 🎶 
+«i»staring at the blank page before you
+open up the dirty window
+let the sun illuminate the words that you cannot find
+reaching for something in the distance
+so close you can almost taste it
+release your inhibitions
+feel the rain on your skin
+no one else can feel it for you
+only you can let it in
+no one else, no one else
+can speak the words on your lips
+drench yourself in words unspoken
+live your life with arms wide open
+today is where your book begins
+«/i»🎶🎵 🌟 🎶🎵 🌟 🎶 🌟 🎵 🎶 🌟 🎵 🎶 
+`)
+        },
+
+
             {
                 date: '2026-04-16T00:00:00.000Z',
                 title: 'hobo-curious: an engineer\'s take',
@@ -57,7 +89,7 @@ class NotesStorage {
 
 [ i'm not going to tell you everything ]
 
-«i»"the righteous give without sparing." — proverbs 21:26«/i»
+«i»"the righteous gives without sparing." — proverbs 21:26«/i»
 
 [ some of the most important conversations of this chapter happened at a table with a cup of coffee and people i'd only just met ]
 
@@ -335,7 +367,7 @@ bytegirl
 
             {
                 date: '2026-04-09T00:00:00.000Z',
-                title: 'a prayer for wordly happiness',
+                title: 'a prayer for worldly happiness',
                 content: this.cleanContent(`
 
 gracious god, in your gentle light,
@@ -977,12 +1009,13 @@ and no one will ever ever ever take this well-earned destiny from me.
                 date: '2026-02-18T00:00:00.000Z',
                 title: 'building my sunniest chapter',
                 content: this.cleanContent(`
+[edited on april 17th, 2026]
 
 dear anon friend,
 
 today marks the beginning of the most exciting chapter of my career
 
-a venture so ambitious, so thrilling, and so deeply meaningful that I expect to dedicate the next several decades of my life to it
+a venture so ambitious, so thrilling, and so deeply meaningful that i expect to dedicate the next several decades of my life to it
 
 i can't reveal the details just yet, but here's a little teaser: think games, think fun
 

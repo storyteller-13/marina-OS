@@ -97,8 +97,8 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id: '2026 when jupiter is in my 7th',
-                    name: '2026 when jupiter is in my 7th',
+                    id: '2026 when jupiter enters my 7th',
+                    name: '2026 when jupiter enters my 7th',
                     songs: [
                         { id: 'n2MtEsrcTTs', title: 'harvest moon (neil young)' },
                         { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },

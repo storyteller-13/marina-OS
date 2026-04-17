@@ -87,7 +87,6 @@ describe('MusicPlayerStorage', () => {
         storage.save(data);
         storage.clearPersisted();
         expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
-        const again = storage.load();
     });
 
     it('getPlaylist returns playlist by id or null', () => {

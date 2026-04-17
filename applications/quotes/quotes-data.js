@@ -136,7 +136,8 @@ window.QUOTES = [
     { text: 'the best answer to anger is silence.', author: 'marcus aurelius' },
     { text: 'confine yourself to the present.', author: 'marcus aurelius' },
     { text: 'remember that very little is needed to make a happy life.', author: 'marcus aurelius' },
-    
+    { text: 'you have to assemble your life yourself — action by action', author: 'marcus aurelius' },
+
     // st. paul
     { text: 'for i am convinced that neither death nor life, nor angels nor rulers, nor things present nor things to come, nor powers, nor height nor depth, nor anything else in all creation, will be able to separate us from the love of god.', author: 'st. paul' },
     { text: 'rejoice in the lord always; again i will say, rejoice.', author: 'st. paul' },
@@ -252,6 +253,11 @@ window.QUOTES = [
     { text: 'art is anything you can get away with.', author: 'alan kay' },
     { text: 'the computer is the most remarkable tool we’ve ever come up with. it’s the equivalent of a bicycle for our minds.', author: 'alan kay' },
     
+    // blaise pascal
+    { text: 'belief is a wise wager; granted that faith cannot be proved, what harm will come to you if you gamble on its truth and it proves false?', author: 'blaise pascal' },
+    { text: 'one of the key questions we face is whether our lives end after death.', author: 'blaise pascal' },
+
+
     // psalms
     { text: 'he makes me lie down in green pastures. he leads me beside still waters.', author: 'psalm 23' },
     { text: 'even though i walk through the valley of the shadow of death, i will fear no evil, for you are with me.', author: 'psalm 23' },
@@ -298,7 +304,6 @@ window.QUOTES = [
     { text: 'in the middle of every difficulty lies opportunity.', author: 'albert einstein' },
     { text: 'if our brains were simple, we would be too simple to understand them.', author: 'mario puzo' },
     { text: 'we all agree that your theory is crazy. the question which divides us is whether it is crazy enough.', author: 'niels bohr' },
-    { text: 'one of the key questions we face is whether our lives end after death.', author: 'blaise pascal' },
 
     // politicians
     { text: 'believe you can and you\'re halfway there.', author: 'theodore roosevelt' },
