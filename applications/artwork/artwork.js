@@ -18,7 +18,9 @@ class ArtworkApp extends BaseApp {
             'princess.png',
             'the_game_and_the_player.png',
             'new_pet.webp',
-            'back_2_school.png'
+            'back_2_school.png',
+            'august_83.png',
+            'life.png'
         ];
 
         this.init();
