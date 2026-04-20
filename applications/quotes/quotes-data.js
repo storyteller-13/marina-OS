@@ -176,7 +176,8 @@ window.QUOTES = [
 
     // ryan holiday
     { text: 'humble. humble even if you have achieved an impressive amount, even if you have done many impressive things.', author: 'ryan holiday' },
-    
+    { text: 'we must live while we can, live while we are dying, take the present before it becomes the past.', author: 'ryan holiday' },
+
     // terrence deacon
     { text: 'the attraction of discovering the most elegant way of dividing up the mind into two major complementary cognitive systems is almost irresistible.', author: 'terrence w. deacon' },
     { text: 'learning is, at its base, a function of the probability of correlations between things, from the synaptic level to the behavioral level. past correlations tend to be predictive of future correlations.', author: 'terrence w. deacon' },
@@ -211,7 +212,7 @@ window.QUOTES = [
     { text: 'water does not stay on a mountaintop, but flows into the valley. in the same manner, real virtue stays only with people who are humble.', author: 'the talmud' },
     { text: 'god tests everyone, one with wealth, another with poverty. a rich man is tested in whether he would extend an arm of support to those who need it; a poor man in whether he would bear all his sufferings without discontent and with obedience.', author: 'the talmud' },
 
-    // rainer maria rilke:
+    // rainer maria rilke
     { text: 'it is good to be solitary, for solitude is difficult; that something is difficult must be a reason the more for us to do it.', author: 'rainer m. rilke' },
     { text: 'once the realization is accepted that even between the closest human beings infinite distances continue, a wonderful living side by side can grow.', author: 'rainer m. rilke' },
     { text: 'perhaps all the dragons in our lives are princesses who are only waiting to see us act, just once, with beauty and courage.', author: 'rainer m. rilke' },
@@ -256,7 +257,6 @@ window.QUOTES = [
     // blaise pascal
     { text: 'belief is a wise wager; granted that faith cannot be proved, what harm will come to you if you gamble on its truth and it proves false?', author: 'blaise pascal' },
     { text: 'one of the key questions we face is whether our lives end after death.', author: 'blaise pascal' },
-
 
     // psalms
     { text: 'he makes me lie down in green pastures. he leads me beside still waters.', author: 'psalm 23' },

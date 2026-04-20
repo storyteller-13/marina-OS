@@ -110,13 +110,14 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id: '2026 after afterlife phoenix',
-                    name: '2026 after afterlife phoenix',
+                    id: '2026 after afterlife zeitgeist',
+                    name: '2026 after afterlife zeitgeist',
                     songs: [
                         { id: 'ya7L3A1DOlg', title: 'all is violent, bright (god is an astronaut)' },
                         { id: 'MAmqJjyDH48', title: 'a song for our fathers (explosion in the sky)' },
                         { id: 'X2959NkomEc', title: 'up all night (meltt)' },
                         { id: 'wpWOQSgsetk', title: 'butterfly (anees)' },
+                        { id: '5H19y7B-Dzk', title: 'who feels love? (oasis)' },
                         { id: 'fhOAsDVg8pY', title: 'round && round (bob moses)' },
                         { id: 'CevxZvSJLk8', title: 'roar (kate perry)' },
                         { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
@@ -135,6 +136,7 @@ class MusicPlayerStorage {
                         { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
                         { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
                         { id: 'cfjDrutsfRQ', title: 'sympathy magic (florence + the machine)' },
+                        { id: 'SlaSbwxG46Y', title: 'like a stone (band of echoes cover)' },
                         { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' },
                         { id: 'pe3jFvJ0qjs', title: "don't fear the reaper (blue oyster cult)" },
                         { id: 'IXdNnw99-Ic', title: 'wish you were here (pink floyd)' },
