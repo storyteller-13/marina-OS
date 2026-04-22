@@ -35,6 +35,44 @@ class NotesStorage {
     getDefaultEntries() {
         return [
 
+            {
+                date: '2026-04-23T00:00:00.000Z',
+                title: 'godspeed you! black emperors',
+                content: this.cleanContent(`
+    
+
+my dear anon,
+
+this is my official goodbye to my online life.
+
+i have been unhappy and anxious for far too long.
+
+i tried everything i could, but i was never able to find out what happened to me, and i was never able to find justice. martyrs are going to be martyrs, and that’s okay — history is full of them, and they are the coolest ones. i’ve made peace with the idea that it is now in god’s hands — Divine rule of law and The Truth are always final.
+
+the person i adored — loved, waited for, worshipped, and dreamed about for over a year — did not feel the same. i was never good enough, and that’s okay. there will be someone who sees me, and i don’t regret anything, and i would do everything again (perhaps with even more love next time — more love is always the answer).
+
+all my dreams were crushed over the last couple of years while i was unaware of the abuses and simply trying to build things, be happy, and be myself in my own little world. i wasn’t going after anyone, nor was i doing anything other than existing. the world was not ready for what i had to say (and i wasn’t even saying it out loud — i was literally in my own little space that i created because i love creating things). and that’s okay. i would do everything again. but now, after losing everything just by trying to survive and stand up, i feel more lost than i have ever felt in my entire life. that is why i need to leave this behind so i can go back to being happy and whole.
+
+it’s time to shift my magic toward rebuilding my own life, rather than trying to fix every new problem from someone else and pacify every new attack from random people who don’t know me, or who are jealous, or who desperately need attention (and lack the compassion or emotional intelligence to look beyond their own selfish, delusional desires).
+
+toward the best life i’ve ever had, the happiest and most colorful days. i absolutely deserve it finally!
+
+i always did my best. i always worked hard, and i always put everyone else first. for that reason, i know i carry a ridiculously good karma, and that good things are waiting for me once i am free from whatever this was.
+
+i think i changed the world a little bit for the better, and i am happy that i could help.
+
+to those who were there for me — who believed in me, who helped me, who illuminated my days, who made my life better while i was running from monsters and the absurd: i love you, and i will never forget you. go chase your dreams. go live your best life. go create your own magic. go do the impossible. never let anyone tell you that you are not worthy.
+
+whoever is the real villain is the one who harms others without compassion. whoever does not understand that everyone deserves the right to redemption is the one who is lost. whoever is running from attack, building without resting, creating without stealing, being true to themselves, and constantly striving to improve is the hero.
+
+<3
+marina della torre von steinkirch
+scientist, engineer, storyteller
+(who was, somehow, for a while, a bit famous)
+
+
+                                `)
+        },
 
         {
             date: '2026-04-18T00:00:00.000Z',
@@ -309,7 +347,7 @@ XII. FAMILY AS THE FOUNDATION OF SOCIETY
 viewing marriage as a vital institution, and the belief that strong families are essential to community stability and child development.
 
 XIII. PARENTAL RIGHTS
-full rights for women, including equal legal, political, economic, and social rights, full protection under the law, and full bodily autonomy; and a strong conviction that parent — not the government or other institutions — should have the primary role in guiding their children’s education, healthcare decisions, and moral upbringing.
+full rights for women, including equal legal, political, economic, and social rights, full protection under the law, and full bodily autonomy; and a strong conviction that parents — not the government or other institutions — should have the primary role in guiding their children’s education, healthcare decisions, and moral upbringing.
 
 🫡
 love from your favorite renegade

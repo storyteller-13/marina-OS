@@ -50,7 +50,6 @@
                 'princess.png': 'file',
                 'the_game_and_the_player.png': 'file',
                 'new_pet.webp': 'file',
-                'back_2_school.png': 'file',
                 'august_83.png': 'file',
                 'life.png': 'file'
             }

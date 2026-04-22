@@ -217,7 +217,7 @@ window.QUOTES = [
     { text: 'once the realization is accepted that even between the closest human beings infinite distances continue, a wonderful living side by side can grow.', author: 'rainer m. rilke' },
     { text: 'perhaps all the dragons in our lives are princesses who are only waiting to see us act, just once, with beauty and courage.', author: 'rainer m. rilke' },
     { text: 'be patient toward all that is unsolved in your heart and try to love the questions themselves.', author: 'rainer m. rilke' },
-    { text: 'let everything happen to you: beauty and terror. just keep going. No feeling is final.', author: 'rainer m. rilke' },
+    { text: 'let everything happen to you: beauty and terror. just keep going. no feeling is final.', author: 'rainer m. rilke' },
     { text: 'love consists in this: that two solitudes protect and touch and greet each other.', author: 'rainer m. rilke' },
     { text: 'for one human being to love another: that is perhaps the most difficult of all our tasks.', author: 'rainer m. rilke' },
     { text: 'if your daily life seems poor, do not blame it; blame yourself.', author: 'rainer m. rilke' },

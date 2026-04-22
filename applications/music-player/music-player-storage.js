@@ -135,6 +135,7 @@ class MusicPlayerStorage {
                         { id: 'fA82c4YkAZ4', title: 'first light (lana del rey)' },
                         { id: 'yB9_ImBoazY', title: 'leviticus ($uicideboy$)' },
                         { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
+                        { id: 'SL8JuRgEajs', title: 'picking dragon\'s pockets (modest mouse)' },
                         { id: 'cfjDrutsfRQ', title: 'sympathy magic (florence + the machine)' },
                         { id: 'SlaSbwxG46Y', title: 'like a stone (band of echoes cover)' },
                         { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' },
