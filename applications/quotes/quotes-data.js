@@ -258,6 +258,33 @@ window.QUOTES = [
     { text: 'belief is a wise wager; granted that faith cannot be proved, what harm will come to you if you gamble on its truth and it proves false?', author: 'blaise pascal' },
     { text: 'one of the key questions we face is whether our lives end after death.', author: 'blaise pascal' },
 
+    // paul graham
+    { text: 'a formidable person is one who seems like they’ll get what they want, regardless of whatever obstacles are in the way.', author: 'paul graham' },
+    { text: 'the brand must not break character.', author: 'paul graham' },
+    { text: "in fact there's a single principle that will both save you from working on things like brand, and also automatically find golden ages for you. follow the problems.", author: 'paul graham' },
+    { text: "brand is what's left when the substantive differences between products disappear.", author: 'paul graham' },
+    { text: "good design, like math or science, seeks the right answer, and right answers tend to converge.", author: 'paul graham' },
+    { text: "branding is centrifugal; design is centripetal.", author: 'paul graham' },
+
+    // from paul graham
+    { text: 'research is to see what everybody has seen and think what nobody has thought.', author: 'schopenhauer' },
+    { text: 'i have never seen ordinary effort lead to extraordinary results.', author: 'alexandr wang' },
+    { text: 'most interesting phenomena have multiple causes.', author: 'n. p. calderwood' },
+    { text: "the best way to do something 'lean' is to gather a tight group of people, give them very little money, and very little time.", author: 'bob klein' },
+    { text: 'when the enemy is making a false movement we must take good care not to interrupt him.', author: 'napoleon' },
+    { text: 'an expert is a man who has made all the mistakes which can be made in a very narrow field.', author: 'niels bohr' },
+    { text: 'i think a life properly lived is just learn, learn, learn all the time.', author: 'charlie munger' },
+    { text: 'the population is made up of 4 types of people: a small number hunt witches. a large number go along with the hunt. a larger number are silent. a tiny number oppose it. the final group — as if by magic — become witches.', author: 'bret weinstein' },
+    { text: 'lies are often much more plausible, more appealing to reason, than reality, since the liar has the great advantage of knowing beforehand what the audience wishes or expects to hear.', author: 'hannah arendt' },
+    { text: "i didn't make a decision to pursue astronomy. rather, it just grabbed me, and i had no thought of escaping.", author: 'carl sagan' },
+    { text: 'sometimes, magic is just someone spending more time on something than anyone else might reasonably expect.', author: 'teller' },
+    { text: 'i never understand anything until i have written about it.', author: 'horace walpole' },
+    { text: 'crime does not pay as much as code.', author: 'freddy vega' },
+    { text: 'the amount of energy necessary to refute bullshit is an order of magnitude bigger than to produce it.', author: 'paul kedrosky' },
+    { text: 'the less confident you are, the more serious you have to act.', author: 'tara ploughman' },
+    { text: 'short words are best and the old words when short are best of all.', author: 'winston churchill' },
+    { text: "we're even wrong about which mistakes we're making.", author: 'carl winfeld' },
+
     // psalms
     { text: 'he makes me lie down in green pastures. he leads me beside still waters.', author: 'psalm 23' },
     { text: 'even though i walk through the valley of the shadow of death, i will fear no evil, for you are with me.', author: 'psalm 23' },
@@ -311,5 +338,5 @@ window.QUOTES = [
     
     // entrepreneurs
     { text: 'the only way to do great work is to love what you do.', author: 'steve jobs' },
-    { text: 'a formidable person is one who seems like they’ll get what they want, regardless of whatever obstacles are in the way.', author: 'paul graham' },
+  
 ];

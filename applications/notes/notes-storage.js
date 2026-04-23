@@ -44,7 +44,6 @@ class NotesStorage {
 my dear anon,
 
 this is my official goodbye to my online life.
-
 i have been unhappy and anxious for far too long.
 
 i tried everything i could, but i was never able to find out what happened to me, and i was never able to find justice. martyrs are going to be martyrs, and that’s okay — history is full of them, and they are the coolest ones. i’ve made peace with the idea that it is now in god’s hands — Divine rule of law and The Truth are always final.
