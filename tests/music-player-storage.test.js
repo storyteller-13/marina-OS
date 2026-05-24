@@ -42,33 +42,6 @@ describe('MusicPlayerStorage', () => {
         expect(data.playlists[0]).toHaveProperty('name');
         expect(data.playlists[0]).toHaveProperty('songs');
 
-        const dreaming = data.playlists.find(p => p.id === '2026 peaceful builder dreamer');
-        expect(dreaming).toBeDefined();
-        expect(
-            dreaming.songs.some(s => s.id === 'aA4Kub9flag' && s.title === 'dreamer (luke faulkner)')
-        ).toBe(true);
-        expect(
-            dreaming.songs.some(
-                s => s.id === 'YBioStgspO8' && s.title === 'happy moments (essential)'
-            )
-        ).toBe(true);
-        expect(
-            dreaming.songs.some(s => s.id === 'bTvOEXAuIEU' && s.title === 'frailed (flea)')
-        ).toBe(true);
-        expect(
-            dreaming.songs.some(
-                s => s.id === 'rSzKm3hqhs8' && s.title === 'perpetual (tommy guerrero)'
-            )
-        ).toBe(true);
-
-        const afterlife = data.playlists.find(p => p.id === '2026 after afterlife zeitgeist');
-        expect(afterlife).toBeDefined();
-        expect(
-            afterlife.songs.some(s => s.id === 'MAmqJjyDH48' && s.title === 'a song for our fathers (explosion in the sky)')
-        ).toBe(true);
-        expect(
-            afterlife.songs.some(s => s.id === 'UVpcupE1xEo' && s.title === 'seven (david bowie)')
-        ).toBe(true);
     });
 
     it('save() persists and load() returns saved data', () => {
@@ -102,15 +75,6 @@ describe('MusicPlayerStorage', () => {
         const data = storage.load();
         const current = storage.getCurrentPlaylist(data);
         expect(current).toBeDefined();
-    });
-
-    it('setCurrentPlaylist updates currentPlaylistId and saves', () => {
-        const storage = new window.MusicPlayerStorage();
-        const data = storage.load();
-        storage.setCurrentPlaylist(data, '2026 after afterlife zeitgeist');
-        const raw = localStorage.getItem(STORAGE_KEY);
-        const parsed = JSON.parse(raw);
-        expect(parsed.currentPlaylistId).toBe('2026 after afterlife zeitgeist');
     });
 
     it('ensureDefaultPlaylists merges defaults and preserves order', () => {

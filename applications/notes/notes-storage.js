@@ -36,6 +36,217 @@ class NotesStorage {
         return [
 
             {
+                date: '2026-05-26T00:00:00.000Z',
+                title: 'what a season finale!',
+                content: this.cleanContent(`
+
+welcome to the new season, my dear anon
+
+omg, last season's finale was intense and the plot keeps thickening!
+now, this is what i call a good 'n' old soap opera
+
+so, let's recap...
+
+Princess Stone went to chicago to find her punk sister who has the power of creating false illusions, just to realize that she definitely does not belong there and she misses her real home and friends - wait, no, this is the other show...
+
+Princess Stone went to a faraway magical land to continue working on her studies and remove her curse, and to become very strong when she comes back home (again...) so she can use her powerful magick to help build the golden age in the Freedom Kingdom
+
+(nobody knows that she is secretly searching for the ultimate book, the book that will change everything, the book that is her inheritance, and that she believes was hidden by her father - "The Book of Logic XIII")
+(she can't wait to get back to the council with her findings - this will be one of the main themes of the next season IMO)
+
+all the other princesses have been working diligently on their skills and agape magick, and after all the battles from these last seasons they feel stronger and wiser than ever to fight for the future
+
+Prince Paz left alone on a far, far away journey to the other side of the earth in a dangerous search for the most powerful sword on earth, so that he can defeat any monster that tries to stay in the way of his journey to his soulmate (is he finally going to find her?)
+
+Prince Michelangelo, on the other hand, strengthened his alliance with the other princes, including the Great Prince Saudavel, using all his charm to help the citizens of the Freedom Kingdom wake up for a better era (i'm so excited to see what's going to happen here!)
+
+Prince Manteiga spent the entire last season searching for the "Ring of Formal Infinite Wisdom", and now that he finally found it, he can understand things he never did before and he is ready to apply this knowledge to lead The Resistance
+
+all the knights and kings and wise men in the kingdom are now very sure that the prophecy is real and they are more united (and thrilled) than ever: they are ready to fight for it with their lives
+
+more than ever they know what needs to be done, because the future can be abundant and they are making History
+
+more than ever they are ready to fight the monsters that have taken the souls of so many citizens and kept them asleep for so long, plaguing the kingdoms with unhappiness, laziness, hate, cynicism, inertia, envy, blindness
+
+this is going to be a good chapter!
+
+«i»"if you keep only looking to the past for answers, you won't find the new story that must be told"«/i»
+
+<3
+the ceo storyteller
+
+
+                                    `)
+            },
+
+            {
+                date: '2026-05-25T00:00:00.000Z',
+                title: 'retardmaxxing ftw',
+                content: this.cleanContent(`
+
+«i»"so be wise as serpents and innocent as doves" - matthew 10:16«/i»
+
+let me tell you the story of when i finally had the unpleasant opportunity to check out Hell for a couple of months
+
+well, first, let me tell you what Hell is...
+
+every single person has a personal unique definition of Hell:
+"a place that conveys every single thing that would make you go crazy if you are not in an ascended state"
+
+that's why Hell is the very definition of what Hell is for:
+a place to break you
+and make you lose your soul
+and lose all your hopes a la Dante
+and descend into the lowest state of your being
+so that you are absolutely taken by Evil
+
+which is the opposite of the personal unique definition of Heaven:
+a place to make you feel so blissful
+and hopeful
+and infinite
+and perfect
+and loved
+and complete
+so that you are absolutely taken by Goodness
+
+let me tell you what my personal Hell is
+i have ocd with cleanliness and organization
+
+if you ever met any of the many houses i had, you would notice three main things:
+
+1. i am an intellectual nerd who loves gadgets, books, and geek toys
+2. i am ocd with an organization && minimalism obsession, so everything must be in its place - and if things are not needed anymore, they must be donated or thrown away (and i find it particularly pleasant to periodically catalogue and organize and renew my house)
+3. i am a cleanliness freak and everything must be neat and nice and pure and blessed all the time (and i find it particularly pleasant to periodically sanitize and sage my house)
+
+so, naturally, my personal Hell would be a place where the items above are violated or removed
+
+plus, three other general rules of what Hell is are:
+
+1. any form of involuntary lack 
+2. non-consensual transgression of personal boundaries and personal privacy
+3. endless repetition (which is the same as being stuck in a loop without hope of leaving it)
+
+put all of them together and you have the ultimate recipe to descend to the limits of your sanity (and test and prove your faith)
+
+«i»but, marina, why would anyone voluntarily go to such a place, even if just for a short period of time?«/i»
+
+well, my dear anon, i don't know about you, but i fuckin' hate Satan
+
+and, sometimes, the only way to confront a monster is by heading straight to its face
+
+sometimes, the only way to be able to fight the ultimate nemesis is to submit yourself to its world for a while so you can strip it directly from its insides
+
+sometimes, the only way to really understand the divine power you hold is to have to FIRE it straight from the enemy's realm
+
+but kids, don't really try to do this at home if you don't think you are retard enough to survive
+
+let me repeat it
+you need to be really really really big-time 100% full-soul made of retardness to win these types of biga$$ spiritual battles
+
+retardmaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+with 55 x or something
+
+for reals
+
+<3
+mvs, on a collaboration with Archangel Michael
+
+ps: by the way, capricorn moons are the retardest instantiation of the L13-A12 group
+
+
+                                    `)
+            },
+
+            {
+                date: '2026-05-23T00:00:00.000Z',
+                title: 'an ode to mom',
+                content: this.cleanContent(`
+
+«i»"omg, my mom just said retardado" - me, yesterday«/i»
+
+--------------
+BEING AN ADULT
+--------------
+
+it took me 4 decades to finally understand her
+
+the first decade i would simply do whatever she told me without putting much thought - most of my lil baby brain synapses were focused on getting used to being a being inside a brave new world plus understanding what those electronic boxes were doing
+
+the second decade i was a rebel anarchist scientist hedonist, waaaay gone
+
+the third decade i was learning to be an adult and trying to build my life in a faraway country and there was simply no space for her - she was just too much, she didn't get it, she didn't see the real me, i didn't need her, i didn't want her influence in my life, i was embarrassed by her, her voice was too loud, her stories too silly, her presence too tiring
+
+but one day i finally saw her
+
+one day i was captured by monsters and no matter how much i fought or ran, i could not free myself, i found myself trapped in Hell and she was the only person i could call
+
+one day she saved my soul
+
+
+-----------
+BEING A KID
+-----------
+
+let me tell you, anon, about one of the top 10 best days of my life
+(and how simple this day was, and how reality and love work)
+
+this was the day when i took a terrible 20-hour economy class flight (after being spoiled for many years to only fly business or first)
+
+this was the day when i ate until i almost exploded from an abundant and beautiful italian table including food i didn't check the label, food that was not organic, that was not FDA approved, food with all types of unknown preservatives, food not made with the minimum first-world standards, food made purely of sugars and gluten and all those scary things (after being spoiled for many years to only eat what's on the californian-upper-class-girl's menu)
+
+this was a day when i felt like i was high in the skies cleaning organizing sanitizing every single thing from my luggage in a many-hours-long daughter-mother-bonding-moment (after being completely sober on a very rigid routine with a vow of asceticism for many months)
+
+this was a day when i spent the rest of the day on the couch under a fluffy pink blanket binge-watching something dumb on netflix and not doing anything else (after months or even years of not taking one day off work and not even owning a netflix account)
+
+this, my dear anon, was one of the top 10 best days of my life
+(a day when i was in Heaven; a particular heaven called mom's)
+
+
+------------
+BEING MY MOM
+------------
+
+she never grows up and never lives her real age and she is getting old and she can't even admit it
+
+she worked so hard her entire life and she says for years that she wants to retire from her job as a pedagogue and build a business selling flowers in our mountain house but she never really even does anything about it
+
+she could retire already but she won't, she still wakes up at the same time every single day and go do the same work she has been doing for decades, and i think the only reason she does that is because she is a capricorn sun
+
+she has ocd and everything is always clean and always in the right place and the toilet always needs to be with this cover down because according to feng shui we do not want "any bad energy from coming up"
+
+she has many coffee makers but she still uses this old cloth from her grandma or something every single day and she refuses to simply learn the new ways
+
+she still does not know how to use a computer beyond the basics and she takes forever to learn anything new in any gadget and it's absolutely impossible to teach her
+
+she had her master's thesis on the economics of school decentralization and she loves Piaget but she never lets go of so many naive political ideas
+
+she tells me that this is my real home and i remind her i have lived in the USA for 17 years now, way more than i have lived in Curitiba (especially if we consider that our first 10 years don't even count)
+
+she goes to three different churches every single weekend and her house is full of statues, pictures, and objects of Jesus and Saints and Angels, and she says she sees angels in the clouds all the time
+
+she loves arts - mostly cliches such as Miro, Dali, and Kandinsky - but her attempts at creating abstract paintings are kind of terrible and they are hanging all over the house
+
+she cooks food to give to the poor, including a handful of street cleaners and other folks on sub-jobs that she has been taking care of and befriended for many years
+
+she still keeps every single present and card i gave to her, and she loves me like i was never gone for so long
+
+she is a cancer ascendant and she wants to nurture me, but i am an aquarius ascendant and i need total freedom
+
+she's the best mom i could ever have had, and
+every piece of my existence is grateful
+that she still loves me unconditionally
+even though i'm so arrogant
+even though i'm so alienated
+even though i'm so imperfect
+thank you so so so much, mom
+
+<3
+marina
+
+                                    `)
+            },
+
+            {
                 date: '2026-05-16T00:00:00.000Z',
                 title: 'as long as i build i\'m blissful',
                 content: this.cleanContent(`

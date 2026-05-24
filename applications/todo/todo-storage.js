@@ -42,6 +42,7 @@ class TodoStorage {
 
     getDefaultTodos() {
         const defaultTodoData = [
+            { text: 'find my way back home... again', completed: false },
             { text: 'become unomad and happy forever building', completed: false },
             { text: 'memento mori', completed: true },
             { text: 'fix my princess makeup and outfit and look amazing', completed: true },
