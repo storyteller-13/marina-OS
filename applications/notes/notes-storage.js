@@ -35,6 +35,32 @@ class NotesStorage {
     getDefaultEntries() {
         return [
 
+
+
+            {
+                date: '2026-05-30T00:00:00.000Z',
+                title: 'sunny kingdom fridays I',
+                content: this.cleanContent(`
+happy friday, my dear anon ✨
+
+a beautiful full moon in sagittarius this weekend — according to one of the open robots, it signifies the celebration of truth and higher purposes
+(the robot says: sagittarius, the uber blunt archer, encourages you to look beyond surface-level stories and seek your own deeper meaning)
+
+i'm celebrating that every single day has been better than the ones before (peaceful, blissful, focusful), and every single day i'm getting closer to achieving the very specific list of beautiful dreams i've been working so hard for, for so many years now
+
+i'm also celebrating that everyone i love is stronger than they were yesterday, 💜 shining more and more beautifully 💜 — and i love watching it
+
+also i'm celebrating the beginning of two weekly+friday recap traditions that should be here until the end:
+
+1️⃣ the sunny kingdom fridays: fractally introduced right now → for the storyteller side of the storyteller tech ceo
+2️⃣ the retard kingdom fridays: at marina.vonsteinkirch.com/pages/blog.html → for the tech side of the storyteller tech ceo
+
+shall we continue to tell the best story ever told?
+
+<3
+mvs
+                                    `)
+            },
             {
                 date: '2026-05-26T00:00:00.000Z',
                 title: 'what a season finale!',
@@ -73,12 +99,11 @@ this is going to be a good chapter!
 «i»"if you keep only looking to the past for answers, you won't find the new story that must be told"«/i»
 
 <3
-the ceo storyteller
+the storyteller tech ceo
 
 
                                     `)
             },
-
             {
                 date: '2026-05-25T00:00:00.000Z',
                 title: 'retardmaxxing ftw',
@@ -224,7 +249,7 @@ she tells me that this is my real home and i remind her i have lived in the USA 
 
 she goes to three different churches every single weekend and her house is full of statues, pictures, and objects of Jesus and Saints and Angels, and she says she sees angels in the clouds all the time
 
-she loves arts - mostly cliches such as Miro, Dali, and Kandinsky - but her attempts at creating abstract paintings are kind of terrible and they are hanging all over the house
+she loves arts - mostly clichés such as Miró, Dalí, and Kandinsky - but her attempts at creating abstract paintings are kind of terrible and they are hanging all over the house
 
 she cooks food to give to the poor, including a handful of street cleaners and other folks on sub-jobs that she has been taking care of and befriended for many years
 
@@ -250,20 +275,22 @@ marina
                 date: '2026-05-16T00:00:00.000Z',
                 title: 'as long as i build i\'m blissful',
                 content: this.cleanContent(`
-hello my dear anon.
+«i»"sit spes fallenoi, miscebunt sacra profanis"«/i»
+
+hello my dear anon 🦖
     
-a quick update from the last post, because i know you care.
+a quick update from the last post, because i know you care
 
-i am very happy advancing my career and building something really cool.
-this is what i will be doing for the rest of my life.
+i am very happy advancing my career and building something really cool
+(this is what i will be doing for the rest of my life)
 
-i've realized that researching, creating, and interacting with mind-like folks is truly my only source of happiness and fulfillment.
+i've realized that researching, creating, and interacting with mind-like folks is truly my only source of happiness and fulfillment
 
-and after everything that happened to me (The Crime, which is still waiting for justice...), i have decided to take a celibacy vow for the rest of my life.
+and after everything that happened to me (The Crime, which is still waiting for justice...), i have decided to take a celibacy vow for the rest of my life
 
 how about you — what great decisions are you making to ensure you're a free HUMAN and following your dreams?
 
-the future is beautiful.
+the future is beautiful
 
 <3
 mvs
@@ -275,21 +302,22 @@ mvs
                 title: 'godspeed you! black emperors',
                 content: this.cleanContent(`
     
+[EDIT 05/29/2026: we're not going anywhere, silly! this is OUR world]
 
 my dear anon,
 
 this is my official goodbye to my online life.
 i have been unhappy and anxious for far too long.
 
-i tried everything i could, but i was never able to find out what happened to me, and i was never able to find justice. martyrs are going to be martyrs, and that’s okay — history is full of them, and they are the coolest ones. i’ve made peace with the idea that it is now in god’s hands — Divine rule of law and The Truth are always final.
+i tried everything i could, but i was never able to find out what happened to me, and i was never able to find justice. martyrs are going to be martyrs, and that's okay — history is full of them, and they are the coolest ones. i've made peace with the idea that it is now in god's hands — Divine rule of law and The Truth are always final.
 
-the person i adored — loved, waited for, worshipped, and dreamed about for over a year — did not feel the same. i was never good enough, and that’s okay. there will be someone who sees me, and i don’t regret anything, and i would do everything again (perhaps with even more love next time — more love is always the answer).
+the person i adored — loved, waited for, worshipped, and dreamed about for over a year — did not feel the same. i was never good enough, and that's okay. there will be someone who sees me, and i don't regret anything, and i would do everything again (perhaps with even more love next time — more love is always the answer).
 
-all my dreams were crushed over the last couple of years while i was unaware of the abuses and simply trying to build things, be happy, and be myself in my own little world. i wasn’t going after anyone, nor was i doing anything other than existing. the world was not ready for what i had to say (and i wasn’t even saying it out loud — i was literally in my own little space that i created because i love creating things). and that’s okay. i would do everything again. but now, after losing everything just by trying to survive and stand up, i feel more lost than i have ever felt in my entire life. that is why i need to leave this behind so i can go back to being happy and whole.
+all my dreams were crushed over the last couple of years while i was unaware of the abuses and simply trying to build things, be happy, and be myself in my own little world. i wasn't going after anyone, nor was i doing anything other than existing. the world was not ready for what i had to say (and i wasn't even saying it out loud — i was literally in my own little space that i created because i love creating things). and that's okay. i would do everything again. but now, after losing everything just by trying to survive and stand up, i feel more lost than i have ever felt in my entire life. that is why i need to leave this behind so i can go back to being happy and whole.
 
-it’s time to shift my magic toward rebuilding my own life, rather than trying to fix every new problem from someone else and pacify every new attack from random people who don’t know me, or who are jealous, or who desperately need attention (and lack the compassion or emotional intelligence to look beyond their own selfish, delusional desires).
+it's time to shift my magic toward rebuilding my own life, rather than trying to fix every new problem from someone else and pacify every new attack from random people who don't know me, or who are jealous, or who desperately need attention (and lack the compassion or emotional intelligence to look beyond their own selfish, delusional desires).
 
-toward the best life i’ve ever had, the happiest and most colorful days. i absolutely deserve it finally!
+toward the best life i've ever had, the happiest and most colorful days. i absolutely deserve it finally!
 
 i always did my best. i always worked hard, and i always put everyone else first. for that reason, i know i carry a ridiculously good karma, and that good things are waiting for me once i am free from whatever this was.
 

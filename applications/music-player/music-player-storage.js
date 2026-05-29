@@ -81,8 +81,8 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id:   'poetic builder dreamer\'s tales',
-                    name: 'poetic builder dreamer\'s tales',
+                    id:   'the poet builder dreamer\'s tale',
+                    name: 'the poet builder dreamer\'s tale',
                     songs: [
                         { id: 'eqo0TpDBsZc', title: 'violet night... (james malikey)' },
                         { id: 'N0snMcR6aaA', title: 'emma\'s surrender (lofi girl)' },
@@ -101,22 +101,17 @@ class MusicPlayerStorage {
                     ]
                 },
                 {
-                    id:   'chez moi w/ the charming royals',
-                    name: 'chez moi w/ the charming royals',
+                    id:   'the celibate princess\'s destiny',
+                    name: 'the celibate princess\'s destiny',
                     songs: [
-                        { id: 'R3gpbT-JZMk', title: 'killah (lady gaga)' },
-                        { id: 'bECMcp4AdOs', title: 'wide awake (kate perry)' },
-                        { id: 'YDTazIuuDPY', title: 'i feel so free (madonna)' },
-                        { id: 'G7KNmW9a75Y', title: 'flowers (miley cyrus)' },
-                        { id: '4qQyUi4zfDs', title: 'glory box (portishead)' },
-                        { id: 'e_aT9pAGQo8', title: 'alien superstar (beyoncé)' },
-                        { id: 'DagMrm6p2dA', title: 'a woman\'s worth (alicia keys)' },
-                        { id: 'WqbJT_vC0rs', title: 'elizabeth taylor (taylor swift)' },
-                        { id: 'xhXUdIekqDk', title: 'kraken (florence + the machine)' },
-                        { id: '9WbCfHutDSE', title: 'dangerous woman (ariana grande)' },
-                        { id: 'ak4Ti54Y6rY', title: 'who will you follow (evanescence)' },
-                        { id: 'ZWmrfgj0MZI', title: 'unfinished sympathy (massive attack)' },
-                        { id: 'JCKBaJDRMw4', title: 'chill music for work (lofi girl)' }
+                            { id: 'pGNDncTbJRU', title: 'a place to call home (world of warcraft)' },
+                            { id: 'fF8GARU44iY', title: 'wild mountain honey (steve miller)' },
+                            { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
+                            { id: 'x11NA63gLDM', title: 'change the world (eric clapton)' },
+                            { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' },
+                            { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
+                            { id: 'bG0QEvaIGfQ', title: 'ghost of a chance (rush)' },
+                            { id: 'n2MtEsrcTTs', title: 'harvest moon (neil young)' }
                     ]
                 },
                 {
@@ -162,20 +157,26 @@ class MusicPlayerStorage {
                         { id: 'vRQb_-mRcAc', title: 'unwritten (natasha bedingfield)' },
                         { id: 'Z4A9ZZo_rAE', title: 'shake it off (taylor swift)' },
                         { id: 'ZbZSe6N_BXs', title: 'happy (pharrell williams)' },
-                        { id: 'UVpcupE1xEo', title: 'seven (david bowie)' },
+                        { id: 'UVpcupE1xEo', title: 'seven (david bowie)' }
                 ]
             },
             {
-                id:   'the celibate princess\'s destiny',
-                name: 'the celibate princess\'s destiny',
+                id:   'chez moi w/ the charming royals',
+                name: 'chez moi w/ the charming royals',
                 songs: [
-                        { id: 'pGNDncTbJRU', title: 'a place to call home (world of warcraft)' },
-                        { id: 'fF8GARU44iY', title: 'wild mountain honey (steve miller)' },
-                        { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
-                        { id: 'x11NA63gLDM', title: 'change the world (eric clapton)' },
-                        { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' }, 
-                        { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
-                        { id: 'n2MtEsrcTTs', title: 'harvest moon (neil young)' }
+                    { id: 'R3gpbT-JZMk', title: 'killah (lady gaga)' },
+                    { id: 'bECMcp4AdOs', title: 'wide awake (kate perry)' },
+                    { id: 'YDTazIuuDPY', title: 'i feel so free (madonna)' },
+                    { id: 'G7KNmW9a75Y', title: 'flowers (miley cyrus)' },
+                    { id: '4qQyUi4zfDs', title: 'glory box (portishead)' },
+                    { id: 'e_aT9pAGQo8', title: 'alien superstar (beyoncé)' },
+                    { id: 'DagMrm6p2dA', title: 'a woman\'s worth (alicia keys)' },
+                    { id: 'WqbJT_vC0rs', title: 'elizabeth taylor (taylor swift)' },
+                    { id: 'xhXUdIekqDk', title: 'kraken (florence + the machine)' },
+                    { id: '9WbCfHutDSE', title: 'dangerous woman (ariana grande)' },
+                    { id: 'ak4Ti54Y6rY', title: 'who will you follow (evanescence)' },
+                    { id: 'ZWmrfgj0MZI', title: 'unfinished sympathy (massive attack)' },
+                    { id: 'JCKBaJDRMw4', title: 'chill music for work (lofi girl)' }
                 ]
             },
             {
