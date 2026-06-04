@@ -151,6 +151,8 @@ class MusicPlayerStorage {
                         { id: 'ZsSnwzjKAxc', title: 'hexagons (muse)' },
                         { id: 'fhOAsDVg8pY', title: 'round && round (bob moses)' },
                         { id: '5H19y7B-Dzk', title: 'who feels love? (oasis)' },
+                        { id: '4gLVqjIvokc', title: 'don\'t you forget about me (simple minds)' },
+                        { id: 'CdqoNKCCt7A', title: 'take on me (aha)' },
                         { id: 'y9S38QLwCUM', title: 'joy (dogstar)' },
                         { id: 'X-KyrJRhYUw', title: 'seconds before the sunrise (dean lewis)' },
                         { id: 'K0siYUjV9UM', title: 'mama, i\'m coming home (ozzy)' },

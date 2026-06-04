@@ -34,16 +34,53 @@ class NotesStorage {
 
     getDefaultEntries() {
         return [
+
+                        {
+                date: '2026-06-05T00:00:00.000Z',
+                title: 'chat, i have a question',
+                content: this.cleanContent(`
+
+is it allowed by the rules of the infinite aether that the cto of your future mega uber first-good-for-humanity-monopoly-ever-straight-outta-the-agentic-era also be your forever sweetheart?
+
+asking for a friend...
+
+🤔🫠
+mvs
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+«i»
+no meio do caminho tinha uma pedra
+tinha uma pedra no meio do caminho
+tinha uma pedra
+no meio do caminho tinha uma pedra.
+
+nunca me esquecerei desse acontecimento
+na minha vida de retinas tao fatigadas.
+nunca me esquecerei que no meio do caminho
+tinha uma pedra
+tinha uma pedra no meio do caminho
+no meio do caminho tinha uma pedra.
+
+- carlos drummond de andrade
+«/i»
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+                                    `)
+            },
             {
                 date: '2026-06-03T00:00:00.000Z',
                 title: 'courage is...',
                 content: this.cleanContent(`
+«i»"we hold these truths to be self-evident"«/i»
+- our declaration of independence
 
-1️⃣ to never lose the sweet belief that things will work out — even if injustice has been the theme of your life for so long
+1️⃣ to never lose the sweet belief that things will work out — even if injustice has been a theme in your life for too long
 
 2️⃣ to find the small things that make you smile, incorporate them into your days, and don't let the negativity of the world sidetrack you
 
-3️⃣ to speak out loud and clearly about how you feel and what you're working toward — so it's clear when your boundaries are not respected (remember: as a free human, you have the right to leave a situation that isn't healthy for you)
+3️⃣ to speak out loud and clearly about how you feel and what you are working toward — so it's self-evident when your boundaries are violated (remember: as a free human, you're allowed to leave a situation that isn't healthy for you)
 
 4️⃣ to forgive and let go of any pain, grudges, crushed dreams, or lonely nights — understanding that others are also doing their best (remember: focus on the good things you have now, so that tomorrow draws closer to the beautiful life you always deserved)
 
@@ -76,7 +113,7 @@ also i'm celebrating the beginning of two weekly+friday recap traditions that sh
 1️⃣ the sunny kingdom fridays: fractally introduced right now → for the storyteller side of the storyteller tech ceo
 2️⃣ the retard kingdom fridays: at marina.vonsteinkirch.com/pages/blog.html → for the tech side of the storyteller tech ceo
 
-shall we continue to tell the best story ever told?
+shall we continue to tell the greatest story ever told?
 
 <3
 mvs
