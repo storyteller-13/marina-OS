@@ -37,6 +37,27 @@ class NotesStorage {
 
 
                         {
+                date: '2026-06-13T00:00:00.000Z',
+                title: 'that\'s how we win 🌹',
+                content: this.cleanContent(`
+
+1. we build every single day. we run local models. we open-source. we collaborate. we build the next generation of tools.
+2. we keep our honor and faith intact (let them die from their own poison; we are not like them, we actually care).
+3. we remember every single dishonorable person who deceived or used us.
+4. we trust that magic and miracles are real and are our birthright.
+5. we create a reality never imagined before and reclaim our power.
+6. we remain optimistic and learn how to enjoy the infinite fight.
+7. we rely on our youth, karma, and self-reliance.
+8. we use science and astrology to our advantage.
+9. we let our souls rest on art and music. 
+10. we play offensive now. ad infinitum. 
+
+good >> evil.
+we got this.
+                                    `)
+            },
+
+                        {
                 date: '2026-06-08T00:00:00.000Z',
                 title: 'welcome to nullstar games',
                 content: this.cleanContent(`
