@@ -36,10 +36,68 @@ class NotesStorage {
         return [
 
 
+        {
+                date: '2026-06-14T00:00:00.000Z',
+                title: 'an ode to self-worth',
+                content: this.cleanContent(`
+a crime happened to you
+your trust was violated
+someone lied to you, or about you
+someone didn't respect your dignity
+you were abused when you least expected it
+someone you loved didn't truly see you or
+didn't respect your boundaries
+
+yeah, this is the world
+it has been like this
+since the beginning of time
+it's a dog-eat-dog world
+
+there are two ways you can deal with it
+
+you can keep getting beaten over, over, over again
+or you can say NO and stand up and change the path
+
+fool me once, shame on you
+fool me twice, 3, 4, 5 times
+shame on me
+
+the cool thing is that
+there are not only 2 roads
+there are infinite roads
+
+aristotle says in poetics:
+«i»"the best tragic protagonist is neither completely virtuous nor completely evil, but someone of high standing who falls into misfortune because of an error in judgment (hamartia), not because of wickedness"«/i»
+
+so, if you are that person who somehow always gets into trouble but always finds a smart way out, and every time becomes a better version of yourself (and somehow leaves the world better than before) — congrats
+
+you are not an NPC
+
+i know i am not one
+and i will continue doing what
+i have been doing my entire life
+
+but this time
+with 0 weakness
+
+(and perhaps with a cutie by my side; who knows?)
+(can't really fight venus and jupiter in the 7th)
+
+stay true to yourself and keep improving every single day, anon
+
+<3
+mvs
+
+ps: obviously, i will continue pursuing legal action for the crime that happened to me (i.e., the hack of november 22, 2024, and everything before and after that). no amount of peer pressure and manipulation can stop the right of justice from being served to a human, no matter how long it takes. this will be over ONLY when the people who hacked me, sex-trafficked me, and destroyed 3 years of my life are held accountable. and this is NOT going to be in the way of my career, from living my best life, and building the future i deserve.
+
+        `)
+            },
+
                         {
                 date: '2026-06-13T00:00:00.000Z',
                 title: 'that\'s how we win 🌹',
                 content: this.cleanContent(`
+«i»"the rules of fair play do not apply in love and war."«/i» — john lyly 
 
 1. we build every single day. we run local models. we open-source. we collaborate. we build the next generation of tools.
 2. we keep our honor and faith intact (let them die from their own poison; we are not like them, we actually care).
