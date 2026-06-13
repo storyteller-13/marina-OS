@@ -47,12 +47,12 @@ class NotesStorage {
 4. we trust that magic and miracles are real and are our birthright.
 5. we create a reality never imagined before and reclaim our power.
 6. we remain optimistic and learn how to enjoy the infinite fight.
-7. we rely on our youth, karma, and self-reliance.
+7. we rely on our youth, good karma, and self-reliance.
 8. we use science and astrology to our advantage.
 9. we let our souls rest on art and music. 
 10. we play offensive now. ad infinitum. 
 
-good >> evil.
+good > evil.
 we got this.
                                     `)
             },

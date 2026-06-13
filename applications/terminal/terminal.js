@@ -51,7 +51,8 @@
                 'the_game_and_the_player.png': 'file',
                 'new_pet.webp': 'file',
                 'august_83.png': 'file',
-                'life.png': 'file'
+                'life.png': 'file',
+                'vai_brasil.png': 'file',
             }
         };
 

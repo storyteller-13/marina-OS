@@ -9,19 +9,19 @@ class ArtworkApp extends BaseApp {
         this.fileListPopulated = false;
 
         this.images = [
+            'the_sun.png',
             'you_met_me_at_a_very_strange_time_in_my_life.png',
             'cypherpunk.png',
+            'princess.png',
             'denver.jpg',
             'friday_love.jpg',
             'freeee.png',
             'perfect.png',
-            'princess.png',
             'the_game_and_the_player.png',
             'new_pet.webp',
             'august_83.png',
             'life.png',
-            'a_softer_world.png',
-            'the_sun.png'
+            'vai_brasil.png'
         ];
 
         this.init();

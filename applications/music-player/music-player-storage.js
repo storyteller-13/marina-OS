@@ -105,13 +105,15 @@ class MusicPlayerStorage {
                     name: 'the celibate princess\'s destiny',
                     songs: [
                             { id: 'pGNDncTbJRU', title: 'a place to call home (world of warcraft)' },
+                            { id: 'hDU4GB1PTxc', title: 'i knew it, i knew you (taylor swift)' },
                             { id: 'fF8GARU44iY', title: 'wild mountain honey (steve miller)' },
                             { id: 'ozXZnwYTMbs', title: 'nothing else matters (metallica)' },
                             { id: 'x11NA63gLDM', title: 'change the world (eric clapton)' },
                             { id: 'ux2P_nU8aD0', title: 'bridge to my heart (powfu)' },
                             { id: 'G2dR2DV-eGc', title: 'hard to concentrate (rhcp)' },
                             { id: 'bG0QEvaIGfQ', title: 'ghost of a chance (rush)' },
-                            { id: 'n2MtEsrcTTs', title: 'harvest moon (neil young)' }
+                            { id: 'n2MtEsrcTTs', title: 'harvest moon (neil young)' },
+                            { id: 'u2ah9tWTkmk', title: 'ordinary (alex warren)' }
                     ]
                 },
                 {
@@ -138,7 +140,6 @@ class MusicPlayerStorage {
                         { id: 'vnIOFl_jt1M', title: '22 (ok godnight)' },
                         { id: 'iGTN1xz0f84', title: 'old dog (j. cole)' }, 
                         { id: 'CevxZvSJLk8', title: 'roar (kate perry)' },
-                        { id: 'dOXOV4L-9ek', title: 'starless (a perfect circle)' },
                         { id: 'HBMy-y2wb4I', title: 'father (ye and travis scott)' },
                         { id: 'jtyvVmiBk-8', title: 'long distance runner (indigo)' },
                         { id: '94UmYrW5oto', title: 'what up gangsta (50 cent)' },
@@ -149,11 +150,9 @@ class MusicPlayerStorage {
                         { id: 'Pj5u8OagODo', title: 'it\'s for the kids (anthrax)' },
                         { id: '8r-bTAvYkZw', title: 'ave maria (alanis morissette)' },
                         { id: 'hT_nvWreIhg', title: 'counting stars (onerepublic)' },
-                        { id: 'u2ah9tWTkmk', title: 'ordinary (alex warren)' },
                         { id: 'X2959NkomEc', title: 'up all night (meltt)' },
                         { id: 'pf3KyEnacJ8', title: 'zombie (yungblud + the smashing pumpkins)' },
                         { id: 'pe3jFvJ0qjs', title: 'don\'t fear the reaper (blue oyster cult)' },
-                        { id: 'IXdNnw99-Ic', title: 'wish you were here (pink floyd)' },
                         { id: 'ln7Vn_WKkWU', title: 'stuck in the middle (stealers wheel)' },
                         { id: 'F-F_oHOvBsM', title: 'in the stars (the rolling stones)' },
                         { id: 'ZsSnwzjKAxc', title: 'hexagons (muse)' },
@@ -195,6 +194,7 @@ class MusicPlayerStorage {
                 songs: [
                         { id: 'MAmqJjyDH48', title: 'a song for our fathers (explosion in the sky)' },    
                         { id: 'ya7L3A1DOlg', title: 'all is violent, bright (god is an astronaut)' },
+                        { id: 'HzWYcZg3Dvw', title: 'the sound of silence (gamazda cover)' },
                         { id: 'SlaSbwxG46Y', title: 'like a stone (band of echoes cover)' },
                         { id: '7jMlFXouPk8', title: 'high hopes (pink floyd)' },
                         { id: 'TFjmvfRvjTc', title: 'hey you (pink floyd)' },
